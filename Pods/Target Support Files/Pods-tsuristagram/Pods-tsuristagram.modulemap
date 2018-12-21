@@ -1,0 +1,6 @@
+framework module Pods_tsuristagram {
+  umbrella header "Pods-tsuristagram-umbrella.h"
+
+  export *
+  module * { export * }
+}

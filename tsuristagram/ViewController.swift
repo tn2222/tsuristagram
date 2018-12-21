@@ -7,39 +7,22 @@
 //
 
 import UIKit
-import LineSDK
+import GoogleSignIn
+import Firebase
 
-class ViewController: UIViewController ,LineSDKLoginDelegate {
-
-    var displayName = String()
-    var pictureURL = String()
-    var pictureURLString = String()
-    
+class ViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
-        LineSDKLogin.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
 
-    func didLogin(_ login: LineSDKLogin, credential: LineSDKCredential?, profile: LineSDKProfile?, error: Error?) {
-        
-        if let displayName = profile?.displayName {
-            self.displayName = displayName
-        }
-        
-        if let pictureURL = profile?.pictureURL {
-            self.pictureURLString = pictureURL.absoluteString
-        }
-        
-        UserDefaults.standard.set(self.displayName, forKey: "displayName")
-        UserDefaults.standard.set(self.pictureURLString, forKey: "pictureURLString")
-
+    @IBAction func tapGoogleSignIn(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
         performSegue(withIdentifier: "next", sender: nil)
+        
+
     }
-    
-    
-    @IBAction func login(_ sender: Any) {
-        LineSDKLogin.sharedInstance().start()
-    }
+
     
 }
 

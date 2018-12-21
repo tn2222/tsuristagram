@@ -22,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sH9-MY-2YN">
-                                <rect key="frame" x="57" y="495" width="260" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sH9-MY-2YN">
+                                <rect key="frame" x="54" y="466" width="266" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="LINEでログイン" backgroundImage="btn_login_base"/>
+                                <state key="normal" backgroundImage="signingoogle"/>
                                 <connections>
-                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Af-Uo-m9W"/>
+                                    <action selector="tapGoogleSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5if-ve-c74"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -165,6 +165,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn_login_base" width="69" height="44"/>
+        <image name="signingoogle" width="632" height="82"/>
     </resources>
 </document>

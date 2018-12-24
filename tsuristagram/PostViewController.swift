@@ -45,11 +45,11 @@ class PostViewController: UIViewController {
         
         let feed = ["comment": textField.text,"userName":nameLabel.text] as [String:Any]
         rootRef.setValue(feed)
-        
-        dismiss(animated: true, completion: nil)
-        
-        
-        
+
+        textField.text = ""
+        self.tabBarController!.selectedIndex = 0;
+
+
     }
     
 }

@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39A0FC0CD5C13A67739637F8 /* Pods_tsuristagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C395662F494BB077CCB582 /* Pods_tsuristagram.framework */; };
-		762EF96EDF4745076BE817CA /* Pods_tsuristagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE996905B588713A2EED4B1 /* Pods_tsuristagramTests.framework */; };
-		8E53C05D08BF483455D5AAAD /* Pods_tsuristagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748B41A7AF27B3227675115C /* Pods_tsuristagramUITests.framework */; };
+		3D2FA928E558CD698EDD3730 /* Pods_tsuristagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED8CCF86123059688EA328E /* Pods_tsuristagramUITests.framework */; };
+		6340E77272CE1AA40457F46B /* Pods_tsuristagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F9C2F6ED5AF925B2108BC4 /* Pods_tsuristagramTests.framework */; };
+		ECEE3446201A8DC6C399AEBC /* Pods_tsuristagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315BE1601930681570EF43B1 /* Pods_tsuristagram.framework */; };
 		FC38AF9521C12B4A00783D4D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9421C12B4A00783D4D /* Post.swift */; };
 		FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9621C133B400783D4D /* PostViewController.swift */; };
 		FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC38AF9821C1365300783D4D /* GoogleService-Info.plist */; };
 		FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D447021C1286300CEE24E /* TimeLineViewController.swift */; };
+		FC4F5E8B21D667B400014973 /* nc92133.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FC4F5E8A21D667AB00014973 /* nc92133.mp4 */; };
+		FC4F5E8D21D66A7300014973 /* mplus-1c-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC4F5E8C21D66A3C00014973 /* mplus-1c-light.ttf */; };
 		FC4F8B6121BBAD8700B9493F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B6021BBAD8700B9493F /* AppDelegate.swift */; };
 		FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */; };
 		FC4F8B6621BBAD8700B9493F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4F8B6421BBAD8700B9493F /* Main.storyboard */; };
@@ -41,19 +43,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3DC64E6CE232FCA008268313 /* Pods-tsuristagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramUITests/Pods-tsuristagramUITests.release.xcconfig"; sourceTree = "<group>"; };
-		5DE996905B588713A2EED4B1 /* Pods_tsuristagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B22BB0868CD7FA6DF398FF9 /* Pods-tsuristagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.debug.xcconfig"; sourceTree = "<group>"; };
-		748B41A7AF27B3227675115C /* Pods_tsuristagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		78DE08BF1D2C69BC99AA5385 /* Pods-tsuristagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramTests/Pods-tsuristagramTests.release.xcconfig"; sourceTree = "<group>"; };
-		B2E8506F5F512D1F1D1930A2 /* Pods-tsuristagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramUITests/Pods-tsuristagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E6E4D45077A110FADD0536EB /* Pods-tsuristagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.release.xcconfig"; sourceTree = "<group>"; };
-		F1732A0F73A5B5F4B61A9690 /* Pods-tsuristagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramTests/Pods-tsuristagramTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F9C395662F494BB077CCB582 /* Pods_tsuristagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		315BE1601930681570EF43B1 /* Pods_tsuristagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ED8CCF86123059688EA328E /* Pods_tsuristagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C337CF220382FE4FB22EF65 /* Pods-tsuristagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramTests/Pods-tsuristagramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		79F9C2F6ED5AF925B2108BC4 /* Pods_tsuristagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		826D0F5F511E6B124E3738E9 /* Pods-tsuristagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramUITests/Pods-tsuristagramUITests.release.xcconfig"; sourceTree = "<group>"; };
+		981221426C252C69BC73F45D /* Pods-tsuristagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.release.xcconfig"; sourceTree = "<group>"; };
+		B478E1D1CFE7150AE9598AA9 /* Pods-tsuristagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.debug.xcconfig"; sourceTree = "<group>"; };
+		DDB978BF6858540B5C931027 /* Pods-tsuristagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramTests/Pods-tsuristagramTests.release.xcconfig"; sourceTree = "<group>"; };
+		F44CB0BEF4FFEA9DF4109668 /* Pods-tsuristagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramUITests/Pods-tsuristagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC38AF9421C12B4A00783D4D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FC38AF9621C133B400783D4D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FC38AF9821C1365300783D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC3D447021C1286300CEE24E /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
+		FC4F5E8A21D667AB00014973 /* nc92133.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = nc92133.mp4; path = ../../../../Downloads/nc92133.mp4; sourceTree = "<group>"; };
+		FC4F5E8C21D66A3C00014973 /* mplus-1c-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-light.ttf"; sourceTree = "<group>"; };
 		FC4F8B5D21BBAD8700B9493F /* tsuristagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsuristagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4F8B6021BBAD8700B9493F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39A0FC0CD5C13A67739637F8 /* Pods_tsuristagram.framework in Frameworks */,
+				ECEE3446201A8DC6C399AEBC /* Pods_tsuristagram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				762EF96EDF4745076BE817CA /* Pods_tsuristagramTests.framework in Frameworks */,
+				6340E77272CE1AA40457F46B /* Pods_tsuristagramTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,45 +94,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E53C05D08BF483455D5AAAD /* Pods_tsuristagramUITests.framework in Frameworks */,
+				3D2FA928E558CD698EDD3730 /* Pods_tsuristagramUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6DB4ED871FA1E72E2417B803 /* Frameworks */ = {
+		294B00ADBA3C4B4A0A0C8F6E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F9C395662F494BB077CCB582 /* Pods_tsuristagram.framework */,
-				5DE996905B588713A2EED4B1 /* Pods_tsuristagramTests.framework */,
-				748B41A7AF27B3227675115C /* Pods_tsuristagramUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		80AFA9EFDDA1615C8BAA0FA9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6B22BB0868CD7FA6DF398FF9 /* Pods-tsuristagram.debug.xcconfig */,
-				E6E4D45077A110FADD0536EB /* Pods-tsuristagram.release.xcconfig */,
-				F1732A0F73A5B5F4B61A9690 /* Pods-tsuristagramTests.debug.xcconfig */,
-				78DE08BF1D2C69BC99AA5385 /* Pods-tsuristagramTests.release.xcconfig */,
-				B2E8506F5F512D1F1D1930A2 /* Pods-tsuristagramUITests.debug.xcconfig */,
-				3DC64E6CE232FCA008268313 /* Pods-tsuristagramUITests.release.xcconfig */,
+				B478E1D1CFE7150AE9598AA9 /* Pods-tsuristagram.debug.xcconfig */,
+				981221426C252C69BC73F45D /* Pods-tsuristagram.release.xcconfig */,
+				6C337CF220382FE4FB22EF65 /* Pods-tsuristagramTests.debug.xcconfig */,
+				DDB978BF6858540B5C931027 /* Pods-tsuristagramTests.release.xcconfig */,
+				F44CB0BEF4FFEA9DF4109668 /* Pods-tsuristagramUITests.debug.xcconfig */,
+				826D0F5F511E6B124E3738E9 /* Pods-tsuristagramUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8DC3043CCD4B9DD28FB7CEB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				315BE1601930681570EF43B1 /* Pods_tsuristagram.framework */,
+				79F9C2F6ED5AF925B2108BC4 /* Pods_tsuristagramTests.framework */,
+				3ED8CCF86123059688EA328E /* Pods_tsuristagramUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FC4F8B5421BBAD8700B9493F = {
 			isa = PBXGroup;
 			children = (
+				FC4F5E8A21D667AB00014973 /* nc92133.mp4 */,
 				FC4F8B5F21BBAD8700B9493F /* tsuristagram */,
 				FC4F8B7421BBAD8900B9493F /* tsuristagramTests */,
 				FC4F8B7F21BBAD8900B9493F /* tsuristagramUITests */,
 				FC4F8B5E21BBAD8700B9493F /* Products */,
-				80AFA9EFDDA1615C8BAA0FA9 /* Pods */,
-				6DB4ED871FA1E72E2417B803 /* Frameworks */,
+				294B00ADBA3C4B4A0A0C8F6E /* Pods */,
+				8DC3043CCD4B9DD28FB7CEB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +158,7 @@
 				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
 				FC38AF9821C1365300783D4D /* GoogleService-Info.plist */,
 				FC4F8B6721BBAD8900B9493F /* Assets.xcassets */,
+				FC4F5E8C21D66A3C00014973 /* mplus-1c-light.ttf */,
 				FC4F8B6921BBAD8900B9493F /* LaunchScreen.storyboard */,
 				FC4F8B6C21BBAD8900B9493F /* Info.plist */,
 			);
@@ -184,12 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC4F8B8521BBAD8900B9493F /* Build configuration list for PBXNativeTarget "tsuristagram" */;
 			buildPhases = (
-				98DE9977D5631524FA961218 /* [CP] Check Pods Manifest.lock */,
+				799C501CCFDF78EE1ECCCC40 /* [CP] Check Pods Manifest.lock */,
 				FC4F8B5921BBAD8700B9493F /* Sources */,
 				FC4F8B5A21BBAD8700B9493F /* Frameworks */,
 				FC4F8B5B21BBAD8700B9493F /* Resources */,
-				1C0430043BA739FEA5FA6CC9 /* [CP] Embed Pods Frameworks */,
-				10BA962B94B1383632D86D45 /* [CP] Copy Pods Resources */,
+				DDC0A311489E9DE560454FC8 /* [CP] Embed Pods Frameworks */,
+				04519D9897CD2A0CA9F7A091 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,7 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC4F8B8821BBAD8900B9493F /* Build configuration list for PBXNativeTarget "tsuristagramTests" */;
 			buildPhases = (
-				18B2CF9E1B591C079C763483 /* [CP] Check Pods Manifest.lock */,
+				4CE429E0844724E0ED4C9F6F /* [CP] Check Pods Manifest.lock */,
 				FC4F8B6D21BBAD8900B9493F /* Sources */,
 				FC4F8B6E21BBAD8900B9493F /* Frameworks */,
 				FC4F8B6F21BBAD8900B9493F /* Resources */,
@@ -223,7 +229,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC4F8B8B21BBAD8900B9493F /* Build configuration list for PBXNativeTarget "tsuristagramUITests" */;
 			buildPhases = (
-				255A14E920A15D5A0C045EFF /* [CP] Check Pods Manifest.lock */,
+				BF3F51D9A86E0D1DB3829C85 /* [CP] Check Pods Manifest.lock */,
 				FC4F8B7821BBAD8900B9493F /* Sources */,
 				FC4F8B7921BBAD8900B9493F /* Frameworks */,
 				FC4F8B7A21BBAD8900B9493F /* Resources */,
@@ -286,6 +292,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC4F5E8D21D66A7300014973 /* mplus-1c-light.ttf in Resources */,
+				FC4F5E8B21D667B400014973 /* nc92133.mp4 in Resources */,
 				FC4F8B6B21BBAD8900B9493F /* LaunchScreen.storyboard in Resources */,
 				FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */,
 				FC4F8B6821BBAD8900B9493F /* Assets.xcassets in Resources */,
@@ -310,7 +318,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10BA962B94B1383632D86D45 /* [CP] Copy Pods Resources */ = {
+		04519D9897CD2A0CA9F7A091 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,7 +342,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		18B2CF9E1B591C079C763483 /* [CP] Check Pods Manifest.lock */ = {
+		4CE429E0844724E0ED4C9F6F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -356,7 +364,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1C0430043BA739FEA5FA6CC9 /* [CP] Embed Pods Frameworks */ = {
+		799C501CCFDF78EE1ECCCC40 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -364,43 +372,21 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"$(DERIVED_FILE_DIR)/Pods-tsuristagram-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		255A14E920A15D5A0C045EFF /* [CP] Check Pods Manifest.lock */ = {
+		BF3F51D9A86E0D1DB3829C85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -422,7 +408,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		98DE9977D5631524FA961218 /* [CP] Check Pods Manifest.lock */ = {
+		DDC0A311489E9DE560454FC8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -430,18 +416,42 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftVideoBackground/SwiftVideoBackground.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tsuristagram-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftVideoBackground.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -628,7 +638,7 @@
 		};
 		FC4F8B8621BBAD8900B9493F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B22BB0868CD7FA6DF398FF9 /* Pods-tsuristagram.debug.xcconfig */;
+			baseConfigurationReference = B478E1D1CFE7150AE9598AA9 /* Pods-tsuristagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -647,7 +657,7 @@
 		};
 		FC4F8B8721BBAD8900B9493F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6E4D45077A110FADD0536EB /* Pods-tsuristagram.release.xcconfig */;
+			baseConfigurationReference = 981221426C252C69BC73F45D /* Pods-tsuristagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -666,7 +676,7 @@
 		};
 		FC4F8B8921BBAD8900B9493F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1732A0F73A5B5F4B61A9690 /* Pods-tsuristagramTests.debug.xcconfig */;
+			baseConfigurationReference = 6C337CF220382FE4FB22EF65 /* Pods-tsuristagramTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -688,7 +698,7 @@
 		};
 		FC4F8B8A21BBAD8900B9493F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 78DE08BF1D2C69BC99AA5385 /* Pods-tsuristagramTests.release.xcconfig */;
+			baseConfigurationReference = DDB978BF6858540B5C931027 /* Pods-tsuristagramTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -710,7 +720,7 @@
 		};
 		FC4F8B8C21BBAD8900B9493F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2E8506F5F512D1F1D1930A2 /* Pods-tsuristagramUITests.debug.xcconfig */;
+			baseConfigurationReference = F44CB0BEF4FFEA9DF4109668 /* Pods-tsuristagramUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -731,7 +741,7 @@
 		};
 		FC4F8B8D21BBAD8900B9493F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3DC64E6CE232FCA008268313 /* Pods-tsuristagramUITests.release.xcconfig */;
+			baseConfigurationReference = 826D0F5F511E6B124E3738E9 /* Pods-tsuristagramUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

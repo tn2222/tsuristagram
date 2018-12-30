@@ -8,20 +8,35 @@
 
 import UIKit
 import GoogleSignIn
+import SwiftVideoBackground
 import Firebase
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
+        
+        try? VideoBackground.shared.play(view: view, videoName: "nc92133", videoType: "mp4", willLoopVideo: true)
+
     }
 
     @IBAction func tapGoogleSignIn(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
         performSegue(withIdentifier: "next", sender: nil)
         
-
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        try? VideoBackground.shared.play(view: view, videoName: "nc92133", videoType: "mp4", willLoopVideo: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        try? VideoBackground.shared.play(view: view, videoName: "nc92133", videoType: "mp4", willLoopVideo: true)
+    }
+    
 
     
 }

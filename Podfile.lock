@@ -152,6 +152,7 @@ PODS:
     - libwebp (~> 0.5)
     - SDWebImage/Core
   - SVProgressHUD (2.2.5)
+  - SwiftVideoBackground (3.1.0)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -162,6 +163,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - SDWebImage/WebP
   - SVProgressHUD
+  - SwiftVideoBackground (~> 3.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -188,6 +190,7 @@ SPEC REPOS:
     - Protobuf
     - SDWebImage
     - SVProgressHUD
+    - SwiftVideoBackground
 
 SPEC CHECKSUMS:
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
@@ -213,7 +216,8 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftVideoBackground: 628408dbd5eb20b5f82f394aac9615d29aecb2f6
 
-PODFILE CHECKSUM: c38725d578be16ad8c1bc5fb6311cf4128983270
+PODFILE CHECKSUM: abc8c8aed2d03c389a9daae8e603035915caf26c
 
 COCOAPODS: 1.5.3

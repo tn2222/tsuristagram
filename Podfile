@@ -14,6 +14,7 @@ target 'tsuristagram' do
   pod 'SDWebImage/WebP'
   pod 'GoogleSignIn'
   pod 'SVProgressHUD'
+  pod 'SwiftVideoBackground', '~> 3.0'
 
 
   target 'tsuristagramTests' do

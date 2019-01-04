@@ -9,6 +9,9 @@
 import UIKit
 
 class Post: NSObject {
-    var comment: String = String()
     var userName: String = String()
+    var picture: String = String()
+    var date: String = String()
+    var uid: String = String()
+    var userPhoto: String = String()
 }

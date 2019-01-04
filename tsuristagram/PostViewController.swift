@@ -18,7 +18,7 @@ class PostViewController: UIViewController {
     
     var displayName = String()
     var pictureURLString = String()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,9 +36,8 @@ class PostViewController: UIViewController {
         
         
         
-        
     }
-    
+
     @IBAction func post(_ sender: Any) {
         
         let rootRef = Database.database().reference(fromURL: "https://tsuristagram.firebaseio.com/").child("post").childByAutoId()

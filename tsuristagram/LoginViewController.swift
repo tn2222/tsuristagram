@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
         
-        try? VideoBackground.shared.play(view: view, videoName: "nc92133", videoType: "mp4", willLoopVideo: true)
+//        try? VideoBackground.shared.play(view: view, videoName: "nc92133", videoType: "mp4", willLoopVideo: true)
 
     }
 
@@ -28,13 +28,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        try? VideoBackground.shared.play(view: view, videoName: "nc92133", videoType: "mp4", willLoopVideo: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        try? VideoBackground.shared.play(view: view, videoName: "nc92133", videoType: "mp4", willLoopVideo: true)
     }
     
 

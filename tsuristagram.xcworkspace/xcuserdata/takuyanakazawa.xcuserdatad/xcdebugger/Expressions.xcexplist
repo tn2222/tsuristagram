@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in AppDelegate.sign(_:didSignInFor:withError:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userDefaults">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.fetchData():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.posts">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.tableView(_:cellForRowAt:):TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.posts[indexPath.row].picture">
+            </PersistentString>
+            <PersistentString
+               value = "self.posts[indexPath.row].userPhoto">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TimeLineViewController.fetchData():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post.userPhoto">
+            </PersistentString>
+            <PersistentString
+               value = "self.userPhoto_Array">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.viewDidLoad():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pictureURLString">
+            </PersistentString>
+            <PersistentString
+               value = "displayName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in TimeLineViewController.fetchData():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post.uid">
+            </PersistentString>
+            <PersistentString
+               value = "uid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

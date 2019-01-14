@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+//import SwipeMenuViewController
 
 class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -80,7 +81,7 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 350
+        return 470
     }
     
     @objc func refresh(){
@@ -108,20 +109,16 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
             for (_,post) in postsSnap!{
                 self.post = Post()
 
-                if let uid = post["userId"] as? String, let date = post["date"] as? String,let picture = post["picture"] as? String{
+                if let uid = post["userId"] as? String, let date = post["createDate"] as? String,let picture = post["picture"] as? String{
 
-                    
                     self.post.uid = uid
-//                    self.post.userName = userName
                     self.post.date = date
                     self.post.picture = picture
 
                     self.uid_Array.append(self.post.uid)
-//                    self.userName_Array.append(self.post.userName)
                     self.date_Array.append(self.post.date)
                     self.picture_Array.append(self.post.picture)
 
-                    
                     ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                         // Get user value
                         let userSnap = snapshot.value as? NSDictionary

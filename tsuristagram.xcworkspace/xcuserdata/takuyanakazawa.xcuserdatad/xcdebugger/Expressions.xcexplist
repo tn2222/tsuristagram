@@ -3,18 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in AppDelegate.sign(_:didSignInFor:withError:):AppDelegate.swift">
+         contextName = "closure #1 in TimeLineViewController.fetchData():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "userDefaults">
+               value = "self.post.userPhoto">
+            </PersistentString>
+            <PersistentString
+               value = "self.userPhoto_Array">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLineViewController.fetchData():TimeLineViewController.swift">
+         contextName = "PostViewController.prepare(for:sender:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.posts">
+               value = "self.latitude">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -30,13 +33,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in TimeLineViewController.fetchData():TimeLineViewController.swift">
+         contextName = "PostViewController.viewWillAppear(_:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.post.userPhoto">
-            </PersistentString>
-            <PersistentString
-               value = "self.userPhoto_Array">
+               value = "self.tabBarMyIndex">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -52,6 +52,47 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostViewController.viewDidAppear(_:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tabBarController!.selectedIndex">
+            </PersistentString>
+            <PersistentString
+               value = "self.tabBarController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AppDelegate.sign(_:didSignInFor:withError:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userDefaults">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.viewDidDisappear(_:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tabBarController!.tabBar.selectedItem!.tag">
+            </PersistentString>
+            <PersistentString
+               value = "self.tabBarController!.selectedIndex">
+            </PersistentString>
+            <PersistentString
+               value = "self.tabBarMyIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "info[UIImagePickerController.InfoKey.mediaMetadata]  ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in TimeLineViewController.fetchData():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -59,6 +100,30 @@
             </PersistentString>
             <PersistentString
                value = "uid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.fetchUserData():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tabBarMyIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in PostViewController.post(_:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url.absoluteString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.fetchData():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.posts">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

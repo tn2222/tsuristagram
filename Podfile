@@ -15,6 +15,10 @@ target 'tsuristagram' do
   pod 'GoogleSignIn'
   pod 'SVProgressHUD'
   pod 'SwiftVideoBackground', '~> 3.0'
+  pod 'Firebase/Storage'
+#  pod 'SwipeMenuViewController'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
 
   target 'tsuristagramTests' do

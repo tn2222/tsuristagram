@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D2FA928E558CD698EDD3730 /* Pods_tsuristagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED8CCF86123059688EA328E /* Pods_tsuristagramUITests.framework */; };
-		6340E77272CE1AA40457F46B /* Pods_tsuristagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F9C2F6ED5AF925B2108BC4 /* Pods_tsuristagramTests.framework */; };
-		ECEE3446201A8DC6C399AEBC /* Pods_tsuristagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315BE1601930681570EF43B1 /* Pods_tsuristagram.framework */; };
+		06A20FCE006B1ACECBDCFE05 /* Pods_tsuristagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D2B239D5A2667D3697572 /* Pods_tsuristagramUITests.framework */; };
+		9DB45BF37D9E3A181698E167 /* Pods_tsuristagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBEDE6DCD2C8E9EC4866B19 /* Pods_tsuristagram.framework */; };
+		A601A47634A839CAECE41773 /* Pods_tsuristagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0AAD7D826918070F3270B02 /* Pods_tsuristagramTests.framework */; };
 		FC38AF9521C12B4A00783D4D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9421C12B4A00783D4D /* Post.swift */; };
 		FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9621C133B400783D4D /* PostViewController.swift */; };
 		FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC38AF9821C1365300783D4D /* GoogleService-Info.plist */; };
 		FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D447021C1286300CEE24E /* TimeLineViewController.swift */; };
-		FC4F5E8B21D667B400014973 /* nc92133.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FC4F5E8A21D667AB00014973 /* nc92133.mp4 */; };
 		FC4F5E8D21D66A7300014973 /* mplus-1c-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC4F5E8C21D66A3C00014973 /* mplus-1c-light.ttf */; };
 		FC4F8B6121BBAD8700B9493F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B6021BBAD8700B9493F /* AppDelegate.swift */; };
 		FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */; };
@@ -23,6 +22,8 @@
 		FC4F8B6B21BBAD8900B9493F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4F8B6921BBAD8900B9493F /* LaunchScreen.storyboard */; };
 		FC4F8B7621BBAD8900B9493F /* tsuristagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B7521BBAD8900B9493F /* tsuristagramTests.swift */; };
 		FC4F8B8121BBAD8900B9493F /* tsuristagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B8021BBAD8900B9493F /* tsuristagramUITests.swift */; };
+		FCF325CC21EC849B002CC3C4 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CB21EC849A002CC3C4 /* DateUtils.swift */; };
+		FCF325CE21ECB307002CC3C4 /* PostPointDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,20 +44,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		315BE1601930681570EF43B1 /* Pods_tsuristagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ED8CCF86123059688EA328E /* Pods_tsuristagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C337CF220382FE4FB22EF65 /* Pods-tsuristagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramTests/Pods-tsuristagramTests.debug.xcconfig"; sourceTree = "<group>"; };
-		79F9C2F6ED5AF925B2108BC4 /* Pods_tsuristagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		826D0F5F511E6B124E3738E9 /* Pods-tsuristagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramUITests/Pods-tsuristagramUITests.release.xcconfig"; sourceTree = "<group>"; };
-		981221426C252C69BC73F45D /* Pods-tsuristagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.release.xcconfig"; sourceTree = "<group>"; };
-		B478E1D1CFE7150AE9598AA9 /* Pods-tsuristagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.debug.xcconfig"; sourceTree = "<group>"; };
-		DDB978BF6858540B5C931027 /* Pods-tsuristagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramTests/Pods-tsuristagramTests.release.xcconfig"; sourceTree = "<group>"; };
-		F44CB0BEF4FFEA9DF4109668 /* Pods-tsuristagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramUITests/Pods-tsuristagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1AED5F25EDDB8373CB205507 /* Pods-tsuristagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramUITests/Pods-tsuristagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1F4EFE3169620EAD0C5C8049 /* Pods-tsuristagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramTests/Pods-tsuristagramTests.release.xcconfig"; sourceTree = "<group>"; };
+		2DBF3A1E80D6E1EE7832247A /* Pods-tsuristagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramUITests/Pods-tsuristagramUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7A2D2B239D5A2667D3697572 /* Pods_tsuristagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD22B2D53ACDC32D156002DD /* Pods-tsuristagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.debug.xcconfig"; sourceTree = "<group>"; };
+		B0AAD7D826918070F3270B02 /* Pods_tsuristagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4312B7A65CCF5AC2F959D7A /* Pods-tsuristagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.release.xcconfig"; sourceTree = "<group>"; };
+		C0CF8EB332347102CCC2209E /* Pods-tsuristagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramTests/Pods-tsuristagramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CDBEDE6DCD2C8E9EC4866B19 /* Pods_tsuristagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC38AF9421C12B4A00783D4D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FC38AF9621C133B400783D4D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FC38AF9821C1365300783D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC3D447021C1286300CEE24E /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
-		FC4F5E8A21D667AB00014973 /* nc92133.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = nc92133.mp4; path = ../../../../Downloads/nc92133.mp4; sourceTree = "<group>"; };
 		FC4F5E8C21D66A3C00014973 /* mplus-1c-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-light.ttf"; sourceTree = "<group>"; };
 		FC4F8B5D21BBAD8700B9493F /* tsuristagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsuristagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4F8B6021BBAD8700B9493F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +71,8 @@
 		FC4F8B7C21BBAD8900B9493F /* tsuristagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tsuristagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4F8B8021BBAD8900B9493F /* tsuristagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tsuristagramUITests.swift; sourceTree = "<group>"; };
 		FC4F8B8221BBAD8900B9493F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCF325CB21EC849A002CC3C4 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECEE3446201A8DC6C399AEBC /* Pods_tsuristagram.framework in Frameworks */,
+				9DB45BF37D9E3A181698E167 /* Pods_tsuristagram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6340E77272CE1AA40457F46B /* Pods_tsuristagramTests.framework in Frameworks */,
+				A601A47634A839CAECE41773 /* Pods_tsuristagramTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,32 +96,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D2FA928E558CD698EDD3730 /* Pods_tsuristagramUITests.framework in Frameworks */,
+				06A20FCE006B1ACECBDCFE05 /* Pods_tsuristagramUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		294B00ADBA3C4B4A0A0C8F6E /* Pods */ = {
+		2846AE53F0858E8FBF3BA5F2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B478E1D1CFE7150AE9598AA9 /* Pods-tsuristagram.debug.xcconfig */,
-				981221426C252C69BC73F45D /* Pods-tsuristagram.release.xcconfig */,
-				6C337CF220382FE4FB22EF65 /* Pods-tsuristagramTests.debug.xcconfig */,
-				DDB978BF6858540B5C931027 /* Pods-tsuristagramTests.release.xcconfig */,
-				F44CB0BEF4FFEA9DF4109668 /* Pods-tsuristagramUITests.debug.xcconfig */,
-				826D0F5F511E6B124E3738E9 /* Pods-tsuristagramUITests.release.xcconfig */,
+				AD22B2D53ACDC32D156002DD /* Pods-tsuristagram.debug.xcconfig */,
+				B4312B7A65CCF5AC2F959D7A /* Pods-tsuristagram.release.xcconfig */,
+				C0CF8EB332347102CCC2209E /* Pods-tsuristagramTests.debug.xcconfig */,
+				1F4EFE3169620EAD0C5C8049 /* Pods-tsuristagramTests.release.xcconfig */,
+				1AED5F25EDDB8373CB205507 /* Pods-tsuristagramUITests.debug.xcconfig */,
+				2DBF3A1E80D6E1EE7832247A /* Pods-tsuristagramUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8DC3043CCD4B9DD28FB7CEB1 /* Frameworks */ = {
+		2AAF1662BCE4B4AF5A7C399B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				315BE1601930681570EF43B1 /* Pods_tsuristagram.framework */,
-				79F9C2F6ED5AF925B2108BC4 /* Pods_tsuristagramTests.framework */,
-				3ED8CCF86123059688EA328E /* Pods_tsuristagramUITests.framework */,
+				CDBEDE6DCD2C8E9EC4866B19 /* Pods_tsuristagram.framework */,
+				B0AAD7D826918070F3270B02 /* Pods_tsuristagramTests.framework */,
+				7A2D2B239D5A2667D3697572 /* Pods_tsuristagramUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,13 +129,12 @@
 		FC4F8B5421BBAD8700B9493F = {
 			isa = PBXGroup;
 			children = (
-				FC4F5E8A21D667AB00014973 /* nc92133.mp4 */,
 				FC4F8B5F21BBAD8700B9493F /* tsuristagram */,
 				FC4F8B7421BBAD8900B9493F /* tsuristagramTests */,
 				FC4F8B7F21BBAD8900B9493F /* tsuristagramUITests */,
 				FC4F8B5E21BBAD8700B9493F /* Products */,
-				294B00ADBA3C4B4A0A0C8F6E /* Pods */,
-				8DC3043CCD4B9DD28FB7CEB1 /* Frameworks */,
+				2846AE53F0858E8FBF3BA5F2 /* Pods */,
+				2AAF1662BCE4B4AF5A7C399B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,8 +155,10 @@
 				FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */,
 				FC3D447021C1286300CEE24E /* TimeLineViewController.swift */,
 				FC38AF9621C133B400783D4D /* PostViewController.swift */,
+				FCF325CB21EC849A002CC3C4 /* DateUtils.swift */,
 				FC38AF9421C12B4A00783D4D /* Post.swift */,
 				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
+				FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */,
 				FC38AF9821C1365300783D4D /* GoogleService-Info.plist */,
 				FC4F8B6721BBAD8900B9493F /* Assets.xcassets */,
 				FC4F5E8C21D66A3C00014973 /* mplus-1c-light.ttf */,
@@ -190,12 +193,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC4F8B8521BBAD8900B9493F /* Build configuration list for PBXNativeTarget "tsuristagram" */;
 			buildPhases = (
-				799C501CCFDF78EE1ECCCC40 /* [CP] Check Pods Manifest.lock */,
+				50A9EC185B8D7F005AF74442 /* [CP] Check Pods Manifest.lock */,
 				FC4F8B5921BBAD8700B9493F /* Sources */,
 				FC4F8B5A21BBAD8700B9493F /* Frameworks */,
 				FC4F8B5B21BBAD8700B9493F /* Resources */,
-				DDC0A311489E9DE560454FC8 /* [CP] Embed Pods Frameworks */,
-				04519D9897CD2A0CA9F7A091 /* [CP] Copy Pods Resources */,
+				D0F8B847E6F5EAB6F51B87B6 /* [CP] Embed Pods Frameworks */,
+				DF42B0562A3E144FBC2B84BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,7 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC4F8B8821BBAD8900B9493F /* Build configuration list for PBXNativeTarget "tsuristagramTests" */;
 			buildPhases = (
-				4CE429E0844724E0ED4C9F6F /* [CP] Check Pods Manifest.lock */,
+				5FE9128B32CF58E72A926661 /* [CP] Check Pods Manifest.lock */,
 				FC4F8B6D21BBAD8900B9493F /* Sources */,
 				FC4F8B6E21BBAD8900B9493F /* Frameworks */,
 				FC4F8B6F21BBAD8900B9493F /* Resources */,
@@ -229,7 +232,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC4F8B8B21BBAD8900B9493F /* Build configuration list for PBXNativeTarget "tsuristagramUITests" */;
 			buildPhases = (
-				BF3F51D9A86E0D1DB3829C85 /* [CP] Check Pods Manifest.lock */,
+				52044FAD2D926A96D919FB31 /* [CP] Check Pods Manifest.lock */,
 				FC4F8B7821BBAD8900B9493F /* Sources */,
 				FC4F8B7921BBAD8900B9493F /* Frameworks */,
 				FC4F8B7A21BBAD8900B9493F /* Resources */,
@@ -293,7 +296,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4F5E8D21D66A7300014973 /* mplus-1c-light.ttf in Resources */,
-				FC4F5E8B21D667B400014973 /* nc92133.mp4 in Resources */,
 				FC4F8B6B21BBAD8900B9493F /* LaunchScreen.storyboard in Resources */,
 				FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */,
 				FC4F8B6821BBAD8900B9493F /* Assets.xcassets in Resources */,
@@ -318,53 +320,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04519D9897CD2A0CA9F7A091 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4CE429E0844724E0ED4C9F6F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tsuristagramTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		799C501CCFDF78EE1ECCCC40 /* [CP] Check Pods Manifest.lock */ = {
+		50A9EC185B8D7F005AF74442 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -386,7 +342,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BF3F51D9A86E0D1DB3829C85 /* [CP] Check Pods Manifest.lock */ = {
+		52044FAD2D926A96D919FB31 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -408,7 +364,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DDC0A311489E9DE560454FC8 /* [CP] Embed Pods Frameworks */ = {
+		5FE9128B32CF58E72A926661 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tsuristagramTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0F8B847E6F5EAB6F51B87B6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -454,6 +432,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DF42B0562A3E144FBC2B84BF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -462,10 +468,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */,
+				FCF325CC21EC849B002CC3C4 /* DateUtils.swift in Sources */,
 				FC4F8B6121BBAD8700B9493F /* AppDelegate.swift in Sources */,
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
 				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
+				FCF325CE21ECB307002CC3C4 /* PostPointDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,12 +646,13 @@
 		};
 		FC4F8B8621BBAD8900B9493F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B478E1D1CFE7150AE9598AA9 /* Pods-tsuristagram.debug.xcconfig */;
+			baseConfigurationReference = AD22B2D53ACDC32D156002DD /* Pods-tsuristagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YN6KGQR72A;
 				INFOPLIST_FILE = tsuristagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -657,12 +666,13 @@
 		};
 		FC4F8B8721BBAD8900B9493F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 981221426C252C69BC73F45D /* Pods-tsuristagram.release.xcconfig */;
+			baseConfigurationReference = B4312B7A65CCF5AC2F959D7A /* Pods-tsuristagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YN6KGQR72A;
 				INFOPLIST_FILE = tsuristagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -676,7 +686,7 @@
 		};
 		FC4F8B8921BBAD8900B9493F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C337CF220382FE4FB22EF65 /* Pods-tsuristagramTests.debug.xcconfig */;
+			baseConfigurationReference = C0CF8EB332347102CCC2209E /* Pods-tsuristagramTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -698,7 +708,7 @@
 		};
 		FC4F8B8A21BBAD8900B9493F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDB978BF6858540B5C931027 /* Pods-tsuristagramTests.release.xcconfig */;
+			baseConfigurationReference = 1F4EFE3169620EAD0C5C8049 /* Pods-tsuristagramTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -720,7 +730,7 @@
 		};
 		FC4F8B8C21BBAD8900B9493F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F44CB0BEF4FFEA9DF4109668 /* Pods-tsuristagramUITests.debug.xcconfig */;
+			baseConfigurationReference = 1AED5F25EDDB8373CB205507 /* Pods-tsuristagramUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -741,7 +751,7 @@
 		};
 		FC4F8B8D21BBAD8900B9493F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 826D0F5F511E6B124E3738E9 /* Pods-tsuristagramUITests.release.xcconfig */;
+			baseConfigurationReference = 2DBF3A1E80D6E1EE7832247A /* Pods-tsuristagramUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

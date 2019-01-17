@@ -30,9 +30,9 @@ class PostPointDetailViewController: UIViewController, GMSMapViewDelegate {
                                               longitude: self.longitude,
                                               zoom: 15)
         
-        gmsMapView = GMSMapView.map(withFrame: .zero, camera: camera)
-        gmsMapView.delegate = self
-        self.view = gmsMapView
+        let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+        mapView.delegate = self
+        self.view = mapView
 
         let position = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
         let marker = GMSMarker(position: position)

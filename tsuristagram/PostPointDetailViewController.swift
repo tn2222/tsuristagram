@@ -19,10 +19,6 @@ class PostPointDetailViewController: UIViewController, GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(self.latitude)
-        print(self.longitude)
-
     }
     
     override func loadView() {
@@ -39,7 +35,6 @@ class PostPointDetailViewController: UIViewController, GMSMapViewDelegate {
         marker.title = "Hello World"
         marker.map = gmsMapView
         
-
     }
     
     // MARK: GMSMapViewDelegate
@@ -47,15 +42,5 @@ class PostPointDetailViewController: UIViewController, GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

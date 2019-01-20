@@ -451,7 +451,7 @@ This collection of awesome filters for your landscap…</string>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JVd-ew-gUO" userLabel="Upload Photo1">
-                                <rect key="frame" x="65" y="69" width="239" height="191"/>
+                                <rect key="frame" x="63" y="69" width="239" height="191"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -472,7 +472,7 @@ This collection of awesome filters for your landscap…</string>
         <!--Post Point Detail View Controller-->
         <scene sceneID="gdh-ea-mIY">
             <objects>
-                <viewController id="cBz-1p-DBf" customClass="PostPointDetailViewController" customModule="tsuristagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pointDetail" id="cBz-1p-DBf" customClass="PostPointDetailViewController" customModule="tsuristagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PcY-rF-JIe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -95,7 +95,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             // 撮影日
             let dateTimeOriginal = exif["DateTimeOriginal"] as! String
             let date = self.dateUtils.dateFromString(string: dateTimeOriginal, format: "yyyy:MM:dd HH:mm:ss")
-            let dateString = self.dateUtils.stringFromDate(date: date, format: "yyyy/MM/dd HH:mm:ss")
+            let dateString = self.dateUtils.stringFromDate(date: date, format: "yyyy/MM/dd HH:mm")
             self.fishingDate.text = dateString
             
             // 位置情報

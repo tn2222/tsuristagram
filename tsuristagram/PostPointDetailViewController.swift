@@ -8,39 +8,66 @@
 
 import UIKit
 import GoogleMaps
+import CoreLocation
 
-class PostPointDetailViewController: UIViewController, GMSMapViewDelegate {
+class PostPointDetailViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
-    @IBOutlet var gmsMapView: GMSMapView!
+    @IBOutlet var mapView: GMSMapView!
     
-    var latitude = Double()
-    var longitude = Double()
+    var latitude : Double!
+    var longitude : Double!
     
-    
+    var postData = PostData()
+
+    var marker = GMSMarker()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func loadView() {
-        let camera = GMSCameraPosition.camera(withLatitude: self.latitude,
-                                              longitude: self.longitude,
-                                              zoom: 15)
-        
-        let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+        mapView.camera = GMSCameraPosition.camera(withLatitude: self.postData.latitude,
+                                                  longitude: self.postData.longitude,
+                                                  zoom: 15)
         mapView.delegate = self
-        self.view = mapView
 
-        let position = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
-        let marker = GMSMarker(position: position)
-        marker.title = "Hello World"
-        marker.map = gmsMapView
+        marker.position = CLLocationCoordinate2D(latitude: self.postData.latitude, longitude: self.postData.longitude)
+        marker.map = mapView
+
+    }
+    
+    /**
+     * マップ上をロングタップすると呼ばれるメソッド
+     */
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         
-    }
-    
-    // MARK: GMSMapViewDelegate
-    
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
+        if self.marker.map != nil {
+            self.marker.map = nil
+        }
+        
+        // 緯度経度を設定
+        self.postData.latitude = coordinate.latitude
+        self.postData.longitude = coordinate.longitude
+        
+        // マーカー設定
+        self.marker = GMSMarker()
+        self.marker.position = coordinate
+        self.marker.appearAnimation = GMSMarkerAnimation.pop
+        self.marker.map = mapView
     }
 
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    /**
+    * 保存ボタン
+    */
+    @IBAction func saveButton(_ sender: Any) {
+        let postVC = storyboard!.instantiateViewController(withIdentifier: "postView") as? PostViewController
+        postVC?.postData = self.postData
+
+        let navigationController = UINavigationController(rootViewController: postVC!)
+        
+        self.present(navigationController, animated: true, completion: nil)
+
+    }
 }

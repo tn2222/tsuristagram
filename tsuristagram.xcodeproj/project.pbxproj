@@ -10,7 +10,7 @@
 		06A20FCE006B1ACECBDCFE05 /* Pods_tsuristagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D2B239D5A2667D3697572 /* Pods_tsuristagramUITests.framework */; };
 		9DB45BF37D9E3A181698E167 /* Pods_tsuristagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBEDE6DCD2C8E9EC4866B19 /* Pods_tsuristagram.framework */; };
 		A601A47634A839CAECE41773 /* Pods_tsuristagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0AAD7D826918070F3270B02 /* Pods_tsuristagramTests.framework */; };
-		FC38AF9521C12B4A00783D4D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9421C12B4A00783D4D /* Post.swift */; };
+		FC38AF9521C12B4A00783D4D /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9421C12B4A00783D4D /* PostData.swift */; };
 		FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9621C133B400783D4D /* PostViewController.swift */; };
 		FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC38AF9821C1365300783D4D /* GoogleService-Info.plist */; };
 		FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D447021C1286300CEE24E /* TimeLineViewController.swift */; };
@@ -52,7 +52,7 @@
 		B4312B7A65CCF5AC2F959D7A /* Pods-tsuristagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.release.xcconfig"; sourceTree = "<group>"; };
 		C0CF8EB332347102CCC2209E /* Pods-tsuristagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramTests/Pods-tsuristagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDBEDE6DCD2C8E9EC4866B19 /* Pods_tsuristagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC38AF9421C12B4A00783D4D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		FC38AF9421C12B4A00783D4D /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		FC38AF9621C133B400783D4D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FC38AF9821C1365300783D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC3D447021C1286300CEE24E /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
@@ -153,10 +153,10 @@
 				FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */,
 				FC3D447021C1286300CEE24E /* TimeLineViewController.swift */,
 				FC38AF9621C133B400783D4D /* PostViewController.swift */,
-				FCF325CB21EC849A002CC3C4 /* DateUtils.swift */,
-				FC38AF9421C12B4A00783D4D /* Post.swift */,
-				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
 				FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */,
+				FC38AF9421C12B4A00783D4D /* PostData.swift */,
+				FCF325CB21EC849A002CC3C4 /* DateUtils.swift */,
+				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
 				FC38AF9821C1365300783D4D /* GoogleService-Info.plist */,
 				FC4F8B6721BBAD8900B9493F /* Assets.xcassets */,
 				FC4F8B6921BBAD8900B9493F /* LaunchScreen.storyboard */,
@@ -467,7 +467,7 @@
 				FCF325CC21EC849B002CC3C4 /* DateUtils.swift in Sources */,
 				FC4F8B6121BBAD8700B9493F /* AppDelegate.swift in Sources */,
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
-				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,
+				FC38AF9521C12B4A00783D4D /* PostData.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
 				FCF325CE21ECB307002CC3C4 /* PostPointDetailViewController.swift in Sources */,
 			);

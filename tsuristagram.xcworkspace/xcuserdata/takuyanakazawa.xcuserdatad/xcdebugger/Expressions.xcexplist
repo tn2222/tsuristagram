@@ -14,6 +14,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in PostViewController.showUploadPhoto():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.postData.latitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostViewController.prepare(for:sender:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -44,10 +52,7 @@
          contextName = "PostViewController.viewDidLoad():PostViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "pictureURLString">
-            </PersistentString>
-            <PersistentString
-               value = "displayName">
+               value = "self.navigationItem">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -71,16 +76,27 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostPointDetailViewController.mapView(_:didLongPressAt:):PostPointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.postData.latitude">
+            </PersistentString>
+            <PersistentString
+               value = "self.postData.longitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostViewController.viewDidDisappear(_:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.tabBarController!.tabBar.selectedItem!.tag">
+               value = "self.tabBarMyIndex">
             </PersistentString>
             <PersistentString
                value = "self.tabBarController!.selectedIndex">
             </PersistentString>
             <PersistentString
-               value = "self.tabBarMyIndex">
+               value = "self.tabBarController!.tabBar.selectedItem!.tag">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -108,6 +124,14 @@
          <PersistentStrings>
             <PersistentString
                value = "tabBarMyIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.setPostData():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postData.fishingDate">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

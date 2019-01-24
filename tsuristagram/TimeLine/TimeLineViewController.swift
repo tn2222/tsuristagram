@@ -20,8 +20,8 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var uid_Array = [String]()
     var userPhoto_Array = [String]()
 
-    var postDataList = [PostData]()
-    var postData = PostData()
+    var postDataList = [Post]()
+    var postData = Post()
 
     @IBOutlet var tableView: UITableView!
 
@@ -114,7 +114,7 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func fetchData() {
-        self.postData = PostData()
+        self.postData = Post()
         self.userName_Array = [String]()
         self.date_Array = [String]()
         self.picture_Array = [String]()
@@ -129,9 +129,9 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
             if postsSnap == nil {
                 return
             }
-            self.postDataList = [PostData]()
+            self.postDataList = [Post]()
             for (_,post) in postsSnap!{
-                self.postData = PostData()
+                self.postData = Post()
 
                 if let uid = post["userId"] as? String, let date = post["createDate"] as? String,let picture = post["picture"] as? String{
 

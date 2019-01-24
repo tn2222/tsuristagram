@@ -14,16 +14,18 @@ import Photos
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    let dateUtils = DateUtils()
+//    let dateUtils = DateUtils()
     @IBOutlet var size: UITextField!
     @IBOutlet var weight: UITextField!
     @IBOutlet var fishSpecies: UITextField!
     @IBOutlet var fishingDate: UITextField!
-    @IBOutlet var comment: UITextField!
+    @IBOutlet var comment: UITextView!
+
     @IBOutlet var weather: UITextField!
     @IBOutlet var uploadPhoto: UIImageView!
     
-    var postData = PostData()
+    var postData = Post()
+//    let date = Date()
 
     // myUserId
     let myUid: String = UserDefaults.standard.object(forKey: "userId") as! String
@@ -65,8 +67,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @objc func post(){
         
         SVProgressHUD.show()
-        
-        let currentTime = dateUtils.currentTimeString()
+        let currentTime = Date.currentTimeString()
         let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(self.myUid).child(currentTime + ".jpg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
@@ -116,7 +117,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         postData.comment = comment.text!
         postData.weather = weather.text!
         postData.uploadPhotoImage = uploadPhoto.image!
-
     }
     
     /**
@@ -137,8 +137,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             // 撮影日
             let dateTimeOriginal = exif["DateTimeOriginal"] as! String
-            let date = self.dateUtils.dateFromString(string: dateTimeOriginal, format: "yyyy:MM:dd HH:mm:ss")
-            let dateString = self.dateUtils.stringFromDate(date: date, format: "yyyy/MM/dd HH:mm")
+            let dateTime = Date.stringToDate(string: dateTimeOriginal, format: "yyyy:MM:dd HH:mm:ss")
+            let dateString = Date.dateToString(date: dateTime, format: "yyyy/MM/dd HH:mm")
             self.fishingDate.text = dateString
             self.postData.fishingDate = dateString
             

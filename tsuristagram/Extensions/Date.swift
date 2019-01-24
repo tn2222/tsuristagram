@@ -8,26 +8,24 @@
 
 import UIKit
 
-class DateUtils: NSObject {
+extension Date {
 
-    func currentTimeString() -> String {
+    static func currentTimeString() -> String {
         let now = NSDate()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMddHHmmssSSS"
         return formatter.string(from: now as Date)
     }
 
-    func dateFromString(string: String, format: String) -> Date {
+    static func stringToDate(string: String, format: String) -> Date {
         let formatter: DateFormatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
-//        formatter.calendar = Calendar(identifier: .gregorian)
         formatter.dateFormat = format
-        return formatter.date(from: string)!        
+        return formatter.date(from: string)! as Date
     }
 
-    func stringFromDate(date: Date, format: String) -> String {
+    static func dateToString(date: Date, format: String) -> String {
         let formatter: DateFormatter = DateFormatter()
-//        formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.calendar = Calendar(identifier: .gregorian)
         formatter.dateFormat = format
         return formatter.string(from: date)

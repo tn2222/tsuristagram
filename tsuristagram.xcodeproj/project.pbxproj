@@ -10,7 +10,9 @@
 		06A20FCE006B1ACECBDCFE05 /* Pods_tsuristagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D2B239D5A2667D3697572 /* Pods_tsuristagramUITests.framework */; };
 		9DB45BF37D9E3A181698E167 /* Pods_tsuristagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBEDE6DCD2C8E9EC4866B19 /* Pods_tsuristagram.framework */; };
 		A601A47634A839CAECE41773 /* Pods_tsuristagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0AAD7D826918070F3270B02 /* Pods_tsuristagramTests.framework */; };
-		FC38AF9521C12B4A00783D4D /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9421C12B4A00783D4D /* PostData.swift */; };
+		FC0BFC7521F9F4900054ABD2 /* PostPointDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7421F9F4900054ABD2 /* PostPointDetailPresenter.swift */; };
+		FC0BFC7721F9FD630054ABD2 /* PostPointDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */; };
+		FC38AF9521C12B4A00783D4D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9421C12B4A00783D4D /* Post.swift */; };
 		FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9621C133B400783D4D /* PostViewController.swift */; };
 		FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC38AF9821C1365300783D4D /* GoogleService-Info.plist */; };
 		FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D447021C1286300CEE24E /* TimeLineViewController.swift */; };
@@ -21,7 +23,7 @@
 		FC4F8B6B21BBAD8900B9493F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4F8B6921BBAD8900B9493F /* LaunchScreen.storyboard */; };
 		FC4F8B7621BBAD8900B9493F /* tsuristagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B7521BBAD8900B9493F /* tsuristagramTests.swift */; };
 		FC4F8B8121BBAD8900B9493F /* tsuristagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B8021BBAD8900B9493F /* tsuristagramUITests.swift */; };
-		FCF325CC21EC849B002CC3C4 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CB21EC849A002CC3C4 /* DateUtils.swift */; };
+		FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CB21EC849A002CC3C4 /* Date.swift */; };
 		FCF325CE21ECB307002CC3C4 /* PostPointDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +54,9 @@
 		B4312B7A65CCF5AC2F959D7A /* Pods-tsuristagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.release.xcconfig"; sourceTree = "<group>"; };
 		C0CF8EB332347102CCC2209E /* Pods-tsuristagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramTests/Pods-tsuristagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDBEDE6DCD2C8E9EC4866B19 /* Pods_tsuristagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC38AF9421C12B4A00783D4D /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		FC0BFC7421F9F4900054ABD2 /* PostPointDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointDetailPresenter.swift; sourceTree = "<group>"; };
+		FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointDetailRouter.swift; sourceTree = "<group>"; };
+		FC38AF9421C12B4A00783D4D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FC38AF9621C133B400783D4D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FC38AF9821C1365300783D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC3D447021C1286300CEE24E /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
@@ -69,7 +73,7 @@
 		FC4F8B7C21BBAD8900B9493F /* tsuristagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tsuristagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4F8B8021BBAD8900B9493F /* tsuristagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tsuristagramUITests.swift; sourceTree = "<group>"; };
 		FC4F8B8221BBAD8900B9493F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCF325CB21EC849A002CC3C4 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		FCF325CB21EC849A002CC3C4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +128,56 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FC0BFC6C21F8B37B0054ABD2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FCF325CB21EC849A002CC3C4 /* Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FC0BFC6F21F9E9200054ABD2 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FC38AF9421C12B4A00783D4D /* Post.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FC0BFC7021F9F3110054ABD2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FC0BFC7121F9F3460054ABD2 /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				FC3D447021C1286300CEE24E /* TimeLineViewController.swift */,
+			);
+			path = TimeLine;
+			sourceTree = "<group>";
+		};
+		FC0BFC7221F9F3500054ABD2 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				FC38AF9621C133B400783D4D /* PostViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		FC0BFC7321F9F35E0054ABD2 /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */,
+				FC0BFC7421F9F4900054ABD2 /* PostPointDetailPresenter.swift */,
+				FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */,
+			);
+			path = PostDetail;
+			sourceTree = "<group>";
+		};
 		FC4F8B5421BBAD8700B9493F = {
 			isa = PBXGroup;
 			children = (
@@ -149,18 +203,18 @@
 		FC4F8B5F21BBAD8700B9493F /* tsuristagram */ = {
 			isa = PBXGroup;
 			children = (
+				FC0BFC6C21F8B37B0054ABD2 /* Extensions */,
+				FC0BFC6F21F9E9200054ABD2 /* Entity */,
+				FC0BFC7021F9F3110054ABD2 /* Login */,
+				FC0BFC7121F9F3460054ABD2 /* TimeLine */,
+				FC0BFC7221F9F3500054ABD2 /* Post */,
+				FC0BFC7321F9F35E0054ABD2 /* PostDetail */,
 				FC4F8B6021BBAD8700B9493F /* AppDelegate.swift */,
-				FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */,
-				FC3D447021C1286300CEE24E /* TimeLineViewController.swift */,
-				FC38AF9621C133B400783D4D /* PostViewController.swift */,
-				FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */,
-				FC38AF9421C12B4A00783D4D /* PostData.swift */,
-				FCF325CB21EC849A002CC3C4 /* DateUtils.swift */,
 				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
-				FC38AF9821C1365300783D4D /* GoogleService-Info.plist */,
-				FC4F8B6721BBAD8900B9493F /* Assets.xcassets */,
 				FC4F8B6921BBAD8900B9493F /* LaunchScreen.storyboard */,
 				FC4F8B6C21BBAD8900B9493F /* Info.plist */,
+				FC38AF9821C1365300783D4D /* GoogleService-Info.plist */,
+				FC4F8B6721BBAD8900B9493F /* Assets.xcassets */,
 			);
 			path = tsuristagram;
 			sourceTree = "<group>";
@@ -464,12 +518,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */,
-				FCF325CC21EC849B002CC3C4 /* DateUtils.swift in Sources */,
+				FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */,
 				FC4F8B6121BBAD8700B9493F /* AppDelegate.swift in Sources */,
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
-				FC38AF9521C12B4A00783D4D /* PostData.swift in Sources */,
+				FC0BFC7521F9F4900054ABD2 /* PostPointDetailPresenter.swift in Sources */,
+				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
 				FCF325CE21ECB307002CC3C4 /* PostPointDetailViewController.swift in Sources */,
+				FC0BFC7721F9FD630054ABD2 /* PostPointDetailRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

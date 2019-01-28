@@ -28,8 +28,8 @@ class PostPointDetailRouterImpl: PostPointDetailRouter {
     }
     
     func saveButton() {
-        let navigationController = UINavigationController(rootViewController: postViewController!)
-        postPointDetailViewController?.present(navigationController, animated: true, completion: nil)
+        postPointDetailViewController?.dismiss(animated: true, completion: nil)
+
     }
     
     

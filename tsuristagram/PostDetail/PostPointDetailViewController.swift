@@ -15,20 +15,26 @@ class PostPointDetailViewController: UIViewController, GMSMapViewDelegate {
     
     var presenter: PostPointDetailPresenter!
 
-    var postData = Post()
+    var post = Post()
     var marker = GMSMarker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 遷移先viewController
         let postVC = storyboard!.instantiateViewController(withIdentifier: "postView") as? PostViewController
         let router = PostPointDetailRouterImpl(postPointDetailViewController: self, postViewController: postVC!)
-        self.presenter = PostPointDetailPresenterImpl(mapView: mapView, latitude: postData.latitude, longitude: postData.longitude, router: router)
+        self.presenter = PostPointDetailPresenterImpl(mapView: mapView, latitude: post.latitude, longitude: post.longitude, router: router)
 
         mapView.delegate = self
-        presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewWillAppear()
+
+    }
+
     /**
      * マップ上をロングタップすると呼ばれるメソッド
      */
@@ -36,6 +42,9 @@ class PostPointDetailViewController: UIViewController, GMSMapViewDelegate {
         presenter.didLongPressAt(coordinate: coordinate)
     }
 
+    /**
+    * 戻るボタン
+    */
     @IBAction func backButton(_ sender: Any) {
         presenter.backButton()
     }

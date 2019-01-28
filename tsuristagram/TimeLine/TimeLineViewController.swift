@@ -20,8 +20,8 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var uid_Array = [String]()
     var userPhoto_Array = [String]()
 
-    var postDataList = [Post]()
-    var postData = Post()
+    var postList = [Post]()
+    var post = Post()
 
     @IBOutlet var tableView: UITableView!
 
@@ -43,7 +43,7 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postDataList.count
+        return postList.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,13 +57,13 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let userPhoto = cell.viewWithTag(1) as! UIImageView
         userPhoto.layer.cornerRadius = userPhoto.frame.size.width * 0.5
         userPhoto.clipsToBounds = true
-        userPhoto.sd_setImage(with: URL(string: self.postDataList[indexPath.row].userPhoto), completed:nil)
+        userPhoto.sd_setImage(with: URL(string: self.postList[indexPath.row].userPhoto), completed:nil)
 
         let userNameLabel = cell.viewWithTag(2) as! UILabel
-        userNameLabel.text = self.postDataList[indexPath.row].userName
+        userNameLabel.text = self.postList[indexPath.row].userName
         
         let pictureImage = cell.viewWithTag(3) as! UIImageView
-        pictureImage.sd_setImage(with: URL(string: self.postDataList[indexPath.row].picture), completed:nil)
+        pictureImage.sd_setImage(with: URL(string: self.postList[indexPath.row].picture), completed:nil)
 
         
         return cell
@@ -99,9 +99,9 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let postVC = storyboard!.instantiateViewController(withIdentifier: "postView") as? PostViewController
         let _ = postVC?.view // ** hack code **
-        self.postData.uploadPhotoImage = image
-        self.postData.assetUrl = assetUrl
-        postVC?.postData = self.postData
+        self.post.uploadPhotoImage = image
+        self.post.assetUrl = assetUrl
+        postVC?.post = self.post
         postVC?.getPhotoMetaData()
 
         let navigationController = UINavigationController(rootViewController: postVC!)
@@ -114,7 +114,7 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func fetchData() {
-        self.postData = Post()
+        self.post = Post()
         self.userName_Array = [String]()
         self.date_Array = [String]()
         self.picture_Array = [String]()
@@ -129,19 +129,19 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
             if postsSnap == nil {
                 return
             }
-            self.postDataList = [Post]()
+            self.postList = [Post]()
             for (_,post) in postsSnap!{
-                self.postData = Post()
+                self.post = Post()
 
                 if let uid = post["userId"] as? String, let date = post["createDate"] as? String,let picture = post["picture"] as? String{
 
-                    self.postData.userId = uid
-                    self.postData.fishingDate = date
-                    self.postData.picture = picture
+                    self.post.userId = uid
+                    self.post.fishingDate = date
+                    self.post.picture = picture
 
-                    self.uid_Array.append(self.postData.userId)
-                    self.date_Array.append(self.postData.fishingDate)
-                    self.picture_Array.append(self.postData.picture)
+                    self.uid_Array.append(self.post.userId)
+                    self.date_Array.append(self.post.fishingDate)
+                    self.picture_Array.append(self.post.picture)
 
                     ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                         // Get user value
@@ -152,18 +152,18 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
                         }
                         let userPhoto = userSnap?["userPhoto"] as! String
                         let userName = userSnap?["userName"] as! String
-                        self.postData.userPhoto = userPhoto
-                        self.postData.userName = userName
+                        self.post.userPhoto = userPhoto
+                        self.post.userName = userName
 
-                        self.userPhoto_Array.append(self.postData.userPhoto)
-                        self.userName_Array.append(self.postData.userName)
+                        self.userPhoto_Array.append(self.post.userPhoto)
+                        self.userName_Array.append(self.post.userName)
 
                         // プロフィール画像を取得したタイミングでtableViewリロード
                         self.tableView.reloadData()
 
                     })
                 }
-                self.postDataList.append(self.postData)
+                self.postList.append(self.post)
             }
         }
     }

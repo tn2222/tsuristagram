@@ -10,26 +10,27 @@ import UIKit
 
 protocol PostPointDetailRouter {
     func backButton()
-    func saveButton()
+    func saveButton(post: Post)
 }
 
 class PostPointDetailRouterImpl: PostPointDetailRouter {
     fileprivate weak var postPointDetailViewController: PostPointDetailViewController?
     fileprivate var postViewController: PostViewController?
-
+    
     init(postPointDetailViewController: PostPointDetailViewController,
          postViewController: PostViewController) {
         self.postPointDetailViewController = postPointDetailViewController
         self.postViewController = postViewController
     }
-
+    
     func backButton() {
         postPointDetailViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func saveButton() {
-        postPointDetailViewController?.dismiss(animated: true, completion: nil)
-
+    func saveButton(post: Post) {
+        postViewController!.post = post
+        let navigationController = UINavigationController(rootViewController: postViewController!)
+        postPointDetailViewController?.present(navigationController, animated: true, completion: nil)        
     }
     
     

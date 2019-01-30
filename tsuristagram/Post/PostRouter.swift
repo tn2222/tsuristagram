@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 protocol PostRouter {
     func postButton()
     func cancelButton()
-    func pointDetailButton();
+    func pointDetailButton(post: Post);
 }
 
 class PostRouterImpl: PostRouter {
@@ -29,15 +30,16 @@ class PostRouterImpl: PostRouter {
     }
     
     func postButton() {
-        
+        SVProgressHUD.dismiss()
+        postViewController?.present(tabBarController!, animated: true, completion: nil)
     }
     
     func cancelButton() {
         postViewController?.present(tabBarController!, animated: true, completion: nil)
     }
 
-    func pointDetailButton() {
-        postPointDetailViewController?.post = postViewController!.post
+    func pointDetailButton(post: Post) {
+        postPointDetailViewController?.post = post
         postViewController?.present(postPointDetailViewController!,animated: true, completion: nil)
     }
     

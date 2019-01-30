@@ -14,6 +14,9 @@
          contextName = "closure #1 in TimeLineViewController.fetchData():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "snap.value">
+            </PersistentString>
+            <PersistentString
                value = "self.post.userPhoto">
             </PersistentString>
             <PersistentString
@@ -71,13 +74,10 @@
          contextName = "PostPointDetailViewController.viewDidLoad():PostPointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.postData.latitude">
+               value = "post">
             </PersistentString>
             <PersistentString
-               value = "self.postData.longitude">
-            </PersistentString>
-            <PersistentString
-               value = "presenter">
+               value = "post.latitude">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -94,6 +94,17 @@
          <PersistentStrings>
             <PersistentString
                value = "url.absoluteString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPresenterImpl.postButton():PostPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post.uploadPhotoImage">
+            </PersistentString>
+            <PersistentString
+               value = "post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -117,6 +128,12 @@
          contextName = "PostViewController.viewDidLoad():PostViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "postViewController">
+            </PersistentString>
+            <PersistentString
+               value = "post">
+            </PersistentString>
+            <PersistentString
                value = "self.navigationItem">
             </PersistentString>
          </PersistentStrings>
@@ -125,7 +142,7 @@
          contextName = "closure #1 in PostViewController.getPhotoMetaData():PostViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.fishingDate.text">
+               value = "self.post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -171,6 +188,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostPointDetailPresenterImpl.saveButton(post:):PostPointDetailPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "position.latitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostPointDetailRouterImpl.saveButton():PostPointDetailRouter.swift">
          <PersistentStrings>
             <PersistentString
@@ -181,6 +206,14 @@
             </PersistentString>
             <PersistentString
                value = "postPointDetailViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.postButton():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.view">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -201,6 +234,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in PostPresenterImpl.getPoint(latitude:longitude:):PostPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "snap.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostViewController.viewDidDisappear(_:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -217,6 +258,9 @@
       <ContextState
          contextName = "PostViewController.viewWillAppear(_:):PostViewController.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "post">
+            </PersistentString>
             <PersistentString
                value = "self.tabBarMyIndex">
             </PersistentString>

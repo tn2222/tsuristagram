@@ -14,6 +14,8 @@
 		FC0BFC7721F9FD630054ABD2 /* PostPointDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */; };
 		FC1CD02921FEFC6900C810CF /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02821FEFC6900C810CF /* PostPresenter.swift */; };
 		FC1CD02B21FEFC8400C810CF /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02A21FEFC8400C810CF /* PostRouter.swift */; };
+		FC1CD02D21FF264B00C810CF /* TimeLinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02C21FF264B00C810CF /* TimeLinePresenter.swift */; };
+		FC1CD02F21FF265D00C810CF /* TImeLineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02E21FF265D00C810CF /* TImeLineRouter.swift */; };
 		FC38AF9521C12B4A00783D4D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9421C12B4A00783D4D /* Post.swift */; };
 		FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9621C133B400783D4D /* PostViewController.swift */; };
 		FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC38AF9821C1365300783D4D /* GoogleService-Info.plist */; };
@@ -60,6 +62,8 @@
 		FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointDetailRouter.swift; sourceTree = "<group>"; };
 		FC1CD02821FEFC6900C810CF /* PostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
 		FC1CD02A21FEFC8400C810CF /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
+		FC1CD02C21FF264B00C810CF /* TimeLinePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLinePresenter.swift; sourceTree = "<group>"; };
+		FC1CD02E21FF265D00C810CF /* TImeLineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TImeLineRouter.swift; sourceTree = "<group>"; };
 		FC38AF9421C12B4A00783D4D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FC38AF9621C133B400783D4D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FC38AF9821C1365300783D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				FC3D447021C1286300CEE24E /* TimeLineViewController.swift */,
+				FC1CD02C21FF264B00C810CF /* TimeLinePresenter.swift */,
+				FC1CD02E21FF265D00C810CF /* TImeLineRouter.swift */,
 			);
 			path = TimeLine;
 			sourceTree = "<group>";
@@ -174,14 +180,14 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
-		FC0BFC7321F9F35E0054ABD2 /* PostDetail */ = {
+		FC0BFC7321F9F35E0054ABD2 /* PointDetail */ = {
 			isa = PBXGroup;
 			children = (
 				FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */,
 				FC0BFC7421F9F4900054ABD2 /* PostPointDetailPresenter.swift */,
 				FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */,
 			);
-			path = PostDetail;
+			path = PointDetail;
 			sourceTree = "<group>";
 		};
 		FC4F8B5421BBAD8700B9493F = {
@@ -214,7 +220,7 @@
 				FC0BFC7021F9F3110054ABD2 /* Login */,
 				FC0BFC7121F9F3460054ABD2 /* TimeLine */,
 				FC0BFC7221F9F3500054ABD2 /* Post */,
-				FC0BFC7321F9F35E0054ABD2 /* PostDetail */,
+				FC0BFC7321F9F35E0054ABD2 /* PointDetail */,
 				FC4F8B6021BBAD8700B9493F /* AppDelegate.swift */,
 				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
 				FC4F8B6921BBAD8900B9493F /* LaunchScreen.storyboard */,
@@ -524,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */,
+				FC1CD02D21FF264B00C810CF /* TimeLinePresenter.swift in Sources */,
 				FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */,
 				FC1CD02B21FEFC8400C810CF /* PostRouter.swift in Sources */,
 				FC1CD02921FEFC6900C810CF /* PostPresenter.swift in Sources */,
@@ -532,6 +539,7 @@
 				FC0BFC7521F9F4900054ABD2 /* PostPointDetailPresenter.swift in Sources */,
 				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
+				FC1CD02F21FF265D00C810CF /* TImeLineRouter.swift in Sources */,
 				FCF325CE21ECB307002CC3C4 /* PostPointDetailViewController.swift in Sources */,
 				FC0BFC7721F9FD630054ABD2 /* PostPointDetailRouter.swift in Sources */,
 			);

@@ -28,7 +28,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // settings navigation bar
         self.navigationItem.title = "釣果登録"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.cancel))
@@ -39,11 +39,22 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let tabbar = storyboard!.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController
         let router = PostRouterImpl(postViewController: self ,postPointDetailViewController: postDetailVC!, tabBarController: tabbar!)
         
-        self.presenter = PostPresenterImpl(post: post, router: router)
+        self.presenter = PostPresenterImpl(router: router)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter.getPoint(latitude: post.latitude, longitude: post.longitude)
+        
+        // dataClass to textField
+        size.text = post.size
+        weight.text = post.weight
+        fishSpecies.text = post.fishSpecies
+        fishingDate.text = post.fishingDate
+        comment.text =  post.comment
+        weather.text = post.weather
+        uploadPhoto.image = post.uploadPhotoImage
+
     }
 
     /**
@@ -58,13 +69,33 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     */
     @objc func postButton(){
         SVProgressHUD.show()
-        presenter.postButton()
-        SVProgressHUD.dismiss()
+        self.view?.isUserInteractionEnabled = false
+        self.navigationItem.leftBarButtonItem?.isEnabled = false
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+
+        presenter.postButton(post: self.post)
     }
     
     /**
-    * カメラロールから選択した写真のメタ情報を取得
+    * 釣り場詳細画面へ遷移
     */
+    @IBAction func pointDetail(_ sender: Any) {
+        
+        // textField to dataClassß
+        post.size = size.text!
+        post.weight = weight.text!
+        post.fishSpecies = fishSpecies.text!
+        post.fishingDate = fishingDate.text!
+        post.comment = comment.text!
+        post.weather = weather.text!
+        post.uploadPhotoImage = uploadPhoto.image!
+
+        presenter.pointDetailButton(post: self.post)
+    }
+
+    /**
+     * カメラロールから選択した写真のメタ情報を取得
+     */
     func getPhotoMetaData() {
         // PHAsset = Photo Library上の画像、ビデオ、ライブフォト用の型
         let result = PHAsset.fetchAssets(withALAssetURLs: [self.post.assetUrl], options: nil)
@@ -109,11 +140,5 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.uploadPhoto.image = self.post.uploadPhotoImage
     }
     
-    /**
-    * 釣り場詳細画面へ遷移
-    */
-    @IBAction func pointDetail(_ sender: Any) {
-        presenter.pointDetailButton()
-    }
 
 }

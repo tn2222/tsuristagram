@@ -133,7 +133,7 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
             for (_,post) in postsSnap!{
                 self.post = Post()
 
-                if let uid = post["userId"] as? String, let date = post["createDate"] as? String,let picture = post["picture"] as? String{
+                if let uid = post["userId"] as? String, let date = post["createDate"] as? String,let picture = post["picture"] as? String {
 
                     self.post.userId = uid
                     self.post.fishingDate = date

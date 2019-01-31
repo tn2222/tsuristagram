@@ -44,7 +44,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.getPoint(latitude: post.latitude, longitude: post.longitude)
+//        presenter.getPoint(latitude: post.latitude, longitude: post.longitude)
         
         // dataClass to textField
         size.text = post.size
@@ -52,7 +52,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         fishSpecies.text = post.fishSpecies
         fishingDate.text = post.fishingDate
         comment.text =  post.comment
-        weather.text = post.weather
+//        weather.text = post.weather
+        weather.text = post.pointName
+
         uploadPhoto.image = post.uploadPhotoImage
 
     }
@@ -106,34 +108,46 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             let url = contentEditingInput?.fullSizeImageURL
             let inputImage = CIImage(contentsOf: url!)!
             
+            var dateString = Date.currentTimeString(format: "yyyy/MM/dd HH:mm")
             // Exif
-            let exif = inputImage.properties["{Exif}"] as! Dictionary<String, Any>
-            
-            // 撮影日
-            let dateTimeOriginal = exif["DateTimeOriginal"] as! String
-            let dateTime = Date.stringToDate(string: dateTimeOriginal, format: "yyyy:MM:dd HH:mm:ss")
-            let dateString = Date.dateToString(date: dateTime, format: "yyyy/MM/dd HH:mm")
+            let exif = inputImage.properties["{Exif}"] as? Dictionary<String, Any>
+            if exif != nil {
+                // 撮影日
+                let dateTimeOriginal = exif!["DateTimeOriginal"] as! String
+                let dateTime = Date.stringToDate(string: dateTimeOriginal, format: "yyyy:MM:dd HH:mm:ss")
+                dateString = Date.dateToString(date: dateTime, format: "yyyy/MM/dd HH:mm")
+            }
             self.fishingDate.text = dateString
             self.post.fishingDate = dateString
-            
+
             // 位置情報
             var latitude: Double = 0.0
             var longitude: Double = 0.0
-            if inputImage.properties["{GPS}"] as? Dictionary<String,Any> != nil {
-                let gps = inputImage.properties["{GPS}"] as? Dictionary<String,Any>
-                latitude = gps!["Latitude"] as! Double
-                let latitudeRef = gps!["LatitudeRef"] as! String
-                longitude = gps!["Longitude"] as! Double
-                let longitudeRef = gps!["LongitudeRef"] as! String
-                if latitudeRef == "S" {
-                    latitude = latitude * -1
+            let gps = inputImage.properties["{GPS}"] as? Dictionary<String,Any>
+            if gps != nil {
+                if gps!["Latitude"] as? Double != nil {
+                    latitude = gps!["Latitude"] as! Double
+                    if gps!["LatitudeRef"] as? String != nil {
+                        let latitudeRef = gps!["LatitudeRef"] as! String
+                        if latitudeRef == "S" {
+                            latitude = latitude * -1
+                        }
+                    }
                 }
-                if longitudeRef == "W" {
-                    longitude = longitude * -1
+                if gps!["Longitude"] as? Double != nil {
+                    longitude = gps!["Longitude"] as! Double
+                    if gps!["LongitudeRef"] as? String != nil {
+                        let longitudeRef = gps!["LongitudeRef"] as! String
+                        if longitudeRef == "W" {
+                            longitude = longitude * -1
+                        }
+                    }
                 }
             }
             self.post.latitude = latitude
             self.post.longitude = longitude
+            self.presenter.getPoint(latitude: latitude, longitude: longitude)
+
         })
 
         // ビューに表示する

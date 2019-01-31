@@ -8,7 +8,6 @@
 
 import UIKit
 import GoogleSignIn
-import SwiftVideoBackground
 import Firebase
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {

@@ -29,24 +29,41 @@ class PostPresenterImpl: PostPresenter {
     }
 
     func getPoint(latitude: Double, longitude: Double) {
+        var nearest: Double?
+        var nearestName: String!
+        
         let ref = Database.database().reference()
         ref.child("point").observeSingleEvent(of: .value) { (snap,error) in
-            let pointSnap = snap.value as? [String : AnyObject] ?? [:]
-            
-
+            let pointSnap = snap.value as? [String:NSDictionary]
             if pointSnap == nil {
                 return
             }
-//            for (_,point) in pointSnap!{
-//                if let latitude = point["latitude"] as? String, let longitude = point["longitude"] as? String {
-//
-////                    distance()
-//                }
-//            }
+
+            for (_,point) in pointSnap!{
+                if let pointLatitude = point["latitude"] as? Double,
+                   let pointLongitude = point["longitude"] as? Double,
+                   let pointName = point["name"] as? String {
+                    
+                    var distance = self.distance(current: (la: latitude, lo: longitude), target: (la: pointLatitude, lo: pointLongitude))
+
+                    if (nearest == nil) {
+                        nearest = distance
+                        nearestName = pointName
+                    } else {
+                        if (distance < nearest!) {
+                            nearest = distance
+                            nearestName = pointName
+                        }
+                    }
+                }
+            }
+            print("一番近いポイント：" + nearestName + " 距離：" + "\(round(nearest!*10)/10)km")
+
         }
     }
         
 
+    
     func postButton(post: Post) {
         let currentTime = Date.currentTimeString()
         let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(self.myUid).child(currentTime + ".jpg")

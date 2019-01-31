@@ -19,7 +19,7 @@ struct Post {
     var comment: String = String()
     var fishingDate: String = String()
     var picture: String = String()
-    var pointId: Int = Int()
+    var pointName: String = String()
     var latitude: Double = Double()
     var longitude: Double = Double()
     var weather: String = String()

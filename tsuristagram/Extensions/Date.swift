@@ -17,6 +17,13 @@ extension Date {
         return formatter.string(from: now as Date)
     }
 
+    static func currentTimeString(format: String) -> String {
+        let now = NSDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: now as Date)
+    }
+
     static func stringToDate(string: String, format: String) -> Date {
         let formatter: DateFormatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")

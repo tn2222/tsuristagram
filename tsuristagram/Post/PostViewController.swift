@@ -37,15 +37,15 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         
         let postDetailVC = storyboard!.instantiateViewController(withIdentifier: "pointDetail") as? PostPointDetailViewController
+        let postSearchVC = storyboard!.instantiateViewController(withIdentifier: "pointSearch") as? PostPointSearchViewController
         let tabbar = storyboard!.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController
-        let router = PostRouterImpl(postViewController: self ,postPointDetailViewController: postDetailVC!, tabBarController: tabbar!)
+        let router = PostRouterImpl(postViewController: self ,postPointDetailViewController: postDetailVC!, postPointSearchViewController: postSearchVC!, tabBarController: tabbar!)
         
         self.presenter = PostPresenterImpl(router: router)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        presenter.getPoint(latitude: post.latitude, longitude: post.longitude)
         
         // dataClass to textField
         size.text = post.size
@@ -79,12 +79,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         presenter.postButton(post: self.post)
     }
     
-    /**
-    * 釣り場詳細画面へ遷移
-    */
-    @IBAction func pointDetail(_ sender: Any) {
-        
-        // textField to dataClassß
+    func setTextFiledToData() {
+        // textField to dataClass
         post.size = size.text!
         post.weight = weight.text!
         post.fishSpecies = fishSpecies.text!
@@ -93,10 +89,21 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         post.pointName = pointName.text!
         post.weather = weather.text!
         post.uploadPhotoImage = uploadPhoto.image!
-
+    }
+    
+    /**
+    * 釣り場詳細画面へ遷移
+    */
+    @IBAction func pointDetail(_ sender: Any) {
+        setTextFiledToData()
         presenter.pointDetailButton(post: self.post)
     }
 
+    @IBAction func pointSearch(_ sender: Any) {
+        setTextFiledToData()
+        presenter.pointSearchButton(post: self.post)
+    }
+    
     /**
      * カメラロールから選択した写真のメタ情報を取得
      */

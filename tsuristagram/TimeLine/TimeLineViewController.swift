@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import Photos
 
-class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let refreshControl = UIRefreshControl()
 

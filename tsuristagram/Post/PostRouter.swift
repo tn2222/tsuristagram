@@ -13,7 +13,8 @@ protocol PostRouter {
     func postButton()
     func cancelButton()
     func pointDetailButton(post: Post)
-    func setPoint(pointName: String);
+    func pointSearchButton(post: Post)
+    func setPoint(pointName: String)
 
 }
 
@@ -21,13 +22,16 @@ class PostRouterImpl: PostRouter {
     
     fileprivate weak var postViewController: PostViewController?
     fileprivate var postPointDetailViewController: PostPointDetailViewController?
+    fileprivate var postPointSearchViewController: PostPointSearchViewController?
     fileprivate var tabBarController: UITabBarController?
 
     init(postViewController: PostViewController,
          postPointDetailViewController: PostPointDetailViewController,
+         postPointSearchViewController: PostPointSearchViewController,
          tabBarController: UITabBarController) {
         self.postViewController = postViewController
         self.postPointDetailViewController = postPointDetailViewController
+        self.postPointSearchViewController =  postPointSearchViewController
         self.tabBarController = tabBarController
     }
     
@@ -44,7 +48,12 @@ class PostRouterImpl: PostRouter {
         postPointDetailViewController?.post = post
         postViewController?.present(postPointDetailViewController!,animated: true, completion: nil)
     }
-    
+
+    func pointSearchButton(post: Post) {
+        postPointSearchViewController?.post = post
+        postViewController?.present(postPointSearchViewController!,animated: true, completion: nil)
+    }
+
     func setPoint(pointName: String) {
         postViewController?.post.pointName = pointName
         postViewController?.pointName.text = pointName

@@ -19,7 +19,7 @@ protocol PostPointDetailPresenter {
 }
 
 class PostPointDetailPresenterImpl: PostPointDetailPresenter {
-    
+
     var mapView: GMSMapView
     var post: Post
     

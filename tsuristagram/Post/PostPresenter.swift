@@ -14,6 +14,7 @@ protocol PostPresenter {
     func postButton(post: Post)
     func cancelButton()
     func pointDetailButton(post: Post)
+    func pointSearchButton(post: Post)
 }
 
 class PostPresenterImpl: PostPresenter {
@@ -111,7 +112,11 @@ class PostPresenterImpl: PostPresenter {
     func pointDetailButton(post: Post) {
         router.pointDetailButton(post: post)
     }
-    
+
+    func pointSearchButton(post: Post) {
+        router.pointSearchButton(post: post)
+    }
+
     /**
     * 2点間の距離算出（球面三角法）
     */

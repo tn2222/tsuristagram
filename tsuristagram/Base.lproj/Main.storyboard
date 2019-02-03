@@ -251,7 +251,7 @@ This collection of awesome filters for your landscap…</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MJx-Rp-ABj">
-                                        <rect key="frame" x="16" y="332" width="359" height="1"/>
+                                        <rect key="frame" x="16" y="332" width="359" height="0.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.60392156862745094" green="0.60271537303924561" blue="0.60271537303924561" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -268,7 +268,7 @@ This collection of awesome filters for your landscap…</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-wo-uVD">
-                                        <rect key="frame" x="16" y="375" width="359" height="1"/>
+                                        <rect key="frame" x="16" y="375" width="359" height="0.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -285,7 +285,7 @@ This collection of awesome filters for your landscap…</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jHo-xr-s2a">
-                                        <rect key="frame" x="16" y="418" width="359" height="1"/>
+                                        <rect key="frame" x="16" y="418" width="359" height="0.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -302,7 +302,7 @@ This collection of awesome filters for your landscap…</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqV-ks-NxC">
-                                        <rect key="frame" x="18" y="490" width="359" height="1"/>
+                                        <rect key="frame" x="18" y="490" width="359" height="0.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -313,7 +313,7 @@ This collection of awesome filters for your landscap…</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TeE-vF-uZ1">
-                                        <rect key="frame" x="18" y="533" width="359" height="1"/>
+                                        <rect key="frame" x="18" y="533" width="359" height="0.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -330,7 +330,7 @@ This collection of awesome filters for your landscap…</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hck-v9-awf">
-                                        <rect key="frame" x="18" y="576" width="359" height="1"/>
+                                        <rect key="frame" x="18" y="576" width="359" height="0.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -349,7 +349,7 @@ This collection of awesome filters for your landscap…</string>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZUv-GI-Prt">
-                                        <rect key="frame" x="18" y="619" width="359" height="1"/>
+                                        <rect key="frame" x="18" y="619" width="359" height="0.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -360,7 +360,7 @@ This collection of awesome filters for your landscap…</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M9t-SX-4qm">
-                                        <rect key="frame" x="18" y="662" width="359" height="1"/>
+                                        <rect key="frame" x="18" y="662" width="359" height="0.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -370,13 +370,28 @@ This collection of awesome filters for your landscap…</string>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFL-PK-wMB">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFL-PK-wMB">
                                         <rect key="frame" x="121" y="418" width="246" height="73"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <attributedString key="attributedText"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Quc-ob-Bni">
+                                        <rect key="frame" x="121" y="533" width="246" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2an-G0-M9h">
+                                        <rect key="frame" x="18" y="539" width="349" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="arrow-right"/>
+                                        <connections>
+                                            <action selector="pointDetail:" destination="iZL-tH-N9A" eventType="touchUpInside" id="91U-sr-cSt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -401,6 +416,7 @@ This collection of awesome filters for your landscap…</string>
                         <outlet property="comment" destination="cFL-PK-wMB" id="83K-N1-VGh"/>
                         <outlet property="fishSpecies" destination="BEM-BO-lEH" id="HFj-IY-4cV"/>
                         <outlet property="fishingDate" destination="aOu-gZ-NRx" id="BBQ-vu-P7C"/>
+                        <outlet property="pointName" destination="Quc-ob-Bni" id="ogS-zI-QGw"/>
                         <outlet property="size" destination="MMM-wI-H6T" id="Lxq-ch-wfv"/>
                         <outlet property="uploadPhoto" destination="JVd-ew-gUO" id="RhR-Vx-Mys"/>
                         <outlet property="weather" destination="0b2-NT-ppM" id="M8S-0n-qNP"/>

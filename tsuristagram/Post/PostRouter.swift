@@ -12,7 +12,9 @@ import SVProgressHUD
 protocol PostRouter {
     func postButton()
     func cancelButton()
-    func pointDetailButton(post: Post);
+    func pointDetailButton(post: Post)
+    func setPoint(pointName: String);
+
 }
 
 class PostRouterImpl: PostRouter {
@@ -43,6 +45,10 @@ class PostRouterImpl: PostRouter {
         postViewController?.present(postPointDetailViewController!,animated: true, completion: nil)
     }
     
-    
+    func setPoint(pointName: String) {
+        postViewController?.post.pointName = pointName
+        postViewController?.pointName.text = pointName
+    }
+
 }
 

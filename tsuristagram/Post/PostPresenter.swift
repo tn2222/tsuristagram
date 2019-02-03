@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 
 protocol PostPresenter {
-//    var post: Post { get set }
     func getPoint(latitude: Double, longitude: Double)
     func postButton(post: Post)
     func cancelButton()
@@ -24,46 +23,49 @@ class PostPresenterImpl: PostPresenter {
 
     let router: PostRouter
 
+    var latitude: Double = Double()
+    var longitude: Double = Double()
+
     init(router: PostRouter) {
         self.router = router
     }
 
     func getPoint(latitude: Double, longitude: Double) {
+        self.latitude = latitude
+        self.longitude = longitude
+
+        FirebaseClient.observeSingleEvent(id: "point", of: .value, with: complate)
+    }
+    
+    /**
+    * コールバック
+    */
+    func complate(snapshot: [String:NSDictionary]) {
         var nearest: Double?
         var nearestName: String!
-        
-        let ref = Database.database().reference()
-        ref.child("point").observeSingleEvent(of: .value) { (snap,error) in
-            let pointSnap = snap.value as? [String:NSDictionary]
-            if pointSnap == nil {
-                return
-            }
 
-            for (_,point) in pointSnap!{
-                if let pointLatitude = point["latitude"] as? Double,
-                   let pointLongitude = point["longitude"] as? Double,
-                   let pointName = point["name"] as? String {
-                    
-                    var distance = self.distance(current: (la: latitude, lo: longitude), target: (la: pointLatitude, lo: pointLongitude))
+        for (_,snap) in snapshot {
+            if let pointLatitude = snap["latitude"] as? Double,
+                let pointLongitude = snap["longitude"] as? Double,
+                let pointName = snap["name"] as? String {
 
-                    if (nearest == nil) {
+                let distance = self.distance(current: (la: latitude, lo: longitude), target: (la: pointLatitude, lo: pointLongitude))
+
+                if (nearest == nil) {
+                    nearest = distance
+                    nearestName = pointName
+                } else {
+                    if (distance < nearest!) {
                         nearest = distance
                         nearestName = pointName
-                    } else {
-                        if (distance < nearest!) {
-                            nearest = distance
-                            nearestName = pointName
-                        }
                     }
                 }
             }
-            print("一番近いポイント：" + nearestName + " 距離：" + "\(round(nearest!*10)/10)km")
-
         }
+        print("一番近いポイント：" + nearestName + " 距離：" + "\(round(nearest!*10)/10)km")
+        self.router.setPoint(pointName: nearestName)
     }
-        
 
-    
     func postButton(post: Post) {
         let currentTime = Date.currentTimeString()
         let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(self.myUid).child(currentTime + ".jpg")

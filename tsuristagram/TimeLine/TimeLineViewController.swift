@@ -108,7 +108,7 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
         picker.present(navigationController, animated: true)
     }
 
-    @objc func refresh(){
+    @objc func refresh() {
         fetchData()
         refreshControl.endRefreshing()
     }

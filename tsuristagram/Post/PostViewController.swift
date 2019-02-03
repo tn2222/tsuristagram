@@ -19,6 +19,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet var fishingDate: UITextField!
     @IBOutlet var comment: UITextView!
 
+    @IBOutlet weak var pointName: UILabel!
     @IBOutlet var weather: UITextField!
     @IBOutlet var uploadPhoto: UIImageView!
     
@@ -44,7 +45,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        presenter.getPoint(latitude: post.latitude, longitude: post.longitude)
+        //        presenter.getPoint(latitude: post.latitude, longitude: post.longitude)
         
         // dataClass to textField
         size.text = post.size
@@ -52,24 +53,24 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         fishSpecies.text = post.fishSpecies
         fishingDate.text = post.fishingDate
         comment.text =  post.comment
-//        weather.text = post.weather
-        weather.text = post.pointName
-
+        pointName.text = post.pointName
+        weather.text = post.weather
+        
         uploadPhoto.image = post.uploadPhotoImage
-
+        
     }
 
     /**
     * 写真アップロードをキャンセル。タイムラインページへ遷移
     */
-    @objc func cancel(){
+    @objc func cancel() {
         presenter.cancelButton()
     }
 
     /**
     * firebaseにデータ登録
     */
-    @objc func postButton(){
+    @objc func postButton() {
         SVProgressHUD.show()
         self.view?.isUserInteractionEnabled = false
         self.navigationItem.leftBarButtonItem?.isEnabled = false
@@ -89,6 +90,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         post.fishSpecies = fishSpecies.text!
         post.fishingDate = fishingDate.text!
         post.comment = comment.text!
+        post.pointName = pointName.text!
         post.weather = weather.text!
         post.uploadPhotoImage = uploadPhoto.image!
 
@@ -147,7 +149,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             self.post.latitude = latitude
             self.post.longitude = longitude
             self.presenter.getPoint(latitude: latitude, longitude: longitude)
-
         })
 
         // ビューに表示する

@@ -16,6 +16,7 @@
 		FC1CD02B21FEFC8400C810CF /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02A21FEFC8400C810CF /* PostRouter.swift */; };
 		FC1CD02D21FF264B00C810CF /* TimeLinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02C21FF264B00C810CF /* TimeLinePresenter.swift */; };
 		FC1CD02F21FF265D00C810CF /* TImeLineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02E21FF265D00C810CF /* TImeLineRouter.swift */; };
+		FC1CD0322203332E00C810CF /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD0312203332E00C810CF /* FirebaseClient.swift */; };
 		FC38AF9521C12B4A00783D4D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9421C12B4A00783D4D /* Post.swift */; };
 		FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9621C133B400783D4D /* PostViewController.swift */; };
 		FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC38AF9821C1365300783D4D /* GoogleService-Info.plist */; };
@@ -64,6 +65,7 @@
 		FC1CD02A21FEFC8400C810CF /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
 		FC1CD02C21FF264B00C810CF /* TimeLinePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLinePresenter.swift; sourceTree = "<group>"; };
 		FC1CD02E21FF265D00C810CF /* TImeLineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TImeLineRouter.swift; sourceTree = "<group>"; };
+		FC1CD0312203332E00C810CF /* FirebaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		FC38AF9421C12B4A00783D4D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FC38AF9621C133B400783D4D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FC38AF9821C1365300783D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 			path = PointDetail;
 			sourceTree = "<group>";
 		};
+		FC1CD0332203333300C810CF /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				FC1CD0312203332E00C810CF /* FirebaseClient.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		FC4F8B5421BBAD8700B9493F = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				FC0BFC6C21F8B37B0054ABD2 /* Extensions */,
+				FC1CD0332203333300C810CF /* Firebase */,
 				FC0BFC6F21F9E9200054ABD2 /* Entity */,
 				FC0BFC7021F9F3110054ABD2 /* Login */,
 				FC0BFC7121F9F3460054ABD2 /* TimeLine */,
@@ -536,6 +547,7 @@
 				FC1CD02921FEFC6900C810CF /* PostPresenter.swift in Sources */,
 				FC4F8B6121BBAD8700B9493F /* AppDelegate.swift in Sources */,
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
+				FC1CD0322203332E00C810CF /* FirebaseClient.swift in Sources */,
 				FC0BFC7521F9F4900054ABD2 /* PostPointDetailPresenter.swift in Sources */,
 				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,

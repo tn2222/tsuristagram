@@ -247,7 +247,7 @@
 				FC0BFC6C21F8B37B0054ABD2 /* Extensions */,
 				FC1CD0332203333300C810CF /* Firebase */,
 				FC0BFC6F21F9E9200054ABD2 /* Entity */,
-				FC4F8E4C2208555500C02372 /* modules	 */,
+				FC4F8E4C2208555500C02372 /* Modules	 */,
 				FC4F8B6021BBAD8700B9493F /* AppDelegate.swift */,
 				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
 				FC4F8B6921BBAD8900B9493F /* LaunchScreen.storyboard */,
@@ -288,7 +288,7 @@
 			path = PostPointSearch;
 			sourceTree = "<group>";
 		};
-		FC4F8E4C2208555500C02372 /* modules	 */ = {
+		FC4F8E4C2208555500C02372 /* Modules	 */ = {
 			isa = PBXGroup;
 			children = (
 				FC0BFC7021F9F3110054ABD2 /* Login */,
@@ -297,7 +297,7 @@
 				FC0BFC7321F9F35E0054ABD2 /* PostPointDetail */,
 				FC4F8E412206E30900C02372 /* PostPointSearch */,
 			);
-			path = "modules\t";
+			path = "Modules\t";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

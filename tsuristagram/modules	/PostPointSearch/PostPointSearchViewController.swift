@@ -13,21 +13,18 @@ class PostPointSearchViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet var tableView: UITableView!
     
     var post = Post()
-    var presenter: PostPointSearchPresenter!
-    var pointList = [Point]()
+    var presenter: PostPointSearchViewPresenter!
+    var pointList = [Point](){
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
-        // 遷移先viewController
-        let postVC = storyboard!.instantiateViewController(withIdentifier: "postView") as? PostViewController
-        let router = PostPointSearchRouterImpl(postPointSearchViewController: self, postViewController: postVC!)
-        let interactor = PostPointSearchInteractorImpl()
-        self.presenter = PostPointSearchPresenterImpl(post: post,view: self, router: router,interactor: interactor)
-        interactor.delegate = self.presenter as? PostPointSearchInteractorDelegate
 
     }
 
@@ -61,11 +58,23 @@ class PostPointSearchViewController: UIViewController, UITableViewDelegate, UITa
         return 70
     }
 
+    // cellが選択された場合
+    func tableView(_ table: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectRow(at: indexPath)
+    }
+    
     @IBAction func backButton(_ sender: Any) {
         presenter.backButton()
     }
     
+    // 釣り場マスタ取得
     func fetchPointData() {
         presenter.fetchPointData()
     }
+    
+    // 画面リロード
+    func reloadData(pointList: [Point]) {
+        self.pointList = pointList
+    }
 }
+

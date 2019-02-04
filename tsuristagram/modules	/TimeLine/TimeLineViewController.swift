@@ -97,14 +97,16 @@ class TimeLineViewController: UIViewController,UITableViewDelegate,UITableViewDa
         // 選択したアイテムの元のバージョンのAssets Library URL
         let assetUrl = info[UIImagePickerController.InfoKey.referenceURL] as! URL
         
-        let postVC = storyboard!.instantiateViewController(withIdentifier: "postView") as? PostViewController
-        let _ = postVC?.view // ** hack code **
+//        let postVC = storyboard!.instantiateViewController(withIdentifier: "postView") as? PostViewController
+        let postVC = PostRouter.assembleModules() as! PostViewController
+
+        let _ = postVC.view // ** hack code **
         self.post.uploadPhotoImage = image
         self.post.assetUrl = assetUrl
-        postVC?.post = self.post
-        postVC?.getPhotoMetaData()
+        postVC.post = self.post
+        postVC.getPhotoMetaData()
 
-        let navigationController = UINavigationController(rootViewController: postVC!)
+        let navigationController = UINavigationController(rootViewController: postVC)
         picker.present(navigationController, animated: true)
     }
 

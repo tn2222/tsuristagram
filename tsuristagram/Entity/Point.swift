@@ -9,6 +9,7 @@
 import Foundation
 
 struct Point {
+    var id: String = String()
     var name: String = String()
     var address: String = String()
     var latitude: Double = Double()

@@ -8,16 +8,8 @@
 
 import UIKit
 
-protocol PostPointSearchInteractor {
-    func fetchPointData()
-}
-
-protocol PostPointSearchInteractorDelegate: class {
-    func interactor(_ postPointSearchInteractor: PostPointSearchInteractor, pointList: [Point])
-}
-
-class PostPointSearchInteractorImpl: PostPointSearchInteractor {
-    // 取得処理の通知はprotocolを介して行う
+class PostPointSearchInteractor: PostPointSearchUsecase {
+    // 取得処理の通知
     weak var delegate: PostPointSearchInteractorDelegate?
     
     func fetchPointData() {
@@ -26,12 +18,13 @@ class PostPointSearchInteractorImpl: PostPointSearchInteractor {
     
     func complate(snapshot: [String:NSDictionary]) {
         var pointList = [Point]()
-        for (_,snap) in snapshot {
+        for (id,snap) in snapshot {
             var point: Point = Point()
             if let latitude = snap["latitude"] as? Double,
                 let longitude = snap["longitude"] as? Double,
                 let name = snap["name"] as? String,
                 let address = snap["address"] as? String {
+                point.id = id
                 point.latitude = latitude
                 point.longitude = longitude
                 point.name = name

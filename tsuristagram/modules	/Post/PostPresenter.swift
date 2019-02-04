@@ -9,26 +9,22 @@
 import Foundation
 import Firebase
 
-protocol PostPresenter {
-    func getPoint(latitude: Double, longitude: Double)
-    func postButton(post: Post)
-    func cancelButton()
-    func pointDetailButton(post: Post)
-    func pointSearchButton(post: Post)
-}
-
-class PostPresenterImpl: PostPresenter {
+class PostViewPresenter: PostPointViewPresentable {
     
     // myUserId
     let myUid: String = UserDefaults.standard.object(forKey: "userId") as! String
 
+    let view: PostViewController
     let router: PostRouter
+    let interactor: PostInteractor
 
     var latitude: Double = Double()
     var longitude: Double = Double()
 
-    init(router: PostRouter) {
+    init(view: PostViewController, router: PostRouter, interactor: PostInteractor) {
+        self.view = view
         self.router = router
+        self.interactor = interactor
     }
 
     func getPoint(latitude: Double, longitude: Double) {
@@ -43,9 +39,10 @@ class PostPresenterImpl: PostPresenter {
     */
     func complate(snapshot: [String:NSDictionary]) {
         var nearest: Double?
+        var nearestPointId: String!
         var nearestName: String!
 
-        for (_,snap) in snapshot {
+        for (key, snap) in snapshot {
             if let pointLatitude = snap["latitude"] as? Double,
                 let pointLongitude = snap["longitude"] as? Double,
                 let pointName = snap["name"] as? String {
@@ -54,17 +51,19 @@ class PostPresenterImpl: PostPresenter {
 
                 if (nearest == nil) {
                     nearest = distance
+                    nearestPointId = key
                     nearestName = pointName
                 } else {
                     if (distance < nearest!) {
                         nearest = distance
+                        nearestPointId = key
                         nearestName = pointName
                     }
                 }
             }
         }
         print("一番近いポイント：" + nearestName + " 距離：" + "\(round(nearest!*10)/10)km")
-        self.router.setPoint(pointName: nearestName)
+        self.router.setPoint(pointName: nearestName, pointId: nearestPointId)
     }
 
     func postButton(post: Post) {

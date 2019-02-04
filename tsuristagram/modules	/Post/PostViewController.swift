@@ -25,7 +25,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     var post = Post()
     
-    var presenter: PostPresenter!
+    var presenter: PostViewPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +34,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.navigationItem.title = "釣果登録"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.cancel))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "シェア", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.postButton))
-        
-        
-        let postDetailVC = storyboard!.instantiateViewController(withIdentifier: "pointDetail") as? PostPointDetailViewController
-        let postSearchVC = storyboard!.instantiateViewController(withIdentifier: "pointSearch") as? PostPointSearchViewController
-        let tabbar = storyboard!.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController
-        let router = PostRouterImpl(postViewController: self ,postPointDetailViewController: postDetailVC!, postPointSearchViewController: postSearchVC!, tabBarController: tabbar!)
-        
-        self.presenter = PostPresenterImpl(router: router)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -163,4 +156,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
 
+    public func setPoint(id: String, name: String) {
+        self.post.pointId = id
+        self.post.pointName = name
+    }
 }

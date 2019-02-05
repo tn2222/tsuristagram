@@ -15,13 +15,13 @@ protocol PostPointSearchView: class {
 // MARK: - presenter
 protocol PostPointSearchViewPresentable: class {
     func backButton()
-    func fetchPointData()
-    func didSelectRow(at indexPath: IndexPath)
+    func fetchPointData(latitude: Double, longitude: Double)
+    func didSelectRow(point: Point)
 }
 
 // MARK: - interactor
 protocol PostPointSearchUsecase: class {
-    func fetchPointData()
+    func fetchPointData(latitude: Double, longitude: Double)
 }
 
 protocol PostPointSearchInteractorDelegate: class {

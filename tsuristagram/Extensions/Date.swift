@@ -6,7 +6,7 @@
 //  Copyright © 2019 takuya nakazawa. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension Date {
 

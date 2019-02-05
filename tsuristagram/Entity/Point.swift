@@ -14,4 +14,5 @@ struct Point {
     var address: String = String()
     var latitude: Double = Double()
     var longitude: Double = Double()
+    var distance: Double = Double()
 }

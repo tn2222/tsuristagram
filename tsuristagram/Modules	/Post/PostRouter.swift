@@ -64,9 +64,7 @@ class PostRouter: PostPointWireframe {
     func pointSearchButton(post: Post) {
         let postPointSearchViewController = PostPointSearchRouter.assembleModules() as! PostPointSearchViewController
 
-        postPointSearchViewController.post = post
-//        postViewController?.present(postPointSearchViewController,animated: true, completion: nil)
-        
+        postPointSearchViewController.post = post        
         postViewController?.navigationController?.pushViewController(postPointSearchViewController, animated: true)
 
     }

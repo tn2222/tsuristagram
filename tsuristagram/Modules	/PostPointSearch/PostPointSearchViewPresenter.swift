@@ -10,15 +10,16 @@ import Foundation
 
 class PostPointSearchViewPresenter: PostPointSearchViewPresentable {
     let view: PostPointSearchViewController
-    let router: PostPointSearchRouter
-    let interactor: PostPointSearchInteractor
+    let router: PostPointSearchWireframe
+    let interactor: PostPointSearchUsecase
+    
     var pointList = [Point]()  {
         didSet {
             view.reloadData(pointList: pointList)
         }
     }
 
-    init(view: PostPointSearchViewController, router: PostPointSearchRouter, interactor: PostPointSearchInteractor) {
+    init(view: PostPointSearchViewController, router: PostPointSearchWireframe, interactor: PostPointSearchUsecase) {
         self.view = view
         self.router = router
         self.interactor = interactor
@@ -28,14 +29,11 @@ class PostPointSearchViewPresenter: PostPointSearchViewPresentable {
         self.router.backButton()
     }
     
-    func fetchPointData() {
-        interactor.fetchPointData()
+    func fetchPointData(latitude: Double, longitude: Double) {
+        interactor.fetchPointData(latitude: latitude, longitude: longitude)
     }
     
-    func didSelectRow(at indexPath: IndexPath) {
-        guard indexPath.row < pointList.count else { return }
-        
-        let point = pointList[indexPath.row]
+    func didSelectRow(point: Point) {
         router.didSelectRow(point: point) // Routerに画面遷移を依頼
     }
 

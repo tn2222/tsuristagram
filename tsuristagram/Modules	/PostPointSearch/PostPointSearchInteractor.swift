@@ -11,8 +11,13 @@ import UIKit
 class PostPointSearchInteractor: PostPointSearchUsecase {
     // 取得処理の通知
     weak var delegate: PostPointSearchInteractorDelegate?
+    var latitude: Double!
+    var longitude: Double!
     
-    func fetchPointData() {
+    func fetchPointData(latitude: Double, longitude: Double) {
+        self.latitude = latitude
+        self.longitude = longitude
+        
         FirebaseClient.observeSingleEvent(id: "point", of: .value, with: complate)
     }
     
@@ -29,6 +34,8 @@ class PostPointSearchInteractor: PostPointSearchUsecase {
                 point.longitude = longitude
                 point.name = name
                 point.address = address
+                
+                point.distance = CommonUtils.distance(current: (la: self.latitude, lo: self.longitude), target: (la: latitude, lo: longitude))
             }
             pointList.append(point)
         }

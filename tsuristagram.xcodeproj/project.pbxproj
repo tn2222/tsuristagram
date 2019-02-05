@@ -10,6 +10,8 @@
 		90C2133E1D1DC90FAA0C52FC /* Pods_tsuristagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456680F874B96261FBADFBFD /* Pods_tsuristagramTests.framework */; };
 		9F0C8063E8997F3DD0E0C497 /* Pods_tsuristagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9305A8918A532D83AAA41D82 /* Pods_tsuristagramUITests.framework */; };
 		E036556B3007362637BE60C9 /* Pods_tsuristagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EFE6E984894FBFDC62ACA9 /* Pods_tsuristagram.framework */; };
+		FC026AB82209CB0C007E961C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC026AB72209CB0C007E961C /* String.swift */; };
+		FC026ABA2209D7E0007E961C /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC026AB92209D7E0007E961C /* CommonUtils.swift */; };
 		FC0BFC7521F9F4900054ABD2 /* PostPointDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7421F9F4900054ABD2 /* PostPointDetailPresenter.swift */; };
 		FC0BFC7721F9FD630054ABD2 /* PostPointDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */; };
 		FC1CD02921FEFC6900C810CF /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02821FEFC6900C810CF /* PostPresenter.swift */; };
@@ -67,6 +69,8 @@
 		9305A8918A532D83AAA41D82 /* Pods_tsuristagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tsuristagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C49983A0E44B53F5DA8AAD /* Pods-tsuristagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagramUITests/Pods-tsuristagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E66F0489837ED9026D66E919 /* Pods-tsuristagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.release.xcconfig"; sourceTree = "<group>"; };
+		FC026AB72209CB0C007E961C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		FC026AB92209D7E0007E961C /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		FC0BFC7421F9F4900054ABD2 /* PostPointDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointDetailPresenter.swift; sourceTree = "<group>"; };
 		FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointDetailRouter.swift; sourceTree = "<group>"; };
 		FC1CD02821FEFC6900C810CF /* PostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
@@ -154,10 +158,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FC026ABB2209D7E4007E961C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FC026AB92209D7E0007E961C /* CommonUtils.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		FC0BFC6C21F8B37B0054ABD2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				FCF325CB21EC849A002CC3C4 /* Date.swift */,
+				FC026AB72209CB0C007E961C /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -246,6 +259,7 @@
 			children = (
 				FC0BFC6C21F8B37B0054ABD2 /* Extensions */,
 				FC1CD0332203333300C810CF /* Firebase */,
+				FC026ABB2209D7E4007E961C /* Common */,
 				FC0BFC6F21F9E9200054ABD2 /* Entity */,
 				FC4F8E4C2208555500C02372 /* Modules	 */,
 				FC4F8B6021BBAD8700B9493F /* AppDelegate.swift */,
@@ -582,6 +596,7 @@
 			files = (
 				FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */,
 				FC4F8E5022086EFE00C02372 /* PostViewContract.swift in Sources */,
+				FC026AB82209CB0C007E961C /* String.swift in Sources */,
 				FC4F8E402206E30300C02372 /* PostPointSearchViewController.swift in Sources */,
 				FC1CD02D21FF264B00C810CF /* TimeLinePresenter.swift in Sources */,
 				FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */,
@@ -601,6 +616,7 @@
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
 				FC1CD02F21FF265D00C810CF /* TImeLineRouter.swift in Sources */,
 				FCF325CE21ECB307002CC3C4 /* PostPointDetailViewController.swift in Sources */,
+				FC026ABA2209D7E0007E961C /* CommonUtils.swift in Sources */,
 				FC0BFC7721F9FD630054ABD2 /* PostPointDetailRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

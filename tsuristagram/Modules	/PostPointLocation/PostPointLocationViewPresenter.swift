@@ -9,25 +9,14 @@
 import Foundation
 import GoogleMaps
 
-//protocol PostPointLocationPresenter {
-//    var mapView: GMSMapView { get }
-//    var post: Post { get set }
-//    func viewWillAppear()
-//    func didLongPressAt(coordinate: CLLocationCoordinate2D)
-//    func backButton()
-//    func saveButton(post: Post)
-//}
-
 class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
 
     var mapView: GMSMapView!
-    var post: Post!
     
     let view: PostPointLocationViewController
     let router: PostPointLocationWireframe
     
     private var marker = GMSMarker()
-    private var positionOriginal = CLLocationCoordinate2D()
     private var position = CLLocationCoordinate2D()
     
     init(view: PostPointLocationViewController, router: PostPointLocationWireframe) {
@@ -35,18 +24,25 @@ class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
         self.router = router
     }
 
-    func initialize(map: GMSMapView, post: Post) {
+    // マップ初期設定
+    func initialize(map: GMSMapView, latitude: Double, longitude: Double) {
         self.mapView = map
-        self.mapView.camera = GMSCameraPosition.camera(withLatitude: post.latitude,
-                                                  longitude: post.longitude,
+        self.mapView.camera = GMSCameraPosition.camera(withLatitude: latitude,
+                                                  longitude: longitude,
                                                   zoom: 15)
-        marker.position = CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude)
+        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         self.marker.map = mapView
-
         self.position = marker.position
-        self.positionOriginal = self.position
-        
-        self.post = post
+
+    }
+    
+    func saveButton() {
+        self.marker.position = position
+        router.saveButton(latitude: position.latitude, longitude: position.longitude)
+    }
+    
+    func backButton() {
+        router.backButton()
     }
     
     func didLongPressAt(coordinate: CLLocationCoordinate2D) {
@@ -63,17 +59,5 @@ class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
         // タップされた座標を保持
         self.position = coordinate
     }
-    
-    func saveButton(post: Post) {
-        self.marker.position = position
-        self.post.latitude = position.latitude
-        self.post.longitude = position.longitude
-        
-        router.saveButton(post: self.post)
-    }
-    
-    func backButton() {
-        router.backButton()
-    }
-    
+
 }

@@ -48,7 +48,7 @@ class PostRouter: PostWireframe {
         return view
     }
 
-    func postButton() {
+    func postComplate() {
         SVProgressHUD.dismiss()
         postViewController?.present(tabBarController!, animated: true, completion: nil)
     }
@@ -57,18 +57,21 @@ class PostRouter: PostWireframe {
         postViewController?.present(tabBarController!, animated: true, completion: nil)
     }
 
-    func pointSearchButton(post: Post) {
+    func pointSearchButton(pointList: [Point]) {
         let postPointSearchViewController = PostPointSearchRouter.assembleModules() as! PostPointSearchViewController
 
-        postPointSearchViewController.post = post        
+        postPointSearchViewController.pointListAll = pointList
         postViewController?.navigationController?.pushViewController(postPointSearchViewController, animated: true)
 
     }
     
-    func pointLocationButton(post: Post) {
+    func pointLocationButton(latitude: Double, longitude: Double) {
         let postPointLocationViewController = PostPointLocationRouter.assembleModules() as! PostPointLocationViewController
         
-        postPointLocationViewController.post = post
+        // 緯度経度を設定
+        postPointLocationViewController.latitude = latitude
+        postPointLocationViewController.longitude = longitude
+
         postViewController?.navigationController?.pushViewController(postPointLocationViewController, animated: true)
     }
 

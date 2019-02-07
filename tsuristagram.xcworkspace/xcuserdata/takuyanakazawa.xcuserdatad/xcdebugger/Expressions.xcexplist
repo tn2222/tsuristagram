@@ -300,6 +300,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostPointSearchViewController.pointList.didset:PostPointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tableView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostPointSearchPresenterImpl.pointList.didset:PostPointSearchPresenter.swift">
          <PersistentStrings>
             <PersistentString
@@ -362,10 +370,7 @@
          contextName = "PostPointSearchRouter.didSelectRow(point:):PostPointSearchRouter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "postViewController.post.pointId">
-            </PersistentString>
-            <PersistentString
-               value = "point.id">
+               value = "point">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

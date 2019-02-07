@@ -6,7 +6,8 @@
 //  Copyright © 2019 takuya nakazawa. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import Firebase
 
 class PostInteractor: PostUsecase {
     // 取得処理の通知
@@ -19,10 +20,10 @@ class PostInteractor: PostUsecase {
         self.latitude = latitude
         self.longitude = longitude
         
-        FirebaseClient.observeSingleEvent(id: "point", of: .value, with: complate)
+        FirebaseClient.observeSingleEvent(id: "point", of: .value, with: fetchComplate)
     }
  
-    func complate(snapshot: [String:NSDictionary]) {
+    func fetchComplate(snapshot: [String:NSDictionary]) {
         var pointList = [Point]()
         for (id,snap) in snapshot {
             var point: Point = Point()
@@ -43,5 +44,46 @@ class PostInteractor: PostUsecase {
         self.delegate?.interactor(self, pointList: pointList)
     }
 
+    
+    func postButton(post: Post) {
+        let currentTime = Date.currentTimeString()
+        let myUid = UserDefaults.standard.object(forKey: "userId") as! String
+
+        let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(myUid).child(currentTime + ".jpg")
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        let photoImageUploadData = post.uploadPhotoImage.jpegData(compressionQuality: 0.1)
+        
+        // FireStoreへアップロード
+        let uploadTask = photoImageRef.putData(photoImageUploadData!, metadata: metadata) { (metadata, err) in
+            guard let metadata = metadata else { return }
+            photoImageRef.downloadURL { (url, err) in
+                guard let url = url else { return }
+                
+                let feed = ["size": post.size,
+                            "weight": post.weight,
+                            "fishSpecies": post.fishSpecies,
+                            "comment": post.comment,
+                            "fishingDate": post.fishingDate,
+                            "picture": url.absoluteString,
+                            "pointId": "", // TODO
+                            "latitude": post.latitude,
+                            "longitude": post.longitude,
+                            "weather": post.weather,
+                            "userId": myUid,
+                            "createDate": currentTime,
+                            ] as [String:Any]
+
+                // FirebaseDBへ登録
+                FirebaseClient.setValue(id: "post", feed: feed, withCompletionBlock: self.postComplate)
+                
+            }
+        }
+    }
+
+    func postComplate(error: Error?, ref: DatabaseReference) {
+        self.delegate?.interactor(self, error: error)
+    }
 
 }

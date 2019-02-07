@@ -9,23 +9,24 @@
 import Foundation
 import FirebaseDatabase
 
-
 public protocol FirebaseClientProtocol {
-
-    static var database: DatabaseReference { get }
+    static var rootRef: DatabaseReference { get }
+    static var postRef: DatabaseReference { get }
+    
     static func observeSingleEvent(id: String, of eventType: DataEventType, with block: @escaping ([String:NSDictionary]) -> Void)
 }
 
 public extension FirebaseClientProtocol {
-    static var database: DatabaseReference { return Database.database().reference() }
-
+    static var rootRef: DatabaseReference { return Database.database().reference() }
+    static var postRef: DatabaseReference { return Database.database().reference(fromURL: "https://tsuristagram.firebaseio.com/") }
+    
 }
 
 class FirebaseClient: FirebaseClientProtocol {
 
     static func observeSingleEvent(id: String, of eventType: DataEventType,  with block: @escaping ([String:NSDictionary]) -> Void) {
 
-        let ref: DatabaseReference = self.database.child(id)
+        let ref: DatabaseReference = self.rootRef.child(id)
 
         ref.observeSingleEvent(of: .value) { (snap,error) in
             var snapshot: [String:NSDictionary]?
@@ -38,4 +39,8 @@ class FirebaseClient: FirebaseClientProtocol {
         }
     }
 
+    static func setValue(id: String, feed: [String:Any], withCompletionBlock block: @escaping (Error?, DatabaseReference) -> Void) {
+        let ref: DatabaseReference = self.postRef.child(id).childByAutoId()
+        ref.setValue(feed, withCompletionBlock: block)
+    }
 }

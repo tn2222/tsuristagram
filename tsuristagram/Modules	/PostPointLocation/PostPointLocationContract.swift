@@ -15,10 +15,10 @@ protocol PostPointLocationView: class {
 
 // MARK: - presenter
 protocol PostPointLocationViewPresentable: class {
-    func saveButton(post: Post)
-    func didLongPressAt(coordinate: CLLocationCoordinate2D)
-    func initialize(map: GMSMapView, post: Post)
+    func initialize(map: GMSMapView, latitude: Double, longitude: Double)
+    func saveButton()
     func backButton()
+    func didLongPressAt(coordinate: CLLocationCoordinate2D)
 }
 
 // MARK: - interactor
@@ -27,7 +27,7 @@ protocol PostPointLocationUsecase: class {
 
 // MARK: - router
 protocol PostPointLocationWireframe: class {
-    func saveButton(post: Post)
+    func saveButton(latitude: Double, longitude: Double)
     func backButton()
 }
 

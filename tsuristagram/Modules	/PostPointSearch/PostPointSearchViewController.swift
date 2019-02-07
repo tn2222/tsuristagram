@@ -13,7 +13,6 @@ class PostPointSearchViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     private var searchBar: UISearchBar!
 
-    var post = Post()
     var presenter: PostPointSearchViewPresentable!
     var pointListAll = [Point]()
     var pointList = [Point]() {
@@ -39,27 +38,12 @@ class PostPointSearchViewController: UIViewController {
         searchBar.showsCancelButton = true
 
         tableView.tableHeaderView = searchBar
-        //サーチバーの高さだけ初期位置を下げる
+        //検索バーの高さだけ初期位置を下げる
         tableView.contentOffset = CGPoint(x: 0,y :44)
-
+        
+        pointList = pointListAll
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchPointData()
-        tableView.reloadData()
-    }
-
-    // 釣り場マスタ取得
-    func fetchPointData() {
-        presenter.fetchPointData(latitude: self.post.latitude, longitude: self.post.longitude)
-    }
-    
-    // 画面リロード
-    func reloadData(pointList: [Point]) {
-        self.pointList = pointList
-        self.pointListAll = pointList
-    }
 }
 
 // searchBar
@@ -77,8 +61,8 @@ extension PostPointSearchViewController: UISearchBarDelegate {
         pointList = pointListAll
     }
 
+    //要素を検索
     func searchItems(searchText: String) {
-        //要素を検索する
         if searchText != "" {
             pointList = pointListAll.filter { point in
                 // 英数字は半角に変換してからcontaints

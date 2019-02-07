@@ -21,11 +21,8 @@ class PostPointSearchRouter: PostPointSearchWireframe {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let pointSearch = storyboard.instantiateViewController(withIdentifier: "pointSearch") as! PostPointSearchViewController
         let router = PostPointSearchRouter(postPointSearchViewController: pointSearch)
-        let interactor = PostPointSearchInteractor()
-        let presenter = PostPointSearchViewPresenter(view: pointSearch, router: router,interactor: interactor)
+        let presenter = PostPointSearchViewPresenter(view: pointSearch, router: router)
         
-        // Interactorの通知先を設定
-        interactor.delegate = presenter
         // ViewにPresenterを設定
         pointSearch.presenter = presenter
         

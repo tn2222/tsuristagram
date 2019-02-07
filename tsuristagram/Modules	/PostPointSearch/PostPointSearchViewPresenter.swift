@@ -11,34 +11,14 @@ import Foundation
 class PostPointSearchViewPresenter: PostPointSearchViewPresentable {
     let view: PostPointSearchViewController
     let router: PostPointSearchWireframe
-    let interactor: PostPointSearchUsecase
-    
-    var pointList = [Point]()  {
-        didSet {
-            view.reloadData(pointList: pointList)
-        }
-    }
 
-    init(view: PostPointSearchViewController, router: PostPointSearchWireframe, interactor: PostPointSearchUsecase) {
+    init(view: PostPointSearchViewController, router: PostPointSearchWireframe) {
         self.view = view
         self.router = router
-        self.interactor = interactor
     }
 
-    func fetchPointData(latitude: Double, longitude: Double) {
-        interactor.fetchPointData(latitude: latitude, longitude: longitude)
-    }
-    
+    // cellが呼ばれた場合
     func didSelectRow(point: Point) {
-        router.didSelectRow(point: point) // Routerに画面遷移を依頼
-    }
-
-}
-
-// Interactorからの通知受け取り
-extension PostPointSearchViewPresenter: PostPointSearchInteractorDelegate {
-    func interactor(_ postPointSearchUsecase: PostPointSearchUsecase, pointList: [Point]) {
-        self.pointList = pointList
+        router.didSelectRow(point: point)
     }
 }
-

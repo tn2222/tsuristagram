@@ -18,24 +18,14 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet var fishSpecies: UITextField!
     @IBOutlet var fishingDate: UITextField!
     @IBOutlet var comment: UITextView!
-
     @IBOutlet weak var pointName: UILabel!
     @IBOutlet var weather: UITextField!
     @IBOutlet var uploadPhoto: UIImageView!
     
     var post = Post()
-    
     var presenter: PostViewPresenter!
-
     var pointList = [Point]()  {
         didSet {
-            if pointList.count <= 0 { return }
-
-            // 釣り場までの距離で降順ソート
-            pointList.sort(by: {$0.distance < $1.distance})
-            // 一番近い釣り場をセット
-            post.pointName = pointList[0].name
-            post.pointId = pointList[0].id
             setDataToTextField()
         }
     }
@@ -52,11 +42,11 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        setDataToTextField()
+        setDataToTextField()
     }
 
+    // textField to dataClass
     func setTextFiledToData() {
-        // textField to dataClass
         post.size = size.text!
         post.weight = weight.text!
         post.fishSpecies = fishSpecies.text!
@@ -67,8 +57,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         post.uploadPhotoImage = uploadPhoto.image!
     }
     
+    // dataClass to textField
     func setDataToTextField() {
-        // dataClass to textField
         size.text = post.size
         weight.text = post.weight
         fishSpecies.text = post.fishSpecies
@@ -76,9 +66,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         comment.text =  post.comment
         pointName.text = post.pointName
         weather.text = post.weather
-        
         uploadPhoto.image = post.uploadPhotoImage
-        
     }
 
     // firebaseにデータ登録
@@ -98,18 +86,24 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     // 釣り場検索画面へ遷移
     @IBAction func pointSearch(_ sender: Any) {
-        setTextFiledToData()
-        presenter.pointSearchButton(post: self.post)
+        presenter.pointSearchButton(pointList: self.pointList)
     }
 
     // 釣り場詳細画面へ遷移
     @IBAction func postLocation(_ sender: Any) {
-        setTextFiledToData()
-        presenter.pointLocationButton(post: self.post)
-
+        presenter.pointLocationButton(latitude: self.post.latitude, longitude: self.post.longitude)
     }
 
+    // 画面表示でフェッチした釣り場マスタを設定
     func setPointList(pointList: [Point]) {
+        if pointList.count <= 0 { return }
+        
+        // 釣り場までの距離で降順ソートして、一番近い釣り場をセット
+        var sortList = pointList
+        sortList.sort(by: {$0.distance < $1.distance})
+        post.pointName = sortList[0].name
+        post.pointId = sortList[0].id
+
         self.pointList = pointList
     }
     
@@ -123,6 +117,17 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     public func setLocation(latitude: Double, longitude: Double) {
         self.post.latitude = latitude
         self.post.longitude = longitude
+        
+        // 選択されたロケーションの緯度経度から距離を再計算する
+        var pointListNew = [Point]()
+        for point in pointList {
+            var pointNew = Point()
+            let distance = CommonUtils.distance(current: (la: latitude, lo: longitude), target: (la: point.latitude, lo: point.longitude))
+            pointNew = point
+            pointNew.distance = distance
+            pointListNew.append(pointNew)
+        }
+        self.pointList = pointListNew
     }
 
 }

@@ -15,13 +15,13 @@ class PostPointLocationViewController: UIViewController {
     
     var presenter: PostPointLocationViewPresentable!
 
-    var post = Post()
+    var latitude: Double!
+    var longitude: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.backButton))
-
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.saveButton))
 
         mapView.delegate = self
@@ -30,19 +30,18 @@ class PostPointLocationViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.initialize(map: mapView, post: post)
+        presenter.initialize(map: mapView, latitude: latitude, longitude: longitude)
     }
     
     //保存ボタン
     @objc func saveButton() {
-        presenter.saveButton(post: post)
+        presenter.saveButton()
     }
     
     @objc func backButton() {
         presenter.backButton()
 
     }
-    
 }
 
 extension PostPointLocationViewController: GMSMapViewDelegate {

@@ -17,7 +17,6 @@ class PostPointLocationRouter: PostPointLocationWireframe {
     
     // 依存関係の解決
     static func assembleModules() -> UIViewController {
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let pointLocation = storyboard.instantiateViewController(withIdentifier: "pointLocation") as! PostPointLocationViewController
         let router = PostPointLocationRouter(postPointLocationViewController: pointLocation)
@@ -29,19 +28,14 @@ class PostPointLocationRouter: PostPointLocationWireframe {
         return pointLocation
     }
 
-    func saveButton(post: Post) {
+    func saveButton(latitude: Double, longitude:Double) {
         //呼び出し元のViewControllerを遷移履歴から取得し、パラメータを渡す
         let nav = postPointLocationViewController?.navigationController
         let pointView = nav!.viewControllers[nav!.viewControllers.count-2] as! PostViewController
-        pointView.setLocation(latitude: post.latitude, longitude: post.longitude)
+        pointView.setLocation(latitude: latitude, longitude: longitude)
         //閉じる
         postPointLocationViewController?.navigationController?.popViewController(animated: true)
 
-        
-        
-//        postViewController!.post = post
-//        let navigationController = UINavigationController(rootViewController: postViewController!)
-//        postPointLocationViewController?.present(navigationController, animated: true, completion: nil)
     }
     
     func backButton() {

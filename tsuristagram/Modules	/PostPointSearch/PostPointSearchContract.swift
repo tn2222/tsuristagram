@@ -14,7 +14,6 @@ protocol PostPointSearchView: class {
 
 // MARK: - presenter
 protocol PostPointSearchViewPresentable: class {
-    func backButton()
     func fetchPointData(latitude: Double, longitude: Double)
     func didSelectRow(point: Point)
 }
@@ -30,7 +29,6 @@ protocol PostPointSearchInteractorDelegate: class {
 
 // MARK: - router
 protocol PostPointSearchWireframe: class {
-    func backButton()
     func didSelectRow(point: Point)
 }
 

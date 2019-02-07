@@ -9,19 +9,19 @@
 import UIKit
 import SVProgressHUD
 
-class PostRouter: PostPointWireframe {
-    
+class PostRouter: PostWireframe {
+     
     fileprivate weak var postViewController: PostViewController?
-    fileprivate weak var postPointDetailViewController: PostPointDetailViewController?
-    fileprivate weak var postPointSearchViewController: PostPointSearchViewController?
-    fileprivate weak var tabBarController: UITabBarController?
+    fileprivate var postPointLocationViewController: PostPointLocationViewController?
+    fileprivate var postPointSearchViewController: PostPointSearchViewController?
+    fileprivate var tabBarController: UITabBarController?
 
     init(postViewController: PostViewController,
-         postPointDetailViewController: PostPointDetailViewController,
+         postPointLocationViewController: PostPointLocationViewController,
          postPointSearchViewController: PostPointSearchViewController,
          tabBarController: UITabBarController) {
         self.postViewController = postViewController
-        self.postPointDetailViewController = postPointDetailViewController
+        self.postPointLocationViewController = postPointLocationViewController
         self.postPointSearchViewController =  postPointSearchViewController
         self.tabBarController = tabBarController
     }
@@ -32,15 +32,16 @@ class PostRouter: PostPointWireframe {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "postView") as! PostViewController
 
-        let postDetailVC = storyboard.instantiateViewController(withIdentifier: "pointDetail") as? PostPointDetailViewController
+        let postLocationVC = storyboard.instantiateViewController(withIdentifier: "pointLocation") as? PostPointLocationViewController
         let postSearchVC = storyboard.instantiateViewController(withIdentifier: "pointSearch") as? PostPointSearchViewController
         let tabbar = storyboard.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController
-        let router = PostRouter(postViewController: view ,postPointDetailViewController: postDetailVC!, postPointSearchViewController: postSearchVC!, tabBarController: tabbar!)
+
+        let router = PostRouter(postViewController: view ,postPointLocationViewController: postLocationVC!, postPointSearchViewController: postSearchVC!, tabBarController: tabbar!)
         let interactor = PostInteractor()
         let presenter = PostViewPresenter(view: view, router: router, interactor: interactor)
 
         // Interactorの通知先を設定
-//        interactor.delegate = presenter
+        interactor.delegate = presenter
         // ViewにPresenterを設定
         view.presenter = presenter
         
@@ -56,11 +57,6 @@ class PostRouter: PostPointWireframe {
         postViewController?.present(tabBarController!, animated: true, completion: nil)
     }
 
-    func pointDetailButton(post: Post) {
-        postPointDetailViewController?.post = post
-        postViewController?.present(postPointDetailViewController!,animated: true, completion: nil)
-    }
-
     func pointSearchButton(post: Post) {
         let postPointSearchViewController = PostPointSearchRouter.assembleModules() as! PostPointSearchViewController
 
@@ -68,11 +64,12 @@ class PostRouter: PostPointWireframe {
         postViewController?.navigationController?.pushViewController(postPointSearchViewController, animated: true)
 
     }
-
-    func setPoint(pointName: String, pointId: String) {
-        postViewController?.post.pointName = pointName
-        postViewController?.pointName.text = pointName
-        postViewController?.post.pointId = pointId
+    
+    func pointLocationButton(post: Post) {
+        let postPointLocationViewController = PostPointLocationRouter.assembleModules() as! PostPointLocationViewController
+        
+        postPointLocationViewController.post = post
+        postViewController?.navigationController?.pushViewController(postPointLocationViewController, animated: true)
     }
 
 }

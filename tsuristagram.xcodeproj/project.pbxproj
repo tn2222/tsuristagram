@@ -12,9 +12,10 @@
 		E036556B3007362637BE60C9 /* Pods_tsuristagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EFE6E984894FBFDC62ACA9 /* Pods_tsuristagram.framework */; };
 		FC026AB82209CB0C007E961C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC026AB72209CB0C007E961C /* String.swift */; };
 		FC026ABA2209D7E0007E961C /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC026AB92209D7E0007E961C /* CommonUtils.swift */; };
-		FC0BFC7521F9F4900054ABD2 /* PostPointDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7421F9F4900054ABD2 /* PostPointDetailPresenter.swift */; };
-		FC0BFC7721F9FD630054ABD2 /* PostPointDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */; };
-		FC1CD02921FEFC6900C810CF /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02821FEFC6900C810CF /* PostPresenter.swift */; };
+		FC026ABD220B1FFF007E961C /* PostPointLocationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC026ABC220B1FFF007E961C /* PostPointLocationContract.swift */; };
+		FC0BFC7521F9F4900054ABD2 /* PostPointLocationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7421F9F4900054ABD2 /* PostPointLocationViewPresenter.swift */; };
+		FC0BFC7721F9FD630054ABD2 /* PostPointLocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7621F9FD630054ABD2 /* PostPointLocationRouter.swift */; };
+		FC1CD02921FEFC6900C810CF /* PostViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02821FEFC6900C810CF /* PostViewPresenter.swift */; };
 		FC1CD02B21FEFC8400C810CF /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02A21FEFC8400C810CF /* PostRouter.swift */; };
 		FC1CD02D21FF264B00C810CF /* TimeLinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02C21FF264B00C810CF /* TimeLinePresenter.swift */; };
 		FC1CD02F21FF265D00C810CF /* TImeLineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02E21FF265D00C810CF /* TImeLineRouter.swift */; };
@@ -39,7 +40,7 @@
 		FC4F8E5022086EFE00C02372 /* PostViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E4F22086EFE00C02372 /* PostViewContract.swift */; };
 		FC4F8E52220870ED00C02372 /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E51220870ED00C02372 /* PostInteractor.swift */; };
 		FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CB21EC849A002CC3C4 /* Date.swift */; };
-		FCF325CE21ECB307002CC3C4 /* PostPointDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */; };
+		FCF325CE21ECB307002CC3C4 /* PostPointLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CD21ECB307002CC3C4 /* PostPointLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,9 +72,10 @@
 		E66F0489837ED9026D66E919 /* Pods-tsuristagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tsuristagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram.release.xcconfig"; sourceTree = "<group>"; };
 		FC026AB72209CB0C007E961C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		FC026AB92209D7E0007E961C /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
-		FC0BFC7421F9F4900054ABD2 /* PostPointDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointDetailPresenter.swift; sourceTree = "<group>"; };
-		FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointDetailRouter.swift; sourceTree = "<group>"; };
-		FC1CD02821FEFC6900C810CF /* PostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
+		FC026ABC220B1FFF007E961C /* PostPointLocationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointLocationContract.swift; sourceTree = "<group>"; };
+		FC0BFC7421F9F4900054ABD2 /* PostPointLocationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointLocationViewPresenter.swift; sourceTree = "<group>"; };
+		FC0BFC7621F9FD630054ABD2 /* PostPointLocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointLocationRouter.swift; sourceTree = "<group>"; };
+		FC1CD02821FEFC6900C810CF /* PostViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewPresenter.swift; sourceTree = "<group>"; };
 		FC1CD02A21FEFC8400C810CF /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
 		FC1CD02C21FF264B00C810CF /* TimeLinePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLinePresenter.swift; sourceTree = "<group>"; };
 		FC1CD02E21FF265D00C810CF /* TImeLineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TImeLineRouter.swift; sourceTree = "<group>"; };
@@ -104,7 +106,7 @@
 		FC4F8E4F22086EFE00C02372 /* PostViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewContract.swift; sourceTree = "<group>"; };
 		FC4F8E51220870ED00C02372 /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
 		FCF325CB21EC849A002CC3C4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointDetailViewController.swift; sourceTree = "<group>"; };
+		FCF325CD21ECB307002CC3C4 /* PostPointLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,21 +209,22 @@
 			children = (
 				FC4F8E4F22086EFE00C02372 /* PostViewContract.swift */,
 				FC38AF9621C133B400783D4D /* PostViewController.swift */,
-				FC1CD02821FEFC6900C810CF /* PostPresenter.swift */,
+				FC1CD02821FEFC6900C810CF /* PostViewPresenter.swift */,
 				FC4F8E51220870ED00C02372 /* PostInteractor.swift */,
 				FC1CD02A21FEFC8400C810CF /* PostRouter.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
 		};
-		FC0BFC7321F9F35E0054ABD2 /* PostPointDetail */ = {
+		FC0BFC7321F9F35E0054ABD2 /* PostPointLocation */ = {
 			isa = PBXGroup;
 			children = (
-				FCF325CD21ECB307002CC3C4 /* PostPointDetailViewController.swift */,
-				FC0BFC7421F9F4900054ABD2 /* PostPointDetailPresenter.swift */,
-				FC0BFC7621F9FD630054ABD2 /* PostPointDetailRouter.swift */,
+				FC026ABC220B1FFF007E961C /* PostPointLocationContract.swift */,
+				FCF325CD21ECB307002CC3C4 /* PostPointLocationViewController.swift */,
+				FC0BFC7421F9F4900054ABD2 /* PostPointLocationViewPresenter.swift */,
+				FC0BFC7621F9FD630054ABD2 /* PostPointLocationRouter.swift */,
 			);
-			path = PostPointDetail;
+			path = PostPointLocation;
 			sourceTree = "<group>";
 		};
 		FC1CD0332203333300C810CF /* Firebase */ = {
@@ -308,7 +311,7 @@
 				FC0BFC7021F9F3110054ABD2 /* Login */,
 				FC0BFC7121F9F3460054ABD2 /* TimeLine */,
 				FC0BFC7221F9F3500054ABD2 /* Post */,
-				FC0BFC7321F9F35E0054ABD2 /* PostPointDetail */,
+				FC0BFC7321F9F35E0054ABD2 /* PostPointLocation */,
 				FC4F8E412206E30900C02372 /* PostPointSearch */,
 			);
 			path = "Modules\t";
@@ -601,23 +604,24 @@
 				FC1CD02D21FF264B00C810CF /* TimeLinePresenter.swift in Sources */,
 				FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */,
 				FC1CD02B21FEFC8400C810CF /* PostRouter.swift in Sources */,
-				FC1CD02921FEFC6900C810CF /* PostPresenter.swift in Sources */,
+				FC1CD02921FEFC6900C810CF /* PostViewPresenter.swift in Sources */,
 				FC4F8B6121BBAD8700B9493F /* AppDelegate.swift in Sources */,
 				FC4F8E432206E93000C02372 /* PostPointSearchViewPresenter.swift in Sources */,
 				FC4F8E492207258D00C02372 /* Point.swift in Sources */,
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
 				FC4F8E452206E93E00C02372 /* PostPointSearchRouter.swift in Sources */,
 				FC1CD0322203332E00C810CF /* FirebaseClient.swift in Sources */,
+				FC026ABD220B1FFF007E961C /* PostPointLocationContract.swift in Sources */,
 				FC4F8E4E2208655F00C02372 /* PostPointSearchContract.swift in Sources */,
 				FC4F8E52220870ED00C02372 /* PostInteractor.swift in Sources */,
 				FC4F8E472206FE9600C02372 /* PostPointSearchInteractor.swift in Sources */,
-				FC0BFC7521F9F4900054ABD2 /* PostPointDetailPresenter.swift in Sources */,
+				FC0BFC7521F9F4900054ABD2 /* PostPointLocationViewPresenter.swift in Sources */,
 				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
 				FC1CD02F21FF265D00C810CF /* TImeLineRouter.swift in Sources */,
-				FCF325CE21ECB307002CC3C4 /* PostPointDetailViewController.swift in Sources */,
+				FCF325CE21ECB307002CC3C4 /* PostPointLocationViewController.swift in Sources */,
 				FC026ABA2209D7E0007E961C /* CommonUtils.swift in Sources */,
-				FC0BFC7721F9FD630054ABD2 /* PostPointDetailRouter.swift in Sources */,
+				FC0BFC7721F9FD630054ABD2 /* PostPointLocationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

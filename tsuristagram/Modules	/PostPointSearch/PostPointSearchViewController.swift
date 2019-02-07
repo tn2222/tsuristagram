@@ -18,7 +18,7 @@ class PostPointSearchViewController: UIViewController {
     var pointListAll = [Point]()
     var pointList = [Point]() {
         didSet {
-            // 釣り場までの距離で降順ソート
+            // 距離で降順ソート
             pointList.sort(by: {$0.distance < $1.distance})
             tableView.reloadData()
         }
@@ -39,7 +39,7 @@ class PostPointSearchViewController: UIViewController {
         searchBar.showsCancelButton = true
 
         tableView.tableHeaderView = searchBar
-        //検索バーの高さだけ初期位置を下げる
+        //サーチバーの高さだけ初期位置を下げる
         tableView.contentOffset = CGPoint(x: 0,y :44)
 
     }
@@ -50,10 +50,6 @@ class PostPointSearchViewController: UIViewController {
         tableView.reloadData()
     }
 
-    @IBAction func backButton(_ sender: Any) {
-        presenter.backButton()
-    }
-    
     // 釣り場マスタ取得
     func fetchPointData() {
         presenter.fetchPointData(latitude: self.post.latitude, longitude: self.post.longitude)

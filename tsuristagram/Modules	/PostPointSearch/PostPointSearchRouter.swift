@@ -31,10 +31,6 @@ class PostPointSearchRouter: PostPointSearchWireframe {
         
         return pointSearch
     }
-
-    func backButton() {
-        postPointSearchViewController?.dismiss(animated: true, completion: nil)
-    }
     
     func didSelectRow(point: Point) {
         //呼び出し元のViewControllerを遷移履歴から取得し、パラメータを渡す

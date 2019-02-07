@@ -27,6 +27,19 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     var presenter: PostViewPresenter!
 
+    var pointList = [Point]()  {
+        didSet {
+            if pointList.count <= 0 { return }
+
+            // 釣り場までの距離で降順ソート
+            pointList.sort(by: {$0.distance < $1.distance})
+            // 一番近い釣り場をセット
+            post.pointName = pointList[0].name
+            post.pointId = pointList[0].id
+            setDataToTextField()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,7 +52,22 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+//        setDataToTextField()
+    }
+
+    func setTextFiledToData() {
+        // textField to dataClass
+        post.size = size.text!
+        post.weight = weight.text!
+        post.fishSpecies = fishSpecies.text!
+        post.fishingDate = fishingDate.text!
+        post.comment = comment.text!
+        post.pointName = pointName.text!
+        post.weather = weather.text!
+        post.uploadPhotoImage = uploadPhoto.image!
+    }
+    
+    func setDataToTextField() {
         // dataClass to textField
         size.text = post.size
         weight.text = post.weight
@@ -53,16 +81,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
 
-    /**
-    * 写真アップロードをキャンセル。タイムラインページへ遷移
-    */
-    @objc func cancel() {
-        presenter.cancelButton()
-    }
-
-    /**
-    * firebaseにデータ登録
-    */
+    // firebaseにデータ登録
     @objc func postButton() {
         SVProgressHUD.show()
         self.view?.isUserInteractionEnabled = false
@@ -72,34 +91,45 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         presenter.postButton(post: self.post)
     }
     
-    func setTextFiledToData() {
-        // textField to dataClass
-        post.size = size.text!
-        post.weight = weight.text!
-        post.fishSpecies = fishSpecies.text!
-        post.fishingDate = fishingDate.text!
-        post.comment = comment.text!
-        post.pointName = pointName.text!
-        post.weather = weather.text!
-        post.uploadPhotoImage = uploadPhoto.image!
-    }
-    
-    /**
-    * 釣り場詳細画面へ遷移
-    */
-    @IBAction func pointDetail(_ sender: Any) {
-        setTextFiledToData()
-        presenter.pointDetailButton(post: self.post)
+    //写真アップロードをキャンセル。タイムラインページへ遷移
+    @objc func cancel() {
+        presenter.cancelButton()
     }
 
+    // 釣り場検索画面へ遷移
     @IBAction func pointSearch(_ sender: Any) {
         setTextFiledToData()
         presenter.pointSearchButton(post: self.post)
     }
+
+    // 釣り場詳細画面へ遷移
+    @IBAction func postLocation(_ sender: Any) {
+        setTextFiledToData()
+        presenter.pointLocationButton(post: self.post)
+
+    }
+
+    func setPointList(pointList: [Point]) {
+        self.pointList = pointList
+    }
     
-    /**
-     * カメラロールから選択した写真のメタ情報を取得
-     */
+    // 釣り場検索画面で釣り場が選択された時に呼ばれる
+    public func setPoint(id: String, name: String) {
+        self.post.pointId = id
+        self.post.pointName = name
+    }
+
+    // 釣り場詳細画面でロケーションが選択された時に呼ばれる
+    public func setLocation(latitude: Double, longitude: Double) {
+        self.post.latitude = latitude
+        self.post.longitude = longitude
+    }
+
+}
+
+// TODO: 後々きれいにする
+extension PostViewController {
+    // カメラロールから選択した写真のメタ情報を取得
     func getPhotoMetaData() {
         // PHAsset = Photo Library上の画像、ビデオ、ライブフォト用の型
         let result = PHAsset.fetchAssets(withALAssetURLs: [self.post.assetUrl], options: nil)
@@ -121,7 +151,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             }
             self.fishingDate.text = dateString
             self.post.fishingDate = dateString
-
+            
             // 位置情報
             var latitude: Double = 0.0
             var longitude: Double = 0.0
@@ -148,16 +178,10 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             }
             self.post.latitude = latitude
             self.post.longitude = longitude
-            self.presenter.getPoint(latitude: latitude, longitude: longitude)
+            self.presenter.fetchPointData(latitude: latitude, longitude: longitude)
         })
-
+        
         // ビューに表示する
         self.uploadPhoto.image = self.post.uploadPhotoImage
-    }
-    
-
-    public func setPoint(id: String, name: String) {
-        self.post.pointId = id
-        self.post.pointName = name
     }
 }

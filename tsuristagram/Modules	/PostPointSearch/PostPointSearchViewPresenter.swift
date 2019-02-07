@@ -25,10 +25,6 @@ class PostPointSearchViewPresenter: PostPointSearchViewPresentable {
         self.interactor = interactor
     }
 
-    func backButton() {
-        self.router.backButton()
-    }
-    
     func fetchPointData(latitude: Double, longitude: Double) {
         interactor.fetchPointData(latitude: latitude, longitude: longitude)
     }

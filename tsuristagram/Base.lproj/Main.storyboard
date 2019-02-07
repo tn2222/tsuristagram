@@ -360,7 +360,7 @@ This collection of awesome filters for your landscap…</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="arrow-right"/>
                                         <connections>
-                                            <action selector="pointDetail:" destination="iZL-tH-N9A" eventType="touchUpInside" id="q8l-Jk-nlJ"/>
+                                            <action selector="postLocation:" destination="iZL-tH-N9A" eventType="touchUpInside" id="uSm-pC-kfj"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZUv-GI-Prt">
@@ -427,10 +427,10 @@ This collection of awesome filters for your landscap…</string>
             </objects>
             <point key="canvasLocation" x="1845.5999999999999" y="-284.25787106446779"/>
         </scene>
-        <!--Post Point Detail View Controller-->
+        <!--Post Point Location View Controller-->
         <scene sceneID="gdh-ea-mIY">
             <objects>
-                <viewController storyboardIdentifier="pointDetail" id="cBz-1p-DBf" customClass="PostPointDetailViewController" customModule="tsuristagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pointLocation" id="cBz-1p-DBf" customClass="PostPointLocationViewController" customModule="tsuristagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PcY-rF-JIe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,17 +439,9 @@ This collection of awesome filters for your landscap…</string>
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Back" id="EcZ-tT-hQb">
-                                        <connections>
-                                            <action selector="backButton:" destination="cBz-1p-DBf" id="FHR-z6-bxa"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Back" id="EcZ-tT-hQb"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="IbW-TI-Egy"/>
-                                    <barButtonItem title="Save" id="KF5-HI-bUm">
-                                        <connections>
-                                            <action selector="saveButton:" destination="cBz-1p-DBf" id="ygY-KN-87h"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Save" id="KF5-HI-bUm"/>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4th-yW-X3M" customClass="GMSMapView">
@@ -502,11 +494,7 @@ This collection of awesome filters for your landscap…</string>
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Back" id="HwP-bA-tGZ">
-                                        <connections>
-                                            <action selector="backButton:" destination="uUZ-19-zeI" id="Dnx-1c-e7E"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Back" id="HwP-bA-tGZ"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Esx-vI-P6A"/>
                                 </items>
                             </toolbar>

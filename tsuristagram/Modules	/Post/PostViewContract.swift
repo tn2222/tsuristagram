@@ -8,36 +8,33 @@
 
 import Foundation
 
-class PostViewContract: NSObject {
-
-}
-
 // MARK: - view
-protocol PostPointView: class {
+protocol PostView: class {
 }
 
 // MARK: - presenter
-protocol PostPointViewPresentable: class {
-    func getPoint(latitude: Double, longitude: Double)
+protocol PostViewPresentable: class {
+    func fetchPointData(latitude: Double, longitude: Double)
     func postButton(post: Post)
     func cancelButton()
-    func pointDetailButton(post: Post)
+    func pointLocationButton(post: Post)
     func pointSearchButton(post: Post)
 }
 
 // MARK: - interactor
-protocol PostPointUsecase: class {
+protocol PostUsecase: class {
+    func fetchPointData(latitude: Double, longitude: Double)
 }
 
-protocol PostPointInteractorDelegate: class {
+protocol PostInteractorDelegate: class {
+    func interactor(_ postUsecase: PostUsecase, pointList: [Point])
 }
 
 // MARK: - router
-protocol PostPointWireframe: class {
+protocol PostWireframe: class {
     func postButton()
     func cancelButton()
-    func pointDetailButton(post: Post)
+    func pointLocationButton(post: Post)
     func pointSearchButton(post: Post)
-    func setPoint(pointName: String, pointId: String)
 }
 

@@ -45,7 +45,9 @@
 		<key>ChannelID</key>
 		<string>1629813487</string>
 	</dict>
-	<key>Location When In Use Usage Description</key>
+	<key>NSLocationUsageDescription</key>
+	<string>このアプリは位置情報を取得します</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>このアプリは位置情報を取得します</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To Pick Up Photos</string>

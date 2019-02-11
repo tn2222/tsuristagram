@@ -18,6 +18,7 @@ struct Post {
     var fishSpecies: String = String()
     var comment: String = String()
     var fishingDate: String = String()
+    var timestamp: NSNumber = NSNumber()
     var picture: String = String()
     var pointId: String = String()
     var pointName: String = String()

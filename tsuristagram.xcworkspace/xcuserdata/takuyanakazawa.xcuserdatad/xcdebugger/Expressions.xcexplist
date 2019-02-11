@@ -3,11 +3,320 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tabBar.items">
+            </PersistentString>
+            <PersistentString
+               value = "tabBar">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostRouterImpl.cancelButton():PostRouter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tabBarController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewPresenter.done():TimeLineViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "timeLine">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointSearchInteractorImpl.complate(snapshot:):PostPointSearchInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.delegate">
+            </PersistentString>
+            <PersistentString
+               value = "delegate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointDetailViewPresenter.saveButton(post:):PostPointDetailViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "position">
+            </PersistentString>
+            <PersistentString
+               value = "self.post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.postButton():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.view">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointSearchViewController.pointList.didset:PostPointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tableView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointDetailViewController.viewWillAppear(_:):PostPointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "presenter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointSearchViewController.searchItems(searchText:):PostPointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pointList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.fetchUserData():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tabBarMyIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "info[UIImagePickerController.InfoKey.mediaMetadata]  ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.pointSearch(_:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "presenter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in TimeLineViewController.fetchData():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post.uid">
+            </PersistentString>
+            <PersistentString
+               value = "uid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.prepare(for:sender:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.latitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PostPointSearchViewController.searchItems(searchText:):PostPointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "point.name.caseInsensitiveCompare(searchText) ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostRouterImpl.pointDetailButton():PostRouter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postViewController">
+            </PersistentString>
+            <PersistentString
+               value = "postPointDetailViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointDetailViewController.mapView(_:didLongPressAt:):PostPointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.postData.latitude">
+            </PersistentString>
+            <PersistentString
+               value = "self.postData.longitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in static FirebaseClient.observeSingleEvent(id:limit:offset:of:with:):FirebaseClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "snapshot.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointSearchPresenterImpl.init(post:router:):PostPointSearchPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "interactor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.setPostData():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postData.fishingDate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.viewDidDisappear(_:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tabBarController!.tabBar.selectedItem!.tag">
+            </PersistentString>
+            <PersistentString
+               value = "self.tabBarController!.selectedIndex">
+            </PersistentString>
+            <PersistentString
+               value = "self.tabBarMyIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.viewDidLoad():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post">
+            </PersistentString>
+            <PersistentString
+               value = "postViewController">
+            </PersistentString>
+            <PersistentString
+               value = "self.navigationItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostPointSearchViewPresenter.didSelectRow(at:):PostPointSearchViewPresenter.swift">
          <PersistentStrings>
             <PersistentString
                value = "indexPath.row">
             </PersistentString>
+            <PersistentString
+               value = "pointList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.postData.uploadPhotoImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PostPresenterImpl.getPoint(latitude:longitude:):PostPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "longitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointSearchViewController.getInstance():PostPointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.myView">
+            </PersistentString>
+            <PersistentString
+               value = "storyboard">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.pointList.didset:PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineInteractor.fetchUserComplate(snapshot:):TimeLineInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "snapshot[&quot;TJfuuWVhSrM9Idw0pDSqNEBnPGZ2&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPresenterImpl.getPoint(latitude:longitude:):PostPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "complate">
+            </PersistentString>
+            <PersistentString
+               value = "pointLatitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointLocationRouter.saveButton(latitude:longitude:):PostPointLocationRouter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pointView.post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TimeLineViewController.fetchData():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "snap.value">
+            </PersistentString>
+            <PersistentString
+               value = "self.post.userPhoto">
+            </PersistentString>
+            <PersistentString
+               value = "self.userPhoto_Array">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostRouterImpl.pointSearchButton(post:):PostRouter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postPointSearchViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.viewDidAppear(_:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tabBarController!.selectedIndex">
+            </PersistentString>
+            <PersistentString
+               value = "self.tabBarController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointSearchViewPresenter.pointList.didset:PostPointSearchPresenter.swift">
+         <PersistentStrings>
             <PersistentString
                value = "pointList">
             </PersistentString>
@@ -31,338 +340,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostRouterImpl.pointDetailButton():PostRouter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "postPointDetailViewController">
-            </PersistentString>
-            <PersistentString
-               value = "postViewController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPresenterImpl.postButton():PostPresenter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "post.uploadPhotoImage">
-            </PersistentString>
-            <PersistentString
-               value = "post">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.setPostData():PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "postData.fishingDate">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointDetailPresenterImpl.init(mapView:latitude:longitude:router:):PostPointDetailPresenter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.router">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in AppDelegate.sign(_:didSignInFor:withError:):AppDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "userDefaults">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointSearchViewController.getInstance():PostPointSearchViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.myView">
-            </PersistentString>
-            <PersistentString
-               value = "storyboard">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointSearchInteractorImpl.complate(snapshot:):PostPointSearchInteractor.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.delegate">
-            </PersistentString>
-            <PersistentString
-               value = "delegate">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.fetchUserData():PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "tabBarMyIndex">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in TimeLineViewController.fetchData():TimeLineViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "snap.value">
-            </PersistentString>
-            <PersistentString
-               value = "self.post.userPhoto">
-            </PersistentString>
-            <PersistentString
-               value = "self.userPhoto_Array">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.viewDidDisappear(_:):PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.tabBarMyIndex">
-            </PersistentString>
-            <PersistentString
-               value = "self.tabBarController!.selectedIndex">
-            </PersistentString>
-            <PersistentString
-               value = "self.tabBarController!.tabBar.selectedItem!.tag">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointSearchPresenterImpl.init(post:router:):PostPointSearchPresenter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "interactor">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #1 in TimeLineViewController.fetchData():TimeLineViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.post.uid">
-            </PersistentString>
-            <PersistentString
-               value = "uid">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.postData.uploadPhotoImage">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.prepare(for:sender:):PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.latitude">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointDetailPresenterImpl.saveButton(post:):PostPointDetailPresenter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "position.latitude">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.viewDidLoad():PostViewController.swift">
+         contextName = "PostPointDetailViewController.viewDidLoad():PostPointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "post">
             </PersistentString>
             <PersistentString
-               value = "self.navigationItem">
-            </PersistentString>
-            <PersistentString
-               value = "postViewController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.setFiled():PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "comment">
-            </PersistentString>
-            <PersistentString
-               value = "postData.comment">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointSearchViewController.searchItems(searchText:):PostPointSearchViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "pointList">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointDetailRouterImpl.saveButton():PostPointDetailRouter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "postPointDetailViewController">
-            </PersistentString>
-            <PersistentString
-               value = "self.postViewController">
-            </PersistentString>
-            <PersistentString
-               value = "postViewController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointDetailViewPresenter.setLocation(map:):PostPointDetailViewPresenter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "map">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.postButton():PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.view">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointSearchViewPresenter.pointList.didset:PostPointSearchPresenter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "pointList">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostRouterImpl.pointSearchButton(post:):PostRouter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "postPointSearchViewController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointDetailViewController.mapView(_:didLongPressAt:):PostPointDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.postData.latitude">
-            </PersistentString>
-            <PersistentString
-               value = "self.postData.longitude">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostRouterImpl.cancelButton():PostRouter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "tabBarController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in PostViewController.getPhotoMetaData():PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "inputImage.properties[&quot;{Exif}&quot;]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in PostPointSearchViewController.searchItems(searchText:):PostPointSearchViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "point.name.caseInsensitiveCompare(searchText) ">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.pointList.didset:PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "post">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointSearchViewController.pointList.didset:PostPointSearchViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "tableView">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointSearchPresenterImpl.pointList.didset:PostPointSearchPresenter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "pointList">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in PostPresenterImpl.getPoint(latitude:longitude:):PostPresenter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "longitude">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "info[UIImagePickerController.InfoKey.mediaMetadata]  ">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPresenterImpl.getPoint(latitude:longitude:):PostPresenter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "complate">
-            </PersistentString>
-            <PersistentString
-               value = "pointLatitude">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #1 in PostViewController.post(_:):PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "url.absoluteString">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.pointSearch(_:):PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "presenter">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TimeLineViewController.fetchData():TimeLineViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.posts">
+               value = "post.latitude">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -383,40 +367,35 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostPointSearchViewController.tableView(_:cellForRowAt:):PostPointSearchViewController.swift">
+         contextName = "PostPointDetailPresenterImpl.saveButton(post:):PostPointDetailPresenter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "elf.pointList[indexPath.row].distance">
+               value = "position.latitude">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostPointDetailViewController.viewWillAppear(_:):PostPointDetailViewController.swift">
+         contextName = "closure #1 in static FirebaseClient.observeSingleEvent(id:limit:offset:of:with:):FirebaseClient.swift">
          <PersistentStrings>
             <PersistentString
-               value = "presenter">
+               value = "snap.value">
+            </PersistentString>
+            <PersistentString
+               value = "snap.key">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostPointDetailViewPresenter.saveButton(post:):PostPointDetailViewPresenter.swift">
+         contextName = "PostPointDetailRouterImpl.saveButton():PostPointDetailRouter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "position">
+               value = "postPointDetailViewController">
             </PersistentString>
             <PersistentString
-               value = "self.post">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostPointDetailViewController.viewDidLoad():PostPointDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "post">
+               value = "self.postViewController">
             </PersistentString>
             <PersistentString
-               value = "post.latitude">
+               value = "postViewController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -432,6 +411,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostPointDetailPresenterImpl.init(mapView:latitude:longitude:router:):PostPointDetailPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.router">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointSearchViewController.tableView(_:cellForRowAt:):PostPointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "elf.pointList[indexPath.row].distance">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in PostViewController.showUploadPhoto():PostViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -440,13 +435,75 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostViewController.viewDidAppear(_:):PostViewController.swift">
+         contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.tabBarController!.selectedIndex">
+               value = "Date()">
             </PersistentString>
             <PersistentString
-               value = "self.tabBarController">
+               value = "NSDate()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PostViewController.getPhotoMetaData():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "inputImage.properties[&quot;{Exif}&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.setFiled():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "comment">
+            </PersistentString>
+            <PersistentString
+               value = "postData.comment">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewPresenter.interactor(_:pointList:):TimeLineViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "timeLine">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.viewDidLoad():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "presenter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointSearchPresenterImpl.pointList.didset:PostPointSearchPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pointList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.fetchData():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.posts">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPresenterImpl.postButton():PostPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post.uploadPhotoImage">
+            </PersistentString>
+            <PersistentString
+               value = "post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -455,6 +512,38 @@
          <PersistentStrings>
             <PersistentString
                value = "self.delegate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.setDataToTextField():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointDetailViewPresenter.setLocation(map:):PostPointDetailViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "map">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AppDelegate.sign(_:didSignInFor:withError:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userDefaults">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in PostViewController.post(_:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url.absoluteString">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

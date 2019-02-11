@@ -30,6 +30,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
 
+    var locationManager: CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +40,10 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.cancel))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "シェア", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.postButton))
 
+        // ロケーションマネージャー
+//        locationManager = CLLocationManager()
+//        locationManager.delegate = self
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +97,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     // 釣り場詳細画面へ遷移
     @IBAction func postLocation(_ sender: Any) {
+        setTextFiledToData()
         presenter.pointLocationButton(latitude: self.post.latitude, longitude: self.post.longitude)
     }
 
@@ -140,19 +147,24 @@ extension PostViewController {
         let result = PHAsset.fetchAssets(withALAssetURLs: [self.post.assetUrl], options: nil)
         let asset = result.firstObject
         
+        var dateString = Date.currentTimeString(format: "yyyy/MM/dd HH:mm")
+        self.fishingDate.text = dateString
+        self.post.fishingDate = dateString
+
         // コンテンツ編集セッションを開始するためのアセットの要求
         asset?.requestContentEditingInput(with: nil, completionHandler: { contentEditingInput, info in
             let url = contentEditingInput?.fullSizeImageURL
             let inputImage = CIImage(contentsOf: url!)!
             
-            var dateString = Date.currentTimeString(format: "yyyy/MM/dd HH:mm")
             // Exif
             let exif = inputImage.properties["{Exif}"] as? Dictionary<String, Any>
             if exif != nil {
                 // 撮影日
-                let dateTimeOriginal = exif!["DateTimeOriginal"] as! String
-                let dateTime = Date.stringToDate(string: dateTimeOriginal, format: "yyyy:MM:dd HH:mm:ss")
-                dateString = Date.dateToString(date: dateTime, format: "yyyy/MM/dd HH:mm")
+                let dateTimeOriginal = exif!["DateTimeOriginal"] as? String
+                if dateTimeOriginal != nil {
+                    let dateTime = Date.stringToDate(string: dateTimeOriginal!, format: "yyyy:MM:dd HH:mm:ss")
+                    dateString = Date.dateToString(date: dateTime, format: "yyyy/MM/dd HH:mm")
+                }
             }
             self.fishingDate.text = dateString
             self.post.fishingDate = dateString
@@ -185,8 +197,46 @@ extension PostViewController {
             self.post.longitude = longitude
             self.presenter.fetchPointData(latitude: latitude, longitude: longitude)
         })
-        
+
         // ビューに表示する
         self.uploadPhoto.image = self.post.uploadPhotoImage
     }
 }
+
+//extension PostViewController: CLLocationManagerDelegate {
+//
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        switch status {
+//        case .notDetermined:
+//            print("ユーザーはこのアプリケーションに関してまだ選択を行っていません")
+//            // 許可を求めるコードを記述する（後述）
+//            locationManager.requestWhenInUseAuthorization() // 起動中のみの取得許可を求める
+//
+//            break
+//        case .denied:
+//            print("ローケーションサービスの設定が「無効」になっています (ユーザーによって、明示的に拒否されています）")
+//            // 「設定 > プライバシー > 位置情報サービス で、位置情報サービスの利用を許可して下さい」を表示する
+//            locationManager.requestWhenInUseAuthorization() // 起動中のみの取得許可を求める
+//            break
+//        case .restricted:
+//            print("このアプリケーションは位置情報サービスを使用できません(ユーザによって拒否されたわけではありません)")
+//            // 「このアプリは、位置情報を取得できないために、正常に動作できません」を表示する
+//            break
+//        case .authorizedAlways:
+//            print("常時、位置情報の取得が許可されています。")
+//            locationManager.startUpdatingLocation()
+//            break
+//        case .authorizedWhenInUse:
+//            print("起動時のみ、位置情報の取得が許可されています。")
+//             locationManager.requestLocation()
+//            break
+//        }
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        for location in locations {
+//            print("緯度:\(location.coordinate.latitude) 経度:\(location.coordinate.longitude) 取得時刻:\(location.timestamp.description)")
+//        }
+//    }
+//
+//}

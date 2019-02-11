@@ -19,6 +19,7 @@ target 'tsuristagram' do
 #  pod 'SwipeMenuViewController'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'IQKeyboardManagerSwift'
 
 
   target 'tsuristagramTests' do

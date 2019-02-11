@@ -47,6 +47,8 @@ class PostInteractor: PostUsecase {
     
     func postButton(post: Post) {
         let currentTime = Date.currentTimeString()
+        let timestamp: NSNumber = NSNumber(value:Int(Date().timeIntervalSince1970))
+
         let myUid = UserDefaults.standard.object(forKey: "userId") as! String
 
         let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(myUid).child(currentTime + ".jpg")
@@ -67,17 +69,16 @@ class PostInteractor: PostUsecase {
                             "comment": post.comment,
                             "fishingDate": post.fishingDate,
                             "picture": url.absoluteString,
-                            "pointId": "", // TODO
+                            "pointId": post.pointId,
                             "latitude": post.latitude,
                             "longitude": post.longitude,
                             "weather": post.weather,
                             "userId": myUid,
-                            "createDate": currentTime,
+                            "timestamp": timestamp,
                             ] as [String:Any]
 
                 // FirebaseDBへ登録
                 FirebaseClient.setValue(id: "post", feed: feed, withCompletionBlock: self.postComplate)
-                
             }
         }
     }

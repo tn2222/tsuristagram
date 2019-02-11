@@ -36,4 +36,7 @@ class CommonUtils {
         return round(distance*10)/10
     }
 
+    static func getUserId() -> String {
+        return UserDefaults.standard.object(forKey: "userId") as! String
+    }
 }

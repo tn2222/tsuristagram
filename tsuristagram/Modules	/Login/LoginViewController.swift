@@ -16,14 +16,14 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
         
-//        try? VideoBackground.shared.play(view: view, videoName: "nc92133", videoType: "mp4", willLoopVideo: true)
-
     }
 
     @IBAction func tapGoogleSignIn(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
-        performSegue(withIdentifier: "next", sender: nil)
-        
+
+        let tabbar = MainTabBarViewController()
+        self.present(tabbar, animated: true, completion: nil)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {

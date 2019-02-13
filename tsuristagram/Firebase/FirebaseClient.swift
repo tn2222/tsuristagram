@@ -7,20 +7,20 @@
 //
 
 import Foundation
-import FirebaseDatabase
+import Firebase
 
 public protocol FirebaseClientProtocol {
     static var rootRef: DatabaseReference { get }
     static var postRef: DatabaseReference { get }
-//    static var imageRef: StorageReference { get }
+    static var imageRef: StorageReference { get }
 
-    static func observeSingleEvent(id: String, of eventType: DataEventType, with block: @escaping ([String:NSDictionary]) -> Void)
+//    static func observeSingleEvent(id: String, of eventType: DataEventType, with block: @escaping ([String:NSDictionary]) -> Void)
 }
 
 public extension FirebaseClientProtocol {
     static var rootRef: DatabaseReference { return Database.database().reference() }
     static var postRef: DatabaseReference { return Database.database().reference(fromURL: "https://tsuristagram.firebaseio.com/") }
-//    static var imageRef: StorageReference { return Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images") }
+    static var imageRef: StorageReference { return Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images") }
     
 }
 
@@ -54,27 +54,36 @@ class FirebaseClient: FirebaseClientProtocol {
         }
     }
     
-    static func observeSingleEvent(id: String, limit: UInt, offset: String, of eventType: DataEventType,  with block: @escaping ([String: AnyObject]) -> Void) {
+    static func observeSingleEvent(id: String, key: String, of eventType: DataEventType,  with block: @escaping ([String:AnyObject]) -> Void) {
         
-        let ref = self.rootRef.child(id)
-            .queryOrdered(byChild: "no")
-//            .queryLimited(toLast: limit)
-
-        
-        ref.observe(.childAdded, with: { (snap) in
-//            ref.removeAllObservers()
-
+        let ref = self.rootRef.child(id).child(key)
+        ref.observeSingleEvent(of: .value) { (snap,error) in
             var dic: [String: AnyObject] = [:]
             snap.children.forEach({ (snapshot) in
                 if let snapshot: DataSnapshot = snapshot as? DataSnapshot {
-                    dic.updateValue(snapshot.value as! AnyObject, forKey: snapshot.key)
+                    dic.updateValue(snapshot.value as AnyObject, forKey: snapshot.key)
                 }
             })
-            if dic != nil {
-                block(dic)
-            } else {
-                block([:])
-            }
+            block(dic)
+        }
+    }
+
+    static func observe(id: String, limit: UInt, offset: Int, of eventType: DataEventType,  with block: @escaping ([String: AnyObject]) -> Void) {
+        
+        let ref = self.rootRef.child(id)
+            .queryOrdered(byChild: "timestamp")
+            .queryStarting(atValue: offset)
+            .queryLimited(toFirst: limit)
+
+        ref.observe(.childAdded, with: { (snap) in
+            ref.removeAllObservers()
+            var dic: [String: AnyObject] = [:]
+            snap.children.forEach({ (snapshot) in
+                if let snapshot: DataSnapshot = snapshot as? DataSnapshot {
+                    dic.updateValue(snapshot.value as AnyObject, forKey: snapshot.key)
+                }
+            })
+            block(dic)
         })
     }
 

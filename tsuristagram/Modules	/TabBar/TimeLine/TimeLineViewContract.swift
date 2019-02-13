@@ -20,16 +20,15 @@ protocol TimeLinePresentable: class {
 
 // MARK: - interactor
 protocol TimeLineUsecase: class {
+    var isFetching: Bool {get}
     func fetchPostData()
-    func fetchUserData()
-    func fetchPointData()
+    func fetchUserData(userId: String)
 }
 
 protocol TimeLineInteractorDelegate: class {
-    func interactor(_ timeLineUsecase: TimeLineUsecase, postList: [Post])
-    func interactor(_ timeLineUsecase: TimeLineUsecase, pointMap: [String:NSDictionary])
-    func interactor(_ timeLineUsecase: TimeLineUsecase, userMap: [String:NSDictionary])
-    func done()
+    func interactor(_ timeLineUsecase: TimeLineUsecase, post: Post)
+    func interactor(_ timeLineUsecase: TimeLineUsecase, user: User)
+    func done(type: String)
 }
 
 // MARK: - router

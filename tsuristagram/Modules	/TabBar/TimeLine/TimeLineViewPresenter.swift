@@ -15,14 +15,14 @@ class TimeLineViewPresenter: TimeLinePresentable {
     let interactor: TimeLineUsecase
     
     var timeLine = TimeLine()
-
+    var userCount = 0
     init(view: TimeLineViewController, router: TimeLineWireframe, interactor: TimeLineUsecase) {
         self.view = view
         self.router = router
         self.interactor = interactor
     }
 
-    // postデータを取得した後、紐付くusersとpointを取得する
+    // postデータを取得した後、紐付くusersを取得
     func fetchTimeLineData() {
         interactor.fetchPostData()
     }
@@ -35,25 +35,25 @@ class TimeLineViewPresenter: TimeLinePresentable {
 // Interactorからの通知受け取り
 extension TimeLineViewPresenter: TimeLineInteractorDelegate {
 
-    func interactor(_ timeLineUsecase: TimeLineUsecase, postList: [Post]) {
-        interactor.fetchUserData()
-        interactor.fetchPointData()
-        timeLine.postList = postList
+    func interactor(_ timeLineUsecase: TimeLineUsecase, post: Post) {
+        timeLine.postList.append(post)
+        if timeLine.userMap[post.userId] == nil {
+            interactor.fetchUserData(userId: post.userId)
+        } else {
+            done(type: "users")
+        }
     }
     
-    func interactor(_ timeLineUsecase: TimeLineUsecase, pointMap: [String:NSDictionary]) {
-        timeLine.pointMap = pointMap
+    func interactor(_ timeLineUsecase: TimeLineUsecase, user: User) {
+        timeLine.userMap.updateValue(user, forKey: user.userId)
     }
 
-    func interactor(_ timeLineUsecase: TimeLineUsecase, userMap: [String:NSDictionary]) {
-        timeLine.userMap = userMap
-    }
-    
-    func done() {
-        if timeLine.postList.count <= 0 { return }
-        if timeLine.userMap.count <= 0 { return }
-        if timeLine.pointMap.count <= 0 { return }
+    func done(type: String) {
+        userCount += 1
+        guard timeLine.postList.count == userCount else { return }
+        if !interactor.isFetching {
+            view.complateFetchTimeLineData(timeLine: timeLine)
+        }
         
-        view.setTimeLineData(timeLine: timeLine)
     }
 }

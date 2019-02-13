@@ -19,7 +19,8 @@ class TimeLineViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     var timeLine = TimeLine()
     var post = Post()
-
+    var isAddLoad = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,9 +47,40 @@ class TimeLineViewController: UIViewController {
     }
     
     // タイムラインデータのフェッチが完了したら呼び出される
-    func setTimeLineData(timeLine: TimeLine) {
+    func complateFetchTimeLineData(timeLine: TimeLine) {
         self.timeLine = timeLine
-        tableView.reloadData()
+        
+        DispatchQueue.main.async {
+
+            UIView.setAnimationsEnabled(false)
+            
+    //        let before = self.tableView.contentOffset.y
+    //        print(before)
+            let newDataCount = self.timeLine.postList.count
+            let currentDataCount = self.tableView.numberOfRows(inSection: 0)
+            
+            print("newDataCount: " + String(newDataCount))
+            print("currentDataCount: " + String(currentDataCount))
+            self.tableView.insertRows(
+                at: Array(currentDataCount..<newDataCount).map { IndexPath(row: $0, section: 0) },
+                with: .none)
+
+            self.tableView.reloadRows(
+                at: Array(0..<newDataCount).map { IndexPath(row: $0, section: 0) },
+                with: .none)
+
+            // TODO:reloadDataかreloadRowsは要検討。reloadDataは時々全体リロードアニメーションが発生する？
+    //        tableView.reloadData()
+            
+            // UIを更新する処理はmain threadから実行しなければならない
+    //        DispatchQueue.main.async {
+    //            self.tableView.contentOffset.y = before
+    //        }
+            UIView.setAnimationsEnabled(true)
+
+        self.isAddLoad = true
+        }
+
     }
     
     func fetchTimeLineData() {
@@ -70,11 +102,10 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-//        let pointId = timeLine.postList[indexPath.row].pointId
         let userId = timeLine.postList[indexPath.row].userId
         let user = self.timeLine.userMap[userId]
-        let userPhotoString = user!["userPhoto"] as! String
-        let userName = user!["userName"] as! String
+        let userPhotoString = user!.userPhoto
+        let userName = user!.userName
         
         let userPhoto = cell.viewWithTag(1) as! UIImageView
         userPhoto.layer.cornerRadius = userPhoto.frame.size.width * 0.5
@@ -93,7 +124,8 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
 
         let createDateLabel = cell.viewWithTag(5) as! UILabel
         
-        let date = NSDate(timeIntervalSince1970: TimeInterval(truncating: self.timeLine.postList[indexPath.row].timestamp))
+        let date = NSDate(timeIntervalSince1970: TimeInterval(truncating: NSNumber(value: (-1) * Int(truncating: self.timeLine.postList[indexPath.row].timestamp))))
+        
         let dateString = Date.dateToString(date: date as Date, format: "yyyy/MM/dd HH:mm")
 
         createDateLabel.text = dateString
@@ -104,27 +136,21 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 470
     }
+
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
-
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        // 下から５件くらいになったらリフレッシュ
-//        guard tableView.cellForRow(at: IndexPath(row: tableView.numberOfRows(inSection: 0)-1, section: 0)) != nil else { return }
-//        // ここでリフレッシュのメソッドを呼ぶ
-//        fetchTimeLineData()
-//    }
-
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentOffsetY = scrollView.contentOffset.y
-        let maximumOffset = scrollView.contentSize.height - scrollView.frame.height
-        let distanceToBottom = maximumOffset - currentOffsetY
-        print("currentOffsetY: \(currentOffsetY)")
-        print("maximumOffset: \(maximumOffset)")
-        print("distanceToBottom: \(distanceToBottom)")
-        if distanceToBottom < 500 {
-//            fetchTimeLineData()
+        if (self.tableView.contentOffset.y + self.tableView.frame.size.height > self.tableView.contentSize.height && self.tableView.isDragging && isAddLoad == true) {
+            
+            print(self.tableView.contentOffset.y)
+            self.isAddLoad = false
+            self.addData()
+        }
+    }
+    
+    func addData(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            print("add load now!")
+            self.fetchTimeLineData()
         }
     }
 
@@ -152,4 +178,3 @@ extension TimeLineViewController: UIImagePickerControllerDelegate, UINavigationC
     }
 
 }
-

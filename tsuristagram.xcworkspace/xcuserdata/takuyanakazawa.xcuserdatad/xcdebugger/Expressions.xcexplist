@@ -119,6 +119,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TimeLineViewController.scrollViewDidScroll(_:):TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isAddLoad">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostViewController.prepare(for:sender:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -138,10 +146,33 @@
          contextName = "PostRouterImpl.pointDetailButton():PostRouter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "postViewController">
+               value = "postPointDetailViewController">
             </PersistentString>
             <PersistentString
-               value = "postPointDetailViewController">
+               value = "postViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewPresenter.done(type:):TimeLineViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "timeLine">
+            </PersistentString>
+            <PersistentString
+               value = "userCount">
+            </PersistentString>
+            <PersistentString
+               value = "numberOfDisp">
+            </PersistentString>
+            <PersistentString
+               value = "postCount">
+            </PersistentString>
+            <PersistentString
+               value = "timeLine.postList.count">
+            </PersistentString>
+            <PersistentString
+               value = "interactor.isFetching">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -153,14 +184,6 @@
             </PersistentString>
             <PersistentString
                value = "self.postData.longitude">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #1 in static FirebaseClient.observeSingleEvent(id:limit:offset:of:with:):FirebaseClient.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "snapshot.value">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -184,13 +207,13 @@
          contextName = "PostViewController.viewDidDisappear(_:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.tabBarController!.tabBar.selectedItem!.tag">
+               value = "self.tabBarMyIndex">
             </PersistentString>
             <PersistentString
                value = "self.tabBarController!.selectedIndex">
             </PersistentString>
             <PersistentString
-               value = "self.tabBarMyIndex">
+               value = "self.tabBarController!.tabBar.selectedItem!.tag">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -201,10 +224,18 @@
                value = "post">
             </PersistentString>
             <PersistentString
-               value = "postViewController">
+               value = "self.navigationItem">
             </PersistentString>
             <PersistentString
-               value = "self.navigationItem">
+               value = "postViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in UITableView.belowCellsCount(cellIndexPath:):UITableView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "allCellsCount">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -224,6 +255,20 @@
          <PersistentStrings>
             <PersistentString
                value = "self.postData.uploadPhotoImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineInteractor.fetchPostData():TimeLineInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "offset">
+            </PersistentString>
+            <PersistentString
+               value = "(-1) * Int(Date().timeIntervalSince1970)">
+            </PersistentString>
+            <PersistentString
+               value = "loadStatus">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -251,14 +296,6 @@
          <PersistentStrings>
             <PersistentString
                value = "post">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TimeLineInteractor.fetchUserComplate(snapshot:):TimeLineInteractor.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "snapshot[&quot;TJfuuWVhSrM9Idw0pDSqNEBnPGZ2&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -340,6 +377,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TimeLineViewController.tableView(_:willDisplay:forRowAt:):TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "timeLine.postList.count">
+            </PersistentString>
+            <PersistentString
+               value = "tableView.belowCellsCount(cellIndexPath: indexPath)">
+            </PersistentString>
+            <PersistentString
+               value = "tableView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostPointDetailViewController.viewDidLoad():PostPointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -378,9 +429,6 @@
          contextName = "closure #1 in static FirebaseClient.observeSingleEvent(id:limit:offset:of:with:):FirebaseClient.swift">
          <PersistentStrings>
             <PersistentString
-               value = "snap.value">
-            </PersistentString>
-            <PersistentString
                value = "snap.key">
             </PersistentString>
          </PersistentStrings>
@@ -389,13 +437,13 @@
          contextName = "PostPointDetailRouterImpl.saveButton():PostPointDetailRouter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "postPointDetailViewController">
-            </PersistentString>
-            <PersistentString
                value = "self.postViewController">
             </PersistentString>
             <PersistentString
                value = "postViewController">
+            </PersistentString>
+            <PersistentString
+               value = "postPointDetailViewController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -403,10 +451,7 @@
          contextName = "TimeLineViewController.tableView(_:cellForRowAt:):TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.posts[indexPath.row].picture">
-            </PersistentString>
-            <PersistentString
-               value = "self.posts[indexPath.row].userPhoto">
+               value = "self.timeLine">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -415,6 +460,14 @@
          <PersistentStrings>
             <PersistentString
                value = "self.router">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.complateFetchTimeLineData(timeLine:):TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tableView.contentOffset.y">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -435,21 +488,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "Date()">
-            </PersistentString>
-            <PersistentString
-               value = "NSDate()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in PostViewController.getPhotoMetaData():PostViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "inputImage.properties[&quot;{Exif}&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #3 in TimeLineViewController.complateFetchTimeLineData(timeLine:):TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tableView.contentOffset.y">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -497,6 +547,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TimeLineViewController.tableView(_:numberOfRowsInSection:):TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "timeLine.postList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostPresenterImpl.postButton():PostPresenter.swift">
          <PersistentStrings>
             <PersistentString
@@ -528,6 +586,28 @@
          <PersistentStrings>
             <PersistentString
                value = "map">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineInteractor.fetchPostComplate(snapshot:):TimeLineInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.page">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in static FirebaseClient.observe(id:limit:offset:of:with:):FirebaseClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "snap.offset">
+            </PersistentString>
+            <PersistentString
+               value = "snap.key">
+            </PersistentString>
+            <PersistentString
+               value = "snap.priority">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

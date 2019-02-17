@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/takuyanakazawa/Desktop/&#x30a2;&#x30d5;&#x309a;&#x30ea;/iOS/tsuristagram/tsuristagram/Modules&#9;/TabBar/PointSearch/PointSearchInteractor.swift">
+   </FileRef>
+   <FileRef
       location = "group:tsuristagram.xcodeproj">
    </FileRef>
    <FileRef

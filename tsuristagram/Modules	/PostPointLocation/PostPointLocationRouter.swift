@@ -18,7 +18,7 @@ class PostPointLocationRouter: PostPointLocationWireframe {
     // 依存関係の解決
     static func assembleModules() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let pointLocation = storyboard.instantiateViewController(withIdentifier: "pointLocation") as! PostPointLocationViewController
+        let pointLocation = storyboard.instantiateViewController(withIdentifier: "postPointLocation") as! PostPointLocationViewController
         let router = PostPointLocationRouter(postPointLocationViewController: pointLocation)
         let presenter = PostPointLocationViewPresenter(view: pointLocation, router: router)
         

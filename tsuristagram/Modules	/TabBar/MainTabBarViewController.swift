@@ -16,11 +16,14 @@ class MainTabBarViewController: UITabBarController {
         // tabbar作成
         var viewControllers: [UIViewController] = []
         
-        let view = TimeLineRouter.assembleModules()
-        
-        view.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.mostRecent, tag: 0)
-//       view.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "tabbar_home_disable"), tag: 0)
-        viewControllers.append(view)
+        let timeLine = TimeLineRouter.assembleModules()
+        let pointSearch = PointSearchRouter.assembleModules()
+
+        timeLine.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.mostRecent, tag: 0)
+        pointSearch.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.search, tag: 0)
+
+        viewControllers.append(timeLine)
+        viewControllers.append(pointSearch)
 
         self.viewControllers = viewControllers
     }

@@ -32,8 +32,8 @@ class PostRouter: PostWireframe {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "postView") as! PostViewController
 
-        let postLocationVC = storyboard.instantiateViewController(withIdentifier: "pointLocation") as? PostPointLocationViewController
-        let postSearchVC = storyboard.instantiateViewController(withIdentifier: "pointSearch") as? PostPointSearchViewController
+        let postLocationVC = storyboard.instantiateViewController(withIdentifier: "postPointLocation") as? PostPointLocationViewController
+        let postSearchVC = storyboard.instantiateViewController(withIdentifier: "postPointSearch") as? PostPointSearchViewController
         let tabbar = storyboard.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController
 
         let router = PostRouter(postViewController: view ,postPointLocationViewController: postLocationVC!, postPointSearchViewController: postSearchVC!, tabBarController: tabbar!)

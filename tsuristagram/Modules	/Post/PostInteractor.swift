@@ -43,7 +43,6 @@ class PostInteractor: PostUsecase {
         }
         self.delegate?.interactor(self, pointList: pointList)
     }
-
     
     func postButton(post: Post) {
         let currentTime = Date.currentTimeString()

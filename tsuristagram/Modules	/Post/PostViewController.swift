@@ -44,7 +44,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 //        locationManager = CLLocationManager()
 //        locationManager.delegate = self
         
-        getPhotoMetaData()
     }
 
     override func viewWillAppear(_ animated: Bool) {

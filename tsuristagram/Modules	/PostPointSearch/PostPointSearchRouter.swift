@@ -19,7 +19,7 @@ class PostPointSearchRouter: PostPointSearchWireframe {
     // 依存関係の解決
     static func assembleModules() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let pointSearch = storyboard.instantiateViewController(withIdentifier: "pointSearch") as! PostPointSearchViewController
+        let pointSearch = storyboard.instantiateViewController(withIdentifier: "postPointSearch") as! PostPointSearchViewController
         let router = PostPointSearchRouter(postPointSearchViewController: pointSearch)
         let presenter = PostPointSearchViewPresenter(view: pointSearch, router: router)
         

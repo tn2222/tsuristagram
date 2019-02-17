@@ -19,8 +19,15 @@ class TimeLineViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     var timeLine = TimeLine()
     var post = Post()
-    var isAddLoad = true
     
+    private var tableState: TableControllerState = .Initialize
+
+    enum TableControllerState {
+        case Initialize
+        case Normal
+        case Fetching
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +41,7 @@ class TimeLineViewController: UIViewController {
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchTimeLineData()
+        presenter.initialize()
     }
     
     @IBAction func postButton(_ sender: Any) {
@@ -46,6 +53,12 @@ class TimeLineViewController: UIViewController {
         refreshControl.endRefreshing()
     }
     
+    // initializeが完了したら呼び出される
+    func initializeComplate() {
+        tableState = .Normal
+        fetchTimeLineData()
+    }
+
     // タイムラインデータのフェッチが完了したら呼び出される
     func complateFetchTimeLineData(timeLine: TimeLine) {
         self.timeLine = timeLine
@@ -54,8 +67,6 @@ class TimeLineViewController: UIViewController {
 
             UIView.setAnimationsEnabled(false)
             
-    //        let before = self.tableView.contentOffset.y
-    //        print(before)
             let newDataCount = self.timeLine.postList.count
             let currentDataCount = self.tableView.numberOfRows(inSection: 0)
             
@@ -69,23 +80,25 @@ class TimeLineViewController: UIViewController {
                 at: Array(0..<newDataCount).map { IndexPath(row: $0, section: 0) },
                 with: .none)
 
-            // TODO:reloadDataかreloadRowsは要検討。reloadDataは時々全体リロードアニメーションが発生する？
-    //        tableView.reloadData()
-            
-            // UIを更新する処理はmain threadから実行しなければならない
-    //        DispatchQueue.main.async {
-    //            self.tableView.contentOffset.y = before
-    //        }
             UIView.setAnimationsEnabled(true)
 
-        self.isAddLoad = true
+            self.tableState = .Normal
         }
-
     }
     
     func fetchTimeLineData() {
+        guard tableState == .Normal else { return }
+        tableState = .Fetching
         presenter.fetchTimeLineData()
     }
+    
+    func addData(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            print("add load now!")
+            self.presenter.fetchTimeLineData()
+        }
+    }
+
 }
 
 extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
@@ -97,7 +110,7 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -139,24 +152,18 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (self.tableView.contentOffset.y + self.tableView.frame.size.height > self.tableView.contentSize.height && self.tableView.isDragging && isAddLoad == true) {
+        if (self.tableView.contentOffset.y + self.tableView.frame.size.height > self.tableView.contentSize.height && self.tableView.isDragging && tableState == .Normal) {
             
             print(self.tableView.contentOffset.y)
-            self.isAddLoad = false
+            tableState = .Fetching
             self.addData()
-        }
-    }
-    
-    func addData(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            print("add load now!")
-            self.fetchTimeLineData()
         }
     }
 
 }
 
 extension TimeLineViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
         [UIImagePickerController.InfoKey : Any]) {
         

@@ -51,6 +51,4 @@ class TimeLineRouter: TimeLineWireframe {
             timeLineViewController!.present(pickerView, animated: true)
         }
     }
-    
-
 }

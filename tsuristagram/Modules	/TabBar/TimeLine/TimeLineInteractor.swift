@@ -16,17 +16,29 @@ class TimeLineInteractor: TimeLineUsecase {
     var limit:UInt = 4
     // offsetの初期値は現在時間
     var offset: Int = (-1) * Int(Date().timeIntervalSince1970)
-    var page:Int = 0
+    var lastOffset: Int!
+
+    var count:Int = 0
     var isFetching: Bool = false
     
+    func initialize() {
+        FirebaseClient.observeToLast(id: "post", of: .childAdded, with: fetchLastOffset)
+    }
+
     func fetchPostData() {
-        guard !isFetching else { return }
-        self.isFetching = true
+        count = 0
         FirebaseClient.observe(id: "post", limit: limit, offset: offset, of: .childAdded, with: fetchPostComplate)
     }
     
     func fetchUserData(userId: String) {
         FirebaseClient.observeSingleEvent(id: "users", key: userId, of: .value, with: fetchUserComplate)
+    }
+
+    func fetchLastOffset(snapshot: [String: AnyObject]) {
+        if snapshot.count > 0 {
+            self.lastOffset = Int(truncating: snapshot["timestamp"] as! NSNumber)
+        }
+        self.delegate?.interactor(self)
     }
 
     func fetchPostComplate(snapshot: [String: AnyObject]) {
@@ -51,8 +63,12 @@ class TimeLineInteractor: TimeLineUsecase {
         }
         // setting next offset
         self.offset = Int(truncating: post.timestamp) + 1
-        self.page += 1
-        if self.page % Int(self.limit) == 0 {
+        self.count += 1
+        
+        if self.lastOffset == Int(truncating: post.timestamp) {
+            self.isFetching = false
+        }
+        if self.count == Int(self.limit) {
             self.isFetching = false
         }
         self.delegate?.interactor(self, post: post)

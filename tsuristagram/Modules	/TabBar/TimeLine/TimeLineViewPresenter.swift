@@ -22,6 +22,10 @@ class TimeLineViewPresenter: TimeLinePresentable {
         self.interactor = interactor
     }
 
+    func initialize() {
+        interactor.initialize()
+    }
+
     // postデータを取得した後、紐付くusersを取得
     func fetchTimeLineData() {
         interactor.fetchPostData()
@@ -30,18 +34,19 @@ class TimeLineViewPresenter: TimeLinePresentable {
     func postButton() {
         router.postButton()
     }
+    
 }
 
 // Interactorからの通知受け取り
 extension TimeLineViewPresenter: TimeLineInteractorDelegate {
+    
+    func interactor(_ timeLineUsecase: TimeLineUsecase) {
+        view.initializeComplate()
+    }
 
     func interactor(_ timeLineUsecase: TimeLineUsecase, post: Post) {
         timeLine.postList.append(post)
-        if timeLine.userMap[post.userId] == nil {
-            interactor.fetchUserData(userId: post.userId)
-        } else {
-            done(type: "users")
-        }
+        interactor.fetchUserData(userId: post.userId)
     }
     
     func interactor(_ timeLineUsecase: TimeLineUsecase, user: User) {
@@ -50,8 +55,8 @@ extension TimeLineViewPresenter: TimeLineInteractorDelegate {
 
     func done(type: String) {
         userCount += 1
-        guard timeLine.postList.count == userCount else { return }
         if !interactor.isFetching {
+            guard timeLine.postList.count == userCount else { return }
             view.complateFetchTimeLineData(timeLine: timeLine)
         }
         

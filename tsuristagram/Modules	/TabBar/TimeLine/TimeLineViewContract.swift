@@ -16,6 +16,7 @@ protocol TimeLineView: class {
 protocol TimeLinePresentable: class {
     func fetchTimeLineData()
     func postButton()
+    func initialize()
 }
 
 // MARK: - interactor
@@ -23,11 +24,13 @@ protocol TimeLineUsecase: class {
     var isFetching: Bool {get}
     func fetchPostData()
     func fetchUserData(userId: String)
+    func initialize()
 }
 
 protocol TimeLineInteractorDelegate: class {
     func interactor(_ timeLineUsecase: TimeLineUsecase, post: Post)
     func interactor(_ timeLineUsecase: TimeLineUsecase, user: User)
+    func interactor(_ timeLineUsecase: TimeLineUsecase)
     func done(type: String)
 }
 

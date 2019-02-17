@@ -87,6 +87,24 @@ class FirebaseClient: FirebaseClientProtocol {
         })
     }
 
+    static func observeToLast(id: String, of eventType: DataEventType,  with block: @escaping ([String: AnyObject]) -> Void) {
+        
+        let ref = self.rootRef.child(id)
+            .queryOrdered(byChild: "timestamp")
+            .queryLimited(toLast: 1)
+        
+        ref.observe(.childAdded, with: { (snap) in
+            ref.removeAllObservers()
+            var dic: [String: AnyObject] = [:]
+            snap.children.forEach({ (snapshot) in
+                if let snapshot: DataSnapshot = snapshot as? DataSnapshot {
+                    dic.updateValue(snapshot.value as AnyObject, forKey: snapshot.key)
+                }
+            })
+            block(dic)
+        })
+    }
+
     static func setValue(id: String, feed: [String:Any], withCompletionBlock block: @escaping (Error?, DatabaseReference) -> Void) {
         let ref: DatabaseReference = self.postRef.child(id).childByAutoId()
         ref.setValue(feed, withCompletionBlock: block)

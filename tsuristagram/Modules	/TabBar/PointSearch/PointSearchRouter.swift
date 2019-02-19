@@ -9,7 +9,6 @@
 import UIKit
 
 class PointSearchRouter: PointSearchWireframe {
-
     
     fileprivate weak var pointSearchViewController: PointSearchViewController?
     
@@ -33,6 +32,15 @@ class PointSearchRouter: PointSearchWireframe {
         view.presenter = presenter
         
         return view
+    }
+
+    func didSelectRow(point: Point) {
+        let pointDetailViewController = PointDetailRouter.assembleModules() as! PointDetailViewController
+        pointDetailViewController.point = point
+        
+        pointSearchViewController?.tabBarController?.tabBar.isHidden = true
+        pointSearchViewController?.navigationController?.pushViewController(pointDetailViewController, animated: true)
+
     }
 
 }

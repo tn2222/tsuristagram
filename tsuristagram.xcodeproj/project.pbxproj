@@ -30,6 +30,11 @@
 		FC22FB932219820900AFAAEF /* PointSearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22FB922219820900AFAAEF /* PointSearchViewPresenter.swift */; };
 		FC22FB972219829600AFAAEF /* PointSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22FB962219829600AFAAEF /* PointSearchInteractor.swift */; };
 		FC22FB99221982BB00AFAAEF /* PointSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22FB98221982BB00AFAAEF /* PointSearchRouter.swift */; };
+		FC22FB9B221C155000AFAAEF /* PointDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22FB9A221C155000AFAAEF /* PointDetailContract.swift */; };
+		FC22FB9E221C15F200AFAAEF /* PointDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22FB9D221C15F200AFAAEF /* PointDetailViewController.swift */; };
+		FC22FBA0221C161000AFAAEF /* PointDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22FB9F221C161000AFAAEF /* PointDetailViewPresenter.swift */; };
+		FC22FBA2221C162500AFAAEF /* PointDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22FBA1221C162500AFAAEF /* PointDetailInteractor.swift */; };
+		FC22FBA4221C163200AFAAEF /* PointDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22FBA3221C163200AFAAEF /* PointDetailRouter.swift */; };
 		FC38AF9521C12B4A00783D4D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9421C12B4A00783D4D /* Post.swift */; };
 		FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9621C133B400783D4D /* PostViewController.swift */; };
 		FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC38AF9821C1365300783D4D /* GoogleService-Info.plist */; };
@@ -99,6 +104,11 @@
 		FC22FB922219820900AFAAEF /* PointSearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSearchViewPresenter.swift; sourceTree = "<group>"; };
 		FC22FB962219829600AFAAEF /* PointSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PointSearchInteractor.swift; path = "/Users/takuyanakazawa/Desktop/アプリ/iOS/tsuristagram/tsuristagram/Modules\t/TabBar/PointSearch/PointSearchInteractor.swift"; sourceTree = "<absolute>"; };
 		FC22FB98221982BB00AFAAEF /* PointSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSearchRouter.swift; sourceTree = "<group>"; };
+		FC22FB9A221C155000AFAAEF /* PointDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailContract.swift; sourceTree = "<group>"; };
+		FC22FB9D221C15F200AFAAEF /* PointDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailViewController.swift; sourceTree = "<group>"; };
+		FC22FB9F221C161000AFAAEF /* PointDetailViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailViewPresenter.swift; sourceTree = "<group>"; };
+		FC22FBA1221C162500AFAAEF /* PointDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailInteractor.swift; sourceTree = "<group>"; };
+		FC22FBA3221C163200AFAAEF /* PointDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailRouter.swift; sourceTree = "<group>"; };
 		FC38AF9421C12B4A00783D4D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FC38AF9621C133B400783D4D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FC38AF9821C1365300783D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -286,6 +296,18 @@
 			path = PointSearch;
 			sourceTree = "<group>";
 		};
+		FC22FB9C221C155400AFAAEF /* PointDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FC22FB9A221C155000AFAAEF /* PointDetailContract.swift */,
+				FC22FB9D221C15F200AFAAEF /* PointDetailViewController.swift */,
+				FC22FB9F221C161000AFAAEF /* PointDetailViewPresenter.swift */,
+				FC22FBA1221C162500AFAAEF /* PointDetailInteractor.swift */,
+				FC22FBA3221C163200AFAAEF /* PointDetailRouter.swift */,
+			);
+			path = PointDetail;
+			sourceTree = "<group>";
+		};
 		FC4F8B5421BBAD8700B9493F = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +383,7 @@
 				FC026AC4220F0515007E961C /* Root */,
 				FC0BFC7021F9F3110054ABD2 /* Login */,
 				FC08F148220F17B6007399C7 /* TabBar */,
+				FC22FB9C221C155400AFAAEF /* PointDetail */,
 				FC0BFC7221F9F3500054ABD2 /* Post */,
 				FC0BFC7321F9F35E0054ABD2 /* PostPointLocation */,
 				FC4F8E412206E30900C02372 /* PostPointSearch */,
@@ -653,6 +676,7 @@
 				FC08F14C220F2B9F007399C7 /* TimeLine.swift in Sources */,
 				FC026AC1220F00E5007E961C /* TimeLineInteractor.swift in Sources */,
 				FC4F8E5022086EFE00C02372 /* PostContract.swift in Sources */,
+				FC22FBA4221C163200AFAAEF /* PointDetailRouter.swift in Sources */,
 				FC22FB99221982BB00AFAAEF /* PointSearchRouter.swift in Sources */,
 				FC08F147220F1605007399C7 /* MainTabBarViewController.swift in Sources */,
 				FC026AB82209CB0C007E961C /* String.swift in Sources */,
@@ -662,9 +686,11 @@
 				FC1CD02B21FEFC8400C810CF /* PostRouter.swift in Sources */,
 				FC1CD02921FEFC6900C810CF /* PostViewPresenter.swift in Sources */,
 				FC4F8B6121BBAD8700B9493F /* AppDelegate.swift in Sources */,
+				FC22FB9B221C155000AFAAEF /* PointDetailContract.swift in Sources */,
 				FC22FB932219820900AFAAEF /* PointSearchViewPresenter.swift in Sources */,
 				FC4F8E432206E93000C02372 /* PostPointSearchViewPresenter.swift in Sources */,
 				FC22FB912219814E00AFAAEF /* PointSearchContract.swift in Sources */,
+				FC22FBA0221C161000AFAAEF /* PointDetailViewPresenter.swift in Sources */,
 				FC4F8E492207258D00C02372 /* Point.swift in Sources */,
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
 				FC4F8E452206E93E00C02372 /* PostPointSearchRouter.swift in Sources */,
@@ -674,6 +700,7 @@
 				FC4F8E4E2208655F00C02372 /* PostPointSearchContract.swift in Sources */,
 				FC4F8E52220870ED00C02372 /* PostInteractor.swift in Sources */,
 				FC08F14A220F2B62007399C7 /* User.swift in Sources */,
+				FC22FBA2221C162500AFAAEF /* PointDetailInteractor.swift in Sources */,
 				FC0BFC7521F9F4900054ABD2 /* PostPointLocationViewPresenter.swift in Sources */,
 				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
@@ -681,6 +708,7 @@
 				FCF325CE21ECB307002CC3C4 /* PostPointLocationViewController.swift in Sources */,
 				FC08F145220F075E007399C7 /* TimeLineRouter.swift in Sources */,
 				FC026ABA2209D7E0007E961C /* CommonUtils.swift in Sources */,
+				FC22FB9E221C15F200AFAAEF /* PointDetailViewController.swift in Sources */,
 				FC0BFC7721F9FD630054ABD2 /* PostPointLocationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,10 +3,35 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
+         contextName = "PointSearchRouter.didSelectRow(point:):PointSearchRouter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.post">
+               value = "pointSearchViewController?.tabBarController">
+            </PersistentString>
+            <PersistentString
+               value = "pointSearchViewController?.tabBarController?.tabBar">
+            </PersistentString>
+            <PersistentString
+               value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "timeLineNav.navigationBar">
+            </PersistentString>
+            <PersistentString
+               value = "NSAttributedString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineInteractor.fetchLastDataComplate(snapshot:):TimeLineInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.lastOffset">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,10 +44,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLineInteractor.fetchLastDataComplate(snapshot:):TimeLineInteractor.swift">
+         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.lastOffset">
+               value = "self.post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

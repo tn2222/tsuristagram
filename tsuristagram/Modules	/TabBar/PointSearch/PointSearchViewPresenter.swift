@@ -9,7 +9,7 @@
 import Foundation
 
 class PointSearchViewPresenter: PointSearchViewPresentable {
-    
+
     let view: PointSearchViewController
     let router: PointSearchWireframe
     let interactor: PointSearchUsecase
@@ -30,6 +30,9 @@ class PointSearchViewPresenter: PointSearchViewPresentable {
         interactor.fetchPointData()
     }
 
+    func didSelectRow(point: Point) {
+        router.didSelectRow(point: point)
+    }
 }
 
 // Interactorからの通知受け取り

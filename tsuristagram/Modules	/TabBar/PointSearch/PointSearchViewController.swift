@@ -29,8 +29,9 @@ class PointSearchViewController: UIViewController {
         self.tableView.dataSource = self
 
         self.navigationItem.title = "釣り場検索"
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(rightBarButtonClicked(Any)))
 
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(rightBarBtnClicked(sender:)))
+        
         //SearchBar作成
         searchBar = UISearchBar()
         searchBar.delegate = self
@@ -39,19 +40,20 @@ class PointSearchViewController: UIViewController {
         
         tableView.tableHeaderView = searchBar
         //検索バーの高さだけ初期位置を下げる
-        tableView.contentOffset = CGPoint(x: 0,y :44)
-        
-        pointList = pointListAll
+//        tableView.contentOffset = CGPoint(x: 0,y :44)
+
+        self.presenter.fetchPointData()
+
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.presenter.fetchPointData()
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-        tableView.contentOffset = CGPoint(x: 0,y :44)
+//        tableView.contentOffset = CGPoint(x: 0,y :44)
     }
 
     // 画面表示でフェッチした釣り場マスタを設定
@@ -64,13 +66,9 @@ class PointSearchViewController: UIViewController {
 
 // searchBar
 extension PointSearchViewController: UISearchBarDelegate {
-    
+
     // 虫眼鏡が押されたら呼ばれる
-//    @objc func rightBarBtnClicked(sender: UIButton){
-//        tableView.contentOffset = CGPoint(x: 0,y :0)
-//    }
-    
-    @IBAction func rightBarButtonClicked(_ sender: Any) {
+    @objc func rightBarBtnClicked(sender: UIButton){
         tableView.contentOffset = CGPoint(x: 0,y :0)
     }
 
@@ -142,6 +140,6 @@ extension PointSearchViewController: UITableViewDelegate, UITableViewDataSource 
         guard indexPath.row < pointList.count else { return }
         let point = pointList[indexPath.row]
         
-//        presenter.didSelectRow(point: point)
+        presenter.didSelectRow(point: point)
     }
 }

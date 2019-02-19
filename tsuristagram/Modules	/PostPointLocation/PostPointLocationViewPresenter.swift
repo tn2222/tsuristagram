@@ -10,12 +10,11 @@ import Foundation
 import GoogleMaps
 
 class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
-
-    var mapView: GMSMapView!
     
     let view: PostPointLocationViewController
     let router: PostPointLocationWireframe
     
+    private var mapView: GMSMapView!
     private var marker = GMSMarker()
     private var position = CLLocationCoordinate2D()
     

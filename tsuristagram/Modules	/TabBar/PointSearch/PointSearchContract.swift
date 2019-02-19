@@ -15,6 +15,7 @@ protocol PointSearchView: class {
 // MARK: - presenter
 protocol PointSearchViewPresentable: class {
     func fetchPointData()
+    func didSelectRow(point: Point)
 }
 
 // MARK: - interactor
@@ -28,4 +29,5 @@ protocol PointSearchInteractorDelegate: class {
 
 // MARK: - router
 protocol PointSearchWireframe: class {
+    func didSelectRow(point: Point)
 }

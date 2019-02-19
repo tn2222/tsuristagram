@@ -20,6 +20,8 @@ class TimeLineViewController: UIViewController {
     var timeLine = TimeLine()
     var post = Post()
     
+    var activityIndicator: UIActivityIndicatorView!
+
     private var tableState: TableControllerState = .Initialize
 
     enum TableControllerState {
@@ -34,8 +36,17 @@ class TimeLineViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        self.navigationItem.title = "FishTips"
 
+        // ActivityIndicatorを作成＆中央に配置
+        activityIndicator = UIActivityIndicatorView()
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = UIActivityIndicatorView.Style.gray
+        self.view.addSubview(activityIndicator)
+
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }
         
@@ -72,16 +83,18 @@ class TimeLineViewController: UIViewController {
             
             print("newDataCount: " + String(newDataCount))
             print("currentDataCount: " + String(currentDataCount))
+
             self.tableView.insertRows(
                 at: Array(currentDataCount..<newDataCount).map { IndexPath(row: $0, section: 0) },
                 with: .none)
 
             self.tableView.reloadRows(
-                at: Array(0..<newDataCount).map { IndexPath(row: $0, section: 0) },
+                at: Array(currentDataCount..<newDataCount).map { IndexPath(row: $0, section: 0) },
                 with: .none)
-
+            
             UIView.setAnimationsEnabled(true)
-
+            self.activityIndicator.stopAnimating()
+            
             self.tableState = .Normal
         }
     }
@@ -92,8 +105,9 @@ class TimeLineViewController: UIViewController {
         presenter.fetchTimeLineData()
     }
     
-    func addData(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+    func loadMore() {
+        activityIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             print("add load now!")
             self.presenter.fetchTimeLineData()
         }
@@ -156,8 +170,13 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
             
             print(self.tableView.contentOffset.y)
             tableState = .Fetching
-            self.addData()
+            self.loadMore()
         }
+    }
+
+    // cellが選択された場合
+    func tableView(_ table: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 
 }

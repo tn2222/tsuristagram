@@ -6,13 +6,37 @@
          contextName = "PointSearchRouter.didSelectRow(point:):PointSearchRouter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "pointSearchViewController?.tabBarController">
-            </PersistentString>
-            <PersistentString
                value = "pointSearchViewController?.tabBarController?.tabBar">
             </PersistentString>
             <PersistentString
+               value = "pointSearchViewController?.tabBarController">
+            </PersistentString>
+            <PersistentString
                value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineInteractor.fetchLastDataComplate(snapshot:):TimeLineInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.lastOffset">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.loadPostData():PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -28,26 +52,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLineInteractor.fetchLastDataComplate(snapshot:):TimeLineInteractor.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.lastOffset">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "tableState">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

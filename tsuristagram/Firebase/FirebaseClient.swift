@@ -87,6 +87,24 @@ class FirebaseClient: FirebaseClientProtocol {
         })
     }
 
+    static func observe(id: String, ordered: String, value: String, of eventType: DataEventType,  with block: @escaping ([String: AnyObject]) -> Void) {
+        
+        let ref = self.rootRef.child(id)
+            .queryOrdered(byChild: ordered)
+            .queryEqual(toValue: value)
+        
+        ref.observe(eventType, with: { (snap) in
+            ref.removeAllObservers()
+            var dic: [String: AnyObject] = [:]
+            snap.children.forEach({ (snapshot) in
+                if let snapshot: DataSnapshot = snapshot as? DataSnapshot {
+                    dic.updateValue(snapshot.value as AnyObject, forKey: snapshot.key)
+                }
+            })
+            block(dic)
+        })
+    }
+
     static func observeToLast(id: String, of eventType: DataEventType,  with block: @escaping ([String: AnyObject]) -> Void) {
         
         let ref = self.rootRef.child(id)
@@ -107,7 +125,12 @@ class FirebaseClient: FirebaseClientProtocol {
 
     static func setValue(id: String, feed: [String:Any], withCompletionBlock block: @escaping (Error?, DatabaseReference) -> Void) {
         let ref: DatabaseReference = self.postRef.child(id).childByAutoId()
-        ref.setValue(feed, withCompletionBlock: block)
+        let key = ref.key
+        var post = feed
+        post.updateValue(key!, forKey: "key")
+
+        ref.setValue(post, withCompletionBlock: block)
+        
     }
     
 //    static func putData(id: String, uploadPhotoImage: UIImage, withCompletionBlock metadata: @escaping (Error?, StorageMetadata) -> Void) {

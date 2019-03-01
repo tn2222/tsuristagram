@@ -9,7 +9,7 @@
 import UIKit
 
 class PointDetailRouter: PointDetailWireframe {
-
+    
     fileprivate weak var pointDetailViewController: PointDetailViewController?
     
     init(pointDetailViewController: PointDetailViewController) {
@@ -27,11 +27,15 @@ class PointDetailRouter: PointDetailWireframe {
         let presenter = PointDetailViewPresenter(view: view, router: router, interactor: interactor)
         
         // Interactorの通知先を設定
-//        interactor.delegate = presenter
+        interactor.delegate = presenter
         // ViewにPresenterを設定
         view.presenter = presenter
         
         return view
+    }
+
+    func selectCell(post: Post) {
+        // postDetail画面遷移
     }
 
 }

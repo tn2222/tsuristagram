@@ -10,6 +10,7 @@ import Foundation
 import UIKit // TODO：後々UIKitは切り離す
 
 struct Post {
+    var key: String = String()
     var userName: String = String()
     var userPhoto: String = String()
     var userId: String = String()

@@ -14,7 +14,7 @@ class PostViewPresenter: PostViewPresentable {
     let router: PostWireframe
     let interactor: PostUsecase
 
-    var pointList = [Point]()  {
+    var pointList = [Point]() {
         didSet {
             view.setPointList(pointList: pointList)
         }

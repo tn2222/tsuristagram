@@ -16,15 +16,21 @@ protocol PointDetailView: class {
 // MARK: - presenter
 protocol PointDetailViewPresentable: class {
     func initialize(map: GMSMapView, latitude: Double, longitude: Double)
+    func fetchData(pointId: String)
+    func setMarker(latitude: Double, longitude: Double)
+    func selectCell(post: Post)
 }
 
 // MARK: - interactor
 protocol PointDetailUsecase: class {
+    func fetchData(pointId: String)
 }
 
 protocol PointDetailInteractorDelegate: class {
+    func interactor(_ pointDetailUsecase: PointDetailUsecase, post: Post)
 }
 
 // MARK: - router
 protocol PointDetailWireframe: class {
+    func selectCell(post: Post)
 }

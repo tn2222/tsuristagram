@@ -10,7 +10,7 @@ import Foundation
 import GoogleMaps
 
 class PointDetailViewPresenter: PointDetailViewPresentable {
-
+    
     let view: PointDetailViewController
     let router: PointDetailWireframe
     let interactor: PointDetailUsecase
@@ -19,6 +19,12 @@ class PointDetailViewPresenter: PointDetailViewPresentable {
     private var marker = GMSMarker()
     private var position = CLLocationCoordinate2D()
 
+    var postList = [Post]() {
+        didSet {
+            view.setPostList(postList: postList)
+        }
+    }
+    
     init(view: PointDetailViewController, router: PointDetailWireframe, interactor: PointDetailUsecase) {
         self.view = view
         self.router = router
@@ -35,6 +41,29 @@ class PointDetailViewPresenter: PointDetailViewPresentable {
         self.marker.map = mapView
         self.position = marker.position
         
+    }
+
+    func fetchData(pointId: String) {
+        interactor.fetchData(pointId: pointId)
+    }
+
+    func setMarker(latitude: Double, longitude: Double) {
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        self.marker.map = mapView
+        self.position = marker.position
+    }
+
+    func selectCell(post: Post) {
+        router.selectCell(post: post)
+    }
+
+}
+
+// Interactorからの通知受け取り
+extension PointDetailViewPresenter: PointDetailInteractorDelegate {
+    func interactor(_ pointDetailUsecase: PointDetailUsecase, post: Post) {
+        postList.append(post)
     }
 
 }

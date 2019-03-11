@@ -53,6 +53,11 @@
 		FC4F8E4E2208655F00C02372 /* PostPointSearchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E4D2208655F00C02372 /* PostPointSearchContract.swift */; };
 		FC4F8E5022086EFE00C02372 /* PostContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E4F22086EFE00C02372 /* PostContract.swift */; };
 		FC4F8E52220870ED00C02372 /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E51220870ED00C02372 /* PostInteractor.swift */; };
+		FC9414FF223688A4002FDA64 /* PostDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9414FE223688A4002FDA64 /* PostDetailContract.swift */; };
+		FC941502223688D8002FDA64 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC941501223688D8002FDA64 /* PostDetailViewController.swift */; };
+		FC941504223688F3002FDA64 /* PostDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC941503223688F3002FDA64 /* PostDetailViewPresenter.swift */; };
+		FC94150622368903002FDA64 /* PostDetailnteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94150522368903002FDA64 /* PostDetailnteractor.swift */; };
+		FC94150822368915002FDA64 /* PostDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94150722368915002FDA64 /* PostDetailRouter.swift */; };
 		FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CB21EC849A002CC3C4 /* Date.swift */; };
 		FCF325CE21ECB307002CC3C4 /* PostPointLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CD21ECB307002CC3C4 /* PostPointLocationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -133,6 +138,11 @@
 		FC4F8E4D2208655F00C02372 /* PostPointSearchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointSearchContract.swift; sourceTree = "<group>"; };
 		FC4F8E4F22086EFE00C02372 /* PostContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContract.swift; sourceTree = "<group>"; };
 		FC4F8E51220870ED00C02372 /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
+		FC9414FE223688A4002FDA64 /* PostDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailContract.swift; sourceTree = "<group>"; };
+		FC941501223688D8002FDA64 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		FC941503223688F3002FDA64 /* PostDetailViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewPresenter.swift; sourceTree = "<group>"; };
+		FC94150522368903002FDA64 /* PostDetailnteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailnteractor.swift; sourceTree = "<group>"; };
+		FC94150722368915002FDA64 /* PostDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailRouter.swift; sourceTree = "<group>"; };
 		FCF325CB21EC849A002CC3C4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		FCF325CD21ECB307002CC3C4 /* PostPointLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -385,10 +395,23 @@
 				FC08F148220F17B6007399C7 /* TabBar */,
 				FC22FB9C221C155400AFAAEF /* PointDetail */,
 				FC0BFC7221F9F3500054ABD2 /* Post */,
+				FC941500223688A8002FDA64 /* PostDetail */,
 				FC0BFC7321F9F35E0054ABD2 /* PostPointLocation */,
 				FC4F8E412206E30900C02372 /* PostPointSearch */,
 			);
 			path = "Modules\t";
+			sourceTree = "<group>";
+		};
+		FC941500223688A8002FDA64 /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FC9414FE223688A4002FDA64 /* PostDetailContract.swift */,
+				FC941501223688D8002FDA64 /* PostDetailViewController.swift */,
+				FC941503223688F3002FDA64 /* PostDetailViewPresenter.swift */,
+				FC94150522368903002FDA64 /* PostDetailnteractor.swift */,
+				FC94150722368915002FDA64 /* PostDetailRouter.swift */,
+			);
+			path = PostDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -674,6 +697,7 @@
 				FC22FB8E22197FEF00AFAAEF /* PointSearchViewController.swift in Sources */,
 				FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */,
 				FC08F14C220F2B9F007399C7 /* TimeLine.swift in Sources */,
+				FC94150822368915002FDA64 /* PostDetailRouter.swift in Sources */,
 				FC026AC1220F00E5007E961C /* TimeLineInteractor.swift in Sources */,
 				FC4F8E5022086EFE00C02372 /* PostContract.swift in Sources */,
 				FC22FBA4221C163200AFAAEF /* PointDetailRouter.swift in Sources */,
@@ -695,16 +719,20 @@
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
 				FC4F8E452206E93E00C02372 /* PostPointSearchRouter.swift in Sources */,
 				FC1CD0322203332E00C810CF /* FirebaseClient.swift in Sources */,
+				FC941502223688D8002FDA64 /* PostDetailViewController.swift in Sources */,
 				FC026ABD220B1FFF007E961C /* PostPointLocationContract.swift in Sources */,
+				FC941504223688F3002FDA64 /* PostDetailViewPresenter.swift in Sources */,
 				FC026ABF220EC49E007E961C /* TimeLineViewContract.swift in Sources */,
 				FC4F8E4E2208655F00C02372 /* PostPointSearchContract.swift in Sources */,
 				FC4F8E52220870ED00C02372 /* PostInteractor.swift in Sources */,
 				FC08F14A220F2B62007399C7 /* User.swift in Sources */,
 				FC22FBA2221C162500AFAAEF /* PointDetailInteractor.swift in Sources */,
+				FC94150622368903002FDA64 /* PostDetailnteractor.swift in Sources */,
 				FC0BFC7521F9F4900054ABD2 /* PostPointLocationViewPresenter.swift in Sources */,
 				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
 				FC22FB972219829600AFAAEF /* PointSearchInteractor.swift in Sources */,
+				FC9414FF223688A4002FDA64 /* PostDetailContract.swift in Sources */,
 				FCF325CE21ECB307002CC3C4 /* PostPointLocationViewController.swift in Sources */,
 				FC08F145220F075E007399C7 /* TimeLineRouter.swift in Sources */,
 				FC026ABA2209D7E0007E961C /* CommonUtils.swift in Sources */,

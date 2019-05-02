@@ -28,6 +28,7 @@ class TimeLineViewController: UIViewController {
         case Initialize
         case Normal
         case Fetching
+        case Complate
     }
 
     override func viewDidLoad() {
@@ -48,11 +49,12 @@ class TimeLineViewController: UIViewController {
 
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
+        
+        presenter.initialize()
     }
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.initialize()
     }
     
     @IBAction func postButton(_ sender: Any) {
@@ -71,7 +73,7 @@ class TimeLineViewController: UIViewController {
     }
 
     // タイムラインデータのフェッチが完了したら呼び出される
-    func complateFetchTimeLineData(timeLine: TimeLine) {
+    func complateFetchTimeLineData(timeLine: TimeLine, isComplate: Bool) {
         self.timeLine = timeLine
         
         DispatchQueue.main.async {
@@ -95,7 +97,13 @@ class TimeLineViewController: UIViewController {
             UIView.setAnimationsEnabled(true)
             self.activityIndicator.stopAnimating()
             
-            self.tableState = .Normal
+            if isComplate {
+                self.tableState = .Complate
+            } else {
+                self.tableState = .Normal
+            }
+            
+            
         }
     }
     
@@ -166,6 +174,10 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if case .Complate = tableState {
+            return
+        }
+        
         if (self.tableView.contentOffset.y + self.tableView.frame.size.height > self.tableView.contentSize.height && self.tableView.isDragging && tableState == .Normal) {
             
             print(self.tableView.contentOffset.y)
@@ -176,7 +188,8 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
 
     // cellが選択された場合
     func tableView(_ table: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let userId = timeLine.postList[indexPath.row].userId
+        presenter.didSelectRowAt(userId: userId)
     }
 
 }

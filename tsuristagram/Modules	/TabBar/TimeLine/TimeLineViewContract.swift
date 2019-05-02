@@ -17,11 +17,13 @@ protocol TimeLinePresentable: class {
     func fetchTimeLineData()
     func postButton()
     func initialize()
+    func didSelectRowAt(userId: String)
 }
 
 // MARK: - interactor
 protocol TimeLineUsecase: class {
     var isFetching: Bool {get}
+    var isComplate: Bool {get}
     func fetchPostData()
     func fetchUserData(userId: String)
     func initialize()
@@ -37,5 +39,6 @@ protocol TimeLineInteractorDelegate: class {
 // MARK: - router
 protocol TimeLineWireframe: class {
     func postButton()
+    func didSelectRowAt(userId: String)
 }
 

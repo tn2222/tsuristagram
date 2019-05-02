@@ -18,9 +18,10 @@ class TimeLineInteractor: TimeLineUsecase {
     var offset: Int = (-1) * Int(Date().timeIntervalSince1970)
     var lastOffset: Int!
 
-    var count:Int = 0
+    var count: Int = 0
     var isFetching: Bool = false
-    
+    var isComplate: Bool = false
+
     func initialize() {
         FirebaseClient.observeToLast(id: "post", of: .childAdded, with: fetchLastOffset)
     }
@@ -67,6 +68,7 @@ class TimeLineInteractor: TimeLineUsecase {
         
         if self.lastOffset == Int(truncating: post.timestamp) {
             self.isFetching = false
+            self.isComplate = true
         }
         if self.count == Int(self.limit) {
             self.isFetching = false

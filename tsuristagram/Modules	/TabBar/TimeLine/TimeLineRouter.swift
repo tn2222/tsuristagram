@@ -52,4 +52,7 @@ class TimeLineRouter: TimeLineWireframe {
         }
     }
 
+    func didSelectRowAt(userId: String) {
+        
+    }
 }

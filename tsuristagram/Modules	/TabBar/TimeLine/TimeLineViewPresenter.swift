@@ -35,6 +35,9 @@ class TimeLineViewPresenter: TimeLinePresentable {
         router.postButton()
     }
     
+    func didSelectRowAt(userId: String) {
+        router.didSelectRowAt(userId: userId)
+    }
 }
 
 // Interactorからの通知受け取り
@@ -57,8 +60,7 @@ extension TimeLineViewPresenter: TimeLineInteractorDelegate {
         userCount += 1
         if !interactor.isFetching {
             guard timeLine.postList.count == userCount else { return }
-            view.complateFetchTimeLineData(timeLine: timeLine)
+            view.complateFetchTimeLineData(timeLine: timeLine, isComplate: interactor.isComplate)
         }
-        
     }
 }

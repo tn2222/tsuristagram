@@ -21,6 +21,10 @@ protocol PostPointSearchViewPresentable: class {
 protocol PostPointSearchUsecase: class {
 }
 
+protocol PostPointSearchInteractorDelegate: class {
+    func interactor(_ pointSearchUsecase: PostPointSearchUsecase, pointList: [Point])
+}
+
 // MARK: - router
 protocol PostPointSearchWireframe: class {
     func didSelectRow(point: Point)

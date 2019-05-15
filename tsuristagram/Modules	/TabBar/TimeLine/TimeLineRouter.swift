@@ -53,6 +53,10 @@ class TimeLineRouter: TimeLineWireframe {
     }
 
     func didSelectRowAt(userId: String) {
+        let userPageViewController = UserPageRouter.assembleModules() as! UserPageViewController
+        userPageViewController.userId = userId
         
+        timeLineViewController?.navigationController?.pushViewController(userPageViewController, animated: true)
+
     }
 }

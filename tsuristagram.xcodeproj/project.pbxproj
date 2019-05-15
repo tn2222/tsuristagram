@@ -58,6 +58,11 @@
 		FC94150622368903002FDA64 /* PostDetailnteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94150522368903002FDA64 /* PostDetailnteractor.swift */; };
 		FC94150822368915002FDA64 /* PostDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94150722368915002FDA64 /* PostDetailRouter.swift */; };
 		FCA75BDE2284331700E5A351 /* PointSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA75BDD2284331700E5A351 /* PointSearchInteractor.swift */; };
+		FCE6EE5B22843C87006F99D8 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */; };
+		FCE6EE5E22843DB5006F99D8 /* UserPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */; };
+		FCE6EE6022843F3E006F99D8 /* UserPageViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5F22843F3E006F99D8 /* UserPageViewPresenter.swift */; };
+		FCE6EE6222843F7E006F99D8 /* UserPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE6122843F7E006F99D8 /* UserPageInteractor.swift */; };
+		FCE6EE6422843F91006F99D8 /* UserPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE6322843F91006F99D8 /* UserPageRouter.swift */; };
 		FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CB21EC849A002CC3C4 /* Date.swift */; };
 		FCF325CE21ECB307002CC3C4 /* PostPointLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CD21ECB307002CC3C4 /* PostPointLocationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -143,6 +148,11 @@
 		FC94150522368903002FDA64 /* PostDetailnteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailnteractor.swift; sourceTree = "<group>"; };
 		FC94150722368915002FDA64 /* PostDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailRouter.swift; sourceTree = "<group>"; };
 		FCA75BDD2284331700E5A351 /* PointSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSearchInteractor.swift; sourceTree = "<group>"; };
+		FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
+		FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageContract.swift; sourceTree = "<group>"; };
+		FCE6EE5F22843F3E006F99D8 /* UserPageViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewPresenter.swift; sourceTree = "<group>"; };
+		FCE6EE6122843F7E006F99D8 /* UserPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageInteractor.swift; sourceTree = "<group>"; };
+		FCE6EE6322843F91006F99D8 /* UserPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageRouter.swift; sourceTree = "<group>"; };
 		FCF325CB21EC849A002CC3C4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		FCF325CD21ECB307002CC3C4 /* PostPointLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +229,7 @@
 				FC08F146220F1605007399C7 /* MainTabBarViewController.swift */,
 				FC0BFC7121F9F3460054ABD2 /* TimeLine */,
 				FC22FB8F2219800500AFAAEF /* PointSearch */,
+				FCE6EE5C22843C8E006F99D8 /* UserPage */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -412,6 +423,18 @@
 				FC94150722368915002FDA64 /* PostDetailRouter.swift */,
 			);
 			path = PostDetail;
+			sourceTree = "<group>";
+		};
+		FCE6EE5C22843C8E006F99D8 /* UserPage */ = {
+			isa = PBXGroup;
+			children = (
+				FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */,
+				FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */,
+				FCE6EE5F22843F3E006F99D8 /* UserPageViewPresenter.swift */,
+				FCE6EE6122843F7E006F99D8 /* UserPageInteractor.swift */,
+				FCE6EE6322843F91006F99D8 /* UserPageRouter.swift */,
+			);
+			path = UserPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -697,15 +720,19 @@
 				FC22FB8E22197FEF00AFAAEF /* PointSearchViewController.swift in Sources */,
 				FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */,
 				FC08F14C220F2B9F007399C7 /* TimeLine.swift in Sources */,
+				FCE6EE6022843F3E006F99D8 /* UserPageViewPresenter.swift in Sources */,
 				FC94150822368915002FDA64 /* PostDetailRouter.swift in Sources */,
 				FC026AC1220F00E5007E961C /* TimeLineInteractor.swift in Sources */,
 				FC4F8E5022086EFE00C02372 /* PostContract.swift in Sources */,
 				FC22FBA4221C163200AFAAEF /* PointDetailRouter.swift in Sources */,
 				FC22FB99221982BB00AFAAEF /* PointSearchRouter.swift in Sources */,
 				FC08F147220F1605007399C7 /* MainTabBarViewController.swift in Sources */,
+				FCE6EE6422843F91006F99D8 /* UserPageRouter.swift in Sources */,
 				FC026AB82209CB0C007E961C /* String.swift in Sources */,
 				FC4F8E402206E30300C02372 /* PostPointSearchViewController.swift in Sources */,
 				FC1CD02D21FF264B00C810CF /* TimeLineViewPresenter.swift in Sources */,
+				FCE6EE5B22843C87006F99D8 /* UserPageViewController.swift in Sources */,
+				FCE6EE5E22843DB5006F99D8 /* UserPageContract.swift in Sources */,
 				FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */,
 				FC1CD02B21FEFC8400C810CF /* PostRouter.swift in Sources */,
 				FC1CD02921FEFC6900C810CF /* PostViewPresenter.swift in Sources */,
@@ -717,6 +744,7 @@
 				FC22FBA0221C161000AFAAEF /* PointDetailViewPresenter.swift in Sources */,
 				FC4F8E492207258D00C02372 /* Point.swift in Sources */,
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
+				FCE6EE6222843F7E006F99D8 /* UserPageInteractor.swift in Sources */,
 				FC4F8E452206E93E00C02372 /* PostPointSearchRouter.swift in Sources */,
 				FCA75BDE2284331700E5A351 /* PointSearchInteractor.swift in Sources */,
 				FC1CD0322203332E00C810CF /* FirebaseClient.swift in Sources */,

@@ -27,6 +27,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TimeLineViewController.tableView(_:cellForRowAt:):TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.timeLine.postList[indexPath.row].comment">
+            </PersistentString>
+            <PersistentString
+               value = "timeLine">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PointDetailViewController.loadPostData():PointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString

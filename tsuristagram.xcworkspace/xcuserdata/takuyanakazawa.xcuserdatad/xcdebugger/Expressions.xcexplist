@@ -3,10 +3,13 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
+         contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.post">
+               value = "timeLineNav.navigationBar">
+            </PersistentString>
+            <PersistentString
+               value = "NSAttributedString">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -46,6 +49,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "UserPageInteractor.fetchUserComplate(snapshot:):UserPageInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "delegate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PointSearchRouter.didSelectRow(point:):PointSearchRouter.swift">
          <PersistentStrings>
             <PersistentString
@@ -68,13 +79,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
+         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "timeLineNav.navigationBar">
-            </PersistentString>
-            <PersistentString
-               value = "NSAttributedString">
+               value = "self.post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

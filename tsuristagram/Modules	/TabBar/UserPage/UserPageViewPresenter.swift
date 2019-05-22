@@ -19,6 +19,11 @@ class UserPageViewPresenter: UserPageViewPresentable {
             view.setUser(user: user)
         }
     }
+    var postList = [Post]() {
+        didSet {
+            view.setPostList(postList: postList)
+        }
+    }
     
     init(view: UserPageViewController, router: UserPageWireframe, interactor: UserPageUsecase) {
         self.view = view
@@ -30,10 +35,22 @@ class UserPageViewPresenter: UserPageViewPresentable {
         interactor.fetchUserData(userId: userId)
     }
 
+    func selectCell(post: Post) {
+        router.selectCell(post: post)
+    }
+    
+    func fetchData(userId: String) {
+        interactor.fetchData(userId: userId)
+    }
+
 }
 
 // Interactorからの通知受け取り
 extension UserPageViewPresenter: UserPageInteractorDelegate {
+    func interactor(_ userPageUsecase: UserPageUsecase, post: Post) {
+        postList.append(post)
+    }
+    
     func interactor(_ userPageUsecase: UserPageUsecase, user: User) {
         self.user = user
     }

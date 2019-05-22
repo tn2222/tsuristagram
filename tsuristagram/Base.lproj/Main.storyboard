@@ -381,6 +381,9 @@ This collection of awesome filters for your landscap…</string>
                                         <rect key="frame" x="131" y="179" width="112" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="userSetting"/>
+                                        <connections>
+                                            <action selector="userSettingButton:" destination="dq7-GT-Jau" eventType="touchUpInside" id="4Ba-3w-nAu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -396,7 +399,7 @@ This collection of awesome filters for your landscap…</string>
                                         <color key="textColor" red="0.47058823529999999" green="0.51764705879999995" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5N-vl-NuI">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5N-vl-NuI">
                                         <rect key="frame" x="14" y="8" width="346" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
@@ -438,6 +441,14 @@ This collection of awesome filters for your landscap…</string>
                         <viewLayoutGuide key="safeArea" id="9KF-9n-i8w"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="mypage" id="7dh-xv-6tG"/>
+                    <connections>
+                        <outlet property="collectionView" destination="740-BB-D1X" id="hyg-IM-1U1"/>
+                        <outlet property="postCount" destination="b5N-vl-NuI" id="vCY-d7-zgV"/>
+                        <outlet property="userImage" destination="332-6c-3vp" id="H4c-y8-R5l"/>
+                        <outlet property="userImageExpand" destination="ZyK-Q4-jLE" id="Wpn-gU-1dh"/>
+                        <outlet property="userName" destination="ZyK-Q4-jLE" id="wqm-Ss-ftJ"/>
+                        <outlet property="userSetting" destination="ClH-Ec-qRk" id="fSN-gZ-Fp9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wqx-OE-0Qi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

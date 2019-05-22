@@ -3,29 +3,19 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
+         contextName = "UserPageViewController.loadPostData():UserPageViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "timeLineNav.navigationBar">
+               value = "Array(currentDataCount..&lt;newDataCount).map { IndexPath(row: $0, section: 0) }">
             </PersistentString>
             <PersistentString
-               value = "NSAttributedString">
+               value = "self.collectionView.insertItems(at: Array(currentDataCount..&lt;newDataCount).map { IndexPath(row: $0, section: 0) })">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TimeLineInteractor.fetchLastDataComplate(snapshot:):TimeLineInteractor.swift">
-         <PersistentStrings>
             <PersistentString
-               value = "self.lastOffset">
+               value = "Array(currentDataCount..&lt;newDataCount)">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
-         <PersistentStrings>
             <PersistentString
-               value = "tableState">
+               value = "self.collectionView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -41,10 +31,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PointDetailViewController.loadPostData():PointDetailViewController.swift">
+         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "postList">
+               value = "self.post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineInteractor.fetchLastDataComplate(snapshot:):TimeLineInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.lastOffset">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -53,6 +51,28 @@
          <PersistentStrings>
             <PersistentString
                value = "delegate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in UserPageViewController.loadPostData():UserPageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "IndexPath(row: $0, section: 0) ">
+            </PersistentString>
+            <PersistentString
+               value = "newDataCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "timeLineNav.navigationBar">
+            </PersistentString>
+            <PersistentString
+               value = "NSAttributedString">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -79,10 +99,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
+         contextName = "PointDetailViewController.loadPostData():PointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.post">
+               value = "postList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tableState">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserPageViewController.collectionView(_:numberOfItemsInSection:):UserPageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

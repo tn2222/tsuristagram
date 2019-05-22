@@ -35,5 +35,9 @@ class UserPageRouter: UserPageWireframe {
         return view
     }
 
+    func selectCell(post: Post) {
+        // postDetail画面遷移
+    }
+
 }
 

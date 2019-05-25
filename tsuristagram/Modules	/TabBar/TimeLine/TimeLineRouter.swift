@@ -9,7 +9,7 @@
 import UIKit
 
 class TimeLineRouter: TimeLineWireframe {
-
+    
     fileprivate weak var timeLineViewController: TimeLineViewController?
     fileprivate weak var postViewController: PostViewController?
 
@@ -52,11 +52,12 @@ class TimeLineRouter: TimeLineWireframe {
         }
     }
 
-    func didSelectRowAt(userId: String) {
+    func selectUser(userId: String) {
         let userPageViewController = UserPageRouter.assembleModules() as! UserPageViewController
         userPageViewController.userId = userId
         
         timeLineViewController?.navigationController?.pushViewController(userPageViewController, animated: true)
 
     }
+
 }

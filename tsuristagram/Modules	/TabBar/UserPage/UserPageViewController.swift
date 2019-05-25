@@ -12,12 +12,12 @@ class UserPageViewController: UIViewController {
     
     var presenter: UserPageViewPresenter!
     var point: Point!
-    var fetchEndWorkItem: DispatchWorkItem!
+    var fetchComplateWorkItem: DispatchWorkItem!
 
     var postList = [Post]() {
         didSet {
-            if (fetchEndWorkItem != nil){
-                fetchEndWorkItem.cancel()
+            if (fetchComplateWorkItem != nil){
+                fetchComplateWorkItem.cancel()
             }
             finishLoading()
         }
@@ -28,10 +28,8 @@ class UserPageViewController: UIViewController {
     @IBOutlet var postCount: UILabel!
     @IBOutlet var userName: UILabel!
     @IBOutlet var userImage: UIImageView!
-    @IBOutlet var userImageExpand: UILabel!
     @IBOutlet var userSetting: UIButton!
-    
-    
+    @IBOutlet var userImageExpand: UIImageView!
     
     @IBAction func userSettingButton(_ sender: UIButton) {
     }
@@ -41,16 +39,23 @@ class UserPageViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        startIndicator()
+        
+        // ユーザ設定ボタン有無判定
+        if userId == nil {
+            userId = CommonUtils.getUserId()
+        } else if CommonUtils.getUserId() != userId {
+            userSetting.isHidden = true
+        }
+
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 123, height: 100)
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 3
         collectionView.collectionViewLayout = layout
-        
         self.presenter.fetchUserData(userId: userId)
         self.presenter.fetchData(userId: userId)
-
 
     }
     
@@ -58,14 +63,14 @@ class UserPageViewController: UIViewController {
         super.viewWillAppear(animated)
     }
 
-    
     func finishLoading() {
-        fetchEndWorkItem = DispatchWorkItem() {
+        fetchComplateWorkItem = DispatchWorkItem() {
             self.postCount.text = String(self.postList.count)
             self.loadPostData()
+            self.dismissIndicator()
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: fetchEndWorkItem)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: self.fetchComplateWorkItem)
         
     }
     // 画面表示でフェッチした投稿データを設定
@@ -76,7 +81,14 @@ class UserPageViewController: UIViewController {
 
 
     func setUser(user: User) {
-        print(user)
+        userName.text = user.userName
+        
+        let userPhotoString = user.userPhoto
+        userImage.layer.cornerRadius = userImage.frame.size.width * 0.5
+        userImage.clipsToBounds = true
+        userImage.sd_setImage(with: URL(string: userPhotoString), completed:nil)
+//        userImageExpand.sd_setImage(with: URL(string: userPhotoString), completed:nil)
+
     }
     
     func loadPostData() {

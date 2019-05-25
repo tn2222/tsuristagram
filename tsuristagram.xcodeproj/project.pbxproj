@@ -58,6 +58,8 @@
 		FC94150622368903002FDA64 /* PostDetailnteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94150522368903002FDA64 /* PostDetailnteractor.swift */; };
 		FC94150822368915002FDA64 /* PostDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94150722368915002FDA64 /* PostDetailRouter.swift */; };
 		FCA75BDE2284331700E5A351 /* PointSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA75BDD2284331700E5A351 /* PointSearchInteractor.swift */; };
+		FCA95A8E2299512C003E20A8 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA95A8D2299512C003E20A8 /* UIViewController.swift */; };
+		FCA95A90229963A3003E20A8 /* UserSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */; };
 		FCE6EE5B22843C87006F99D8 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */; };
 		FCE6EE5E22843DB5006F99D8 /* UserPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */; };
 		FCE6EE6022843F3E006F99D8 /* UserPageViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5F22843F3E006F99D8 /* UserPageViewPresenter.swift */; };
@@ -148,6 +150,8 @@
 		FC94150522368903002FDA64 /* PostDetailnteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailnteractor.swift; sourceTree = "<group>"; };
 		FC94150722368915002FDA64 /* PostDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailRouter.swift; sourceTree = "<group>"; };
 		FCA75BDD2284331700E5A351 /* PointSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSearchInteractor.swift; sourceTree = "<group>"; };
+		FCA95A8D2299512C003E20A8 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectButton.swift; sourceTree = "<group>"; };
 		FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageContract.swift; sourceTree = "<group>"; };
 		FCE6EE5F22843F3E006F99D8 /* UserPageViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewPresenter.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 			children = (
 				FCF325CB21EC849A002CC3C4 /* Date.swift */,
 				FC026AB72209CB0C007E961C /* String.swift */,
+				FCA95A8D2299512C003E20A8 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				FC0BFC6C21F8B37B0054ABD2 /* Extensions */,
+				FCA95A9122996424003E20A8 /* SubClass */,
 				FC1CD0332203333300C810CF /* Firebase */,
 				FC026ABB2209D7E4007E961C /* Common */,
 				FC0BFC6F21F9E9200054ABD2 /* Entity */,
@@ -423,6 +429,14 @@
 				FC94150722368915002FDA64 /* PostDetailRouter.swift */,
 			);
 			path = PostDetail;
+			sourceTree = "<group>";
+		};
+		FCA95A9122996424003E20A8 /* SubClass */ = {
+			isa = PBXGroup;
+			children = (
+				FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */,
+			);
+			path = SubClass;
 			sourceTree = "<group>";
 		};
 		FCE6EE5C22843C8E006F99D8 /* UserPage */ = {
@@ -721,6 +735,7 @@
 				FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */,
 				FC08F14C220F2B9F007399C7 /* TimeLine.swift in Sources */,
 				FCE6EE6022843F3E006F99D8 /* UserPageViewPresenter.swift in Sources */,
+				FCA95A8E2299512C003E20A8 /* UIViewController.swift in Sources */,
 				FC94150822368915002FDA64 /* PostDetailRouter.swift in Sources */,
 				FC026AC1220F00E5007E961C /* TimeLineInteractor.swift in Sources */,
 				FC4F8E5022086EFE00C02372 /* PostContract.swift in Sources */,
@@ -733,6 +748,7 @@
 				FC1CD02D21FF264B00C810CF /* TimeLineViewPresenter.swift in Sources */,
 				FCE6EE5B22843C87006F99D8 /* UserPageViewController.swift in Sources */,
 				FCE6EE5E22843DB5006F99D8 /* UserPageContract.swift in Sources */,
+				FCA95A90229963A3003E20A8 /* UserSelectButton.swift in Sources */,
 				FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */,
 				FC1CD02B21FEFC8400C810CF /* PostRouter.swift in Sources */,
 				FC1CD02921FEFC6900C810CF /* PostViewPresenter.swift in Sources */,

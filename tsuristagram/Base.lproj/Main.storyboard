@@ -132,13 +132,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="445.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="takuya nakazawa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAD-gb-x3P">
-                                                    <rect key="frame" x="59" y="22" width="254" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-UQ-mvd">
                                                     <rect key="frame" x="15" y="15" width="36" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -169,6 +162,14 @@ This collection of awesome filters for your landscap…</string>
                                                     <rect key="frame" x="-2" y="60" width="378" height="281"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V22-kH-Ynl" customClass="UserSelectButton" customModule="tsuristagram" customModuleProvider="target">
+                                                    <rect key="frame" x="59" y="22" width="220" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
+                                                    <state key="normal" title="takuya nakazawa">
+                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -445,7 +446,7 @@ This collection of awesome filters for your landscap…</string>
                         <outlet property="collectionView" destination="740-BB-D1X" id="hyg-IM-1U1"/>
                         <outlet property="postCount" destination="b5N-vl-NuI" id="vCY-d7-zgV"/>
                         <outlet property="userImage" destination="332-6c-3vp" id="H4c-y8-R5l"/>
-                        <outlet property="userImageExpand" destination="ZyK-Q4-jLE" id="Wpn-gU-1dh"/>
+                        <outlet property="userImageExpand" destination="scM-iK-EZh" id="Qlc-pr-yik"/>
                         <outlet property="userName" destination="ZyK-Q4-jLE" id="wqm-Ss-ftJ"/>
                         <outlet property="userSetting" destination="ClH-Ec-qRk" id="fSN-gZ-Fp9"/>
                     </connections>

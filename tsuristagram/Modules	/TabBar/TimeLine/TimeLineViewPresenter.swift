@@ -35,9 +35,11 @@ class TimeLineViewPresenter: TimeLinePresentable {
         router.postButton()
     }
     
-    func didSelectRowAt(userId: String) {
-        router.didSelectRowAt(userId: userId)
+    func selectUser(userId: String) {
+        router.selectUser(userId: userId)
     }
+    
+
 }
 
 // Interactorからの通知受け取り

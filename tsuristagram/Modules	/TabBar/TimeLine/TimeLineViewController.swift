@@ -56,7 +56,12 @@ class TimeLineViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
+
+    @objc func selectUser(_ sender: UserSelectButton) {
+        presenter.selectUser(userId: sender.userId)
+
+    }
+
     @IBAction func postButton(_ sender: Any) {
         presenter.postButton()
     }
@@ -137,6 +142,11 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
+        // cell選択時のカラー
+        let cellSelectedBgView = UIView()
+        cellSelectedBgView.backgroundColor = UIColor.white
+        cell.selectedBackgroundView = cellSelectedBgView
+        
         let userId = timeLine.postList[indexPath.row].userId
         let user = self.timeLine.userMap[userId]
         let userPhotoString = user!.userPhoto
@@ -148,9 +158,11 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         
         userPhoto.sd_setImage(with: URL(string: userPhotoString), completed:nil)
         
-        let userNameLabel = cell.viewWithTag(2) as! UILabel
-        userNameLabel.text = userName
-        
+        let userNameButton = cell.viewWithTag(2) as! UserSelectButton
+        userNameButton.userId = userId
+        userNameButton.setTitle(userName, for: .normal) // ボタンのタイトル
+        userNameButton.addTarget(self, action: #selector(selectUser(_:)), for: UIControl.Event.touchUpInside)
+
         let pictureImage = cell.viewWithTag(3) as! UIImageView
         pictureImage.sd_setImage(with: URL(string: self.timeLine.postList[indexPath.row].picture), completed:nil)
 
@@ -186,11 +198,11 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    // cellが選択された場合
-    func tableView(_ table: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let userId = timeLine.postList[indexPath.row].userId
-        presenter.didSelectRowAt(userId: userId)
-    }
+//    // cellが選択された場合
+//    func tableView(_ table: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let userId = timeLine.postList[indexPath.row].userId
+//        presenter.didSelectRowAt(userId: userId)
+//    }
 
 }
 

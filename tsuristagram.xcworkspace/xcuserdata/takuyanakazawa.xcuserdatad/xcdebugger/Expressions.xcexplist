@@ -31,14 +31,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.post">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "TimeLineInteractor.fetchLastDataComplate(snapshot:):TimeLineInteractor.swift">
          <PersistentStrings>
             <PersistentString
@@ -51,6 +43,14 @@
          <PersistentStrings>
             <PersistentString
                value = "delegate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -95,6 +95,14 @@
          <PersistentStrings>
             <PersistentString
                value = "self.lastOffset">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserPageViewController.finishLoading():UserPageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fetchComplateWorkItem">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

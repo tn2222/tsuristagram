@@ -6,8 +6,9 @@
 //  Copyright © 2019 takuya nakazawa. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import Firebase
 
-class PostDetailnteractor: PostDetailUsecase {
+class PostDetailInteractor: PostDetailUsecase {
 
 }

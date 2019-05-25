@@ -12,9 +12,11 @@ class UserPageRouter: UserPageWireframe {
 
     
     fileprivate weak var userPageViewController: UserPageViewController?
+    fileprivate weak var postDetailViewController: PostDetailViewController?
     
-    init(userPageViewController: UserPageViewController) {
+    init(userPageViewController: UserPageViewController, postDetailViewController: PostDetailViewController) {
         self.userPageViewController = userPageViewController
+        self.postDetailViewController = postDetailViewController
     }
     
     // 依存関係の解決
@@ -22,8 +24,9 @@ class UserPageRouter: UserPageWireframe {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "userPage") as! UserPageViewController
+        let postDetailVC = storyboard.instantiateViewController(withIdentifier: "postDetail") as! PostDetailViewController
         
-        let router = UserPageRouter(userPageViewController: view)
+        let router = UserPageRouter(userPageViewController: view, postDetailViewController: postDetailVC)
         let interactor = UserPageInteractor()
         let presenter = UserPageViewPresenter(view: view, router: router, interactor: interactor)
         
@@ -36,7 +39,9 @@ class UserPageRouter: UserPageWireframe {
     }
 
     func selectCell(post: Post) {
-        // postDetail画面遷移
+        let postDetailViewController = PostDetailRouter.assembleModules() as! PostDetailViewController
+        postDetailViewController.postKey = post.key
+        userPageViewController?.navigationController?.pushViewController(postDetailViewController, animated: true)
     }
 
 }

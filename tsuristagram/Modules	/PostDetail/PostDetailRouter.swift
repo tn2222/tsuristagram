@@ -10,23 +10,33 @@ import UIKit
 
 class PostDetailRouter: PostDetailWireframe {
 
+    fileprivate weak var postDetailViewController: PostDetailViewController?
+    fileprivate var postPointLocationViewController: PostPointLocationViewController?
+    fileprivate var tabBarController: UITabBarController?
     
+    init(postDetailViewController: PostDetailViewController,
+         postPointLocationViewController: PostPointLocationViewController,
+         tabBarController: UITabBarController) {
+        self.postDetailViewController = postDetailViewController
+        self.postPointLocationViewController = postPointLocationViewController
+        self.tabBarController = tabBarController
+    }
+
     // 依存関係の解決
     static func assembleModules() -> UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "postView") as! PostViewController
+        let view = storyboard.instantiateViewController(withIdentifier: "postDetail") as! PostDetailViewController
         
         let postLocationVC = storyboard.instantiateViewController(withIdentifier: "postPointLocation") as? PostPointLocationViewController
-        let postSearchVC = storyboard.instantiateViewController(withIdentifier: "postPointSearch") as? PostPointSearchViewController
         let tabbar = storyboard.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController
         
-        let router = PostRouter(postViewController: view ,postPointLocationViewController: postLocationVC!, postPointSearchViewController: postSearchVC!, tabBarController: tabbar!)
-        let interactor = PostInteractor()
-        let presenter = PostViewPresenter(view: view, router: router, interactor: interactor)
+        let router = PostDetailRouter(postDetailViewController: view, postPointLocationViewController: postLocationVC!, tabBarController: tabbar!)
+        let interactor = PostDetailInteractor()
+        let presenter = PostDetailViewPresenter(view: view, router: router, interactor: interactor)
         
         // Interactorの通知先を設定
-        interactor.delegate = presenter
+//        interactor.delegate = presenter
         // ViewにPresenterを設定
         view.presenter = presenter
         

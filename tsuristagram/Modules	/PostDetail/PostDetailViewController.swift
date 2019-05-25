@@ -10,4 +10,15 @@ import UIKit
 
 class PostDetailViewController: UIViewController {
 
+    var presenter: PostDetailViewPresenter!
+    var postKey: String!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
 }

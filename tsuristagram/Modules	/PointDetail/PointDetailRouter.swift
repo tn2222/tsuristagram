@@ -35,7 +35,9 @@ class PointDetailRouter: PointDetailWireframe {
     }
 
     func selectCell(post: Post) {
-        // postDetail画面遷移
+        let postDetailViewController = PostDetailRouter.assembleModules() as! PostDetailViewController
+        postDetailViewController.postKey = post.key
+        pointDetailViewController?.navigationController?.pushViewController(postDetailViewController, animated: true)
     }
 
 }

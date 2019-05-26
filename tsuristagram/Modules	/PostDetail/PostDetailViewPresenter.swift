@@ -14,7 +14,11 @@ class PostDetailViewPresenter: PostDetailViewPresentable {
     let router: PostDetailWireframe
     let interactor: PostDetailUsecase
     
-    var point = Point()
+    var post = Post() {
+        didSet {
+            view.setPostData(post: post)
+        }
+    }
     
     init(view: PostDetailViewController, router: PostDetailWireframe, interactor: PostDetailUsecase) {
         self.view = view
@@ -22,4 +26,15 @@ class PostDetailViewPresenter: PostDetailViewPresentable {
         self.interactor = interactor
     }
 
+    func fetchData(postKey: String) {
+        interactor.fetchData(postKey: postKey)
+    }
+
+}
+
+// Interactorからの通知受け取り
+extension PostDetailViewPresenter: PostDetailInteractorDelegate {
+    func interactor(_ postDetailUsecase: PostDetailUsecase, post: Post) {
+        self.post = post
+    }
 }

@@ -36,7 +36,7 @@ class PostDetailRouter: PostDetailWireframe {
         let presenter = PostDetailViewPresenter(view: view, router: router, interactor: interactor)
         
         // Interactorの通知先を設定
-//        interactor.delegate = presenter
+        interactor.delegate = presenter
         // ViewにPresenterを設定
         view.presenter = presenter
         

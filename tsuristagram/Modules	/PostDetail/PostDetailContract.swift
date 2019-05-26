@@ -14,13 +14,17 @@ protocol PostDetailView: class {
 
 // MARK: - presenter
 protocol PostDetailViewPresentable: class {
+    func fetchData(postKey: String)
 }
 
 // MARK: - interactor
 protocol PostDetailUsecase: class {
+    func fetchData(postKey: String)
 }
 
 protocol PostDetailInteractorDelegate: class {
+    func interactor(_ postDetailUsecase: PostDetailUsecase, post: Post)
+
 }
 
 // MARK: - router

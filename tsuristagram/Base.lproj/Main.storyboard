@@ -941,7 +941,7 @@ This collection of awesome filters for your landscap…</string>
                                         <fontDescription key="fontDescription" name=".HiraKakuInterface-W3" family=".Hiragino Kaku Gothic Interface" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="晴れ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKR-t9-FG8" userLabel="天気ラベル">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKR-t9-FG8" userLabel="天気ラベル">
                                         <rect key="frame" x="121" y="619" width="244" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -953,7 +953,7 @@ This collection of awesome filters for your landscap…</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFl-NS-E3W">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="天気" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFl-NS-E3W">
                                         <rect key="frame" x="18" y="619" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name=".HiraKakuInterface-W3" family=".Hiragino Kaku Gothic Interface" pointSize="17"/>
@@ -1004,6 +1004,7 @@ This collection of awesome filters for your landscap…</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="arrow-right"/>
                                         <connections>
+                                            <action selector="pointLocationButton:" destination="FeP-H1-ubq" eventType="touchUpInside" id="bak-vz-z4N"/>
                                             <action selector="postLocation:" destination="iZL-tH-N9A" eventType="touchUpInside" id="3hc-Zq-ZRw"/>
                                         </connections>
                                     </button>
@@ -1030,7 +1031,7 @@ This collection of awesome filters for your landscap…</string>
                     <connections>
                         <outlet property="comment" destination="nsU-zH-dmI" id="yZ8-hI-K7R"/>
                         <outlet property="fishSpecies" destination="8G6-gw-5dO" id="U3r-mb-35z"/>
-                        <outlet property="fishingDate" destination="5cy-Ib-OJt" id="69e-fe-UYm"/>
+                        <outlet property="fishingDate" destination="5cy-Ib-OJt" id="Vhj-Go-ZKg"/>
                         <outlet property="picture" destination="Iwv-w6-cgr" id="PO2-CQ-kNm"/>
                         <outlet property="pointName" destination="xZo-He-Eh0" id="MvW-x4-aQY"/>
                         <outlet property="size" destination="DFe-DG-173" id="BQj-BE-Cjc"/>

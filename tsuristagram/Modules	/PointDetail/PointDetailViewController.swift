@@ -29,6 +29,8 @@ class PointDetailViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
 
+        presenter.initialize(map: mapView, latitude: point.latitude, longitude: point.longitude)
+        fetchData()
         
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
@@ -40,8 +42,6 @@ class PointDetailViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.initialize(map: mapView, latitude: point.latitude, longitude: point.longitude)
-        fetchData()
     }
     
     func fetchData() {

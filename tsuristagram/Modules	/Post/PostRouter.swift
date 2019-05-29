@@ -71,6 +71,7 @@ class PostRouter: PostWireframe {
         // 緯度経度を設定
         postPointLocationViewController.latitude = latitude
         postPointLocationViewController.longitude = longitude
+        postPointLocationViewController.editFlag = true
 
         postViewController?.navigationController?.pushViewController(postPointLocationViewController, animated: true)
     }

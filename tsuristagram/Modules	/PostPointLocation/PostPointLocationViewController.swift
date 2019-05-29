@@ -17,12 +17,16 @@ class PostPointLocationViewController: UIViewController {
 
     var latitude: Double!
     var longitude: Double!
+    var editFlag: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.backButton))
+        
+        if editFlag {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.saveButton))
+        }
 
         mapView.delegate = self
 
@@ -47,6 +51,8 @@ class PostPointLocationViewController: UIViewController {
 extension PostPointLocationViewController: GMSMapViewDelegate {
     // マップ上をロングタップすると呼ばれるメソッド
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
-        presenter.didLongPressAt(coordinate: coordinate)
+        if editFlag {
+            presenter.didLongPressAt(coordinate: coordinate)
+        }
     }
 }

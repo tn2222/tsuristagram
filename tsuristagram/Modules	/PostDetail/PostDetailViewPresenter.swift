@@ -9,7 +9,7 @@
 import Foundation
 
 class PostDetailViewPresenter: PostDetailViewPresentable {
-
+    
     let view: PostDetailViewController
     let router: PostDetailWireframe
     let interactor: PostDetailUsecase
@@ -26,6 +26,10 @@ class PostDetailViewPresenter: PostDetailViewPresentable {
         self.interactor = interactor
     }
 
+    func pointLocationButton(latitude: Double, longitude: Double) {
+        router.pointLocationButton(latitude: latitude, longitude: longitude)
+    }
+
     func fetchData(postKey: String) {
         interactor.fetchData(postKey: postKey)
     }
@@ -36,5 +40,12 @@ class PostDetailViewPresenter: PostDetailViewPresentable {
 extension PostDetailViewPresenter: PostDetailInteractorDelegate {
     func interactor(_ postDetailUsecase: PostDetailUsecase, post: Post) {
         self.post = post
+        interactor.fetchPoint(pointId: post.pointId)
     }
+    func interactor(_ postDetailUsecase: PostDetailUsecase, point: Point) {
+        self.post.pointName = point.name
+        self.post.latitude = point.latitude
+        self.post.longitude = point.longitude
+    }
+
 }

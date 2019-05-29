@@ -20,12 +20,14 @@ class PostDetailViewController: UIViewController {
     @IBOutlet var comment: UILabel!
     @IBOutlet var fishingDate: UILabel!
     
+    
     var presenter: PostDetailViewPresenter!
     var postKey: String!
-    
+    var post = Post()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.presenter.fetchData(postKey: postKey)
 
     }
@@ -34,9 +36,12 @@ class PostDetailViewController: UIViewController {
         super.viewWillAppear(animated)
     }
 
+    @IBAction func pointLocationButton(_ sender: Any) {
+        presenter.pointLocationButton(latitude: post.latitude, longitude: post.longitude)
+    }
+    
     func setPostData(post: Post) {
-        
-        
+        self.post = post
         picture.sd_setImage(with: URL(string: post.picture), completed:nil)
 
         size.text = post.size
@@ -44,7 +49,8 @@ class PostDetailViewController: UIViewController {
         fishSpecies.text = post.fishSpecies
         pointName.text = post.pointName
         weather.text = post.weather
-        
+        fishingDate.text = post.fishingDate
+
         //表示可能最大行数を指定
         comment.numberOfLines = 20
         //contentsのサイズに合わせてobujectのサイズを変える

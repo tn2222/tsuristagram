@@ -9,7 +9,7 @@
 import UIKit
 
 class PostDetailRouter: PostDetailWireframe {
-
+    
     fileprivate weak var postDetailViewController: PostDetailViewController?
     fileprivate var postPointLocationViewController: PostPointLocationViewController?
     fileprivate var tabBarController: UITabBarController?
@@ -41,6 +41,18 @@ class PostDetailRouter: PostDetailWireframe {
         view.presenter = presenter
         
         return view
+    }
+
+    func pointLocationButton(latitude: Double, longitude: Double) {
+        let postPointLocationViewController = PostPointLocationRouter.assembleModules() as! PostPointLocationViewController
+        
+        // 緯度経度を設定
+        postPointLocationViewController.latitude = latitude
+        postPointLocationViewController.longitude = longitude
+        postPointLocationViewController.editFlag = false
+
+        postDetailViewController?.navigationController?.pushViewController(postPointLocationViewController, animated: true)
+
     }
 
 }

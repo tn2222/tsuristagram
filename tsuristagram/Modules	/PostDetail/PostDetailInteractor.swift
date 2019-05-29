@@ -17,8 +17,11 @@ class PostDetailInteractor: PostDetailUsecase {
     func fetchData(postKey: String) {
         FirebaseClient.observeSingleEvent(id: "post", key: postKey, of: .value, with: fetchPostComplate)
     }
-    
-    
+
+    func fetchPoint(pointId: String) {
+        FirebaseClient.observeSingleEvent(id: "point", key: pointId, of: .value, with: fetchPointComplate)
+    }
+
     func fetchPostComplate(snapshot: [String:AnyObject]) {
         var post = Post()
 
@@ -37,5 +40,12 @@ class PostDetailInteractor: PostDetailUsecase {
         self.delegate?.interactor(self, post: post)
     }
 
-
+    func fetchPointComplate(snapshot: [String:AnyObject]) {
+        var point = Point()
+        point.latitude = snapshot["latitude"] as! Double
+        point.longitude = snapshot["longitude"] as! Double
+        point.name = snapshot["name"] as! String
+        point.address = snapshot["address"] as! String
+        self.delegate?.interactor(self, point: point)
+    }
 }

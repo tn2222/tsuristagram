@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 import Photos
+import YPImagePicker
+
+
 
 class TimeLineViewController: UIViewController {
 
@@ -49,10 +52,10 @@ class TimeLineViewController: UIViewController {
 
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
-        
+                
         presenter.initialize()
     }
-        
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -172,7 +175,7 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         let createDateLabel = cell.viewWithTag(5) as! UILabel
         
         let date = NSDate(timeIntervalSince1970: TimeInterval(truncating: NSNumber(value: (-1) * Int(truncating: self.timeLine.postList[indexPath.row].timestamp))))
-        
+
         let dateString = Date.dateToString(date: date as Date, format: "yyyy/MM/dd HH:mm")
 
         createDateLabel.text = dateString

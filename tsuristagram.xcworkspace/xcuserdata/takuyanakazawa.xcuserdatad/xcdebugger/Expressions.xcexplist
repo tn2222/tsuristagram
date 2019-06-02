@@ -99,6 +99,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PointDetailViewController.addBannerViewToView(_:):PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.mapView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserPageViewController.finishLoading():UserPageViewController.swift">
          <PersistentStrings>
             <PersistentString

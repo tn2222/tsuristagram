@@ -19,6 +19,9 @@ target 'tsuristagram' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'IQKeyboardManagerSwift'
+  pod 'Firebase/AdMob'
+  pod 'YPImagePicker'
+
 
 
 

@@ -81,7 +81,10 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.view?.isUserInteractionEnabled = false
         self.navigationItem.leftBarButtonItem?.isEnabled = false
         self.navigationItem.rightBarButtonItem?.isEnabled = false
-
+        
+        if (post.pointId.isEmpty) {
+            post.pointId = "p9999"
+        }
         presenter.postButton(post: self.post)
     }
     
@@ -125,6 +128,10 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.post.latitude = latitude
         self.post.longitude = longitude
         
+        print("select location!!")
+        print(latitude)
+        print(longitude)
+
         // 選択されたロケーションの緯度経度から距離を再計算する
         var pointListNew = [Point]()
         for point in pointList {
@@ -193,6 +200,11 @@ extension PostViewController {
                     }
                 }
             }
+
+            print("photo select!!")
+            print(latitude)
+            print(longitude)
+
             self.post.latitude = latitude
             self.post.longitude = longitude
             self.presenter.fetchPointData(latitude: latitude, longitude: longitude)

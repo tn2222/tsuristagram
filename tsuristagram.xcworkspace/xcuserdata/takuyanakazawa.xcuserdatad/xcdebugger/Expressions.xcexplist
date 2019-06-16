@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PostDetailInteractor.fetchPostComplate(snapshot:):PostDetailInteractor.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PostDetailViewController.pointLocationButton(_:):PostDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserPageViewController.loadPostData():UserPageViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -66,13 +77,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
+         contextName = "PointDetailViewController.addBannerViewToView(_:):PointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "timeLineNav.navigationBar">
-            </PersistentString>
-            <PersistentString
-               value = "NSAttributedString">
+               value = "self.mapView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -99,10 +107,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PointDetailViewController.addBannerViewToView(_:):PointDetailViewController.swift">
+         contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.mapView">
+               value = "timeLineNav.navigationBar">
+            </PersistentString>
+            <PersistentString
+               value = "NSAttributedString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostDetailViewController.setPostData(post:):PostDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -119,6 +138,22 @@
          <PersistentStrings>
             <PersistentString
                value = "postList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.postButton():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostInteractor.postButton(post:):PostInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

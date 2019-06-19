@@ -44,8 +44,6 @@ extension PostDetailViewPresenter: PostDetailInteractorDelegate {
     }
     func interactor(_ postDetailUsecase: PostDetailUsecase, point: Point) {
         self.post.pointName = point.name
-//        self.post.latitude = point.latitude
-//        self.post.longitude = point.longitude
     }
 
 }

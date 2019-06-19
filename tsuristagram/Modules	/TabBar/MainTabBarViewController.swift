@@ -31,11 +31,16 @@ class MainTabBarViewController: UITabBarController {
         let userPageNav = UINavigationController(rootViewController: userPage)
 
         timeLineNav.navigationBar.titleTextAttributes
-            = [NSAttributedString.Key.font: UIFont(name: "ArialMT", size: 17)!]
+            = [NSAttributedString.Key.font: UIFont(name: "Arial-BoldMT", size: 17)!,.foregroundColor: UIColor.white]
         pointSearchNav.navigationBar.titleTextAttributes
-            = [NSAttributedString.Key.font: UIFont(name: "ArialMT", size: 17)!]
+            = [NSAttributedString.Key.font: UIFont(name: "Arial-BoldMT", size: 17)!,.foregroundColor: UIColor.white]
         userPageNav.navigationBar.titleTextAttributes
-            = [NSAttributedString.Key.font: UIFont(name: "ArialMT", size: 17)!]
+            = [NSAttributedString.Key.font: UIFont(name: "Arial-BoldMT", size: 17)!,.foregroundColor: UIColor.white]
+        
+        //Below is Yosuke Ujigawa adding cood..
+        timeLineNav.navigationBar.barTintColor = UIColor(red: 69/255, green: 151/255, blue: 231/255, alpha: 1)
+        pointSearchNav.navigationBar.barTintColor = UIColor(red: 69/255, green: 151/255, blue: 231/255, alpha: 1)
+        userPageNav.navigationBar.barTintColor = UIColor(red: 69/255, green: 151/255, blue: 231/255, alpha: 1)
 
         viewControllers.append(timeLineNav)
         viewControllers.append(pointSearchNav)

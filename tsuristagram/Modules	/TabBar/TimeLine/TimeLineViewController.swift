@@ -170,8 +170,14 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         pictureImage.sd_setImage(with: URL(string: self.timeLine.postList[indexPath.row].picture), completed:nil)
 
         let commentLabel = cell.viewWithTag(4) as! UILabel
-        commentLabel.text = self.timeLine.postList[indexPath.row].comment
-
+        
+        //Below is Yosuke Ujigawa adding cood..
+        if timeLine.postList[indexPath.row].comment.isEmpty {
+            commentLabel.text = "\(user!.userName) さんが 水の広場公園 で釣り上げました！ おめでとうございます！！"
+        }else{
+            commentLabel.text = self.timeLine.postList[indexPath.row].comment
+        }
+        
         let createDateLabel = cell.viewWithTag(5) as! UILabel
         
         let date = NSDate(timeIntervalSince1970: TimeInterval(truncating: NSNumber(value: (-1) * Int(truncating: self.timeLine.postList[indexPath.row].timestamp))))
@@ -183,9 +189,9 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 470
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 470
+//    }
 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

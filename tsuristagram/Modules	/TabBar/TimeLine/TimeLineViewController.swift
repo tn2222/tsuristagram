@@ -62,7 +62,10 @@ class TimeLineViewController: UIViewController {
 
     @objc func selectUser(_ sender: UserSelectButton) {
         presenter.selectUser(userId: sender.userId)
+    }
 
+    @objc func selectPoint(_ sender: PointSelectButton) {
+        presenter.selectPoint(point: sender.point)
     }
 
     @IBAction func postButton(_ sender: Any) {
@@ -150,10 +153,15 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         cellSelectedBgView.backgroundColor = UIColor.white
         cell.selectedBackgroundView = cellSelectedBgView
         
+        // userData
         let userId = timeLine.postList[indexPath.row].userId
         let user = self.timeLine.userMap[userId]
         let userPhotoString = user!.userPhoto
         let userName = user!.userName
+        
+        // pointData
+        let pointId = timeLine.postList[indexPath.row].pointId
+        let point = self.timeLine.pointMap[pointId]
         
         let userPhoto = cell.viewWithTag(1) as! UIImageView
         userPhoto.layer.cornerRadius = userPhoto.frame.size.width * 0.5
@@ -161,10 +169,18 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         
         userPhoto.sd_setImage(with: URL(string: userPhotoString), completed:nil)
         
+        let pointLabel = cell.viewWithTag(6) as! UILabel
+        pointLabel.text = userName
+        
         let userNameButton = cell.viewWithTag(2) as! UserSelectButton
         userNameButton.userId = userId
-        userNameButton.setTitle(userName, for: .normal) // ボタンのタイトル
+//        userNameButton.setTitle(userName, for: .normal) // ボタンのタイトル
         userNameButton.addTarget(self, action: #selector(selectUser(_:)), for: UIControl.Event.touchUpInside)
+
+        let pointSelectButton = cell.viewWithTag(7) as! PointSelectButton
+        pointSelectButton.point = point!
+        pointSelectButton.setTitle(point?.name, for: .normal) // ボタンのタイトル
+        pointSelectButton.addTarget(self, action: #selector(selectPoint(_:)), for: UIControl.Event.touchUpInside)
 
         let pictureImage = cell.viewWithTag(3) as! UIImageView
         pictureImage.sd_setImage(with: URL(string: self.timeLine.postList[indexPath.row].picture), completed:nil)
@@ -173,7 +189,7 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         
         //Below is Yosuke Ujigawa adding cood..
         if timeLine.postList[indexPath.row].comment.isEmpty {
-            commentLabel.text = "\(user!.userName) さんが 水の広場公園 で釣り上げました！ おめでとうございます！！"
+            commentLabel.text = "\(user!.userName) さんが \(point!.name) で釣り上げました！ おめでとうございます！！"
         }else{
             commentLabel.text = self.timeLine.postList[indexPath.row].comment
         }

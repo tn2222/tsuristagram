@@ -11,4 +11,5 @@ import Foundation
 struct TimeLine {
     var postList: [Post] = []
     var userMap: [String: User] = [:]
+    var pointMap: [String: Point] = [:]
 }

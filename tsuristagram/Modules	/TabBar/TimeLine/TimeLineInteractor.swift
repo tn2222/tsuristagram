@@ -34,7 +34,11 @@ class TimeLineInteractor: TimeLineUsecase {
     func fetchUserData(userId: String) {
         FirebaseClient.observeSingleEvent(id: "users", key: userId, of: .value, with: fetchUserComplate)
     }
-
+    
+    func fetchPointData(pointId: String) {
+        FirebaseClient.observeSingleEvent(id: "point", key: pointId, of: .value, with: fetchPointComplate)
+    }
+    
     func fetchLastOffset(snapshot: [String: AnyObject]) {
         if snapshot.count > 0 {
             self.lastOffset = Int(truncating: snapshot["timestamp"] as! NSNumber)
@@ -84,4 +88,15 @@ class TimeLineInteractor: TimeLineUsecase {
         self.delegate?.interactor(self, user: user)
         self.delegate?.done(type: "users")
     }
+    
+    func fetchPointComplate(snapshot: [String:AnyObject]) {
+        var point: Point = Point()
+        point.id = snapshot["id"] as! String
+        point.name = snapshot["name"] as! String
+        point.latitude = snapshot["latitude"] as! Double
+        point.longitude = snapshot["longitude"] as! Double
+        self.delegate?.interactor(self, point: point)
+        self.delegate?.done(type: "point")
+    }
+
 }

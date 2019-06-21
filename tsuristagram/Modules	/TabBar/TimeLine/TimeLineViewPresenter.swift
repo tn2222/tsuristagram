@@ -16,6 +16,7 @@ class TimeLineViewPresenter: TimeLinePresentable {
     
     var timeLine = TimeLine()
     var userCount = 0
+    var pointCount = 0
     init(view: TimeLineViewController, router: TimeLineWireframe, interactor: TimeLineUsecase) {
         self.view = view
         self.router = router
@@ -39,11 +40,16 @@ class TimeLineViewPresenter: TimeLinePresentable {
         router.selectUser(userId: userId)
     }
     
-
+    func selectPoint(point: Point) {
+        router.selectPoint(point: point)
+    }
 }
 
 // Interactorからの通知受け取り
 extension TimeLineViewPresenter: TimeLineInteractorDelegate {
+    func interactor(_ timeLineUsecase: TimeLineUsecase, point: Point) {
+        timeLine.pointMap.updateValue(point, forKey: point.id)
+    }
     
     func interactor(_ timeLineUsecase: TimeLineUsecase) {
         view.initializeComplate()
@@ -51,6 +57,7 @@ extension TimeLineViewPresenter: TimeLineInteractorDelegate {
 
     func interactor(_ timeLineUsecase: TimeLineUsecase, post: Post) {
         timeLine.postList.append(post)
+        interactor.fetchPointData(pointId: post.pointId)
         interactor.fetchUserData(userId: post.userId)
     }
     
@@ -59,9 +66,14 @@ extension TimeLineViewPresenter: TimeLineInteractorDelegate {
     }
 
     func done(type: String) {
-        userCount += 1
+        if type == "users" {
+            userCount += 1
+        } else {
+            pointCount += 1
+        }
         if !interactor.isFetching {
             guard timeLine.postList.count == userCount else { return }
+            guard timeLine.postList.count == pointCount else { return }
             view.complateFetchTimeLineData(timeLine: timeLine, isComplate: interactor.isComplate)
         }
     }

@@ -18,6 +18,7 @@ protocol TimeLinePresentable: class {
     func postButton()
     func initialize()
     func selectUser(userId: String)
+    func selectPoint(point: Point)
 }
 
 // MARK: - interactor
@@ -26,12 +27,14 @@ protocol TimeLineUsecase: class {
     var isComplate: Bool {get}
     func fetchPostData()
     func fetchUserData(userId: String)
+    func fetchPointData(pointId: String)
     func initialize()
 }
 
 protocol TimeLineInteractorDelegate: class {
     func interactor(_ timeLineUsecase: TimeLineUsecase, post: Post)
     func interactor(_ timeLineUsecase: TimeLineUsecase, user: User)
+    func interactor(_ timeLineUsecase: TimeLineUsecase, point: Point)
     func interactor(_ timeLineUsecase: TimeLineUsecase)
     func done(type: String)
 }
@@ -40,5 +43,6 @@ protocol TimeLineInteractorDelegate: class {
 protocol TimeLineWireframe: class {
     func postButton()
     func selectUser(userId: String)
+    func selectPoint(point: Point)
 }
 

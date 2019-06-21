@@ -60,4 +60,13 @@ class TimeLineRouter: TimeLineWireframe {
 
     }
 
+    func selectPoint(point: Point) {
+        let pointDetailViewController = PointDetailRouter.assembleModules() as! PointDetailViewController
+        pointDetailViewController.point = point
+        
+        timeLineViewController?.navigationController?.pushViewController(pointDetailViewController, animated: true)
+        
+
+    }
+
 }

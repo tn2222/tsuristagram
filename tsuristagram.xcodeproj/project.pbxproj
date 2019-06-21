@@ -60,6 +60,7 @@
 		FCA75BDE2284331700E5A351 /* PointSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA75BDD2284331700E5A351 /* PointSearchInteractor.swift */; };
 		FCA95A8E2299512C003E20A8 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA95A8D2299512C003E20A8 /* UIViewController.swift */; };
 		FCA95A90229963A3003E20A8 /* UserSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */; };
+		FCDDE39C22BCB5FC007482AD /* PointSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */; };
 		FCE6EE5B22843C87006F99D8 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */; };
 		FCE6EE5E22843DB5006F99D8 /* UserPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */; };
 		FCE6EE6022843F3E006F99D8 /* UserPageViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5F22843F3E006F99D8 /* UserPageViewPresenter.swift */; };
@@ -152,6 +153,7 @@
 		FCA75BDD2284331700E5A351 /* PointSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSearchInteractor.swift; sourceTree = "<group>"; };
 		FCA95A8D2299512C003E20A8 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectButton.swift; sourceTree = "<group>"; };
+		FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSelectButton.swift; sourceTree = "<group>"; };
 		FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageContract.swift; sourceTree = "<group>"; };
 		FCE6EE5F22843F3E006F99D8 /* UserPageViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewPresenter.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */,
+				FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */,
 			);
 			path = SubClass;
 			sourceTree = "<group>";
@@ -781,6 +784,7 @@
 				FC94150622368903002FDA64 /* PostDetailInteractor.swift in Sources */,
 				FC0BFC7521F9F4900054ABD2 /* PostPointLocationViewPresenter.swift in Sources */,
 				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,
+				FCDDE39C22BCB5FC007482AD /* PointSelectButton.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
 				FC9414FF223688A4002FDA64 /* PostDetailContract.swift in Sources */,
 				FCF325CE21ECB307002CC3C4 /* PostPointLocationViewController.swift in Sources */,

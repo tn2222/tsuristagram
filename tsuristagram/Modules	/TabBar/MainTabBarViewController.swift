@@ -37,6 +37,9 @@ class MainTabBarViewController: UITabBarController {
         userPageNav.navigationBar.titleTextAttributes
             = [NSAttributedString.Key.font: UIFont(name: "Arial-BoldMT", size: 17)!,.foregroundColor: UIColor.white]
         
+        let navBar = UINavigationBar.appearance()
+        navBar.tintColor = UIColor.white
+
         //Below is Yosuke Ujigawa adding cood..
         timeLineNav.navigationBar.barTintColor = UIColor(red: 69/255, green: 151/255, blue: 231/255, alpha: 1)
         pointSearchNav.navigationBar.barTintColor = UIColor(red: 69/255, green: 151/255, blue: 231/255, alpha: 1)

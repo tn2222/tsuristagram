@@ -36,6 +36,9 @@ class UserPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "FishTips"
+
         collectionView.dataSource = self
         collectionView.delegate = self
         

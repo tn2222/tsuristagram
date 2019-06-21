@@ -78,6 +78,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // firebaseにデータ登録
     @objc func postButton() {
         SVProgressHUD.show()
+        setTextFiledToData()
         self.view?.isUserInteractionEnabled = false
         self.navigationItem.leftBarButtonItem?.isEnabled = false
         self.navigationItem.rightBarButtonItem?.isEnabled = false

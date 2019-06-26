@@ -47,6 +47,8 @@
 		<key>ChannelID</key>
 		<string>1629813487</string>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>カメラの撮影に必須です</string>
 	<key>NSLocationUsageDescription</key>
 	<string>このアプリは位置情報を取得します</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

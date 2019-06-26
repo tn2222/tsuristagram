@@ -29,5 +29,6 @@ struct Post {
     var uploadPhotoImage: UIImage = UIImage()
     var uploadPhotoImageData: Data = Data()
     var assetUrl: URL!
-
+    var assetUrl_ujgawa: Any!
+    
 }

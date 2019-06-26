@@ -194,7 +194,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OQ-9t-59p">
-                                <rect key="frame" x="297" y="547" width="63" height="62"/>
+                                <rect key="frame" x="304" y="547" width="63" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="post_button"/>
                                 <connections>

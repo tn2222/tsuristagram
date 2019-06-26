@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import YPImagePicker
+
 
 class TimeLineRouter: TimeLineWireframe {
+    
+    var selectedItems = [YPMediaItem]()
+    var post = Post()
     
     fileprivate weak var timeLineViewController: TimeLineViewController?
     fileprivate weak var postViewController: PostViewController?
@@ -38,18 +43,52 @@ class TimeLineRouter: TimeLineWireframe {
     }
 
     func postButton() {
-        // カメラロールが利用可能か
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            // 写真を選ぶビュー
-            let pickerView = UIImagePickerController()
-            // 写真の選択元をカメラロールにする
-            // 「.camera」にすればカメラを起動できる
-            pickerView.sourceType = .photoLibrary
-            // デリゲート
-            pickerView.delegate = timeLineViewController
-            // ビューに表示
-            timeLineViewController!.present(pickerView, animated: true)
+        
+        var config = YPImagePickerConfiguration()
+        config.shouldSaveNewPicturesToAlbum = true
+        config.isScrollToChangeModesEnabled = true
+        config.onlySquareImagesFromCamera = false
+        config.usesFrontCamera = false
+        config.showsPhotoFilters = false
+        config.albumName = "FishTips"
+        config.startOnScreen = .library
+        config.screens = [.library, .photo]
+        config.showsCrop = .none
+        config.targetImageSize = .original
+        config.overlayView = UIView()
+        config.hidesStatusBar = false
+        config.hidesBottomBar = false
+        config.preferredStatusBarStyle = UIStatusBarStyle.default
+        config.showsCrop = .rectangle(ratio: (4/2.7))
+        
+        let picker = YPImagePicker(configuration: config)
+        
+        picker.didFinishPicking { [picker] items, cancelled in
+            
+            if cancelled {
+                print("Picker was canceled")
+                picker.dismiss(animated: true, completion: nil)
+                return
+            }
+            
+            self.selectedItems = items
+
+            let image = items.singlePhoto?.image as! UIImage
+            let assetUrl = items.singlePhoto?.asset
+            let postVC = PostRouter.assembleModules() as! PostViewController
+            
+            let _ = postVC.view // ** hack code **
+            self.post.uploadPhotoImage = image
+            self.post.assetUrl_ujgawa = assetUrl
+            postVC.post = self.post
+            postVC.getPhotoMetaData()
+            
+            let navigationController = UINavigationController(rootViewController: postVC)
+            picker.present(navigationController, animated: true)
+            //  picker.dismiss(animated: true, completion: nil)
         }
+        timeLineViewController!.present(picker, animated: true, completion: nil)
+
     }
 
     func selectUser(userId: String) {

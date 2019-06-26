@@ -8,8 +8,8 @@
 
 import UIKit
 import Firebase
-import Photos
-import YPImagePicker
+//import Photos
+//import YPImagePicker
 
 
 
@@ -231,26 +231,26 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
-extension TimeLineViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
-        [UIImagePickerController.InfoKey : Any]) {
-        
-        // 選択した写真を取得する
-        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        // 選択したアイテムの元のバージョンのAssets Library URL
-        let assetUrl = info[UIImagePickerController.InfoKey.referenceURL] as! URL
-        
-        let postVC = PostRouter.assembleModules() as! PostViewController
-        
-        let _ = postVC.view // ** hack code **
-        self.post.uploadPhotoImage = image
-        self.post.assetUrl = assetUrl
-        postVC.post = self.post
-        postVC.getPhotoMetaData()
-        
-        let navigationController = UINavigationController(rootViewController: postVC)
-        picker.present(navigationController, animated: true)
-    }
-
-}
+//extension TimeLineViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
+//        [UIImagePickerController.InfoKey : Any]) {
+//
+//        // 選択した写真を取得する
+//        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+//        // 選択したアイテムの元のバージョンのAssets Library URL
+//        let assetUrl = info[UIImagePickerController.InfoKey.referenceURL] as! URL
+//
+//        let postVC = PostRouter.assembleModules() as! PostViewController
+//
+//        let _ = postVC.view // ** hack code **
+//        self.post.uploadPhotoImage = image
+//        self.post.assetUrl = assetUrl
+//        postVC.post = self.post
+//        postVC.getPhotoMetaData()
+//
+//        let navigationController = UINavigationController(rootViewController: postVC)
+//        picker.present(navigationController, animated: true)
+//    }
+//
+//}

@@ -147,20 +147,20 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
 }
 
-// TODO: 後々きれいにする
 extension PostViewController {
     // カメラロールから選択した写真のメタ情報を取得
     func getPhotoMetaData() {
         // PHAsset = Photo Library上の画像、ビデオ、ライブフォト用の型
-        let result = PHAsset.fetchAssets(withALAssetURLs: [self.post.assetUrl], options: nil)
-        let asset = result.firstObject
+        //let result = PHAsset.fetchAssets(withALAssetURLs: [self.post.assetUrl], options: nil)
+        //let result = self.post.assetUrl_ujgawa as! PHFetchResult<AnyObject>
+        let asset = self.post.assetUrl_ujgawa
         
         var dateString = Date.currentTimeString(format: "yyyy/MM/dd HH:mm")
         self.fishingDate.text = dateString
         self.post.fishingDate = dateString
 
         // コンテンツ編集セッションを開始するためのアセットの要求
-        asset?.requestContentEditingInput(with: nil, completionHandler: { contentEditingInput, info in
+        (asset as AnyObject).requestContentEditingInput(with: nil, completionHandler: { contentEditingInput, info in
             let url = contentEditingInput?.fullSizeImageURL
             let inputImage = CIImage(contentsOf: url!)!
             
@@ -215,41 +215,3 @@ extension PostViewController {
         self.uploadPhoto.image = self.post.uploadPhotoImage
     }
 }
-
-//extension PostViewController: CLLocationManagerDelegate {
-//
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        switch status {
-//        case .notDetermined:
-//            print("ユーザーはこのアプリケーションに関してまだ選択を行っていません")
-//            // 許可を求めるコードを記述する（後述）
-//            locationManager.requestWhenInUseAuthorization() // 起動中のみの取得許可を求める
-//
-//            break
-//        case .denied:
-//            print("ローケーションサービスの設定が「無効」になっています (ユーザーによって、明示的に拒否されています）")
-//            // 「設定 > プライバシー > 位置情報サービス で、位置情報サービスの利用を許可して下さい」を表示する
-//            locationManager.requestWhenInUseAuthorization() // 起動中のみの取得許可を求める
-//            break
-//        case .restricted:
-//            print("このアプリケーションは位置情報サービスを使用できません(ユーザによって拒否されたわけではありません)")
-//            // 「このアプリは、位置情報を取得できないために、正常に動作できません」を表示する
-//            break
-//        case .authorizedAlways:
-//            print("常時、位置情報の取得が許可されています。")
-//            locationManager.startUpdatingLocation()
-//            break
-//        case .authorizedWhenInUse:
-//            print("起動時のみ、位置情報の取得が許可されています。")
-//             locationManager.requestLocation()
-//            break
-//        }
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        for location in locations {
-//            print("緯度:\(location.coordinate.latitude) 経度:\(location.coordinate.longitude) 取得時刻:\(location.timestamp.description)")
-//        }
-//    }
-//
-//}

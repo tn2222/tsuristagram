@@ -33,12 +33,15 @@ class PointDetailViewPresenter: PointDetailViewPresentable {
 
     // マップ初期設定
     func initialize(map: GMSMapView, latitude: Double, longitude: Double) {
+        
         self.mapView = map
         self.mapView.camera = GMSCameraPosition.camera(withLatitude: latitude,
                                                        longitude: longitude,
                                                        zoom: 14)
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
         self.marker.map = mapView
+        
         self.position = marker.position
         
     }
@@ -48,6 +51,7 @@ class PointDetailViewPresenter: PointDetailViewPresentable {
     }
 
     func setMarker(latitude: Double, longitude: Double) {
+        
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         self.marker.map = mapView

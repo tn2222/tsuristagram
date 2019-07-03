@@ -25,11 +25,13 @@ class UserPageViewController: UIViewController {
     var userId: String!
     
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var postCount: UILabel!
-    @IBOutlet var userName: UILabel!
-    @IBOutlet var userImage: UIImageView!
-    @IBOutlet var userSetting: UIButton!
-    @IBOutlet var userImageExpand: UIImageView!
+    var postCount: String!
+    var userName: String!
+    var userPhotoString: String!
+    var userImage: UIImageView!
+    var userSetting: UIButton!
+    var userFlag: Bool!
+    var userImageExpand: UIImageView!
     
     @IBAction func userSettingButton(_ sender: UIButton) {
     }
@@ -48,11 +50,13 @@ class UserPageViewController: UIViewController {
         if userId == nil {
             userId = CommonUtils.getUserId()
         } else if CommonUtils.getUserId() != userId {
-            userSetting.isHidden = true
+            userFlag = true
+            collectionView.reloadData()
         }
-
+        
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
+        layout.headerReferenceSize = CGSize(width: self.view.bounds.width, height: 300)
         layout.itemSize = CGSize(width: 123, height: 100)
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 3
@@ -68,7 +72,8 @@ class UserPageViewController: UIViewController {
 
     func finishLoading() {
         fetchComplateWorkItem = DispatchWorkItem() {
-            self.postCount.text = String(self.postList.count)
+            self.postCount = String(self.postList.count)
+            self.collectionView.reloadData()
             self.loadPostData()
             self.dismissIndicator()
         }
@@ -84,14 +89,11 @@ class UserPageViewController: UIViewController {
 
 
     func setUser(user: User) {
-        userName.text = user.userName
         
-        let userPhotoString = user.userPhoto
-        userImage.layer.cornerRadius = userImage.frame.size.width * 0.5
-        userImage.clipsToBounds = true
-        userImage.sd_setImage(with: URL(string: userPhotoString), completed:nil)
-//        userImageExpand.sd_setImage(with: URL(string: userPhotoString), completed:nil)
-
+        userName = user.userName
+        userPhotoString = user.userPhoto
+        
+        collectionView.reloadData()
     }
     
     func loadPostData() {
@@ -112,11 +114,11 @@ class UserPageViewController: UIViewController {
         
     }
     
-
 }
 
 
 extension UserPageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return postList.count
     }
@@ -140,4 +142,30 @@ extension UserPageViewController: UICollectionViewDataSource, UICollectionViewDe
         return true
     }
 
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "UserPageHeader", for: indexPath) as? UserPageHeader else {
+            fatalError("Could not find proper header")
+        }
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+
+            header.postCount.text = postCount
+            header.userName.text = userName
+            header.userImage.layer.cornerRadius = header.userImage.frame.size.width * 0.5
+            header.userImage.clipsToBounds = true
+            
+            if userFlag == true {
+                header.userSetting.isHidden = true
+            }
+
+            if userPhotoString != nil {
+                header.userImage.sd_setImage(with: URL(string: userPhotoString), completed:nil)
+                header.userImageExpand.sd_setImage(with: URL(string: userPhotoString), completed:nil)
+            }
+            return header
+        }
+        
+        return UICollectionReusableView()
+    }
 }

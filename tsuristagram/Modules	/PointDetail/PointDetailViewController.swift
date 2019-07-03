@@ -12,8 +12,11 @@ import GoogleMobileAds
 
 class PointDetailViewController: UIViewController {
 
-    @IBOutlet var mapView: GMSMapView!
+    //var mapView: GMSMapView!
     @IBOutlet var collectionView: UICollectionView!
+    
+    private var marker = GMSMarker()
+    private var position = CLLocationCoordinate2D()
     
     var presenter: PointDetailViewPresenter!
     var point: Point!
@@ -28,15 +31,16 @@ class PointDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
+        //mapView.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
 
-        presenter.initialize(map: mapView, latitude: point.latitude, longitude: point.longitude)
+        //presenter.initialize(map: mapView, latitude: point.latitude, longitude: point.longitude)
         fetchData()
         
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
+        layout.headerReferenceSize = CGSize(width: self.view.bounds.width, height: 300)
         layout.itemSize = CGSize(width: 123, height: 100)
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 3
@@ -114,6 +118,7 @@ extension PointDetailViewController: GMSMapViewDelegate {
 }
 
 extension PointDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return postList.count
     }
@@ -136,6 +141,27 @@ extension PointDetailViewController: UICollectionViewDataSource, UICollectionVie
 
         return true
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PointDetailPageHeader", for: indexPath) as? PointDetailPageHeader else {
+            fatalError("Could not find proper header")
+
+        }
+
+        if kind == UICollectionView.elementKindSectionHeader {
+
+            
+            header.mapView.camera = GMSCameraPosition.camera(withLatitude: point.latitude,longitude: point.longitude,zoom: 14)
+            header.marker.position = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
+            header.marker.map = header.mapView
+            header.position = marker.position
+
+            return header
+        
+        }
+//
+        return UICollectionReusableView()
+    }
     
 }

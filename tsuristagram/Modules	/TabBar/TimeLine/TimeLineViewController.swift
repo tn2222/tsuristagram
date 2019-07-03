@@ -8,10 +8,6 @@
 
 import UIKit
 import Firebase
-//import Photos
-//import YPImagePicker
-
-
 
 class TimeLineViewController: UIViewController {
 
@@ -204,11 +200,6 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
-
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 470
-//    }
-
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if case .Complate = tableState {
@@ -223,34 +214,5 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-//    // cellが選択された場合
-//    func tableView(_ table: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let userId = timeLine.postList[indexPath.row].userId
-//        presenter.didSelectRowAt(userId: userId)
-//    }
-
 }
 
-//extension TimeLineViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
-//        [UIImagePickerController.InfoKey : Any]) {
-//
-//        // 選択した写真を取得する
-//        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-//        // 選択したアイテムの元のバージョンのAssets Library URL
-//        let assetUrl = info[UIImagePickerController.InfoKey.referenceURL] as! URL
-//
-//        let postVC = PostRouter.assembleModules() as! PostViewController
-//
-//        let _ = postVC.view // ** hack code **
-//        self.post.uploadPhotoImage = image
-//        self.post.assetUrl = assetUrl
-//        postVC.post = self.post
-//        postVC.getPhotoMetaData()
-//
-//        let navigationController = UINavigationController(rootViewController: postVC)
-//        picker.present(navigationController, animated: true)
-//    }
-//
-//}

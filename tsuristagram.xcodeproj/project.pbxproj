@@ -21,6 +21,8 @@
 		FC08F14C220F2B9F007399C7 /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08F14B220F2B9F007399C7 /* TimeLine.swift */; };
 		FC0BFC7521F9F4900054ABD2 /* PostPointLocationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7421F9F4900054ABD2 /* PostPointLocationViewPresenter.swift */; };
 		FC0BFC7721F9FD630054ABD2 /* PostPointLocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7621F9FD630054ABD2 /* PostPointLocationRouter.swift */; };
+		FC137CD722C8826F0064F564 /* UserPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC137CD622C8826F0064F564 /* UserPageHeader.swift */; };
+		FC137CD922C898800064F564 /* PointDetailPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC137CD822C898800064F564 /* PointDetailPageHeader.swift */; };
 		FC1CD02921FEFC6900C810CF /* PostViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02821FEFC6900C810CF /* PostViewPresenter.swift */; };
 		FC1CD02B21FEFC8400C810CF /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02A21FEFC8400C810CF /* PostRouter.swift */; };
 		FC1CD02D21FF264B00C810CF /* TimeLineViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02C21FF264B00C810CF /* TimeLineViewPresenter.swift */; };
@@ -108,6 +110,8 @@
 		FC08F14B220F2B9F007399C7 /* TimeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLine.swift; sourceTree = "<group>"; };
 		FC0BFC7421F9F4900054ABD2 /* PostPointLocationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointLocationViewPresenter.swift; sourceTree = "<group>"; };
 		FC0BFC7621F9FD630054ABD2 /* PostPointLocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointLocationRouter.swift; sourceTree = "<group>"; };
+		FC137CD622C8826F0064F564 /* UserPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageHeader.swift; sourceTree = "<group>"; };
+		FC137CD822C898800064F564 /* PointDetailPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailPageHeader.swift; sourceTree = "<group>"; };
 		FC1CD02821FEFC6900C810CF /* PostViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewPresenter.swift; sourceTree = "<group>"; };
 		FC1CD02A21FEFC8400C810CF /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
 		FC1CD02C21FF264B00C810CF /* TimeLineViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewPresenter.swift; sourceTree = "<group>"; };
@@ -332,6 +336,7 @@
 				FC22FB9F221C161000AFAAEF /* PointDetailViewPresenter.swift */,
 				FC22FBA1221C162500AFAAEF /* PointDetailInteractor.swift */,
 				FC22FBA3221C163200AFAAEF /* PointDetailRouter.swift */,
+				FC137CD822C898800064F564 /* PointDetailPageHeader.swift */,
 			);
 			path = PointDetail;
 			sourceTree = "<group>";
@@ -450,6 +455,7 @@
 				FCE6EE5F22843F3E006F99D8 /* UserPageViewPresenter.swift */,
 				FCE6EE6122843F7E006F99D8 /* UserPageInteractor.swift */,
 				FCE6EE6322843F91006F99D8 /* UserPageRouter.swift */,
+				FC137CD622C8826F0064F564 /* UserPageHeader.swift */,
 			);
 			path = UserPage;
 			sourceTree = "<group>";
@@ -749,6 +755,7 @@
 				FC026AC1220F00E5007E961C /* TimeLineInteractor.swift in Sources */,
 				FC4F8E5022086EFE00C02372 /* PostContract.swift in Sources */,
 				FC22FBA4221C163200AFAAEF /* PointDetailRouter.swift in Sources */,
+				FC137CD922C898800064F564 /* PointDetailPageHeader.swift in Sources */,
 				FC22FB99221982BB00AFAAEF /* PointSearchRouter.swift in Sources */,
 				FC08F147220F1605007399C7 /* MainTabBarViewController.swift in Sources */,
 				FCE6EE6422843F91006F99D8 /* UserPageRouter.swift in Sources */,
@@ -776,6 +783,7 @@
 				FC941502223688D8002FDA64 /* PostDetailViewController.swift in Sources */,
 				FC026ABD220B1FFF007E961C /* PostPointLocationContract.swift in Sources */,
 				FC941504223688F3002FDA64 /* PostDetailViewPresenter.swift in Sources */,
+				FC137CD722C8826F0064F564 /* UserPageHeader.swift in Sources */,
 				FC026ABF220EC49E007E961C /* TimeLineViewContract.swift in Sources */,
 				FC4F8E4E2208655F00C02372 /* PostPointSearchContract.swift in Sources */,
 				FC4F8E52220870ED00C02372 /* PostInteractor.swift in Sources */,

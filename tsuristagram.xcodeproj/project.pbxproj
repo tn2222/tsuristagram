@@ -54,6 +54,7 @@
 		FC4F8E4E2208655F00C02372 /* PostPointSearchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E4D2208655F00C02372 /* PostPointSearchContract.swift */; };
 		FC4F8E5022086EFE00C02372 /* PostContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E4F22086EFE00C02372 /* PostContract.swift */; };
 		FC4F8E52220870ED00C02372 /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E51220870ED00C02372 /* PostInteractor.swift */; };
+		FC634D9322FDB2DD006E45C5 /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC634D9222FDB2DD006E45C5 /* AppKey.swift */; };
 		FC9414FF223688A4002FDA64 /* PostDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9414FE223688A4002FDA64 /* PostDetailContract.swift */; };
 		FC941502223688D8002FDA64 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC941501223688D8002FDA64 /* PostDetailViewController.swift */; };
 		FC941504223688F3002FDA64 /* PostDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC941503223688F3002FDA64 /* PostDetailViewPresenter.swift */; };
@@ -149,6 +150,7 @@
 		FC4F8E4D2208655F00C02372 /* PostPointSearchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointSearchContract.swift; sourceTree = "<group>"; };
 		FC4F8E4F22086EFE00C02372 /* PostContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContract.swift; sourceTree = "<group>"; };
 		FC4F8E51220870ED00C02372 /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
+		FC634D9222FDB2DD006E45C5 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		FC9414FE223688A4002FDA64 /* PostDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailContract.swift; sourceTree = "<group>"; };
 		FC941501223688D8002FDA64 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		FC941503223688F3002FDA64 /* PostDetailViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewPresenter.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				FC4F8E4C2208555500C02372 /* Modules	 */,
 				FC4F8B6021BBAD8700B9493F /* AppDelegate.swift */,
 				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
+				FC634D9222FDB2DD006E45C5 /* AppKey.swift */,
 				FC4F8B6921BBAD8900B9493F /* LaunchScreen.storyboard */,
 				FC4F8B6C21BBAD8900B9493F /* Info.plist */,
 				FC38AF9821C1365300783D4D /* GoogleService-Info.plist */,
@@ -792,6 +795,7 @@
 				FC94150622368903002FDA64 /* PostDetailInteractor.swift in Sources */,
 				FC0BFC7521F9F4900054ABD2 /* PostPointLocationViewPresenter.swift in Sources */,
 				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,
+				FC634D9322FDB2DD006E45C5 /* AppKey.swift in Sources */,
 				FCDDE39C22BCB5FC007482AD /* PointSelectButton.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
 				FC9414FF223688A4002FDA64 /* PostDetailContract.swift in Sources */,

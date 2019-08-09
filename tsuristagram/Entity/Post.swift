@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import UIKit // TODO：後々UIKitは切り離す
+import UIKit
 
 struct Post {
     var key: String = String()

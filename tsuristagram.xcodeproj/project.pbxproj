@@ -228,13 +228,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		FC026AC4220F0515007E961C /* Root */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
 		FC08F148220F17B6007399C7 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,7 +366,7 @@
 				FC1CD0332203333300C810CF /* Firebase */,
 				FC026ABB2209D7E4007E961C /* Common */,
 				FC0BFC6F21F9E9200054ABD2 /* Entity */,
-				FC4F8E4C2208555500C02372 /* Modules	 */,
+				FC4F8E4C2208555500C02372 /* Modules */,
 				FC4F8B6021BBAD8700B9493F /* AppDelegate.swift */,
 				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
 				FC634D9222FDB2DD006E45C5 /* AppKey.swift */,
@@ -414,10 +407,9 @@
 			path = PostPointSearch;
 			sourceTree = "<group>";
 		};
-		FC4F8E4C2208555500C02372 /* Modules	 */ = {
+		FC4F8E4C2208555500C02372 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				FC026AC4220F0515007E961C /* Root */,
 				FC0BFC7021F9F3110054ABD2 /* Login */,
 				FC08F148220F17B6007399C7 /* TabBar */,
 				FC22FB9C221C155400AFAAEF /* PointDetail */,
@@ -426,7 +418,7 @@
 				FC0BFC7321F9F35E0054ABD2 /* PostPointLocation */,
 				FC4F8E412206E30900C02372 /* PostPointSearch */,
 			);
-			path = "Modules\t";
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		FC941500223688A8002FDA64 /* PostDetail */ = {

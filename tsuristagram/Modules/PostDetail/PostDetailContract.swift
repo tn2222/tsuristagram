@@ -16,22 +16,27 @@ protocol PostDetailView: class {
 protocol PostDetailViewPresentable: class {
     func pointLocationButton(latitude: Double, longitude: Double)
     func fetchData(postKey: String)
+    func deleteButton(post: Post)
+
 }
 
 // MARK: - interactor
 protocol PostDetailUsecase: class {
     func fetchData(postKey: String)
     func fetchPoint(pointId: String)
-
+    func deleteButton(post: Post)
 }
 
 protocol PostDetailInteractorDelegate: class {
     func interactor(_ postDetailUsecase: PostDetailUsecase, post: Post)
     func interactor(_ postDetailUsecase: PostDetailUsecase, point: Point)
+    func interactor(_ postDetailUsecase: PostDetailUsecase, error: Error?)
+
 }
 
 // MARK: - router
 protocol PostDetailWireframe: class {
     func pointLocationButton(latitude: Double, longitude: Double)
+    func deleteComplate()
 }
 

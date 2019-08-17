@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PostDetailRouter: PostDetailWireframe {
     
@@ -55,4 +56,8 @@ class PostDetailRouter: PostDetailWireframe {
 
     }
 
+    func deleteComplate() {
+        SVProgressHUD.dismiss()
+        postDetailViewController?.present(tabBarController!, animated: true, completion: nil)
+    }
 }

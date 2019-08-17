@@ -132,18 +132,12 @@ class FirebaseClient: FirebaseClientProtocol {
         ref.setValue(post, withCompletionBlock: block)
         
     }
+
+    static func removeValue(id: String, key: String, value: String, with block: @escaping (Error?, DatabaseReference) -> Void) {
+        let ref: DatabaseReference = self.postRef.child(id).child(value)
+        ref.removeValue(completionBlock: block)
+    }
     
-//    static func putData(id: String, uploadPhotoImage: UIImage, withCompletionBlock metadata: @escaping (Error?, StorageMetadata) -> Void) {
-//        let currentTime = Date.currentTimeString()
-//        let ref: StorageReference = self.imageRef.child(id).child(currentTime + ".jpg")
-//
-//        let metadata = StorageMetadata()
-//        metadata.contentType = "image/jpeg"
-//
-//        let photoImageUploadData = uploadPhotoImage.jpegData(compressionQuality: 0.1)
-//
-//        let uploadTask = ref.putData(photoImageUploadData, metadata: metadata, complate: complate)
-//
-//    }
+
 }
 

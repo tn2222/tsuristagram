@@ -34,6 +34,10 @@ class PostDetailViewPresenter: PostDetailViewPresentable {
         interactor.fetchData(postKey: postKey)
     }
 
+    func deleteButton(post: Post) {
+        interactor.deleteButton(post: post)
+    }
+
 }
 
 // Interactorからの通知受け取り
@@ -46,4 +50,7 @@ extension PostDetailViewPresenter: PostDetailInteractorDelegate {
         self.post.pointName = point.name
     }
 
+    func interactor(_ postDetailUsecase: PostDetailUsecase, error: Error?) {
+        router.deleteComplate()
+    }
 }

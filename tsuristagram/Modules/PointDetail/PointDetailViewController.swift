@@ -97,13 +97,13 @@ class PointDetailViewController: UIViewController {
     }
     
     func loadPostData() {
-        
+
         fetchComplateWorkItem = DispatchWorkItem() {
             UIView.setAnimationsEnabled(false)
-            
+
             let newDataCount = self.postList.count
             let currentDataCount = self.collectionView.numberOfItems(inSection: 0)
-            
+
             print("newDataCount: " + String(newDataCount))
             print("currentDataCount: " + String(currentDataCount))
 
@@ -172,7 +172,6 @@ extension PointDetailViewController: UICollectionViewDataSource, UICollectionVie
                 label.font = UIFont.systemFont(ofSize: 20)
                 label.text = "不明な釣り場"
                 header.addSubview(label)
-
 
             } else {
                 header.mapView.camera = GMSCameraPosition.camera(withLatitude: point.latitude,longitude: point.longitude,zoom: 14)

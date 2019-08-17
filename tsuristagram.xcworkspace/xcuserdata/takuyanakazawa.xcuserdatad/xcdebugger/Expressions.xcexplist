@@ -117,14 +117,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserPageViewPresenter.interactor(_:post:):UserPageViewPresenter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "post.timestamp.compare(post.timestamp)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "PostDetailViewController.pointLocationButton(_:):PostDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -177,6 +169,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostDetailInteractor.deleteButton(post:):PostDetailInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post.key">
+            </PersistentString>
+            <PersistentString
+               value = "String(Int(post.timestamp) * (-1)) + &quot;.jpg&quot;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PointDetailViewController.addBannerViewToView(_:):PointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -186,12 +189,9 @@
       </ContextState>
       <ContextState
          contextName = "PostDetailInteractor.fetchPostComplate(snapshot:):PostDetailInteractor.swift">
-      </ContextState>
-      <ContextState
-         contextName = "PointDetailViewController.collectionView(_:viewForSupplementaryElementOfKind:at:):PointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "point">
+               value = "post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

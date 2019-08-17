@@ -30,7 +30,6 @@ class UserPageViewController: UIViewController {
     var userPhotoString: String!
     var userImage: UIImageView!
     var userSetting: UIButton!
-    var userFlag: Bool!
     var userImageExpand: UIImageView!
     
     @IBAction func userSettingButton(_ sender: UIButton) {
@@ -45,15 +44,15 @@ class UserPageViewController: UIViewController {
         collectionView.delegate = self
         
         startIndicator()
-        
+
         // ユーザ設定ボタン有無判定
         if userId == nil {
             userId = CommonUtils.getUserId()
-        } else if CommonUtils.getUserId() != userId {
-            userFlag = true
-            collectionView.reloadData()
         }
-        
+        if CommonUtils.getUserId() == userId {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.editButton))
+        }
+  
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
         layout.headerReferenceSize = CGSize(width: self.view.bounds.width, height: 300)
@@ -68,6 +67,10 @@ class UserPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+
+    // firebaseにデータ登録
+    @objc func editButton() {
     }
 
     func finishLoading() {
@@ -154,11 +157,6 @@ extension UserPageViewController: UICollectionViewDataSource, UICollectionViewDe
             header.userName.text = userName
             header.userImage.layer.cornerRadius = header.userImage.frame.size.width * 0.5
             header.userImage.clipsToBounds = true
-            
-            if userFlag == true {
-                header.userSetting.isHidden = true
-            }
-
             if userPhotoString != nil {
                 header.userImage.sd_setImage(with: URL(string: userPhotoString), completed:nil)
                 header.userImageExpand.sd_setImage(with: URL(string: userPhotoString), completed:nil)

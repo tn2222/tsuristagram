@@ -45,14 +45,14 @@ class PostInteractor: PostUsecase {
     }
     
     func postButton(post: Post) {
-        let currentTime = Date.currentTimeString()
+        let currentTime = Int(Date().timeIntervalSince1970)
         
         // Firebaseの昇順でしかソートできないため、ソートキー項目をマイナス値にしておく
-        let timestamp: NSNumber = NSNumber(value:(-1) * Int(Date().timeIntervalSince1970))
+        let timestamp: NSNumber = NSNumber(value:(-1) * currentTime)
         
         let myUid = CommonUtils.getUserId()
 
-        let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(myUid).child(currentTime + ".jpg")
+        let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(myUid).child(String(currentTime) + ".jpg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         

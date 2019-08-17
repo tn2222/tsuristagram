@@ -41,6 +41,7 @@ class UserPageRouter: UserPageWireframe {
     func selectCell(post: Post) {
         let postDetailViewController = PostDetailRouter.assembleModules() as! PostDetailViewController
         postDetailViewController.postKey = post.key
+        postDetailViewController.userId = post.userId
         userPageViewController?.navigationController?.pushViewController(postDetailViewController, animated: true)
     }
 

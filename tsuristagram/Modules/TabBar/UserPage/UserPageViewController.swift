@@ -71,6 +71,7 @@ class UserPageViewController: UIViewController {
     }
 
     func finishLoading() {
+        
         fetchComplateWorkItem = DispatchWorkItem() {
             self.postCount = String(self.postList.count)
             self.collectionView.reloadData()
@@ -113,7 +114,6 @@ class UserPageViewController: UIViewController {
         UIView.setAnimationsEnabled(true)
         
     }
-    
 }
 
 

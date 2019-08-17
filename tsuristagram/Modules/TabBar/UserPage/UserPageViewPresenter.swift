@@ -48,7 +48,7 @@ class UserPageViewPresenter: UserPageViewPresentable {
 // Interactorからの通知受け取り
 extension UserPageViewPresenter: UserPageInteractorDelegate {
     func interactor(_ userPageUsecase: UserPageUsecase, post: Post) {
-        postList.append(post)
+        postList.insert(post, at:0)
     }
     
     func interactor(_ userPageUsecase: UserPageUsecase, user: User) {

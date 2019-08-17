@@ -6,18 +6,18 @@
          contextName = "TimeLineViewPresenter.interactor(_:point:):TimeLineViewPresenter.swift">
       </ContextState>
       <ContextState
-         contextName = "UserPageViewController.collectionView(_:numberOfItemsInSection:):UserPageViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "postList">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "PostInteractor.postButton(post:):PostInteractor.swift">
          <PersistentStrings>
             <PersistentString
                value = "post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserPageViewController.collectionView(_:numberOfItemsInSection:):UserPageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -113,6 +113,14 @@
             </PersistentString>
             <PersistentString
                value = "self.post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserPageViewPresenter.interactor(_:post:):UserPageViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post.timestamp.compare(post.timestamp)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

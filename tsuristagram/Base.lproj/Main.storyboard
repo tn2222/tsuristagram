@@ -1081,6 +1081,6 @@
         <image name="signingoogle" width="632" height="82"/>
         <image name="top_back" width="740" height="740"/>
         <image name="top_icon" width="54" height="54"/>
-        <image name="userSetting" width="112.5" height="32"/>
+        <image name="userSetting" width="113" height="32"/>
     </resources>
 </document>

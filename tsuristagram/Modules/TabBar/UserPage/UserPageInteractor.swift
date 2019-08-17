@@ -12,7 +12,7 @@ class UserPageInteractor: UserPageUsecase {
     
     // 取得処理の通知
     weak var delegate: UserPageInteractorDelegate?
-    
+
     func fetchUserData(userId: String) {
         FirebaseClient.observeSingleEvent(id: "users", key: userId, of: .value, with: fetchUserComplate)
     }

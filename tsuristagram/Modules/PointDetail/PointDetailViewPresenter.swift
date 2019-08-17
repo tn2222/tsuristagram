@@ -67,7 +67,7 @@ class PointDetailViewPresenter: PointDetailViewPresentable {
 // Interactorからの通知受け取り
 extension PointDetailViewPresenter: PointDetailInteractorDelegate {
     func interactor(_ pointDetailUsecase: PointDetailUsecase, post: Post) {
-        postList.append(post)
+        postList.insert(post, at:0)
     }
 
 }

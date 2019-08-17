@@ -25,9 +25,18 @@ class PointDetailViewController: UIViewController {
 
     var postList = [Post]() {
         didSet {
+            if (fetchComplateWorkItem != nil){
+                fetchComplateWorkItem.cancel()
+            }
             loadPostData()
         }
+
+//        didSet {
+//            loadPostData()
+//        }
     }
+
+    var fetchComplateWorkItem: DispatchWorkItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +44,8 @@ class PointDetailViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
 
-        //presenter.initialize(map: mapView, latitude: point.latitude, longitude: point.longitude)
+        startIndicator()
+
         fetchData()
         
         // レイアウト設定
@@ -92,22 +102,27 @@ class PointDetailViewController: UIViewController {
     
     func loadPostData() {
         
-        UIView.setAnimationsEnabled(false)
-        
-        let newDataCount = self.postList.count
-        let currentDataCount = self.collectionView.numberOfItems(inSection: 0)
-        
-        print("newDataCount: " + String(newDataCount))
-        print("currentDataCount: " + String(currentDataCount))
+        fetchComplateWorkItem = DispatchWorkItem() {
+            UIView.setAnimationsEnabled(false)
+            
+            let newDataCount = self.postList.count
+            let currentDataCount = self.collectionView.numberOfItems(inSection: 0)
+            
+            print("newDataCount: " + String(newDataCount))
+            print("currentDataCount: " + String(currentDataCount))
 
-        self.collectionView.insertItems(at: Array(currentDataCount..<newDataCount).map { IndexPath(row: $0, section: 0) })
-        
-        self.collectionView.reloadItems(at: Array(currentDataCount..<newDataCount).map { IndexPath(row: $0, section: 0) })
+            self.collectionView.insertItems(at: Array(currentDataCount..<newDataCount).map { IndexPath(row: $0, section: 0) })
+            
+            self.collectionView.reloadItems(at: Array(currentDataCount..<newDataCount).map { IndexPath(row: $0, section: 0) })
 
-        if postList[newDataCount - 1].latitude > 0 && postList[newDataCount - 1].longitude > 0 {
-            presenter.setMarker(latitude: postList[newDataCount - 1].latitude, longitude: postList[newDataCount - 1].longitude)
+            if self.postList[newDataCount - 1].latitude > 0 && self.postList[newDataCount - 1].longitude > 0 {
+                self.presenter.setMarker(latitude: self.postList[newDataCount - 1].latitude, longitude: self.postList[newDataCount - 1].longitude)
+            }
+            self.dismissIndicator()
+
+            UIView.setAnimationsEnabled(true)
         }
-        UIView.setAnimationsEnabled(true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: self.fetchComplateWorkItem)
 
     }
     

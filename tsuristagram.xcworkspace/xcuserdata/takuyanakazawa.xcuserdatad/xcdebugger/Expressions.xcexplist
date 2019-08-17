@@ -147,6 +147,12 @@
             <PersistentString
                value = "post">
             </PersistentString>
+            <PersistentString
+               value = "comment.layer.bounds.height">
+            </PersistentString>
+            <PersistentString
+               value = "comment.layer.bounds.height + 50">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState

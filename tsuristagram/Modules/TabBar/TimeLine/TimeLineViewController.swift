@@ -60,6 +60,10 @@ class TimeLineViewController: UIViewController {
         presenter.selectUser(userId: sender.userId)
     }
 
+    @objc func selectPost(_ sender: PostSelectButton) {
+        presenter.selectPost(postKey: sender.postKey, userId: sender.userId)
+    }
+
     @objc func selectPoint(_ sender: PointSelectButton) {
         presenter.selectPoint(point: sender.point)
     }
@@ -177,6 +181,11 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         pointSelectButton.point = point!
         pointSelectButton.setTitle(point?.name, for: .normal) // ボタンのタイトル
         pointSelectButton.addTarget(self, action: #selector(selectPoint(_:)), for: UIControl.Event.touchUpInside)
+
+        let postSelectButton = cell.viewWithTag(8) as! PostSelectButton
+        postSelectButton.postKey = self.timeLine.postList[indexPath.row].key
+        postSelectButton.userId = userId
+        postSelectButton.addTarget(self, action: #selector(selectPost(_:)), for: UIControl.Event.touchUpInside)
 
         let pictureImage = cell.viewWithTag(3) as! UIImageView
         pictureImage.sd_setImage(with: URL(string: self.timeLine.postList[indexPath.row].picture), completed:nil)

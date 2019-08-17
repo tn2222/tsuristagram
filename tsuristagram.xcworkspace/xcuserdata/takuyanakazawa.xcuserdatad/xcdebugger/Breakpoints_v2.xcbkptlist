@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Firebase/FirebaseClient.swift"
-            timestampString = "587725172.635749"
+            timestampString = "587727397.151575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -826,7 +826,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/AppDelegate.swift"
-            timestampString = "587718536.582948"
+            timestampString = "587730564.27307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
@@ -1896,7 +1896,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/TabBar/UserPage/UserPageInteractor.swift"
-            timestampString = "587725172.637352"
+            timestampString = "587727397.153435"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -1912,7 +1912,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/TabBar/UserPage/UserPageInteractor.swift"
-            timestampString = "587725172.637412"
+            timestampString = "587727397.153511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -1928,7 +1928,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/PointDetail/PointDetailViewController.swift"
-            timestampString = "587725172.6374561"
+            timestampString = "587727397.153597"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "182"
@@ -1944,7 +1944,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/PointDetail/PointDetailViewController.swift"
-            timestampString = "587725172.637526"
+            timestampString = "587727397.153669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
@@ -1992,7 +1992,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/PointDetail/PointDetailViewController.swift"
-            timestampString = "587725172.637566"
+            timestampString = "587727397.153726"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
@@ -2008,7 +2008,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/PointDetail/PointDetailViewController.swift"
-            timestampString = "587725172.637604"
+            timestampString = "587727397.153793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -2024,7 +2024,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/PointDetail/PointDetailViewController.swift"
-            timestampString = "587725172.6376539"
+            timestampString = "587727397.153856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -2040,7 +2040,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/PointDetail/PointDetailViewController.swift"
-            timestampString = "587725172.637693"
+            timestampString = "587727397.1539119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
@@ -2056,7 +2056,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/PostDetail/PostDetailInteractor.swift"
-            timestampString = "587725172.637754"
+            timestampString = "587727397.154008"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -2072,7 +2072,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/PostDetail/PostDetailInteractor.swift"
-            timestampString = "587725172.6378109"
+            timestampString = "587727397.154111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -2088,12 +2088,108 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tsuristagram/Modules/PostDetail/PostDetailInteractor.swift"
-            timestampString = "587725172.637851"
+            timestampString = "587727397.154163"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
             landmarkName = "deleteButton(post:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tsuristagram/Modules/PointDetail/PointDetailViewController.swift"
+            timestampString = "587727397.1542079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "collectionView(_:viewForSupplementaryElementOfKind:at:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tsuristagram/Modules/PointDetail/PointDetailViewController.swift"
+            timestampString = "587727397.154246"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "collectionView(_:shouldSelectItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tsuristagram/Modules/PointDetail/PointDetailViewController.swift"
+            timestampString = "587727397.154283"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tsuristagram/Modules/PointDetail/PointDetailViewController.swift"
+            timestampString = "587727397.15432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tsuristagram/Modules/TabBar/TimeLine/TimeLineViewController.swift"
+            timestampString = "587730792.8201489"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "selectPost(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tsuristagram/Modules/TabBar/TimeLine/TimeLineViewController.swift"
+            timestampString = "587730792.820214"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

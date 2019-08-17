@@ -43,6 +43,10 @@ class TimeLineViewPresenter: TimeLinePresentable {
     func selectPoint(point: Point) {
         router.selectPoint(point: point)
     }
+    func selectPost(postKey: String, userId: String) {
+        router.selectPost(postKey: postKey, userId: userId)
+    }
+
 }
 
 // Interactorからの通知受け取り

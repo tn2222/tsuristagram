@@ -40,7 +40,7 @@ class PointDetailViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
 
-        startIndicator()
+//        startIndicator()
 
         fetchData()
         
@@ -53,11 +53,11 @@ class PointDetailViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         
         // admob sample
-        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        addBannerViewToView(bannerView)
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+//        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+//        addBannerViewToView(bannerView)
+//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        bannerView.rootViewController = self
+//        bannerView.load(GADRequest())
 
     }
 
@@ -114,7 +114,7 @@ class PointDetailViewController: UIViewController {
             if self.postList[newDataCount - 1].latitude > 0 && self.postList[newDataCount - 1].longitude > 0 {
                 self.presenter.setMarker(latitude: self.postList[newDataCount - 1].latitude, longitude: self.postList[newDataCount - 1].longitude)
             }
-            self.dismissIndicator()
+//            self.dismissIndicator()
 
             UIView.setAnimationsEnabled(true)
         }

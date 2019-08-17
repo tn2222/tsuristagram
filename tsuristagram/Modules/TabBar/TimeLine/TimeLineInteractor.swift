@@ -65,6 +65,8 @@ class TimeLineInteractor: TimeLineUsecase {
             post.latitude = snapshot["latitude"] as! Double
             post.longitude = snapshot["longitude"] as! Double
             post.weather = snapshot["weather"] as! String
+            post.key = snapshot["key"] as! String
+
         }
         // setting next offset
         self.offset = Int(truncating: post.timestamp) + 1

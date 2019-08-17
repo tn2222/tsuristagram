@@ -104,8 +104,14 @@ class TimeLineRouter: TimeLineWireframe {
         pointDetailViewController.point = point
         
         timeLineViewController?.navigationController?.pushViewController(pointDetailViewController, animated: true)
-        
+    }
 
+    func selectPost(postKey: String, userId: String) {
+        let postDetailViewController = PostDetailRouter.assembleModules() as! PostDetailViewController
+        postDetailViewController.postKey = postKey
+        postDetailViewController.userId = userId
+
+        timeLineViewController?.navigationController?.pushViewController(postDetailViewController, animated: true)
     }
 
 }

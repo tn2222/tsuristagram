@@ -43,7 +43,7 @@ class UserPageViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        startIndicator()
+//        startIndicator()
 
         // ユーザ設定ボタン有無判定
         if userId == nil {
@@ -79,7 +79,7 @@ class UserPageViewController: UIViewController {
             self.postCount = String(self.postList.count)
             self.collectionView.reloadData()
             self.loadPostData()
-            self.dismissIndicator()
+//            self.dismissIndicator()
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: self.fetchComplateWorkItem)

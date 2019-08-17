@@ -19,6 +19,8 @@ protocol TimeLinePresentable: class {
     func initialize()
     func selectUser(userId: String)
     func selectPoint(point: Point)
+    func selectPost(postKey: String, userId: String)
+
 }
 
 // MARK: - interactor
@@ -44,5 +46,6 @@ protocol TimeLineWireframe: class {
     func postButton()
     func selectUser(userId: String)
     func selectPoint(point: Point)
+    func selectPost(postKey: String, userId: String)
 }
 

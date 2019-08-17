@@ -74,9 +74,11 @@ class PostDetailViewController: UIViewController {
 
         //表示可能最大行数を指定
         comment.numberOfLines = 20
-        //contentsのサイズに合わせてobujectのサイズを変える
+        //contentsのサイズに合わせてobjectのサイズを変える
         comment.text = post.comment
+        comment.numberOfLines = 0
         comment.sizeToFit()
+
         //単語の途中で改行されないようにする
 //        comment.lineBreakMode = NSLineBreakByWordWrapping
 

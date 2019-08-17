@@ -40,6 +40,7 @@
 		FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9621C133B400783D4D /* PostViewController.swift */; };
 		FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC38AF9821C1365300783D4D /* GoogleService-Info.plist */; };
 		FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D447021C1286300CEE24E /* TimeLineViewController.swift */; };
+		FC42CBB423080B4B00EB0222 /* PostSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBB323080B4B00EB0222 /* PostSelectButton.swift */; };
 		FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */; };
 		FC4F8B6621BBAD8700B9493F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4F8B6421BBAD8700B9493F /* Main.storyboard */; };
 		FC4F8B6821BBAD8900B9493F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4F8B6721BBAD8900B9493F /* Assets.xcassets */; };
@@ -130,6 +131,7 @@
 		FC38AF9621C133B400783D4D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FC38AF9821C1365300783D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC3D447021C1286300CEE24E /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
+		FC42CBB323080B4B00EB0222 /* PostSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSelectButton.swift; sourceTree = "<group>"; };
 		FC4F8B5D21BBAD8700B9493F /* tsuristagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsuristagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FC4F8B6521BBAD8700B9493F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 			children = (
 				FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */,
 				FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */,
+				FC42CBB323080B4B00EB0222 /* PostSelectButton.swift */,
 			);
 			path = SubClass;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				FC22FB8E22197FEF00AFAAEF /* PointSearchViewController.swift in Sources */,
 				FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */,
 				FC08F14C220F2B9F007399C7 /* TimeLine.swift in Sources */,
+				FC42CBB423080B4B00EB0222 /* PostSelectButton.swift in Sources */,
 				FCE6EE6022843F3E006F99D8 /* UserPageViewPresenter.swift in Sources */,
 				FCA95A8E2299512C003E20A8 /* UIViewController.swift in Sources */,
 				FC94150822368915002FDA64 /* PostDetailRouter.swift in Sources */,

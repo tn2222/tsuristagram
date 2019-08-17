@@ -187,5 +187,13 @@
       <ContextState
          contextName = "PostDetailInteractor.fetchPostComplate(snapshot:):PostDetailInteractor.swift">
       </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.collectionView(_:viewForSupplementaryElementOfKind:at:):PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "point">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

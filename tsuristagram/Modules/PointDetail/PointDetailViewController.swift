@@ -30,10 +30,6 @@ class PointDetailViewController: UIViewController {
             }
             loadPostData()
         }
-
-//        didSet {
-//            loadPostData()
-//        }
     }
 
     var fetchComplateWorkItem: DispatchWorkItem!
@@ -161,16 +157,29 @@ extension PointDetailViewController: UICollectionViewDataSource, UICollectionVie
 
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PointDetailPageHeader", for: indexPath) as? PointDetailPageHeader else {
             fatalError("Could not find proper header")
-
         }
 
         if kind == UICollectionView.elementKindSectionHeader {
 
-            
-            header.mapView.camera = GMSCameraPosition.camera(withLatitude: point.latitude,longitude: point.longitude,zoom: 14)
-            header.marker.position = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
-            header.marker.map = header.mapView
-            header.position = marker.position
+            if point.latitude == 0 && point.longitude == 0 {
+                header.mapView.removeFromSuperview()
+                header.backgroundColor = UIColor.lightGray
+                let label: UILabel = UILabel()
+                label.frame = CGRect(x:150, y:200, width:160, height:30)
+                label.textColor = UIColor.black
+                label.textAlignment = .center
+                label.center = header.center
+                label.font = UIFont.systemFont(ofSize: 20)
+                label.text = "不明な釣り場"
+                header.addSubview(label)
+
+
+            } else {
+                header.mapView.camera = GMSCameraPosition.camera(withLatitude: point.latitude,longitude: point.longitude,zoom: 14)
+                header.marker.position = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
+                header.marker.map = header.mapView
+                header.position = marker.position
+            }
 
             return header
         

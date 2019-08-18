@@ -17,7 +17,6 @@ protocol UserSettingsViewPresentable: class {
     func fetchUserData(userId: String)
     func doneButton(user: User, isSelectPhoto: Bool)
     func present()
-
 }
 
 // MARK: - interactor

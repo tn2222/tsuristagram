@@ -29,11 +29,7 @@ class UserPageViewController: UIViewController {
     var userName: String!
     var userPhotoString: String!
     var userImage: UIImageView!
-    var userSetting: UIButton!
     var userImageExpand: UIImageView!
-    
-    @IBAction func userSettingButton(_ sender: UIButton) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +65,9 @@ class UserPageViewController: UIViewController {
         super.viewWillAppear(animated)
     }
 
-    // firebaseにデータ登録
+    // ユーザ設定画面遷移
     @objc func editButton() {
+        presenter.editButton(userId: userId)
     }
 
     func finishLoading() {

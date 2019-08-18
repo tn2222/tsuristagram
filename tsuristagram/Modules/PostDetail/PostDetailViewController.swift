@@ -56,7 +56,7 @@ class PostDetailViewController: UIViewController {
         let uiview = UIView()
         uiview.backgroundColor = UIColor.lightGray
         uiview.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        uiview.alpha = 0.0
+        uiview.alpha = 0.3
         self.tabBarController?.view.addSubview(uiview)
         presenter.deleteButton(post: post)
     }

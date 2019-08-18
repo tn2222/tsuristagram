@@ -815,10 +815,10 @@
             </objects>
             <point key="canvasLocation" x="3456.8000000000002" y="-344.07796101949026"/>
         </scene>
-        <!--View Controller-->
+        <!--User Settings View Controller-->
         <scene sceneID="KWe-wa-Sf6">
             <objects>
-                <viewController storyboardIdentifier="userSettings" id="37V-n7-Vsq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userSettings" id="37V-n7-Vsq" customClass="UserSettingsViewController" customModule="tsuristagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="af7-Xu-Lfp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -862,11 +862,18 @@
                                 <state key="normal" title="写真変更">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectEditPictureButton:" destination="37V-n7-Vsq" eventType="touchUpInside" id="vBa-iS-TwQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="uaR-a0-zww"/>
                     </view>
+                    <connections>
+                        <outlet property="userImage" destination="fdA-oY-H9J" id="I3u-XO-SvL"/>
+                        <outlet property="userName" destination="fij-KT-HFa" id="gkc-1q-ewu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PvF-ws-KZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

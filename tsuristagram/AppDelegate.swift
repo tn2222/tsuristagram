@@ -84,7 +84,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 }else{
                     
                     print("user doesn't exist")
-                    UserExitRef.child("users").child(uid!).updateChildValues(["userId":uid!,"userPhoto":DefaltImageURL,"userName":"Unknown","timeStamp":ServerValue.timestamp()])
+                    let currentTime = Int(Date().timeIntervalSince1970)
+ UserExitRef.child("users").child(uid!).updateChildValues(["userId":uid!,"userPhoto":DefaltImageURL,"userName":"Unknown","timeStamp":Int(Date().timeIntervalSince1970), "updatedAt":Int(Date().timeIntervalSince1970)])
                     
                 }
                 self.userDefaults.set(uid, forKey: "userId")

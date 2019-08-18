@@ -17,6 +17,7 @@ protocol UserPageViewPresentable: class {
     func fetchUserData(userId: String)
     func fetchData(userId: String)
     func selectCell(post: Post)
+    func editButton(userId: String)
 
 }
 
@@ -35,5 +36,5 @@ protocol UserPageInteractorDelegate: class {
 // MARK: - router
 protocol UserPageWireframe: class {
     func selectCell(post: Post)
-
+    func editButton(userId: String)
 }

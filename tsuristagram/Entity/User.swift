@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class User {
     var userName: String = String()
     var userPhoto: String = String()
+    var userPhotoImage: UIImage = UIImage()
     var userId: String = String()
 }
+

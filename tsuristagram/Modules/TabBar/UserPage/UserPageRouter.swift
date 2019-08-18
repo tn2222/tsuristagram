@@ -9,7 +9,6 @@
 import UIKit
 
 class UserPageRouter: UserPageWireframe {
-
     
     fileprivate weak var userPageViewController: UserPageViewController?
     fileprivate weak var postDetailViewController: PostDetailViewController?
@@ -43,6 +42,12 @@ class UserPageRouter: UserPageWireframe {
         postDetailViewController.postKey = post.key
         postDetailViewController.userId = post.userId
         userPageViewController?.navigationController?.pushViewController(postDetailViewController, animated: true)
+    }
+
+    func editButton(userId: String) {
+        let userSettingsViewController = UserSettingsRouter.assembleModules() as! UserSettingsViewController
+        userSettingsViewController.userId = userId
+        userPageViewController?.navigationController?.pushViewController(userSettingsViewController, animated: true)
     }
 
 }

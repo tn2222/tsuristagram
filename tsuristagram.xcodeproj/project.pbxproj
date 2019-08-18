@@ -41,6 +41,11 @@
 		FC38AF9921C1365300783D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC38AF9821C1365300783D4D /* GoogleService-Info.plist */; };
 		FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D447021C1286300CEE24E /* TimeLineViewController.swift */; };
 		FC42CBB423080B4B00EB0222 /* PostSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBB323080B4B00EB0222 /* PostSelectButton.swift */; };
+		FC42CBB7230913B600EB0222 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBB6230913B600EB0222 /* UserSettingsViewController.swift */; };
+		FC42CBB9230913CE00EB0222 /* UserSettingsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBB8230913CE00EB0222 /* UserSettingsContract.swift */; };
+		FC42CBBB230913DB00EB0222 /* UserSettingsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBBA230913DB00EB0222 /* UserSettingsViewPresenter.swift */; };
+		FC42CBBD230913EB00EB0222 /* UserSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBBC230913EB00EB0222 /* UserSettingsInteractor.swift */; };
+		FC42CBBF230913F600EB0222 /* UserSettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBBE230913F600EB0222 /* UserSettingsRouter.swift */; };
 		FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */; };
 		FC4F8B6621BBAD8700B9493F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4F8B6421BBAD8700B9493F /* Main.storyboard */; };
 		FC4F8B6821BBAD8900B9493F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4F8B6721BBAD8900B9493F /* Assets.xcassets */; };
@@ -132,6 +137,11 @@
 		FC38AF9821C1365300783D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC3D447021C1286300CEE24E /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 		FC42CBB323080B4B00EB0222 /* PostSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSelectButton.swift; sourceTree = "<group>"; };
+		FC42CBB6230913B600EB0222 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
+		FC42CBB8230913CE00EB0222 /* UserSettingsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsContract.swift; sourceTree = "<group>"; };
+		FC42CBBA230913DB00EB0222 /* UserSettingsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewPresenter.swift; sourceTree = "<group>"; };
+		FC42CBBC230913EB00EB0222 /* UserSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsInteractor.swift; sourceTree = "<group>"; };
+		FC42CBBE230913F600EB0222 /* UserSettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsRouter.swift; sourceTree = "<group>"; };
 		FC4F8B5D21BBAD8700B9493F /* tsuristagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsuristagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FC4F8B6521BBAD8700B9493F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -338,6 +348,18 @@
 			path = PointDetail;
 			sourceTree = "<group>";
 		};
+		FC42CBB52309133400EB0222 /* UserSettings */ = {
+			isa = PBXGroup;
+			children = (
+				FC42CBB8230913CE00EB0222 /* UserSettingsContract.swift */,
+				FC42CBB6230913B600EB0222 /* UserSettingsViewController.swift */,
+				FC42CBBA230913DB00EB0222 /* UserSettingsViewPresenter.swift */,
+				FC42CBBC230913EB00EB0222 /* UserSettingsInteractor.swift */,
+				FC42CBBE230913F600EB0222 /* UserSettingsRouter.swift */,
+			);
+			path = UserSettings;
+			sourceTree = "<group>";
+		};
 		FC4F8B5421BBAD8700B9493F = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +436,7 @@
 			children = (
 				FC0BFC7021F9F3110054ABD2 /* Login */,
 				FC08F148220F17B6007399C7 /* TabBar */,
+				FC42CBB52309133400EB0222 /* UserSettings */,
 				FC22FB9C221C155400AFAAEF /* PointDetail */,
 				FC0BFC7221F9F3500054ABD2 /* Post */,
 				FC941500223688A8002FDA64 /* PostDetail */,
@@ -748,6 +771,7 @@
 				FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */,
 				FC08F14C220F2B9F007399C7 /* TimeLine.swift in Sources */,
 				FC42CBB423080B4B00EB0222 /* PostSelectButton.swift in Sources */,
+				FC42CBBB230913DB00EB0222 /* UserSettingsViewPresenter.swift in Sources */,
 				FCE6EE6022843F3E006F99D8 /* UserPageViewPresenter.swift in Sources */,
 				FCA95A8E2299512C003E20A8 /* UIViewController.swift in Sources */,
 				FC94150822368915002FDA64 /* PostDetailRouter.swift in Sources */,
@@ -772,6 +796,7 @@
 				FC4F8E432206E93000C02372 /* PostPointSearchViewPresenter.swift in Sources */,
 				FC22FB912219814E00AFAAEF /* PointSearchContract.swift in Sources */,
 				FC22FBA0221C161000AFAAEF /* PointDetailViewPresenter.swift in Sources */,
+				FC42CBB7230913B600EB0222 /* UserSettingsViewController.swift in Sources */,
 				FC4F8E492207258D00C02372 /* Point.swift in Sources */,
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
 				FCE6EE6222843F7E006F99D8 /* UserPageInteractor.swift in Sources */,
@@ -780,6 +805,7 @@
 				FC1CD0322203332E00C810CF /* FirebaseClient.swift in Sources */,
 				FC634D9523065D84006E45C5 /* AppDelegate.swift in Sources */,
 				FC941502223688D8002FDA64 /* PostDetailViewController.swift in Sources */,
+				FC42CBBF230913F600EB0222 /* UserSettingsRouter.swift in Sources */,
 				FC026ABD220B1FFF007E961C /* PostPointLocationContract.swift in Sources */,
 				FC941504223688F3002FDA64 /* PostDetailViewPresenter.swift in Sources */,
 				FC137CD722C8826F0064F564 /* UserPageHeader.swift in Sources */,
@@ -794,11 +820,13 @@
 				FC634D9322FDB2DD006E45C5 /* AppKey.swift in Sources */,
 				FCDDE39C22BCB5FC007482AD /* PointSelectButton.swift in Sources */,
 				FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */,
+				FC42CBB9230913CE00EB0222 /* UserSettingsContract.swift in Sources */,
 				FC9414FF223688A4002FDA64 /* PostDetailContract.swift in Sources */,
 				FCF325CE21ECB307002CC3C4 /* PostPointLocationViewController.swift in Sources */,
 				FC08F145220F075E007399C7 /* TimeLineRouter.swift in Sources */,
 				FC026ABA2209D7E0007E961C /* CommonUtils.swift in Sources */,
 				FC22FB9E221C15F200AFAAEF /* PointDetailViewController.swift in Sources */,
+				FC42CBBD230913EB00EB0222 /* UserSettingsInteractor.swift in Sources */,
 				FC0BFC7721F9FD630054ABD2 /* PostPointLocationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

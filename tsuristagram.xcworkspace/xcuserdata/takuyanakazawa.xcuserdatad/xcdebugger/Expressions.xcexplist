@@ -14,10 +14,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserPageViewController.collectionView(_:numberOfItemsInSection:):UserPageViewController.swift">
+         contextName = "UserSettingsViewController.doneButton():UserSettingsViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "postList">
+               value = "user">
+            </PersistentString>
+            <PersistentString
+               value = "isSelectPhoto">
+            </PersistentString>
+            <PersistentString
+               value = "tabBarController?.view.view">
+            </PersistentString>
+            <PersistentString
+               value = "tabBarController?.view">
+            </PersistentString>
+            <PersistentString
+               value = "tabBarController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -113,6 +125,14 @@
             </PersistentString>
             <PersistentString
                value = "self.post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserPageViewController.collectionView(_:numberOfItemsInSection:):UserPageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

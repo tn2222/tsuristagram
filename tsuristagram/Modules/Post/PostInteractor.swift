@@ -52,7 +52,7 @@ class PostInteractor: PostUsecase {
         
         let myUid = CommonUtils.getUserId()
 
-        let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(myUid).child(String(currentTime) + ".jpg")
+        let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(myUid).child("post").child(String(currentTime) + ".jpg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         

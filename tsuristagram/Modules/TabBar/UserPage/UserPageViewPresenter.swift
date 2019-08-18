@@ -43,6 +43,9 @@ class UserPageViewPresenter: UserPageViewPresentable {
         interactor.fetchData(userId: userId)
     }
 
+    func editButton(userId: String) {
+        router.editButton(userId: userId)
+    }
 }
 
 // Interactorからの通知受け取り

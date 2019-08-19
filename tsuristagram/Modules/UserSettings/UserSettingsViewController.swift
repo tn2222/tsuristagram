@@ -32,7 +32,6 @@ class UserSettingsViewController: UIViewController {
         super.viewWillAppear(animated)
     }
 
-
     @IBAction func selectEditPictureButton(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let pickerView = UIImagePickerController()

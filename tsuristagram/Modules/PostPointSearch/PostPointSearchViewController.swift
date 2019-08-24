@@ -29,8 +29,6 @@ class PostPointSearchViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(rightBarBtnClicked(sender:)))
-
         //SearchBar作成
         searchBar = UISearchBar()
         searchBar.delegate = self

@@ -30,7 +30,6 @@ class PointSearchViewController: UIViewController {
 
         self.navigationItem.title = "釣り場検索"
 
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(rightBarBtnClicked(sender:)))
         
         //SearchBar作成
         searchBar = UISearchBar()

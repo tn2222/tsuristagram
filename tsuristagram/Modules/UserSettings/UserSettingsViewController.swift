@@ -9,9 +9,14 @@
 import UIKit
 import Photos
 import SVProgressHUD
+import Firebase
+import FirebaseAuth
+import GoogleSignIn
 
 class UserSettingsViewController: UIViewController {
 
+    var window: UIWindow?
+    
     var presenter: UserSettingsViewPresenter!
     var userId: String!
     var user: User!
@@ -40,6 +45,28 @@ class UserSettingsViewController: UIViewController {
             present(pickerView, animated: true)
         }
     }
+    @IBAction func logOut(_ sender: Any) {
+        ///////////////////////////////////////Google SignOut
+        GIDSignIn.sharedInstance().signOut()
+        print ("sign out success Google")
+        ///////////////////////////////////////Facebook & Email SignOut
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil);
+            let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            
+            self.present(viewController, animated: true, completion: nil)
+
+            print ("sign out success")
+            
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        ///////////////////////////////////////Facebook & Email SignOut
+    }
+    
     
     @objc func doneButton() {
         SVProgressHUD.show()

@@ -18,6 +18,7 @@
 
 #include <memory>
 #include <utility>
+#include <vector>
 
 #import "FIRDocumentReference.h"
 #import "FIRFirestoreErrors.h"
@@ -32,16 +33,16 @@
 #import "Firestore/Source/API/FIRQuerySnapshot+Internal.h"
 #import "Firestore/Source/API/FIRSnapshotMetadata+Internal.h"
 #import "Firestore/Source/API/FSTUserDataConverter.h"
-#import "Firestore/Source/Core/FSTEventManager.h"
 #import "Firestore/Source/Core/FSTFirestoreClient.h"
-#import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Model/FSTDocument.h"
-#import "Firestore/Source/Model/FSTFieldValue.h"
 
 #include "Firestore/core/src/firebase/firestore/api/input_validation.h"
 #include "Firestore/core/src/firebase/firestore/api/query_core.h"
+#include "Firestore/core/src/firebase/firestore/core/bound.h"
 #include "Firestore/core/src/firebase/firestore/core/direction.h"
 #include "Firestore/core/src/firebase/firestore/core/filter.h"
+#include "Firestore/core/src/firebase/firestore/core/order_by.h"
+#include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
@@ -61,10 +62,13 @@ using firebase::firestore::api::SnapshotMetadata;
 using firebase::firestore::api::Source;
 using firebase::firestore::api::ThrowInvalidArgument;
 using firebase::firestore::core::AsyncEventListener;
+using firebase::firestore::core::Bound;
 using firebase::firestore::core::Direction;
 using firebase::firestore::core::EventListener;
 using firebase::firestore::core::Filter;
 using firebase::firestore::core::ListenOptions;
+using firebase::firestore::core::OrderBy;
+using firebase::firestore::core::OrderByList;
 using firebase::firestore::core::QueryListener;
 using firebase::firestore::core::ViewSnapshot;
 using firebase::firestore::model::DocumentKey;
@@ -101,8 +105,8 @@ FIRQuery *Wrap(Query &&query) {
   return self;
 }
 
-- (instancetype)initWithQuery:(FSTQuery *)query firestore:(std::shared_ptr<Firestore>)firestore {
-  return [self initWithQuery:Query{query, std::move(firestore)}];
+- (instancetype)initWithQuery:(core::Query)query firestore:(std::shared_ptr<Firestore>)firestore {
+  return [self initWithQuery:Query{std::move(query), std::move(firestore)}];
 }
 
 #pragma mark - NSObject Methods
@@ -152,7 +156,7 @@ FIRQuery *Wrap(Query &&query) {
                                                              listener:
                                                                  (FIRQuerySnapshotBlock)listener {
   std::shared_ptr<Firestore> firestore = self.firestore.wrapped;
-  FSTQuery *query = self.query;
+  const core::Query &query = self.query;
 
   // Convert from ViewSnapshots to QuerySnapshots.
   auto view_listener = EventListener<ViewSnapshot>::Create(
@@ -348,52 +352,58 @@ FIRQuery *Wrap(Query &&query) {
 }
 
 - (FIRQuery *)queryLimitedTo:(NSInteger)limit {
-  return Wrap(_query.Limit(static_cast<int64_t>(limit)));
+  int32_t internalLimit;
+  if (limit == NSNotFound || limit >= core::Query::kNoLimit) {
+    internalLimit = core::Query::kNoLimit;
+  } else {
+    internalLimit = static_cast<int32_t>(limit);
+  }
+  return Wrap(_query.Limit(internalLimit));
 }
 
 - (FIRQuery *)queryStartingAtDocument:(FIRDocumentSnapshot *)snapshot {
-  FSTBound *bound = [self boundFromSnapshot:snapshot isBefore:YES];
-  return Wrap(_query.StartAt(bound));
+  Bound bound = [self boundFromSnapshot:snapshot isBefore:YES];
+  return Wrap(_query.StartAt(std::move(bound)));
 }
 
 - (FIRQuery *)queryStartingAtValues:(NSArray *)fieldValues {
-  FSTBound *bound = [self boundFromFieldValues:fieldValues isBefore:YES];
-  return Wrap(_query.StartAt(bound));
+  Bound bound = [self boundFromFieldValues:fieldValues isBefore:YES];
+  return Wrap(_query.StartAt(std::move(bound)));
 }
 
 - (FIRQuery *)queryStartingAfterDocument:(FIRDocumentSnapshot *)snapshot {
-  FSTBound *bound = [self boundFromSnapshot:snapshot isBefore:NO];
-  return Wrap(_query.StartAt(bound));
+  Bound bound = [self boundFromSnapshot:snapshot isBefore:NO];
+  return Wrap(_query.StartAt(std::move(bound)));
 }
 
 - (FIRQuery *)queryStartingAfterValues:(NSArray *)fieldValues {
-  FSTBound *bound = [self boundFromFieldValues:fieldValues isBefore:NO];
-  return Wrap(_query.StartAt(bound));
+  Bound bound = [self boundFromFieldValues:fieldValues isBefore:NO];
+  return Wrap(_query.StartAt(std::move(bound)));
 }
 
 - (FIRQuery *)queryEndingBeforeDocument:(FIRDocumentSnapshot *)snapshot {
-  FSTBound *bound = [self boundFromSnapshot:snapshot isBefore:YES];
-  return Wrap(_query.EndAt(bound));
+  Bound bound = [self boundFromSnapshot:snapshot isBefore:YES];
+  return Wrap(_query.EndAt(std::move(bound)));
 }
 
 - (FIRQuery *)queryEndingBeforeValues:(NSArray *)fieldValues {
-  FSTBound *bound = [self boundFromFieldValues:fieldValues isBefore:YES];
-  return Wrap(_query.EndAt(bound));
+  Bound bound = [self boundFromFieldValues:fieldValues isBefore:YES];
+  return Wrap(_query.EndAt(std::move(bound)));
 }
 
 - (FIRQuery *)queryEndingAtDocument:(FIRDocumentSnapshot *)snapshot {
-  FSTBound *bound = [self boundFromSnapshot:snapshot isBefore:NO];
-  return Wrap(_query.EndAt(bound));
+  Bound bound = [self boundFromSnapshot:snapshot isBefore:NO];
+  return Wrap(_query.EndAt(std::move(bound)));
 }
 
 - (FIRQuery *)queryEndingAtValues:(NSArray *)fieldValues {
-  FSTBound *bound = [self boundFromFieldValues:fieldValues isBefore:NO];
-  return Wrap(_query.EndAt(bound));
+  Bound bound = [self boundFromFieldValues:fieldValues isBefore:NO];
+  return Wrap(_query.EndAt(std::move(bound)));
 }
 
 #pragma mark - Private Methods
 
-- (FSTFieldValue *)parsedQueryValue:(id)value {
+- (FieldValue)parsedQueryValue:(id)value {
   return [self.firestore.dataConverter parsedQueryValue:value];
 }
 
@@ -430,86 +440,88 @@ FIRQuery *Wrap(Query &&query) {
 - (FIRQuery *)queryWithFilterOperator:(Filter::Operator)filterOperator
                                  path:(const FieldPath &)fieldPath
                                 value:(id)value {
-  FSTFieldValue *fieldValue = [self parsedQueryValue:value];
+  FieldValue fieldValue = [self parsedQueryValue:value];
   auto describer = [value] { return util::MakeString(NSStringFromClass([value class])); };
-  return Wrap(_query.Filter(fieldPath, filterOperator, fieldValue, describer));
+  return Wrap(_query.Filter(fieldPath, filterOperator, std::move(fieldValue), describer));
 }
 
 /**
- * Create a FSTBound from a query given the document.
+ * Create a Bound from a query given the document.
  *
- * Note that the FSTBound will always include the key of the document and the position will be
+ * Note that the Bound will always include the key of the document and the position will be
  * unambiguous.
  *
  * Will throw if the document does not contain all fields of the order by of
  * the query or if any of the fields in the order by are an uncommitted server
  * timestamp.
  */
-- (FSTBound *)boundFromSnapshot:(FIRDocumentSnapshot *)snapshot isBefore:(BOOL)isBefore {
+- (Bound)boundFromSnapshot:(FIRDocumentSnapshot *)snapshot isBefore:(BOOL)isBefore {
   if (![snapshot exists]) {
     ThrowInvalidArgument("Invalid query. You are trying to start or end a query using a document "
                          "that doesn't exist.");
   }
   FSTDocument *document = snapshot.internalDocument;
-  NSMutableArray<FSTFieldValue *> *components = [NSMutableArray array];
+  const model::DatabaseId &databaseID = self.firestore.databaseID;
+  std::vector<FieldValue> components;
 
   // Because people expect to continue/end a query at the exact document provided, we need to
   // use the implicit sort order rather than the explicit sort order, because it's guaranteed to
   // contain the document key. That way the position becomes unambiguous and the query
   // continues/ends exactly at the provided document. Without the key (by using the explicit sort
   // orders), multiple documents could match the position, yielding duplicate results.
-  for (FSTSortOrder *sortOrder in self.query.sortOrders) {
-    if (sortOrder.field == FieldPath::KeyFieldPath()) {
-      [components addObject:[FSTReferenceValue
-                                referenceValue:[FSTDocumentKey keyWithDocumentKey:document.key]
-                                    databaseID:self.firestore.databaseID]];
+  for (const OrderBy &orderBy : self.query.order_bys()) {
+    if (orderBy.field() == FieldPath::KeyFieldPath()) {
+      components.push_back(FieldValue::FromReference(databaseID, document.key));
     } else {
-      FSTFieldValue *value = [document fieldForPath:sortOrder.field];
+      absl::optional<FieldValue> value = [document fieldForPath:orderBy.field()];
 
-      if (value.type == FieldValue::Type::ServerTimestamp) {
-        ThrowInvalidArgument(
-            "Invalid query. You are trying to start or end a query using a document for which the "
-            "field '%s' is an uncommitted server timestamp. (Since the value of this field is "
-            "unknown, you cannot start/end a query with it.)",
-            sortOrder.field.CanonicalString());
-      } else if (value != nil) {
-        [components addObject:value];
+      if (value) {
+        if (value->type() == FieldValue::Type::ServerTimestamp) {
+          ThrowInvalidArgument(
+              "Invalid query. You are trying to start or end a query using a document for which "
+              "the field '%s' is an uncommitted server timestamp. (Since the value of this field "
+              "is unknown, you cannot start/end a query with it.)",
+              orderBy.field().CanonicalString());
+        } else {
+          components.push_back(*value);
+        }
       } else {
         ThrowInvalidArgument(
             "Invalid query. You are trying to start or end a query using a document for which the "
             "field '%s' (used as the order by) does not exist.",
-            sortOrder.field.CanonicalString());
+            orderBy.field().CanonicalString());
       }
     }
   }
-  return [FSTBound boundWithPosition:components isBefore:isBefore];
+  return Bound(std::move(components), isBefore);
 }
 
-/** Converts a list of field values to an FSTBound. */
-- (FSTBound *)boundFromFieldValues:(NSArray<id> *)fieldValues isBefore:(BOOL)isBefore {
+/** Converts a list of field values to an Bound. */
+- (Bound)boundFromFieldValues:(NSArray<id> *)fieldValues isBefore:(BOOL)isBefore {
   // Use explicit sort order because it has to match the query the user made
-  NSArray<FSTSortOrder *> *explicitSortOrders = self.query.explicitSortOrders;
-  if (fieldValues.count > explicitSortOrders.count) {
+  const OrderByList &explicitSortOrders = self.query.explicit_order_bys();
+  if (fieldValues.count > explicitSortOrders.size()) {
     ThrowInvalidArgument("Invalid query. You are trying to start or end a query using more values "
                          "than were specified in the order by.");
   }
 
-  NSMutableArray<FSTFieldValue *> *components = [NSMutableArray array];
-  [fieldValues enumerateObjectsUsingBlock:^(id rawValue, NSUInteger idx, BOOL *stop) {
-    FSTSortOrder *sortOrder = explicitSortOrders[idx];
-    FSTFieldValue *fieldValue = [self parsedQueryValue:rawValue];
-    if (sortOrder.field.IsKeyFieldPath()) {
-      if (fieldValue.type != FieldValue::Type::String) {
+  std::vector<FieldValue> components;
+  for (NSUInteger idx = 0, max = fieldValues.count; idx < max; ++idx) {
+    id rawValue = fieldValues[idx];
+    const OrderBy &sortOrder = explicitSortOrders[idx];
+
+    FieldValue fieldValue = [self parsedQueryValue:rawValue];
+    if (sortOrder.field().IsKeyFieldPath()) {
+      if (fieldValue.type() != FieldValue::Type::String) {
         ThrowInvalidArgument("Invalid query. Expected a string for the document ID.");
       }
-      const std::string &documentID =
-          static_cast<FSTDelegateValue *>(fieldValue).internalValue.string_value();
-      if (![self.query isCollectionGroupQuery] && documentID.find('/') != std::string::npos) {
+      const std::string &documentID = fieldValue.string_value();
+      if (!self.query.IsCollectionGroupQuery() && documentID.find('/') != std::string::npos) {
         ThrowInvalidArgument("Invalid query. When querying a collection and ordering by document "
                              "ID, you must pass a plain document ID, but '%s' contains a slash.",
                              documentID);
       }
-      ResourcePath path = self.query.path.Append(ResourcePath::FromString(documentID));
+      ResourcePath path = self.query.path().Append(ResourcePath::FromString(documentID));
       if (!DocumentKey::IsDocumentKey(path)) {
         ThrowInvalidArgument("Invalid query. When querying a collection group and ordering by "
                              "document ID, you must pass a value that results in a valid document "
@@ -517,22 +529,43 @@ FIRQuery *Wrap(Query &&query) {
                              path.CanonicalString());
       }
       DocumentKey key{path};
-      fieldValue = [FSTReferenceValue referenceValue:[FSTDocumentKey keyWithDocumentKey:key]
-                                          databaseID:self.firestore.databaseID];
+      fieldValue = FieldValue::FromReference(self.firestore.databaseID, key);
     }
 
-    [components addObject:fieldValue];
-  }];
+    components.push_back(fieldValue);
+  }
 
-  return [FSTBound boundWithPosition:components isBefore:isBefore];
+  return Bound(std::move(components), isBefore);
 }
 
 @end
 
 @implementation FIRQuery (Internal)
 
-- (FSTQuery *)query {
+- (FIRQuery *)queryWhereField:(NSString *)field arrayContainsAny:(id)value {
+  return [self queryWithFilterOperator:Filter::Operator::ArrayContainsAny field:field value:value];
+}
+
+- (FIRQuery *)queryWhereFieldPath:(FIRFieldPath *)path arrayContainsAny:(id)value {
+  return [self queryWithFilterOperator:Filter::Operator::ArrayContainsAny
+                                  path:path.internalValue
+                                 value:value];
+}
+
+- (FIRQuery *)queryWhereField:(NSString *)field in:(id)value {
+  return [self queryWithFilterOperator:Filter::Operator::In field:field value:value];
+}
+
+- (FIRQuery *)queryWhereFieldPath:(FIRFieldPath *)path in:(id)value {
+  return [self queryWithFilterOperator:Filter::Operator::In path:path.internalValue value:value];
+}
+
+- (const core::Query &)query {
   return _query.query();
+}
+
+- (const api::Query &)apiQuery {
+  return _query;
 }
 
 @end

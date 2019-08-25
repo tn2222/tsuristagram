@@ -12,9 +12,10 @@ import GoogleMaps
 import GoogleSignIn
 import SVProgressHUD
 import IQKeyboardManagerSwift
+import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     let userDefaults = UserDefaults.standard
@@ -36,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         IQKeyboardManager.shared.enable = true
         
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+        //GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        //GIDSignIn.sharedInstance().delegate = self
         
         GMSServices.provideAPIKey(googleApiKey)
         
@@ -48,54 +49,83 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //            print("Not logged in")
         //        }
         
+        // Googleログイン
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        
+        // Facebookログイン
+        FBSDKApplicationDelegate.sharedInstance().application(application,didFinishLaunchingWithOptions: launchOptions)
+        
+        let user = Auth.auth().currentUser
+        let uid = Auth.auth().currentUser?.uid
+        
+        if user != nil {
+            print("ログインセッション継続中")
+            
+            self.userDefaults.set(uid, forKey: "userId")
+            let viewController = MainTabBarViewController()
+            
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = viewController
+            self.window?.makeKeyAndVisible()
+            
+        }else{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil);
+            let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = viewController
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
+
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        print("Google Sing In didSignInForUser")
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        
-        SVProgressHUD.show()
-        
-        let authentication = user.authentication
-        // get firebase credential
-        let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
-                                                       accessToken: (authentication?.accessToken)!)
-        
-        let UserExitRef = Database.database().reference()
-        let DefaltImageURL = "https://firebasestorage.googleapis.com/v0/b/tsuristagram.appspot.com/o/DefaultUserImage.png?alt=media&token=8268adf5-7ad7-466d-abed-778d8819df4a"
-        Auth.auth().signIn(with: credential) { (user, error) in
-            
-            print("Sign on Firebase successfully")
-            print("Google Signed In")
-            UserExitRef.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                let uid = user?.user.uid
-                //let photoURL = user?.photoURL
-                //let name = user?.displayName
-                
-                if snapshot.hasChild(uid!){
-                    
-                    print("user exist")
-                    
-                }else{
-                    
-                    print("user doesn't exist")
-                    let currentTime = Int(Date().timeIntervalSince1970)
- UserExitRef.child("users").child(uid!).updateChildValues(["userId":uid!,"userPhoto":DefaltImageURL,"userName":"Unknown","timeStamp":Int(Date().timeIntervalSince1970), "updatedAt":Int(Date().timeIntervalSince1970)])
-                    
-                }
-                self.userDefaults.set(uid, forKey: "userId")
-                
-            })
-            SVProgressHUD.dismiss()
-            
-        }
-        
-    }
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+//        print("Google Sing In didSignInForUser")
+//        if let error = error {
+//            print(error.localizedDescription)
+//            return
+//        }
+//
+//        SVProgressHUD.show()
+//
+//        let authentication = user.authentication
+//        // get firebase credential
+//        let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
+//                                                       accessToken: (authentication?.accessToken)!)
+//
+//        let UserExitRef = Database.database().reference()
+//        let DefaltImageURL = "https://firebasestorage.googleapis.com/v0/b/tsuristagram.appspot.com/o/DefaultUserImage.png?alt=media&token=8268adf5-7ad7-466d-abed-778d8819df4a"
+//        Auth.auth().signIn(with: credential) { (user, error) in
+//
+//            print("Sign on Firebase successfully")
+//            print("Google Signed In")
+//            UserExitRef.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//                let uid = user?.user.uid
+//                //let photoURL = user?.photoURL
+//                //let name = user?.displayName
+//
+//                if snapshot.hasChild(uid!){
+//
+//                    print("user exist")
+//
+//                }else{
+//
+//                    print("user doesn't exist")
+//                    let currentTime = Int(Date().timeIntervalSince1970)
+// UserExitRef.child("users").child(uid!).updateChildValues(["userId":uid!,"userPhoto":DefaltImageURL,"userName":"Unknown","timeStamp":Int(Date().timeIntervalSince1970), "updatedAt":Int(Date().timeIntervalSince1970)])
+//
+//                }
+//                self.userDefaults.set(uid, forKey: "userId")
+//
+//            })
+//            SVProgressHUD.dismiss()
+//
+//        }
+//
+//    }
     
     func applicationWillResignActive(_ application: UIApplication) {
     }

@@ -21,6 +21,8 @@
 #import "Firestore/Source/Local/FSTLRUGarbageCollector.h"
 
 #include "Firestore/core/src/firebase/firestore/auth/user.h"
+#include "Firestore/core/src/firebase/firestore/local/local_view_changes.h"
+#include "Firestore/core/src/firebase/firestore/local/local_write_result.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
 #include "Firestore/core/src/firebase/firestore/model/document_map.h"
@@ -42,11 +44,11 @@ class RemoteEvent;
 @class FSTMutation;
 @class FSTMutationBatch;
 @class FSTMutationBatchResult;
-@class FSTQuery;
 @class FSTQueryData;
 @protocol FSTPersistence;
 
 namespace auth = firebase::firestore::auth;
+namespace core = firebase::firestore::core;
 namespace local = firebase::firestore::local;
 namespace model = firebase::firestore::model;
 namespace remote = firebase::firestore::remote;
@@ -108,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (model::MaybeDocumentMap)userDidChange:(const auth::User &)user;
 
 /** Accepts locally generated Mutations and commits them to storage. */
-- (FSTLocalWriteResult *)locallyWriteMutations:(std::vector<FSTMutation *> &&)mutations;
+- (local::LocalWriteResult)locallyWriteMutations:(std::vector<FSTMutation *> &&)mutations;
 
 /** Returns the current value of a document with a given key, or nil if not found. */
 - (nullable FSTMaybeDocument *)readDocument:(const model::DocumentKey &)key;
@@ -171,16 +173,16 @@ NS_ASSUME_NONNULL_BEGIN
  * Assigns @a query an internal ID so that its results can be pinned so they don't get GC'd.
  * A query must be allocated in the local store before the store can be used to manage its view.
  */
-- (FSTQueryData *)allocateQuery:(FSTQuery *)query;
+- (FSTQueryData *)allocateQuery:(core::Query)query;
 
 /** Unpin all the documents associated with @a query. */
-- (void)releaseQuery:(FSTQuery *)query;
+- (void)releaseQuery:(const core::Query &)query;
 
 /** Runs @a query against all the documents in the local store and returns the results. */
-- (model::DocumentMap)executeQuery:(FSTQuery *)query;
+- (model::DocumentMap)executeQuery:(const core::Query &)query;
 
 /** Notify the local store of the changed views to locally pin / unpin documents. */
-- (void)notifyLocalViewChanges:(NSArray<FSTLocalViewChanges *> *)viewChanges;
+- (void)notifyLocalViewChanges:(const std::vector<local::LocalViewChanges> &)viewChanges;
 
 /**
  * Gets the mutation batch after the passed in batchId in the mutation queue or nil if empty.

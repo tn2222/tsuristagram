@@ -22,11 +22,10 @@
 #import "Firestore/Source/API/FIRDocumentSnapshot+Internal.h"
 #import "Firestore/Source/API/FIRFirestore+Internal.h"
 #import "Firestore/Source/API/FIRListenerRegistration+Internal.h"
-#import "Firestore/Source/Core/FSTEventManager.h"
 #import "Firestore/Source/Core/FSTFirestoreClient.h"
-#import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Model/FSTMutation.h"
 
+#include "Firestore/core/src/firebase/firestore/api/collection_reference.h"
 #include "Firestore/core/src/firebase/firestore/api/source.h"
 #include "Firestore/core/src/firebase/firestore/core/user_data.h"
 #include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
@@ -79,34 +78,32 @@ const std::string& DocumentReference::document_id() const {
   return key_.path().last_segment();
 }
 
-// TODO(varconst) uncomment when core API CollectionReference is implemented.
-// CollectionReference DocumentReference::Parent() const {
-//   return CollectionReference{firestore_, key_.path().PopLast()};
-// }
+CollectionReference DocumentReference::Parent() const {
+  return CollectionReference{key_.path().PopLast(), firestore_};
+}
 
 std::string DocumentReference::Path() const {
   return key_.path().CanonicalString();
 }
 
-// TODO(varconst) uncomment when core API CollectionReference is implemented.
-// CollectionReference DocumentReference::GetCollectionReference(
-//     const std::string& collection_path) const {
-//   ResourcePath sub_path = ResourcePath::FromString(collection_path);
-//   ResourcePath path = key_.path().Append(sub_path);
-//   return CollectionReference{firestore_, path};
-// }
-
-void DocumentReference::SetData(core::ParsedSetData&& setData,
-                                util::StatusCallback callback) {
-  [firestore_->client()
-      writeMutations:std::move(setData).ToMutations(key(), Precondition::None())
-            callback:std::move(callback)];
+CollectionReference DocumentReference::GetCollectionReference(
+    const std::string& collection_path) const {
+  ResourcePath sub_path = ResourcePath::FromString(collection_path);
+  ResourcePath path = key_.path().Append(sub_path);
+  return CollectionReference{path, firestore_};
 }
 
-void DocumentReference::UpdateData(core::ParsedUpdateData&& updateData,
+void DocumentReference::SetData(core::ParsedSetData&& set_data,
+                                util::StatusCallback callback) {
+  [firestore_->client() writeMutations:std::move(set_data).ToMutations(
+                                           key(), Precondition::None())
+                              callback:std::move(callback)];
+}
+
+void DocumentReference::UpdateData(core::ParsedUpdateData&& update_data,
                                    util::StatusCallback callback) {
-  return [firestore_->client()
-      writeMutations:std::move(updateData)
+  [firestore_->client()
+      writeMutations:std::move(update_data)
                          .ToMutations(key(), Precondition::Exists(true))
             callback:std::move(callback)];
 }
@@ -161,12 +158,12 @@ void DocumentReference::GetDocument(Source source,
         // 2) Actually call the callback with an error if the
         // document doesn't exist when you are offline.
         listener_->OnEvent(
-            Status{FirestoreErrorCode::Unavailable,
+            Status{Error::Unavailable,
                    "Failed to get document because the client is offline."});
       } else if (snapshot.exists() && snapshot.metadata().from_cache() &&
                  source_ == Source::Server) {
         listener_->OnEvent(
-            Status{FirestoreErrorCode::Unavailable,
+            Status{Error::Unavailable,
                    "Failed to get document from server. (However, "
                    "this document does exist in the local cache. Run "
                    "again without setting source to "
@@ -198,8 +195,6 @@ void DocumentReference::GetDocument(Source source,
 
 ListenerRegistration DocumentReference::AddSnapshotListener(
     ListenOptions options, DocumentSnapshot::Listener&& user_listener) {
-  FSTQuery* query = [FSTQuery queryWithPath:key_.path()];
-
   // Convert from ViewSnapshots to DocumentSnapshots.
   class Converter : public EventListener<ViewSnapshot> {
    public:
@@ -243,8 +238,9 @@ ListenerRegistration DocumentReference::AddSnapshotListener(
   auto async_listener = AsyncEventListener<ViewSnapshot>::Create(
       firestore_->client().userExecutor, std::move(view_listener));
 
+  core::Query query(key_.path());
   std::shared_ptr<QueryListener> query_listener =
-      [firestore_->client() listenToQuery:query
+      [firestore_->client() listenToQuery:std::move(query)
                                   options:options
                                  listener:async_listener];
   return ListenerRegistration(firestore_->client(), std::move(async_listener),

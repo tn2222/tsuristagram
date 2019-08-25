@@ -182,14 +182,6 @@ struct Comparator<double> {
   ComparisonResult Compare(double left, double right) const;
 };
 
-/** Compare two byte sequences. */
-// TODO(wilhuff): perhaps absl::Span<uint8_t> would be better?
-template <>
-struct Comparator<std::vector<uint8_t>> {
-  ComparisonResult Compare(const std::vector<uint8_t>& left,
-                           const std::vector<uint8_t>& right) const;
-};
-
 /**
  * Perform a three-way comparison between the left and right values using
  * the appropriate Comparator for the values based on their type.
@@ -314,7 +306,7 @@ ComparisonResult CompareContainer(const T& lhs, const T& rhs) {
 }
 
 /** Compares a double and an int64_t. */
-ComparisonResult CompareMixedNumber(double doubleValue, int64_t longValue);
+ComparisonResult CompareMixedNumber(double double_value, int64_t long_value);
 
 /** Normalizes a double and then return the raw bits as a uint64_t. */
 uint64_t DoubleBits(double d);

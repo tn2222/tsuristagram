@@ -26,6 +26,7 @@
 
 #include "Firestore/core/src/firebase/firestore/api/settings.h"
 #include "Firestore/core/src/firebase/firestore/auth/credentials_provider.h"
+#include "Firestore/core/src/firebase/firestore/core/database_info.h"
 #include "Firestore/core/src/firebase/firestore/core/transaction.h"
 #include "Firestore/core/src/firebase/firestore/model/database_id.h"
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
@@ -36,7 +37,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-OBJC_CLASS(FIRCollectionReference);
 OBJC_CLASS(FIRQuery);
 OBJC_CLASS(FIRTransaction);
 OBJC_CLASS(FSTFirestoreClient);
@@ -46,6 +46,7 @@ namespace firebase {
 namespace firestore {
 namespace api {
 
+class CollectionReference;
 class DocumentReference;
 class WriteBatch;
 
@@ -53,11 +54,10 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
  public:
   Firestore() = default;
 
-  Firestore(std::string project_id,
-            std::string database,
+  Firestore(model::DatabaseId database_id,
             std::string persistence_key,
-            std::unique_ptr<auth::CredentialsProvider> credentials_provider,
-            std::unique_ptr<util::AsyncQueue> worker_queue,
+            std::shared_ptr<auth::CredentialsProvider> credentials_provider,
+            std::shared_ptr<util::AsyncQueue> worker_queue,
             void* extension);
 
   const model::DatabaseId& database_id() const {
@@ -70,7 +70,7 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
 
   FSTFirestoreClient* client();
 
-  util::AsyncQueue* worker_queue();
+  const std::shared_ptr<util::AsyncQueue>& worker_queue();
 
   void* extension() {
     return extension_;
@@ -81,31 +81,31 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
 
   void set_user_executor(std::unique_ptr<util::Executor> user_executor);
 
-  FIRCollectionReference* GetCollection(absl::string_view collection_path);
+  CollectionReference GetCollection(absl::string_view collection_path);
   DocumentReference GetDocument(absl::string_view document_path);
   WriteBatch GetBatch();
-  FIRQuery* GetCollectionGroup(NSString* collection_id);
+  FIRQuery* GetCollectionGroup(std::string collection_id);
 
   void RunTransaction(core::TransactionUpdateCallback update_callback,
                       core::TransactionResultCallback result_callback);
 
   void Shutdown(util::StatusCallback callback);
+  void ClearPersistence(util::StatusCallback callback);
 
   void EnableNetwork(util::StatusCallback callback);
   void DisableNetwork(util::StatusCallback callback);
 
  private:
   void EnsureClientConfigured();
+  core::DatabaseInfo MakeDatabaseInfo() const;
 
   model::DatabaseId database_id_;
-  std::unique_ptr<auth::CredentialsProvider> credentials_provider_;
+  std::shared_ptr<auth::CredentialsProvider> credentials_provider_;
   std::string persistence_key_;
   objc::Handle<FSTFirestoreClient> client_;
 
-  // Ownership of these will be transferred to `FSTFirestoreClient` as soon as
-  // the client is created.
-  std::unique_ptr<util::Executor> user_executor_;
-  std::unique_ptr<util::AsyncQueue> worker_queue_;
+  std::shared_ptr<util::Executor> user_executor_;
+  std::shared_ptr<util::AsyncQueue> worker_queue_;
 
   void* extension_ = nullptr;
 

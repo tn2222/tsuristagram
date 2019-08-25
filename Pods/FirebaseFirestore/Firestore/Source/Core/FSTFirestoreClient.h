@@ -28,6 +28,7 @@
 #include "Firestore/core/src/firebase/firestore/auth/credentials_provider.h"
 #include "Firestore/core/src/firebase/firestore/core/database_info.h"
 #include "Firestore/core/src/firebase/firestore/core/listen_options.h"
+#include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/core/query_listener.h"
 #include "Firestore/core/src/firebase/firestore/core/transaction.h"
 #include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
@@ -42,9 +43,7 @@
 @class FIRQuerySnapshot;
 @class FSTDatabaseID;
 @class FSTDatabaseInfo;
-@class FSTDocument;
 @class FSTMutation;
-@class FSTQuery;
 @class FSTTransaction;
 
 namespace api = firebase::firestore::api;
@@ -70,9 +69,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)clientWithDatabaseInfo:(const core::DatabaseInfo &)databaseInfo
                               settings:(const api::Settings &)settings
                    credentialsProvider:
-                       (auth::CredentialsProvider *)credentialsProvider  // no passing ownership
-                          userExecutor:(std::unique_ptr<util::Executor>)userExecutor
-                           workerQueue:(std::unique_ptr<util::AsyncQueue>)workerQueue;
+                       (std::shared_ptr<auth::CredentialsProvider>)credentialsProvider
+                          userExecutor:(std::shared_ptr<util::Executor>)userExecutor
+                           workerQueue:(std::shared_ptr<util::AsyncQueue>)workerQueue;
 
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -86,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)enableNetworkWithCallback:(util::StatusCallback)callback;
 
 /** Starts listening to a query. */
-- (std::shared_ptr<core::QueryListener>)listenToQuery:(FSTQuery *)query
+- (std::shared_ptr<core::QueryListener>)listenToQuery:(core::Query)query
                                               options:(core::ListenOptions)options
                                              listener:
                                                  (core::ViewSnapshot::SharedListener &&)listener;
@@ -118,17 +117,18 @@ NS_ASSUME_NONNULL_BEGIN
                 resultCallback:(core::TransactionResultCallback)resultCallback;
 
 /** The database ID of the databaseInfo this client was initialized with. */
-// Ownes a DatabaseInfo instance, which contains the id here.
-@property(nonatomic, assign, readonly) const model::DatabaseId *databaseID;
+@property(nonatomic, assign, readonly) const model::DatabaseId &databaseID;
 
 /**
  * Dispatch queue for user callbacks / events. This will often be the "Main Dispatch Queue" of the
  * app but the developer can configure it to a different queue if they so choose.
  */
-- (util::Executor *)userExecutor;
+- (const std::shared_ptr<util::Executor> &)userExecutor;
 
 /** For testing only. */
-- (util::AsyncQueue *)workerQueue;
+- (const std::shared_ptr<util::AsyncQueue> &)workerQueue;
+
+- (bool)isShutdown;
 
 @end
 

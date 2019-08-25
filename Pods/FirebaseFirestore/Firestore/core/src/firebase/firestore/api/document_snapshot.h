@@ -25,12 +25,13 @@
 #include "Firestore/core/src/firebase/firestore/core/event_listener.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
+#include "Firestore/core/src/firebase/firestore/model/field_value.h"
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
+#include "absl/types/optional.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 OBJC_CLASS(FSTDocument);
-OBJC_CLASS(FSTObjectValue);
 
 namespace firebase {
 namespace firestore {
@@ -68,8 +69,9 @@ class DocumentSnapshot {
 
   DocumentReference CreateReference() const;
 
-  FSTObjectValue* _Nullable GetData() const;
-  id _Nullable GetValue(const model::FieldPath& field_path) const;
+  absl::optional<model::ObjectValue> GetData() const;
+  absl::optional<model::FieldValue> GetValue(
+      const model::FieldPath& field_path) const;
 
   const std::shared_ptr<Firestore>& firestore() const {
     return firestore_;

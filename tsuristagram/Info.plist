@@ -28,7 +28,17 @@
 				<string>com.googleusercontent.apps.401181569765-jhsfhq7ltjtceelsn3rcg7l8uo2fb0dt</string>
 			</array>
 		</dict>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb381357122551660</string>
+            </array>
+        </dict>
 	</array>
+    <key>FacebookAppID</key>
+    <string>381357122551660</string>
+    <key>FacebookDisplayName</key>
+    <string>fishtips</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>GADApplicationIdentifier</key>

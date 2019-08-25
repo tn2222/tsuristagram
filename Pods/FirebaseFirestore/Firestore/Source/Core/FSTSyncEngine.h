@@ -16,11 +16,14 @@
 
 #import <Foundation/Foundation.h>
 
+#include <memory>
 #include <vector>
 
 #import "Firestore/Source/Core/FSTTypes.h"
 
 #include "Firestore/core/src/firebase/firestore/auth/user.h"
+#include "Firestore/core/src/firebase/firestore/core/query.h"
+#include "Firestore/core/src/firebase/firestore/core/sync_engine_callback.h"
 #include "Firestore/core/src/firebase/firestore/core/transaction.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
 #include "Firestore/core/src/firebase/firestore/remote/remote_store.h"
@@ -29,7 +32,6 @@
 
 @class FSTLocalStore;
 @class FSTMutation;
-@class FSTQuery;
 
 namespace auth = firebase::firestore::auth;
 namespace core = firebase::firestore::core;
@@ -39,17 +41,7 @@ namespace util = firebase::firestore::util;
 
 NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark - FSTSyncEngineDelegate
-
-/**
- * A delegate to be notified when the client's online state changes or when the sync engine produces
- * new view snapshots or errors.
- */
-@protocol FSTSyncEngineDelegate
-- (void)handleViewSnapshots:(std::vector<core::ViewSnapshot> &&)viewSnapshots;
-- (void)handleError:(NSError *)error forQuery:(FSTQuery *)query;
-- (void)applyChangedOnlineState:(model::OnlineState)onlineState;
-@end
+#pragma mark - SyncEngineCallback
 
 /**
  * SyncEngine is the central controller in the client SDK architecture. It is the glue code
@@ -72,10 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
                        remoteStore:(remote::RemoteStore *)remoteStore
                        initialUser:(const auth::User &)user NS_DESIGNATED_INITIALIZER;
 
-/**
- * A delegate to be notified when queries being listened to produce new view snapshots or errors.
- */
-@property(nonatomic, weak) id<FSTSyncEngineDelegate> syncEngineDelegate;
+- (void)setCallback:(core::SyncEngineCallback *)callback;
 
 /**
  * Initiates a new listen. The FSTLocalStore will be queried for initial data and the listen will
@@ -84,10 +73,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @return the target ID assigned to the query.
  */
-- (model::TargetId)listenToQuery:(FSTQuery *)query;
+- (model::TargetId)listenToQuery:(core::Query)query;
 
 /** Stops listening to a query previously listened to via listenToQuery:. */
-- (void)stopListeningToQuery:(FSTQuery *)query;
+- (void)stopListeningToQuery:(const core::Query &)query;
 
 /**
  * Initiates the write of local mutation batch which involves adding the writes to the mutation
@@ -107,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param resultCallback The callback to call when the transaction is finished or failed.
  */
 - (void)transactionWithRetries:(int)retries
-                   workerQueue:(util::AsyncQueue *)workerQueue
+                   workerQueue:(const std::shared_ptr<util::AsyncQueue> &)workerQueue
                 updateCallback:(core::TransactionUpdateCallback)updateCallback
                 resultCallback:(core::TransactionResultCallback)resultCallback;
 

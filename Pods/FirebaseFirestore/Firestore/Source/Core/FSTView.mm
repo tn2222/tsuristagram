@@ -20,10 +20,9 @@
 #include <utility>
 #include <vector>
 
-#import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Model/FSTDocument.h"
-#import "Firestore/Source/Model/FSTFieldValue.h"
 
+#include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
@@ -35,6 +34,7 @@
 namespace util = firebase::firestore::util;
 using firebase::firestore::core::DocumentViewChange;
 using firebase::firestore::core::DocumentViewChangeSet;
+using firebase::firestore::core::Query;
 using firebase::firestore::core::SyncState;
 using firebase::firestore::core::ViewSnapshot;
 using firebase::firestore::model::DocumentKey;
@@ -208,8 +208,6 @@ int GetDocumentViewChangeTypePosition(DocumentViewChange::Type changeType) {
 
 @interface FSTView ()
 
-@property(nonatomic, strong, readonly) FSTQuery *query;
-
 @property(nonatomic, assign) firebase::firestore::core::SyncState syncState;
 
 /**
@@ -222,6 +220,8 @@ int GetDocumentViewChangeTypePosition(DocumentViewChange::Type changeType) {
 @end
 
 @implementation FSTView {
+  Query _query;
+
   DelayedConstructor<DocumentSet> _documentSet;
 
   /** Documents included in the remote target. */
@@ -234,18 +234,18 @@ int GetDocumentViewChangeTypePosition(DocumentViewChange::Type changeType) {
   DocumentKeySet _mutatedKeys;
 }
 
-- (instancetype)initWithQuery:(FSTQuery *)query remoteDocuments:(DocumentKeySet)remoteDocuments {
+- (instancetype)initWithQuery:(Query)query remoteDocuments:(DocumentKeySet)remoteDocuments {
   self = [super init];
   if (self) {
-    _query = query;
-    _documentSet.Init(query.comparator);
+    _query = std::move(query);
+    _documentSet.Init(_query.Comparator());
     _syncedDocuments = std::move(remoteDocuments);
   }
   return self;
 }
 
 - (ComparisonResult)compare:(FSTDocument *)document with:(FSTDocument *)otherDocument {
-  return self.query.comparator.Compare(document, otherDocument);
+  return _documentSet->comparator().Compare(document, otherDocument);
 }
 
 - (const DocumentKeySet &)syncedDocuments {
@@ -279,7 +279,7 @@ int GetDocumentViewChangeTypePosition(DocumentViewChange::Type changeType) {
   // Note that this should never get used in a refill (when previousChanges is set), because there
   // will only be adds -- no deletes or updates.
   FSTDocument *_Nullable lastDocInLimit =
-      (self.query.limit != NSNotFound && oldDocumentSet.size() == self.query.limit)
+      (_query.limit() != Query::kNoLimit && oldDocumentSet.size() == _query.limit())
           ? oldDocumentSet.GetLastDocument()
           : nil;
 
@@ -295,7 +295,7 @@ int GetDocumentViewChangeTypePosition(DocumentViewChange::Type changeType) {
     if (newDoc) {
       HARD_ASSERT(key == newDoc.key, "Mismatching key in document changes: %s != %s",
                   key.ToString(), newDoc.key.ToString());
-      if (![self.query matchesDocument:newDoc]) {
+      if (!_query.Matches(newDoc)) {
         newDoc = nil;
       }
     }
@@ -311,7 +311,7 @@ int GetDocumentViewChangeTypePosition(DocumentViewChange::Type changeType) {
     BOOL changeApplied = NO;
     // Calculate change
     if (oldDoc && newDoc) {
-      BOOL docsEqual = [oldDoc.data isEqual:newDoc.data];
+      BOOL docsEqual = oldDoc.data == newDoc.data;
       if (!docsEqual) {
         if (![self shouldWaitForSyncedDocument:newDoc oldDocument:oldDoc]) {
           changeSet.AddChange(DocumentViewChange{newDoc, DocumentViewChange::Type::kModified});
@@ -357,8 +357,9 @@ int GetDocumentViewChangeTypePosition(DocumentViewChange::Type changeType) {
     }
   }
 
-  if (self.query.limit != NSNotFound && newDocumentSet.size() > self.query.limit) {
-    for (size_t i = newDocumentSet.size() - self.query.limit; i > 0; --i) {
+  int32_t limit = _query.limit();
+  if (limit != Query::kNoLimit && newDocumentSet.size() > limit) {
+    for (size_t i = newDocumentSet.size() - limit; i > 0; --i) {
       FSTDocument *oldDoc = newDocumentSet.GetLastDocument();
       newDocumentSet = newDocumentSet.erase(oldDoc.key);
       newMutatedKeys = newMutatedKeys.erase(oldDoc.key);
@@ -420,7 +421,7 @@ int GetDocumentViewChangeTypePosition(DocumentViewChange::Type changeType) {
     // No changes.
     return [FSTViewChange changeWithSnapshot:absl::nullopt limboChanges:limboChanges];
   } else {
-    ViewSnapshot snapshot{self.query,
+    ViewSnapshot snapshot{_query,
                           docChanges.documentSet,
                           oldDocuments,
                           std::move(changes),

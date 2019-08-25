@@ -21,6 +21,10 @@ target 'tsuristagram' do
   pod 'IQKeyboardManagerSwift'
   pod 'Firebase/AdMob'
   pod 'YPImagePicker'
+  pod 'FacebookCore', '~> 0.3.1'
+  pod 'FacebookLogin', '~> 0.3.1'
+  pod 'FBSDKLoginKit', '~> 4.38.0'
+  pod 'FBSDKCoreKit', '~> 4.38.0'
 
 
 

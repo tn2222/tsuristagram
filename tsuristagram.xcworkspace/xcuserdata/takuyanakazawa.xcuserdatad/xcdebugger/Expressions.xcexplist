@@ -17,10 +17,10 @@
          contextName = "UserSettingsViewController.doneButton():UserSettingsViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "user">
+               value = "isSelectPhoto">
             </PersistentString>
             <PersistentString
-               value = "isSelectPhoto">
+               value = "tabBarController">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.view.view">
@@ -29,7 +29,7 @@
                value = "tabBarController?.view">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "user">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -145,6 +145,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PointSearchViewController.pointList.didset:PointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pointList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserPageViewController.loadPostData():UserPageViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -220,6 +228,9 @@
                value = "post">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.tapFbSignIN(_:):LoginViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

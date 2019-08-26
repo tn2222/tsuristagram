@@ -20,7 +20,8 @@ class PostDetailViewController: UIViewController {
     @IBOutlet var weather: UILabel!
     @IBOutlet var comment: UILabel!
     @IBOutlet var fishingDate: UILabel!
-    
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var mainView: UIView!
     
     var presenter: PostDetailViewPresenter!
     var postKey: String!
@@ -80,7 +81,8 @@ class PostDetailViewController: UIViewController {
         comment.sizeToFit()
 
         //単語の途中で改行されないようにする
-//        comment.lineBreakMode = NSLineBreakByWordWrapping
+        comment.lineBreakMode = .byWordWrapping
+        scrollView.contentSize.height = comment.frame.maxY
 
     }
 

@@ -69,6 +69,7 @@
 		FCA75BDE2284331700E5A351 /* PointSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA75BDD2284331700E5A351 /* PointSearchInteractor.swift */; };
 		FCA95A8E2299512C003E20A8 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA95A8D2299512C003E20A8 /* UIViewController.swift */; };
 		FCA95A90229963A3003E20A8 /* UserSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */; };
+		FCB027062315790D00CF35B1 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB027052315790D00CF35B1 /* UITextField.swift */; };
 		FCDDE39C22BCB5FC007482AD /* PointSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */; };
 		FCE6EE5B22843C87006F99D8 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */; };
 		FCE6EE5E22843DB5006F99D8 /* UserPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */; };
@@ -171,6 +172,7 @@
 		FCA75BDD2284331700E5A351 /* PointSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSearchInteractor.swift; sourceTree = "<group>"; };
 		FCA95A8D2299512C003E20A8 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectButton.swift; sourceTree = "<group>"; };
+		FCB027052315790D00CF35B1 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSelectButton.swift; sourceTree = "<group>"; };
 		FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageContract.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				FCF325CB21EC849A002CC3C4 /* Date.swift */,
+				FCB027052315790D00CF35B1 /* UITextField.swift */,
 				FC026AB72209CB0C007E961C /* String.swift */,
 				FCA95A8D2299512C003E20A8 /* UIViewController.swift */,
 			);
@@ -826,6 +829,7 @@
 				FC4F8E52220870ED00C02372 /* PostInteractor.swift in Sources */,
 				FC08F14A220F2B62007399C7 /* User.swift in Sources */,
 				FC22FBA2221C162500AFAAEF /* PointDetailInteractor.swift in Sources */,
+				FCB027062315790D00CF35B1 /* UITextField.swift in Sources */,
 				FC94150622368903002FDA64 /* PostDetailInteractor.swift in Sources */,
 				FC0BFC7521F9F4900054ABD2 /* PostPointLocationViewPresenter.swift in Sources */,
 				FC38AF9521C12B4A00783D4D /* Post.swift in Sources */,

@@ -46,10 +46,14 @@ class PointDetailViewController: UIViewController {
         
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
-        layout.headerReferenceSize = CGSize(width: self.view.bounds.width, height: 300)
-        layout.itemSize = CGSize(width: 123, height: 100)
-        layout.minimumInteritemSpacing = 3
-        layout.minimumLineSpacing = 3
+        layout.headerReferenceSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.width * 2 / 3)
+        if self.view.bounds.width < 600 {
+            layout.itemSize = CGSize(width:self.view.frame.size.width / 3 - 2, height:self.view.frame.size.width / 3 - 2)
+        } else {
+            layout.itemSize = CGSize(width:self.view.frame.size.width / 6 - 2, height:self.view.frame.size.width / 6 - 2)
+        }
+        layout.minimumInteritemSpacing = 2
+        layout.minimumLineSpacing = 2
         collectionView.collectionViewLayout = layout
         
         // admob sample
@@ -162,7 +166,9 @@ extension PointDetailViewController: UICollectionViewDataSource, UICollectionVie
         if kind == UICollectionView.elementKindSectionHeader {
 
             if point.latitude == 0 && point.longitude == 0 {
-                header.mapView.removeFromSuperview()
+                if header.mapView != nil {
+                    header.mapView.removeFromSuperview()
+                }
                 header.backgroundColor = UIColor.lightGray
                 let label: UILabel = UILabel()
                 label.frame = CGRect(x:150, y:200, width:160, height:30)

@@ -52,10 +52,16 @@ class UserPageViewController: UIViewController {
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
         layout.headerReferenceSize = CGSize(width: self.view.bounds.width, height: 300)
-        layout.itemSize = CGSize(width: 123, height: 100)
-        layout.minimumInteritemSpacing = 3
-        layout.minimumLineSpacing = 3
+
+        if self.view.bounds.width < 600 {
+            layout.itemSize = CGSize(width:self.view.frame.size.width / 3 - 2, height:self.view.frame.size.width / 3 - 2)
+        } else {
+            layout.itemSize = CGSize(width:self.view.frame.size.width / 6 - 2, height:self.view.frame.size.width / 6 - 2)
+        }
+        layout.minimumInteritemSpacing = 2
+        layout.minimumLineSpacing = 2
         collectionView.collectionViewLayout = layout
+
         self.presenter.fetchUserData(userId: userId)
         self.presenter.fetchData(userId: userId)
 

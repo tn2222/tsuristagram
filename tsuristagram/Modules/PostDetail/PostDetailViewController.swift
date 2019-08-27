@@ -21,7 +21,6 @@ class PostDetailViewController: UIViewController {
     @IBOutlet var comment: UILabel!
     @IBOutlet var fishingDate: UILabel!
     @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var mainView: UIView!
     
     var presenter: PostDetailViewPresenter!
     var postKey: String!

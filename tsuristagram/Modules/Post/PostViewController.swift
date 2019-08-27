@@ -11,7 +11,7 @@ import SDWebImage
 import SVProgressHUD
 import Photos
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
     @IBOutlet var size: UITextField!
     @IBOutlet var weight: UITextField!
@@ -40,6 +40,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.cancel))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "シェア", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.postButton))
 
+        comment.delegate = self
         // ロケーションマネージャー
 //        locationManager = CLLocationManager()
 //        locationManager.delegate = self
@@ -214,4 +215,14 @@ extension PostViewController {
         // ビューに表示する
         self.uploadPhoto.image = self.post.uploadPhotoImage
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // 入力を反映させたテキストを取得する
+        let resultText: String = (textView.text! as NSString).replacingCharacters(in: range, with: text)
+        if resultText.count <= 128 {
+            return true
+        }
+        return false
+    }
+
 }

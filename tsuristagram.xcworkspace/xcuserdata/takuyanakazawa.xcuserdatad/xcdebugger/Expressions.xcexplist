@@ -20,7 +20,7 @@
                value = "isSelectPhoto">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "user">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.view.view">
@@ -29,7 +29,7 @@
                value = "tabBarController?.view">
             </PersistentString>
             <PersistentString
-               value = "user">
+               value = "tabBarController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -137,6 +137,31 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PointDetailViewController.collectionView(_:layout:sizeForItemAt:):PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIView.layoutFittingCompressedSize">
+            </PersistentString>
+            <PersistentString
+               value = "cell.bounds.size">
+            </PersistentString>
+            <PersistentString
+               value = "size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.viewDidLoad():PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "collectionView.bounds">
+            </PersistentString>
+            <PersistentString
+               value = "collectionView.bounds.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostDetailViewController.pointLocationButton(_:):PostDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -180,6 +205,30 @@
             </PersistentString>
             <PersistentString
                value = "comment.layer.bounds.height + 50">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserPageViewController.viewDidLoad():UserPageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.view.bounds.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.collectionView(_:cellForItemAt:):PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.bounds.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.cellWidth():PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "((availableWidth - interColumnSpace * numInterColumnSpaces) / numColumns).rounded(.down)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -231,6 +280,14 @@
       </ContextState>
       <ContextState
          contextName = "LoginViewController.tapFbSignIN(_:):LoginViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.collectionView(_:viewForSupplementaryElementOfKind:at:):PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "header.mapView">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

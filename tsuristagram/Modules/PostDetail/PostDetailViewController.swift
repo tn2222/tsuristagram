@@ -78,7 +78,7 @@ class PostDetailViewController: UIViewController {
         comment.text = post.comment
         comment.numberOfLines = 0
         comment.sizeToFit()
-
+        comment.frame.size.height = comment.frame.height + 100
         //単語の途中で改行されないようにする
         comment.lineBreakMode = .byWordWrapping
         scrollView.contentSize.height = comment.frame.maxY

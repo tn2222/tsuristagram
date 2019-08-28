@@ -17,10 +17,10 @@
          contextName = "UserSettingsViewController.doneButton():UserSettingsViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "isSelectPhoto">
+               value = "user">
             </PersistentString>
             <PersistentString
-               value = "user">
+               value = "tabBarController">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.view.view">
@@ -29,15 +29,18 @@
                value = "tabBarController?.view">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "isSelectPhoto">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLineInteractor.fetchLastOffset(snapshot:):TimeLineInteractor.swift">
+         contextName = "PointDetailViewController.viewDidLoad():PointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.lastOffset">
+               value = "collectionView.bounds">
+            </PersistentString>
+            <PersistentString
+               value = "collectionView.bounds.size">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -53,10 +56,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
+         contextName = "TimeLineInteractor.fetchLastOffset(snapshot:):TimeLineInteractor.swift">
          <PersistentStrings>
             <PersistentString
-               value = "tableState">
+               value = "self.lastOffset">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -129,10 +132,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserPageViewController.collectionView(_:numberOfItemsInSection:):UserPageViewController.swift">
+         contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "postList">
+               value = "tableState">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -151,13 +154,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PointDetailViewController.viewDidLoad():PointDetailViewController.swift">
+         contextName = "UserPageViewController.collectionView(_:numberOfItemsInSection:):UserPageViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "collectionView.bounds">
-            </PersistentString>
-            <PersistentString
-               value = "collectionView.bounds.size">
+               value = "postList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -201,10 +201,19 @@
                value = "post">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height">
+               value = "comment.layer.bounds.height + 50">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height + 50">
+               value = "comment.frame.size.height">
+            </PersistentString>
+            <PersistentString
+               value = "comment.frame.height">
+            </PersistentString>
+            <PersistentString
+               value = "comment.frame.height + 30">
+            </PersistentString>
+            <PersistentString
+               value = "comment.layer.bounds.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -45,6 +45,15 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 //        locationManager = CLLocationManager()
 //        locationManager.delegate = self
         
+        
+
+        size.textAlignment = NSTextAlignment.right
+        weight.textAlignment = NSTextAlignment.right
+        fishSpecies.textAlignment = NSTextAlignment.right
+        fishingDate.textAlignment = NSTextAlignment.right
+        pointName.textAlignment = NSTextAlignment.right
+        weather.textAlignment = NSTextAlignment.right
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +83,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         pointName.text = post.pointName
         weather.text = post.weather
         uploadPhoto.image = post.uploadPhotoImage
+
     }
 
     // firebaseにデータ登録

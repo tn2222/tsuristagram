@@ -3,9 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "TimeLineViewPresenter.interactor(_:point:):TimeLineViewPresenter.swift">
-      </ContextState>
-      <ContextState
          contextName = "PostInteractor.postButton(post:):PostInteractor.swift">
          <PersistentStrings>
             <PersistentString
@@ -14,22 +11,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserSettingsViewController.doneButton():UserSettingsViewController.swift">
+         contextName = "UserPageViewController.viewDidLoad():UserPageViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "user">
+               value = "self.view.bounds.width">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.loadPostData():PointDetailViewController.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "tabBarController">
-            </PersistentString>
-            <PersistentString
-               value = "tabBarController?.view.view">
-            </PersistentString>
-            <PersistentString
-               value = "tabBarController?.view">
-            </PersistentString>
-            <PersistentString
-               value = "isSelectPhoto">
+               value = "postList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -45,23 +38,37 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLineViewController.tableView(_:cellForRowAt:):TimeLineViewController.swift">
+         contextName = "TimeLineViewController.locationManager(_:didUpdateLocations:):TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.timeLine.postList[indexPath.row].comment">
+               value = "presentLatitude">
             </PersistentString>
             <PersistentString
-               value = "timeLine">
+               value = "UserDefaults.standard.double(forKey: &quot;presentLatitude&quot;)">
+            </PersistentString>
+            <PersistentString
+               value = "UserDefaults.standard.object(forKey: &quot;presentLongitude&quot;) as? String">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLineInteractor.fetchLastOffset(snapshot:):TimeLineInteractor.swift">
+         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineInteractor.fetchLastDataComplate(snapshot:):TimeLineInteractor.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.lastOffset">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.tapFbSignIN(_:):LoginViewController.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in UserPageViewController.loadPostData():UserPageViewController.swift">
@@ -75,31 +82,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserPageViewController.finishLoading():UserPageViewController.swift">
+         contextName = "UserPageViewController.collectionView(_:numberOfItemsInSection:):UserPageViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "fetchComplateWorkItem">
+               value = "postList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.post">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UserPageInteractor.fetchUserComplate(snapshot:):UserPageInteractor.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "delegate">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TimeLineInteractor.fetchLastDataComplate(snapshot:):TimeLineInteractor.swift">
+         contextName = "TimeLineInteractor.fetchLastOffset(snapshot:):TimeLineInteractor.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.lastOffset">
@@ -107,16 +98,24 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PointSearchRouter.didSelectRow(point:):PointSearchRouter.swift">
+         contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "pointSearchViewController?.tabBarController?.tabBar">
+               value = "timeLineNav.navigationBar">
             </PersistentString>
             <PersistentString
-               value = "pointSearchViewController?.tabBarController">
+               value = "NSAttributedString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostDetailInteractor.deleteButton(post:):PostDetailInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post.key">
             </PersistentString>
             <PersistentString
-               value = "navigationController">
+               value = "String(Int(post.timestamp) * (-1)) + &quot;.jpg&quot;">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -132,48 +131,32 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
+         contextName = "PointSearchViewController.viewDidLoad():PointSearchViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "tableState">
+               value = "presentLatitude">
+            </PersistentString>
+            <PersistentString
+               value = "CommonUtils.getPresentLatitude()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PointDetailViewController.collectionView(_:layout:sizeForItemAt:):PointDetailViewController.swift">
+         contextName = "static CommonUtils.getPresentLatitude():CommonUtils.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIView.layoutFittingCompressedSize">
-            </PersistentString>
-            <PersistentString
-               value = "cell.bounds.size">
-            </PersistentString>
-            <PersistentString
-               value = "size">
+               value = "UserDefaults.standard.object(forKey: &quot;presentLatitude&quot;) as? String">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserPageViewController.collectionView(_:numberOfItemsInSection:):UserPageViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "postList">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "TimeLineViewPresenter.interactor(_:point:):TimeLineViewPresenter.swift">
       </ContextState>
       <ContextState
-         contextName = "PostDetailViewController.pointLocationButton(_:):PostDetailViewController.swift">
+         contextName = "UserPageInteractor.fetchUserComplate(snapshot:):UserPageInteractor.swift">
          <PersistentStrings>
             <PersistentString
-               value = "post">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PointSearchViewController.pointList.didset:PointSearchViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "pointList">
+               value = "delegate">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -201,10 +184,10 @@
                value = "post">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height + 50">
+               value = "comment.frame.size.height">
             </PersistentString>
             <PersistentString
-               value = "comment.frame.size.height">
+               value = "comment.layer.bounds.height">
             </PersistentString>
             <PersistentString
                value = "comment.frame.height">
@@ -213,69 +196,35 @@
                value = "comment.frame.height + 30">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height">
+               value = "comment.layer.bounds.height + 50">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserPageViewController.viewDidLoad():UserPageViewController.swift">
+         contextName = "UserSettingsViewController.doneButton():UserSettingsViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.view.bounds.width">
+               value = "user">
+            </PersistentString>
+            <PersistentString
+               value = "isSelectPhoto">
+            </PersistentString>
+            <PersistentString
+               value = "tabBarController?.view.view">
+            </PersistentString>
+            <PersistentString
+               value = "tabBarController?.view">
+            </PersistentString>
+            <PersistentString
+               value = "tabBarController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PointDetailViewController.collectionView(_:cellForItemAt:):PointDetailViewController.swift">
+         contextName = "PointDetailViewController.collectionView(_:viewForSupplementaryElementOfKind:at:):PointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cell.bounds.size">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PointDetailViewController.cellWidth():PointDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "((availableWidth - interColumnSpace * numInterColumnSpaces) / numColumns).rounded(.down)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PointDetailViewController.loadPostData():PointDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "postList">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "timeLineNav.navigationBar">
-            </PersistentString>
-            <PersistentString
-               value = "NSAttributedString">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PostDetailInteractor.deleteButton(post:):PostDetailInteractor.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "post.key">
-            </PersistentString>
-            <PersistentString
-               value = "String(Int(post.timestamp) * (-1)) + &quot;.jpg&quot;">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PointDetailViewController.addBannerViewToView(_:):PointDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.mapView">
+               value = "header.mapView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -288,13 +237,108 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "LoginViewController.tapFbSignIN(_:):LoginViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "PointDetailViewController.collectionView(_:viewForSupplementaryElementOfKind:at:):PointDetailViewController.swift">
+         contextName = "UserPageViewController.finishLoading():UserPageViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "header.mapView">
+               value = "fetchComplateWorkItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointSearchRouter.didSelectRow(point:):PointSearchRouter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pointSearchViewController?.tabBarController?.tabBar">
+            </PersistentString>
+            <PersistentString
+               value = "pointSearchViewController?.tabBarController">
+            </PersistentString>
+            <PersistentString
+               value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.cellWidth():PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "((availableWidth - interColumnSpace * numInterColumnSpaces) / numColumns).rounded(.down)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tableState">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.tableView(_:cellForRowAt:):TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.timeLine.postList[indexPath.row].comment">
+            </PersistentString>
+            <PersistentString
+               value = "timeLine">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostDetailViewController.pointLocationButton(_:):PostDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.collectionView(_:layout:sizeForItemAt:):PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIView.layoutFittingCompressedSize">
+            </PersistentString>
+            <PersistentString
+               value = "cell.bounds.size">
+            </PersistentString>
+            <PersistentString
+               value = "size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointSearchViewController.pointList.didset:PointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pointList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.collectionView(_:cellForItemAt:):PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.bounds.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.postLocation(_:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post.latitude">
+            </PersistentString>
+            <PersistentString
+               value = "self.post.longitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.addBannerViewToView(_:):PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.mapView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

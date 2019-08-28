@@ -39,4 +39,12 @@ class CommonUtils {
     static func getUserId() -> String {
         return UserDefaults.standard.object(forKey: "userId") as! String
     }
+    
+    static func getPresentLatitude() -> Double {
+        return UserDefaults.standard.double(forKey: "presentLatitude")
+    }
+    static func getPresentLongitude() -> Double {
+        return UserDefaults.standard.double(forKey: "presentLongitude")
+    }
 }
+

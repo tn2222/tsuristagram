@@ -26,8 +26,8 @@ class PointSearchViewPresenter: PointSearchViewPresentable {
         self.interactor = interactor
     }
 
-    func fetchPointData() {
-        interactor.fetchPointData()
+    func fetchPointData(presentLatitude: Double, presentLongitude: Double) {
+        interactor.fetchPointData(presentLatitude: presentLatitude, presentLongitude: presentLongitude)
     }
 
     func didSelectRow(point: Point) {

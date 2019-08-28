@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
-class TimeLineViewController: UIViewController {
+class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
 
     var presenter: TimeLineViewPresenter!
 
@@ -22,6 +23,10 @@ class TimeLineViewController: UIViewController {
     var activityIndicator: UIActivityIndicatorView!
 
     private var tableState: TableControllerState = .Initialize
+
+    var locationManager: CLLocationManager!
+    var presentLatitude: Double!
+    var presentLongitude: Double!
 
     enum TableControllerState {
         case Initialize
@@ -37,6 +42,19 @@ class TimeLineViewController: UIViewController {
         tableView.dataSource = self
         
         self.navigationItem.title = "FishTips"
+
+        // 現在地取得
+        locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
+        let status = CLLocationManager.authorizationStatus()
+        if status == .denied {
+            UserDefaults.standard.set(0.0, forKey: "presentLatitude")
+            UserDefaults.standard.set(0.0, forKey: "presentLongitude")
+        } else {
+            locationManager.delegate = self
+            locationManager.distanceFilter = 10
+            locationManager.startUpdatingLocation()
+        }
 
         // ActivityIndicatorを作成＆中央に配置
         activityIndicator = UIActivityIndicatorView()
@@ -130,6 +148,17 @@ class TimeLineViewController: UIViewController {
             print("add load now!")
             self.presenter.fetchTimeLineData()
         }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.first
+        presentLatitude = location?.coordinate.latitude
+        presentLongitude = location?.coordinate.longitude
+        
+        UserDefaults.standard.set(presentLatitude, forKey: "presentLatitude")
+        UserDefaults.standard.set(presentLongitude, forKey: "presentLongitude")
+        
+        print("latitude: \(presentLatitude!)\nlongitude: \(presentLongitude!)")
     }
 
 }

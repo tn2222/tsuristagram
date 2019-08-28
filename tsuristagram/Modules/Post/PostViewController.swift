@@ -41,11 +41,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "シェア", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.postButton))
 
         comment.delegate = self
-        // ロケーションマネージャー
-//        locationManager = CLLocationManager()
-//        locationManager.delegate = self
-        
-        
 
         size.textAlignment = NSTextAlignment.right
         weight.textAlignment = NSTextAlignment.right

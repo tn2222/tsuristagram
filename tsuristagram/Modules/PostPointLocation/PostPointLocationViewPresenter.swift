@@ -26,10 +26,31 @@ class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
     // マップ初期設定
     func initialize(map: GMSMapView, latitude: Double, longitude: Double) {
         self.mapView = map
-        self.mapView.camera = GMSCameraPosition.camera(withLatitude: latitude,
-                                                  longitude: longitude,
+        
+        var camera: GMSCameraPosition
+
+        // 写真の緯度経度が取れない場合
+        if latitude == 0 && longitude == 0 {
+            // 現在地が取得できた場合は現在地付近を表示
+            if CommonUtils.getPresentLatitude() != 0 && CommonUtils.getPresentLongitude() != 0 {
+                camera = GMSCameraPosition.camera(withLatitude: CommonUtils.getPresentLatitude(),
+                                                  longitude: CommonUtils.getPresentLongitude(),
                                                   zoom: 15)
-        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            } else {
+                // 現在地が取得できない場合は、定点（東京）
+                camera = GMSCameraPosition.camera(withLatitude: 35.7020691,
+                                                  longitude: 139.7753269,
+                                                  zoom: 15)
+            }
+        } else {
+            // 写真の緯度経度が取得できた場合
+            camera = GMSCameraPosition.camera(withLatitude: latitude,
+                                              longitude: longitude,
+                                              zoom: 15)
+            marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        }
+        
+        self.mapView.camera = camera
         self.marker.map = mapView
         self.position = marker.position
 

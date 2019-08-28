@@ -8,16 +8,17 @@
 
 import UIKit
 
-class PointSearchViewController: UIViewController {
+class PointSearchViewController: UIViewController{
 
     private var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
     var presenter: PointSearchViewPresenter!
-
+    
     var pointListAll = [Point]()
     var pointList = [Point]() {
         didSet {
+            pointList.sort(by: {$0.distance < $1.distance})
             tableView.reloadData()
         }
     }
@@ -30,7 +31,6 @@ class PointSearchViewController: UIViewController {
 
         self.navigationItem.title = "釣り場検索"
 
-        
         //SearchBar作成
         searchBar = UISearchBar()
         searchBar.delegate = self
@@ -38,10 +38,8 @@ class PointSearchViewController: UIViewController {
         searchBar.showsCancelButton = true
         
         tableView.tableHeaderView = searchBar
-        //検索バーの高さだけ初期位置を下げる
-//        tableView.contentOffset = CGPoint(x: 0,y :44)
-
-        self.presenter.fetchPointData()
+        
+        self.presenter.fetchPointData(presentLatitude: CommonUtils.getPresentLatitude(), presentLongitude: CommonUtils.getPresentLongitude())
 
     }
     
@@ -52,7 +50,6 @@ class PointSearchViewController: UIViewController {
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-//        tableView.contentOffset = CGPoint(x: 0,y :44)
     }
 
     // 画面表示でフェッチした釣り場マスタを設定
@@ -141,4 +138,6 @@ extension PointSearchViewController: UITableViewDelegate, UITableViewDataSource 
         
         presenter.didSelectRow(point: point)
     }
+    
+
 }

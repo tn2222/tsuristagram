@@ -90,6 +90,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m07-3S-5kl">
                                 <rect key="frame" x="54" y="513" width="266" height="37"/>
                                 <state key="normal" image="signinfacebook"/>
+                                <connections>
+                                    <action selector="tapFbSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fe2-UT-r5a"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnu-bU-8D3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>

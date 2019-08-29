@@ -31,8 +31,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         //self.present(tabbar, animated: true, completion: nil)
     }
     
-    @IBAction func tapFbSignIN(_ sender: Any) {
-        
+    @IBAction func tapFbSignIn(_ sender: Any) {
         let loginManager = LoginManager()
         
         loginManager.logIn(readPermissions: [.email], viewController: nil, completion:
@@ -62,8 +61,9 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                     SVProgressHUD.dismiss()
                 }
         })
+
     }
-    
+
     ///Facebook///////////////////////////////////////////////////////////////////////////
     func signIn(credential: AuthCredential){
         

@@ -24,6 +24,7 @@ class TimeLineInteractor: TimeLineUsecase {
 
     func initialize() {
         FirebaseClient.observeToLast(id: "post", of: .childAdded, with: fetchLastOffset)
+        FirebaseClient.observeSingleEvent(id: "users", key: CommonUtils.getUserId(), of: .value, with: fetchOwnUserDataComplate)
     }
 
     func fetchPostData() {
@@ -80,6 +81,18 @@ class TimeLineInteractor: TimeLineUsecase {
             self.isFetching = false
         }
         self.delegate?.interactor(self, post: post)
+    }
+
+    func fetchOwnUserDataComplate(snapshot: [String:AnyObject]) {
+        let user = User()
+        user.userId = snapshot["userId"] as! String
+        user.userPhoto = snapshot["userPhoto"] as! String
+        user.userName = snapshot["userName"] as! String
+        let userBlock = snapshot["userBlock"] as! Dictionary<String, Bool>
+        userBlock.forEach{ (key, value) in
+            user.userBlock.append(key)
+        }
+        self.delegate?.interactor(self, own: user)
     }
 
     func fetchUserComplate(snapshot: [String:AnyObject]) {

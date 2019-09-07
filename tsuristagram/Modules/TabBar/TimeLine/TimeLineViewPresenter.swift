@@ -32,6 +32,12 @@ class TimeLineViewPresenter: TimeLinePresentable {
         interactor.fetchPostData()
     }
 
+    func resetFetchOffset() {
+        userCount = 0
+        pointCount = 0
+        interactor.offset = (-1) * Int(Date().timeIntervalSince1970)
+    }
+
     func postButton() {
         router.postButton()
     }
@@ -46,7 +52,6 @@ class TimeLineViewPresenter: TimeLinePresentable {
     func selectPost(postKey: String, userId: String) {
         router.selectPost(postKey: postKey, userId: userId)
     }
-
 }
 
 // Interactorからの通知受け取り
@@ -59,12 +64,18 @@ extension TimeLineViewPresenter: TimeLineInteractorDelegate {
         view.initializeComplate()
     }
 
-    func interactor(_ timeLineUsecase: TimeLineUsecase, post: Post) {
-        timeLine.postList.append(post)
-        interactor.fetchPointData(pointId: post.pointId)
-        interactor.fetchUserData(userId: post.userId)
+    func interactor(_ timeLineUsecase: TimeLineUsecase, post: Post) -> Void {
+        // ブロックされていないユーザのみ表示対象
+        if !timeLine.user.userBlock.contains(post.userId) {
+            timeLine.postList.append(post)
+            interactor.fetchPointData(pointId: post.pointId)
+            interactor.fetchUserData(userId: post.userId)
+        }
     }
     
+    func interactor(_ timeLineUsecase: TimeLineUsecase, own: User) {
+        timeLine.user = own
+    }
     func interactor(_ timeLineUsecase: TimeLineUsecase, user: User) {
         timeLine.userMap.updateValue(user, forKey: user.userId)
     }

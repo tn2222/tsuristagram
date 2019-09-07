@@ -124,7 +124,11 @@ extension PointSearchViewController: UITableViewDelegate, UITableViewDataSource 
         // 現在地が取得できる場合は、現在地からポイントまでの距離を表示
         let pointDistance = cell.viewWithTag(3) as! UILabel
         if CommonUtils.getPresentLatitude() > 0 && CommonUtils.getPresentLongitude() > 0 {
-            pointDistance.text = String(self.pointList[indexPath.row].distance) + "km"
+            if self.pointList[indexPath.row].id == "p9999" {
+                pointDistance.text = " - km"
+            } else {
+                pointDistance.text = String(self.pointList[indexPath.row].distance) + "km"
+            }
         } else {
             pointDistance.text = ""
         }

@@ -27,6 +27,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TimeLineViewController.initialize():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "presenter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in UserPageViewController.displayAlert():UserPageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.userName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PointDetailViewController.viewDidLoad():PointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -48,6 +64,20 @@
             </PersistentString>
             <PersistentString
                value = "UserDefaults.standard.object(forKey: &quot;presentLongitude&quot;) as? String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineInteractor.fetchOwnUserDataComplate(snapshot:):TimeLineInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "snapshot[&quot;userBlock&quot;] ">
+            </PersistentString>
+            <PersistentString
+               value = "snapshot[&quot;userBlock&quot;] as! Dictionary&lt;String, String&gt;">
+            </PersistentString>
+            <PersistentString
+               value = "snapshot[&quot;userBlock&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -142,12 +172,37 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TimeLineViewPresenter.done(type:):TimeLineViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userCount">
+            </PersistentString>
+            <PersistentString
+               value = "timeLine.postList.count">
+            </PersistentString>
+            <PersistentString
+               value = "pointCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.viewDidLoad():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "presenter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static CommonUtils.getPresentLatitude():CommonUtils.swift">
          <PersistentStrings>
             <PersistentString
                value = "UserDefaults.standard.object(forKey: &quot;presentLatitude&quot;) as? String">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewPresenter.interactor(_:own:):TimeLineViewPresenter.swift">
       </ContextState>
       <ContextState
          contextName = "TimeLineViewPresenter.interactor(_:point:):TimeLineViewPresenter.swift">
@@ -233,6 +288,14 @@
          <PersistentStrings>
             <PersistentString
                value = "post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewPresenter.interactor(_:post:):TimeLineViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "timeLine">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -339,6 +402,22 @@
             </PersistentString>
             <PersistentString
                value = "self.post.longitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineInteractor.fetchPostData():TimeLineInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "offset">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TimeLineViewPresenter.interactor(_:post:):TimeLineViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

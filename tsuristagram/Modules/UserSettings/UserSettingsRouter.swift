@@ -43,6 +43,5 @@ class UserSettingsRouter: UserSettingsWireframe {
     func present() {
         SVProgressHUD.dismiss()
         userSettingsViewController?.present(tabBarController!, animated: true, completion: nil)
-
     }
 }

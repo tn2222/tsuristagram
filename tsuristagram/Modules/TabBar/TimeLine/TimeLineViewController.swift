@@ -95,6 +95,13 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
         refreshControl.endRefreshing()
     }
     
+    func initialize() {
+        timeLine = TimeLine()
+        presenter.timeLine = TimeLine()
+        presenter.resetFetchOffset()
+        tableView.reloadData()
+        presenter.initialize()
+    }
     // initializeが完了したら呼び出される
     func initializeComplate() {
         tableState = .Normal
@@ -131,8 +138,6 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
             } else {
                 self.tableState = .Normal
             }
-            
-            
         }
     }
     

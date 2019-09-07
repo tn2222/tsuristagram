@@ -27,6 +27,7 @@ protocol TimeLinePresentable: class {
 protocol TimeLineUsecase: class {
     var isFetching: Bool {get}
     var isComplate: Bool {get}
+    var offset: Int {get set}
     func fetchPostData()
     func fetchUserData(userId: String)
     func fetchPointData(pointId: String)
@@ -36,6 +37,7 @@ protocol TimeLineUsecase: class {
 protocol TimeLineInteractorDelegate: class {
     func interactor(_ timeLineUsecase: TimeLineUsecase, post: Post)
     func interactor(_ timeLineUsecase: TimeLineUsecase, user: User)
+    func interactor(_ timeLineUsecase: TimeLineUsecase, own: User)
     func interactor(_ timeLineUsecase: TimeLineUsecase, point: Point)
     func interactor(_ timeLineUsecase: TimeLineUsecase)
     func done(type: String)

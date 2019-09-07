@@ -14,5 +14,6 @@ class User {
     var userPhoto: String = String()
     var userPhotoImage: UIImage = UIImage()
     var userId: String = String()
+    var userBlock: [String] = []
 }
 

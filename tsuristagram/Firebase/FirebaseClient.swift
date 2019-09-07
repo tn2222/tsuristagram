@@ -139,6 +139,12 @@ class FirebaseClient: FirebaseClientProtocol {
         ref.updateChildValues(post, withCompletionBlock: block)
     }
 
+    static func userBlock(id: String, value: String, feed: [String:Any], with block: @escaping (Error?, DatabaseReference) -> Void) {
+        let ref: DatabaseReference = self.postRef.child(id).child(value).child("userBlock")
+        let post = feed
+        ref.updateChildValues(post, withCompletionBlock: block)
+    }
+
     static func removeValue(id: String, key: String, value: String, with block: @escaping (Error?, DatabaseReference) -> Void) {
         let ref: DatabaseReference = self.postRef.child(id).child(value)
         ref.removeValue(completionBlock: block)

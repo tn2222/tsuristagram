@@ -12,10 +12,12 @@ class UserPageRouter: UserPageWireframe {
     
     fileprivate weak var userPageViewController: UserPageViewController?
     fileprivate weak var postDetailViewController: PostDetailViewController?
-    
-    init(userPageViewController: UserPageViewController, postDetailViewController: PostDetailViewController) {
+    fileprivate var tabBarController: UITabBarController?
+
+    init(userPageViewController: UserPageViewController, postDetailViewController: PostDetailViewController, tabBarController: UITabBarController) {
         self.userPageViewController = userPageViewController
         self.postDetailViewController = postDetailViewController
+        self.tabBarController = tabBarController
     }
     
     // 依存関係の解決
@@ -25,7 +27,9 @@ class UserPageRouter: UserPageWireframe {
         let view = storyboard.instantiateViewController(withIdentifier: "userPage") as! UserPageViewController
         let postDetailVC = storyboard.instantiateViewController(withIdentifier: "postDetail") as! PostDetailViewController
         
-        let router = UserPageRouter(userPageViewController: view, postDetailViewController: postDetailVC)
+        let tabbar = storyboard.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController
+
+        let router = UserPageRouter(userPageViewController: view, postDetailViewController: postDetailVC, tabBarController: tabbar!)
         let interactor = UserPageInteractor()
         let presenter = UserPageViewPresenter(view: view, router: router, interactor: interactor)
         
@@ -48,6 +52,16 @@ class UserPageRouter: UserPageWireframe {
         let userSettingsViewController = UserSettingsRouter.assembleModules() as! UserSettingsViewController
         userSettingsViewController.userId = userId
         userPageViewController?.navigationController?.pushViewController(userSettingsViewController, animated: true)
+    }
+
+    func present() {
+        
+        // ユーザブロックした場合は、タイムラインデータを再取得
+        let nav = userPageViewController?.navigationController
+        let view = nav!.viewControllers[nav!.viewControllers.count-2] as! TimeLineViewController
+        view.initialize()
+
+        userPageViewController?.present(tabBarController!, animated: true, completion: nil)
     }
 
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class UserPageInteractor: UserPageUsecase {
     
@@ -27,6 +28,21 @@ class UserPageInteractor: UserPageUsecase {
 
     func fetchData(userId: String) {
         FirebaseClient.observe(id: "post", ordered: "userId", value: userId, of: .childAdded, with: fetchComplate)
+    }
+
+    func report(reportType: Int, userId: String) {
+        let feed = ["reporter" : CommonUtils.getUserId(),
+                    "userId" : userId,
+                    "type" : reportType,
+                    "timeStamp":Int(Date().timeIntervalSince1970)
+                    ] as [String:Any]
+        
+        FirebaseClient.setValue(id: "report", feed: feed, withCompletionBlock: self.reportComplate)
+
+    }
+
+    func reportComplate(error: Error?, ref: DatabaseReference) {
+        // do nothing
     }
 
     func fetchComplate(snapshot: [String: AnyObject]) {
@@ -51,6 +67,16 @@ class UserPageInteractor: UserPageUsecase {
         }
         
         self.delegate?.interactor(self, post: post)
+    }
+
+    func userBlock(userId: String) {
+        let feed = [userId:true] as [String:Any]
+        
+        FirebaseClient.userBlock(id: "users", value: CommonUtils.getUserId(), feed: feed, with: self.updateComplate)
+    }
+
+    func updateComplate(error: Error?, ref: DatabaseReference) {
+        self.delegate?.interactor(self, error: error)
     }
 
 }

@@ -31,6 +31,14 @@ class UserPageViewPresenter: UserPageViewPresentable {
         self.interactor = interactor
     }
 
+    func report(reportType: Int, userId: String) {
+        interactor.report(reportType: reportType, userId: userId)
+    }
+
+    func userBlock(userId: String) {
+        interactor.userBlock(userId: userId)
+    }
+
     func fetchUserData(userId: String) {
         interactor.fetchUserData(userId: userId)
     }
@@ -57,4 +65,9 @@ extension UserPageViewPresenter: UserPageInteractorDelegate {
     func interactor(_ userPageUsecase: UserPageUsecase, user: User) {
         self.user = user
     }
+    
+    func interactor(_ userPageUsecase: UserPageUsecase, error: Error?) {
+        router.present()
+    }
+
 }

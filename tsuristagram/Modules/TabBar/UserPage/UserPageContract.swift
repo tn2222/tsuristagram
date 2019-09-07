@@ -18,6 +18,8 @@ protocol UserPageViewPresentable: class {
     func fetchData(userId: String)
     func selectCell(post: Post)
     func editButton(userId: String)
+    func userBlock(userId: String)
+    func report(reportType: Int, userId: String)
 
 }
 
@@ -25,16 +27,19 @@ protocol UserPageViewPresentable: class {
 protocol UserPageUsecase: class {
     func fetchUserData(userId: String)
     func fetchData(userId: String)
-
+    func userBlock(userId: String)
+    func report(reportType: Int, userId: String)
 }
 
 protocol UserPageInteractorDelegate: class {
     func interactor(_ userPageUsecase: UserPageUsecase, user: User)
     func interactor(_ userPageUsecase: UserPageUsecase, post: Post)
+    func interactor(_ userPageUsecase: UserPageUsecase, error: Error?)
 }
 
 // MARK: - router
 protocol UserPageWireframe: class {
     func selectCell(post: Post)
     func editButton(userId: String)
+    func present()
 }

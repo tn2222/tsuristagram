@@ -47,6 +47,11 @@ class UserPageViewController: UIViewController {
         }
         if CommonUtils.getUserId() == userId {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.editButton))
+        } else {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "infomartion.png")?.withRenderingMode(.alwaysOriginal),
+                                                                     style: .plain,
+                                                                     target: self,
+                                                                     action: #selector(self.displayAlert))
         }
   
         // レイアウト設定
@@ -76,6 +81,101 @@ class UserPageViewController: UIViewController {
         presenter.editButton(userId: userId)
     }
 
+    @objc func displayAlert() {
+        
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let action1 = UIAlertAction(title: "ブロック", style: UIAlertAction.Style.default, handler: {
+            (action: UIAlertAction!) in
+            // ブロック確認
+            let title = "\(self.userName!)さんをブロックしますか？"
+            let alert = UIAlertController(title: title, message: nil, preferredStyle: UIAlertController.Style.alert)
+            let defaultAction_1: UIAlertAction = UIAlertAction(title: "ブロック", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+                
+                // ブロック実施
+                self.presenter.userBlock(userId: self.userId)
+                let title = "\(self.userName!)さんをブロックしました"
+                let alert = UIAlertController(title: title, message: nil, preferredStyle: UIAlertController.Style.alert)
+                let defaultAction_1: UIAlertAction = UIAlertAction(title: "閉じる", style: UIAlertAction.Style.default, handler:{
+                    (action: UIAlertAction!) -> Void in
+                    // close
+                })
+                alert.addAction(defaultAction_1)
+                self.present(alert, animated: true, completion: nil)
+
+            })
+            // ブロックキャンセル
+            let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
+                (action: UIAlertAction!) -> Void in
+                print("cancelAction")
+            })
+
+            alert.addAction(defaultAction_1)
+            alert.addAction(cancelAction)
+
+            self.present(alert, animated: true, completion: nil)
+
+        })
+        
+        let action2 = UIAlertAction(title: "報告する", style: UIAlertAction.Style.default, handler: {
+            (action: UIAlertAction!) in
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+            
+            let defaultAction_1: UIAlertAction = UIAlertAction(title: "スパムである", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+                self.presenter.report(reportType: 1, userId: self.userId)
+                
+                let title = "報告しました"
+                let alert = UIAlertController(title: title, message: nil, preferredStyle: UIAlertController.Style.alert)
+                let defaultAction_1: UIAlertAction = UIAlertAction(title: "閉じる", style: UIAlertAction.Style.default, handler:{
+                    (action: UIAlertAction!) -> Void in
+                    // close
+                })
+                alert.addAction(defaultAction_1)
+                self.present(alert, animated: true, completion: nil)
+
+            })
+            let defaultAction_2: UIAlertAction = UIAlertAction(title: "不適切である", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+                self.presenter.report(reportType: 2, userId: self.userId)
+                
+                let title = "報告しました"
+                let alert = UIAlertController(title: title, message: nil, preferredStyle: UIAlertController.Style.alert)
+                let defaultAction_1: UIAlertAction = UIAlertAction(title: "閉じる", style: UIAlertAction.Style.default, handler:{
+                    (action: UIAlertAction!) -> Void in
+                    // close
+                })
+                alert.addAction(defaultAction_1)
+                self.present(alert, animated: true, completion: nil)
+
+            })
+            // キャンセル
+            let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
+                (action: UIAlertAction!) -> Void in
+                print("cancelAction")
+            })
+            
+            actionSheet.addAction(defaultAction_1)
+            actionSheet.addAction(defaultAction_2)
+            actionSheet.addAction(cancelAction)
+            
+            self.present(actionSheet, animated: true, completion: nil)
+        })
+        
+        let cancel = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler: {
+            (action: UIAlertAction!) in
+            print("キャンセルをタップした時の処理")
+        })
+        
+        actionSheet.addAction(action1)
+        actionSheet.addAction(action2)
+        actionSheet.addAction(cancel)
+        
+        self.present(actionSheet, animated: true, completion: nil)
+
+    }
+    
     func finishLoading() {
         
         fetchComplateWorkItem = DispatchWorkItem() {

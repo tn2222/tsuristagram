@@ -121,8 +121,13 @@ extension PointSearchViewController: UITableViewDelegate, UITableViewDataSource 
         let pointAddress = cell.viewWithTag(2) as! UILabel
         pointAddress.text = self.pointList[indexPath.row].address
         
-//        let pointDistance = cell.viewWithTag(3) as! UILabel
-//        pointDistance.text = String(self.pointList[indexPath.row].distance) + "km"
+        // 現在地が取得できる場合は、現在地からポイントまでの距離を表示
+        let pointDistance = cell.viewWithTag(3) as! UILabel
+        if CommonUtils.getPresentLatitude() > 0 && CommonUtils.getPresentLongitude() > 0 {
+            pointDistance.text = String(self.pointList[indexPath.row].distance) + "km"
+        } else {
+            pointDistance.text = ""
+        }
         
         return cell
     }

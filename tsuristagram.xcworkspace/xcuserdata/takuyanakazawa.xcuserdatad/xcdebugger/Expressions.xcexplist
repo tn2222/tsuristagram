@@ -187,7 +187,7 @@
                value = "comment.frame.size.height">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height">
+               value = "comment.layer.bounds.height + 50">
             </PersistentString>
             <PersistentString
                value = "comment.frame.height">
@@ -196,7 +196,7 @@
                value = "comment.frame.height + 30">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height + 50">
+               value = "comment.layer.bounds.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -204,10 +204,10 @@
          contextName = "UserSettingsViewController.doneButton():UserSettingsViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "user">
+               value = "isSelectPhoto">
             </PersistentString>
             <PersistentString
-               value = "isSelectPhoto">
+               value = "tabBarController">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.view.view">
@@ -216,7 +216,7 @@
                value = "tabBarController?.view">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "user">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -233,6 +233,14 @@
          <PersistentStrings>
             <PersistentString
                value = "post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointSearchViewController.tableView(_:cellForRowAt:):PointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pointList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -22,7 +22,7 @@ class PointDetailViewController: UIViewController {
     var point: Point!
 
     var bannerView: GADBannerView!
-
+    
     var postList = [Post]() {
         didSet {
             if (fetchComplateWorkItem != nil){
@@ -42,7 +42,7 @@ class PointDetailViewController: UIViewController {
 
 //        startIndicator()
 
-        fetchData()
+        presenter.fetchUserData()
         
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
@@ -126,10 +126,6 @@ class PointDetailViewController: UIViewController {
 
     }
     
-}
-
-extension PointDetailViewController: GMSMapViewDelegate {
-
 }
 
 extension PointDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {

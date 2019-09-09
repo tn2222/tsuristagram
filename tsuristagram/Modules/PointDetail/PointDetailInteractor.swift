@@ -13,8 +13,12 @@ class PointDetailInteractor: PointDetailUsecase {
     // 取得処理の通知
     weak var delegate: PointDetailInteractorDelegate?
 
+    func fetchUserData() {
+        FirebaseClient.observeSingleEvent(id: "users", key: CommonUtils.getUserId(), of: .value, with: fetchOwnUserDataComplate)
+    }
     func fetchData(pointId: String) {
         FirebaseClient.observe(id: "post", ordered: "pointId", value: pointId, of: .childAdded, with: fetchComplate)
+
     }
     
     func fetchComplate(snapshot: [String: AnyObject]) {
@@ -39,6 +43,20 @@ class PointDetailInteractor: PointDetailUsecase {
         }
 
         self.delegate?.interactor(self, post: post)
+    }
+
+    func fetchOwnUserDataComplate(snapshot: [String:AnyObject]) {
+        let user = User()
+        user.userId = snapshot["userId"] as! String
+        user.userPhoto = snapshot["userPhoto"] as! String
+        user.userName = snapshot["userName"] as! String
+        if snapshot["userBlock"] != nil {
+            let blockUserList = snapshot["userBlock"] as! Dictionary<String, Bool>
+            blockUserList.forEach{ (key, value) in
+                user.blockUserList.append(key)
+            }
+        }
+        self.delegate?.interactor(self, own: user)
     }
 
 

@@ -55,17 +55,11 @@ class UserPageRouter: UserPageWireframe {
     }
 
     func blockUserList(userId: String) {
-        
-
         let blockUserListViewController = BlockUserListRouter.assembleModules() as! BlockUserListViewController
         blockUserListViewController.userId = userId
-        
         let navigationController = UINavigationController(rootViewController: blockUserListViewController)
 
         userPageViewController?.present(navigationController, animated: true, completion: nil)
-//        userPageViewController.present(blockUserListViewController, animated: true, completion: nil)
-
-//        userPageViewController?.navigationController?.pushViewController(blockUserListViewController, animated: true)
     }
     
     func present() {

@@ -18,6 +18,11 @@ class PointDetailViewPresenter: PointDetailViewPresentable {
     private var mapView: GMSMapView!
     private var marker = GMSMarker()
     private var position = CLLocationCoordinate2D()
+    var user = User() {
+        didSet {
+            view.fetchData()
+        }
+    }
 
     var postList = [Post]() {
         didSet {
@@ -46,6 +51,10 @@ class PointDetailViewPresenter: PointDetailViewPresentable {
         
     }
 
+    func fetchUserData() {
+        interactor.fetchUserData()
+    }
+
     func fetchData(pointId: String) {
         interactor.fetchData(pointId: pointId)
     }
@@ -67,7 +76,12 @@ class PointDetailViewPresenter: PointDetailViewPresentable {
 // Interactorからの通知受け取り
 extension PointDetailViewPresenter: PointDetailInteractorDelegate {
     func interactor(_ pointDetailUsecase: PointDetailUsecase, post: Post) {
-        postList.insert(post, at:0)
+        if !user.blockUserList.contains(post.userId) {
+            postList.insert(post, at:0)
+        }
+    }
+    func interactor(_ pointDetailUsecase: PointDetailUsecase, own: User) {
+        self.user = own
     }
 
 }

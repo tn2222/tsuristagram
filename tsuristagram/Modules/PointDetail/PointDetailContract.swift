@@ -19,15 +19,19 @@ protocol PointDetailViewPresentable: class {
     func fetchData(pointId: String)
     func setMarker(latitude: Double, longitude: Double)
     func selectCell(post: Post)
+    func fetchUserData()
+
 }
 
 // MARK: - interactor
 protocol PointDetailUsecase: class {
     func fetchData(pointId: String)
+    func fetchUserData()
 }
 
 protocol PointDetailInteractorDelegate: class {
     func interactor(_ pointDetailUsecase: PointDetailUsecase, post: Post)
+    func interactor(_ pointDetailUsecase: PointDetailUsecase, own: User)
 }
 
 // MARK: - router

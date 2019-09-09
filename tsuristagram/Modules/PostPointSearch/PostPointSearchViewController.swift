@@ -106,12 +106,16 @@ extension PostPointSearchViewController: UITableViewDelegate, UITableViewDataSou
         pointAddress.text = self.pointList[indexPath.row].address
 
         let pointDistance = cell.viewWithTag(3) as! UILabel
-        if self.pointList[indexPath.row].id == "p9999" {
-            pointDistance.text = " - km"
+        if self.pointList[indexPath.row].positionGetFlag == true {
+            if self.pointList[indexPath.row].id == "p9999" {
+                pointDistance.text = " - km"
+            } else {
+                pointDistance.text = String(self.pointList[indexPath.row].distance) + "km"
+            }
         } else {
-            pointDistance.text = String(self.pointList[indexPath.row].distance) + "km"
+            pointDistance.text = ""
         }
-        
+
         return cell
     }
     

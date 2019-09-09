@@ -15,4 +15,5 @@ struct Point {
     var latitude: Double = Double()
     var longitude: Double = Double()
     var distance: Double = Double()
+    var positionGetFlag: Bool = Bool()
 }

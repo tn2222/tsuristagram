@@ -19,18 +19,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PointDetailViewController.loadPostData():PointDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "postList">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "TimeLineViewController.initialize():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "presenter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.loadPostData():PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -71,19 +71,22 @@
          contextName = "TimeLineInteractor.fetchOwnUserDataComplate(snapshot:):TimeLineInteractor.swift">
          <PersistentStrings>
             <PersistentString
-               value = "snapshot[&quot;userBlock&quot;] ">
-            </PersistentString>
-            <PersistentString
                value = "snapshot[&quot;userBlock&quot;] as! Dictionary&lt;String, String&gt;">
             </PersistentString>
             <PersistentString
                value = "snapshot[&quot;userBlock&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "snapshot[&quot;userBlock&quot;] ">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "asset">
+            </PersistentString>
             <PersistentString
                value = "self.post">
             </PersistentString>
@@ -99,6 +102,17 @@
       </ContextState>
       <ContextState
          contextName = "LoginViewController.tapFbSignIN(_:):LoginViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TimeLineRouter.postButton():TimeLineRouter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "photo.image">
+            </PersistentString>
+            <PersistentString
+               value = "photo.exifMeta">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "closure #1 in UserPageViewController.loadPostData():UserPageViewController.swift">
@@ -161,13 +175,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PointSearchViewController.viewDidLoad():PointSearchViewController.swift">
+         contextName = "closure #2 in UserPageViewController.displayAlert():UserPageViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "presentLatitude">
-            </PersistentString>
-            <PersistentString
-               value = "CommonUtils.getPresentLatitude()">
+               value = "&quot;cancel&quot;+String(i)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -182,6 +193,17 @@
             </PersistentString>
             <PersistentString
                value = "pointCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointSearchViewController.viewDidLoad():PointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "presentLatitude">
+            </PersistentString>
+            <PersistentString
+               value = "CommonUtils.getPresentLatitude()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -206,6 +228,28 @@
       </ContextState>
       <ContextState
          contextName = "TimeLineViewPresenter.interactor(_:point:):TimeLineViewPresenter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PointSearchInteractor.fetchComplate(snapshot:):PointSearchInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.presentLatitude">
+            </PersistentString>
+            <PersistentString
+               value = "point.distance">
+            </PersistentString>
+            <PersistentString
+               value = "latitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostInteractor.fetchComplate(snapshot:):PostInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.latitude">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "UserPageInteractor.fetchUserComplate(snapshot:):UserPageInteractor.swift">
@@ -242,7 +286,7 @@
                value = "comment.frame.size.height">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height + 50">
+               value = "comment.layer.bounds.height">
             </PersistentString>
             <PersistentString
                value = "comment.frame.height">
@@ -251,7 +295,7 @@
                value = "comment.frame.height + 30">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height">
+               value = "comment.layer.bounds.height + 50">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -262,7 +306,7 @@
                value = "isSelectPhoto">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "user">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.view.view">
@@ -271,7 +315,7 @@
                value = "tabBarController?.view">
             </PersistentString>
             <PersistentString
-               value = "user">
+               value = "tabBarController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -288,6 +332,14 @@
          <PersistentStrings>
             <PersistentString
                value = "post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.setPointList(pointList:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sortList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

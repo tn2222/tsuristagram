@@ -46,7 +46,10 @@ class UserPageViewController: UIViewController {
             userId = CommonUtils.getUserId()
         }
         if CommonUtils.getUserId() == userId {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.editButton))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "infomartion.png")?.withRenderingMode(.alwaysOriginal),
+                                                                     style: .plain,
+                                                                     target: self,
+                                                                     action: #selector(self.editButton))
         } else {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "infomartion.png")?.withRenderingMode(.alwaysOriginal),
                                                                      style: .plain,
@@ -150,6 +153,7 @@ class UserPageViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
 
             })
+
             // キャンセル
             let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
                 (action: UIAlertAction!) -> Void in

@@ -37,7 +37,13 @@ class PostInteractor: PostUsecase {
                 point.name = name
                 point.address = address
                 
-                point.distance = CommonUtils.distance(current: (la: self.latitude, lo: self.longitude), target: (la: latitude, lo: longitude))
+                if self.latitude == 0 && self.longitude == 0 {
+                    point.distance = 99999
+                    point.positionGetFlag = false
+                } else {
+                    point.distance = CommonUtils.distance(current: (la: self.latitude, lo: self.longitude), target: (la: latitude, lo: longitude))
+                    point.positionGetFlag = true
+                }
             }
             pointList.append(point)
         }

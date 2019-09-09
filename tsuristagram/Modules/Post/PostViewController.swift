@@ -115,12 +115,18 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func setPointList(pointList: [Point]) {
         if pointList.count <= 0 { return }
         
-        // 釣り場までの距離で降順ソートして、一番近い釣り場をセット
-        var sortList = pointList
-        sortList.sort(by: {$0.distance < $1.distance})
-        post.pointName = sortList[0].name
-        post.pointId = sortList[0].id
-
+        if pointList[0].positionGetFlag == false {
+            // 写真から緯度経度が取れない場合は、不明な釣り場をセット
+            post.pointName = "不明な釣り場"
+            post.pointId = "p9999"
+        } else {
+            // 釣り場までの距離で降順ソートして、一番近い釣り場をセット
+            var sortList = pointList
+            sortList.sort(by: {$0.distance < $1.distance})
+            post.pointName = sortList[0].name
+            post.pointId = sortList[0].id
+        }
+        
         self.pointList = pointList
     }
     

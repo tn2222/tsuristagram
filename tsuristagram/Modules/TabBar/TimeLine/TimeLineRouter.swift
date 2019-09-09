@@ -52,7 +52,8 @@ class TimeLineRouter: TimeLineWireframe {
         config.showsPhotoFilters = false
         config.albumName = "FishTips"
         config.startOnScreen = .library
-        config.screens = [.library, .photo]
+//        config.screens = [.library, .photo]
+        config.screens = [.library]
         config.showsCrop = .none
         config.targetImageSize = .original
         config.overlayView = UIView()

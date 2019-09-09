@@ -66,7 +66,7 @@ extension TimeLineViewPresenter: TimeLineInteractorDelegate {
 
     func interactor(_ timeLineUsecase: TimeLineUsecase, post: Post) -> Void {
         // ブロックされていないユーザのみ表示対象
-        if !timeLine.user.userBlock.contains(post.userId) {
+        if !timeLine.user.blockUserList.contains(post.userId) {
             timeLine.postList.append(post)
             interactor.fetchPointData(pointId: post.pointId)
             interactor.fetchUserData(userId: post.userId)

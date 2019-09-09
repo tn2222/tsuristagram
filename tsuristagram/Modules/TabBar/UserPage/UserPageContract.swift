@@ -20,6 +20,7 @@ protocol UserPageViewPresentable: class {
     func editButton(userId: String)
     func userBlock(userId: String)
     func report(reportType: Int, userId: String)
+    func blockUserList(userId: String)
 
 }
 
@@ -41,5 +42,6 @@ protocol UserPageInteractorDelegate: class {
 protocol UserPageWireframe: class {
     func selectCell(post: Post)
     func editButton(userId: String)
+    func blockUserList(userId: String)
     func present()
 }

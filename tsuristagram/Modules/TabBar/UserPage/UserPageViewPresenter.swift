@@ -54,6 +54,11 @@ class UserPageViewPresenter: UserPageViewPresentable {
     func editButton(userId: String) {
         router.editButton(userId: userId)
     }
+    
+    func blockUserList(userId: String) {
+        router.blockUserList(userId: userId)
+    }
+
 }
 
 // Interactorからの通知受け取り

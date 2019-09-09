@@ -10,4 +10,5 @@ import UIKit
 
 class UserSelectButton: UIButton {
     var userId: String = ""
+    var userName: String = ""
 }

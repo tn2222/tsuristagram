@@ -23,6 +23,12 @@
 		FC0BFC7721F9FD630054ABD2 /* PostPointLocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BFC7621F9FD630054ABD2 /* PostPointLocationRouter.swift */; };
 		FC137CD722C8826F0064F564 /* UserPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC137CD622C8826F0064F564 /* UserPageHeader.swift */; };
 		FC137CD922C898800064F564 /* PointDetailPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC137CD822C898800064F564 /* PointDetailPageHeader.swift */; };
+		FC1925A22326135800DFBC62 /* BlockUserListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1925A12326135800DFBC62 /* BlockUserListContract.swift */; };
+		FC1925A52326139500DFBC62 /* BlockUserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1925A42326139500DFBC62 /* BlockUserListViewController.swift */; };
+		FC1925A7232613A600DFBC62 /* BlockUserListViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1925A6232613A600DFBC62 /* BlockUserListViewPresenter.swift */; };
+		FC1925A9232613B500DFBC62 /* BlockUserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1925A8232613B500DFBC62 /* BlockUserListRouter.swift */; };
+		FC1925AB232613C400DFBC62 /* BlockUserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1925AA232613C400DFBC62 /* BlockUserListInteractor.swift */; };
+		FC1925AF2326321A00DFBC62 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1925AE2326321A00DFBC62 /* UITableView.swift */; };
 		FC1CD02921FEFC6900C810CF /* PostViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02821FEFC6900C810CF /* PostViewPresenter.swift */; };
 		FC1CD02B21FEFC8400C810CF /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02A21FEFC8400C810CF /* PostRouter.swift */; };
 		FC1CD02D21FF264B00C810CF /* TimeLineViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CD02C21FF264B00C810CF /* TimeLineViewPresenter.swift */; };
@@ -120,6 +126,12 @@
 		FC0BFC7621F9FD630054ABD2 /* PostPointLocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointLocationRouter.swift; sourceTree = "<group>"; };
 		FC137CD622C8826F0064F564 /* UserPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageHeader.swift; sourceTree = "<group>"; };
 		FC137CD822C898800064F564 /* PointDetailPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailPageHeader.swift; sourceTree = "<group>"; };
+		FC1925A12326135800DFBC62 /* BlockUserListContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUserListContract.swift; sourceTree = "<group>"; };
+		FC1925A42326139500DFBC62 /* BlockUserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUserListViewController.swift; sourceTree = "<group>"; };
+		FC1925A6232613A600DFBC62 /* BlockUserListViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUserListViewPresenter.swift; sourceTree = "<group>"; };
+		FC1925A8232613B500DFBC62 /* BlockUserListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUserListRouter.swift; sourceTree = "<group>"; };
+		FC1925AA232613C400DFBC62 /* BlockUserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUserListInteractor.swift; sourceTree = "<group>"; };
+		FC1925AE2326321A00DFBC62 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		FC1CD02821FEFC6900C810CF /* PostViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewPresenter.swift; sourceTree = "<group>"; };
 		FC1CD02A21FEFC8400C810CF /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
 		FC1CD02C21FF264B00C810CF /* TimeLineViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewPresenter.swift; sourceTree = "<group>"; };
@@ -257,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				FCF325CB21EC849A002CC3C4 /* Date.swift */,
+				FC1925AE2326321A00DFBC62 /* UITableView.swift */,
 				FCB027052315790D00CF35B1 /* UITextField.swift */,
 				FC026AB72209CB0C007E961C /* String.swift */,
 				FCA95A8D2299512C003E20A8 /* UIViewController.swift */,
@@ -316,6 +329,18 @@
 				FC0BFC7621F9FD630054ABD2 /* PostPointLocationRouter.swift */,
 			);
 			path = PostPointLocation;
+			sourceTree = "<group>";
+		};
+		FC1925A32326136100DFBC62 /* BlockUserList */ = {
+			isa = PBXGroup;
+			children = (
+				FC1925A12326135800DFBC62 /* BlockUserListContract.swift */,
+				FC1925A42326139500DFBC62 /* BlockUserListViewController.swift */,
+				FC1925A6232613A600DFBC62 /* BlockUserListViewPresenter.swift */,
+				FC1925AA232613C400DFBC62 /* BlockUserListInteractor.swift */,
+				FC1925A8232613B500DFBC62 /* BlockUserListRouter.swift */,
+			);
+			path = BlockUserList;
 			sourceTree = "<group>";
 		};
 		FC1CD0332203333300C810CF /* Firebase */ = {
@@ -443,6 +468,7 @@
 				FC22FB9C221C155400AFAAEF /* PointDetail */,
 				FC0BFC7221F9F3500054ABD2 /* Post */,
 				FC941500223688A8002FDA64 /* PostDetail */,
+				FC1925A32326136100DFBC62 /* BlockUserList */,
 				FC0BFC7321F9F35E0054ABD2 /* PostPointLocation */,
 				FC4F8E412206E30900C02372 /* PostPointSearch */,
 			);
@@ -793,6 +819,7 @@
 				FC026AC1220F00E5007E961C /* TimeLineInteractor.swift in Sources */,
 				FC4F8E5022086EFE00C02372 /* PostContract.swift in Sources */,
 				FC22FBA4221C163200AFAAEF /* PointDetailRouter.swift in Sources */,
+				FC1925A9232613B500DFBC62 /* BlockUserListRouter.swift in Sources */,
 				FC137CD922C898800064F564 /* PointDetailPageHeader.swift in Sources */,
 				FC22FB99221982BB00AFAAEF /* PointSearchRouter.swift in Sources */,
 				FC08F147220F1605007399C7 /* MainTabBarViewController.swift in Sources */,
@@ -800,6 +827,7 @@
 				FC026AB82209CB0C007E961C /* String.swift in Sources */,
 				FC4F8E402206E30300C02372 /* PostPointSearchViewController.swift in Sources */,
 				FC1CD02D21FF264B00C810CF /* TimeLineViewPresenter.swift in Sources */,
+				FC1925AB232613C400DFBC62 /* BlockUserListInteractor.swift in Sources */,
 				FCE6EE5B22843C87006F99D8 /* UserPageViewController.swift in Sources */,
 				FCE6EE5E22843DB5006F99D8 /* UserPageContract.swift in Sources */,
 				FCA95A90229963A3003E20A8 /* UserSelectButton.swift in Sources */,
@@ -814,17 +842,21 @@
 				FC42CBB7230913B600EB0222 /* UserSettingsViewController.swift in Sources */,
 				FC4F8E492207258D00C02372 /* Point.swift in Sources */,
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
+				FC1925A7232613A600DFBC62 /* BlockUserListViewPresenter.swift in Sources */,
 				FCE6EE6222843F7E006F99D8 /* UserPageInteractor.swift in Sources */,
 				FC4F8E452206E93E00C02372 /* PostPointSearchRouter.swift in Sources */,
 				FCA75BDE2284331700E5A351 /* PointSearchInteractor.swift in Sources */,
+				FC1925A52326139500DFBC62 /* BlockUserListViewController.swift in Sources */,
 				FC1CD0322203332E00C810CF /* FirebaseClient.swift in Sources */,
 				FC634D9523065D84006E45C5 /* AppDelegate.swift in Sources */,
 				FC941502223688D8002FDA64 /* PostDetailViewController.swift in Sources */,
 				FC42CBBF230913F600EB0222 /* UserSettingsRouter.swift in Sources */,
 				FC026ABD220B1FFF007E961C /* PostPointLocationContract.swift in Sources */,
 				FC941504223688F3002FDA64 /* PostDetailViewPresenter.swift in Sources */,
+				FC1925AF2326321A00DFBC62 /* UITableView.swift in Sources */,
 				FC137CD722C8826F0064F564 /* UserPageHeader.swift in Sources */,
 				FC026ABF220EC49E007E961C /* TimeLineViewContract.swift in Sources */,
+				FC1925A22326135800DFBC62 /* BlockUserListContract.swift in Sources */,
 				FC4F8E4E2208655F00C02372 /* PostPointSearchContract.swift in Sources */,
 				FC4F8E52220870ED00C02372 /* PostInteractor.swift in Sources */,
 				FC08F14A220F2B62007399C7 /* User.swift in Sources */,

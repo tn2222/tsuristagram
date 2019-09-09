@@ -88,9 +88,11 @@ class TimeLineInteractor: TimeLineUsecase {
         user.userId = snapshot["userId"] as! String
         user.userPhoto = snapshot["userPhoto"] as! String
         user.userName = snapshot["userName"] as! String
-        let userBlock = snapshot["userBlock"] as! Dictionary<String, Bool>
-        userBlock.forEach{ (key, value) in
-            user.userBlock.append(key)
+        if snapshot["userBlock"] != nil {
+            let blockUserList = snapshot["userBlock"] as! Dictionary<String, Bool>
+            blockUserList.forEach{ (key, value) in
+                user.blockUserList.append(key)
+            }
         }
         self.delegate?.interactor(self, own: user)
     }

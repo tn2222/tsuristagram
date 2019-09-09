@@ -49,7 +49,7 @@ class UserPageViewController: UIViewController {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "infomartion.png")?.withRenderingMode(.alwaysOriginal),
                                                                      style: .plain,
                                                                      target: self,
-                                                                     action: #selector(self.editButton))
+                                                                     action: #selector(self.settingButton))
         } else {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "infomartion.png")?.withRenderingMode(.alwaysOriginal),
                                                                      style: .plain,
@@ -79,21 +79,42 @@ class UserPageViewController: UIViewController {
         super.viewWillAppear(animated)
     }
 
-    // ユーザ設定画面遷移
-    @objc func editButton() {
-        presenter.editButton(userId: userId)
+    // ユーザ設定
+    @objc func settingButton() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+
+        let action1 = UIAlertAction(title: "プロフィールを編集", style: UIAlertAction.Style.default, handler: {
+            (action: UIAlertAction!) in
+                self.presenter.editButton(userId: self.userId)
+            })
+        
+        let action2 = UIAlertAction(title: "ブロック解除", style: UIAlertAction.Style.destructive, handler: {
+            (action: UIAlertAction!) in
+            self.presenter.blockUserList(userId: self.userId)
+        })
+
+        let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("cancelAction")
+        })
+            
+        actionSheet.addAction(action1)
+        actionSheet.addAction(action2)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
 
     @objc func displayAlert() {
         
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         
-        let action1 = UIAlertAction(title: "ブロック", style: UIAlertAction.Style.default, handler: {
+        let action1 = UIAlertAction(title: "ブロック", style: UIAlertAction.Style.destructive, handler: {
             (action: UIAlertAction!) in
             // ブロック確認
             let title = "\(self.userName!)さんをブロックしますか？"
             let alert = UIAlertController(title: title, message: nil, preferredStyle: UIAlertController.Style.alert)
-            let defaultAction_1: UIAlertAction = UIAlertAction(title: "ブロック", style: UIAlertAction.Style.default, handler:{
+            let defaultAction_1: UIAlertAction = UIAlertAction(title: "ブロック", style: UIAlertAction.Style.destructive, handler:{
                 (action: UIAlertAction!) -> Void in
                 
                 // ブロック実施
@@ -121,11 +142,11 @@ class UserPageViewController: UIViewController {
 
         })
         
-        let action2 = UIAlertAction(title: "報告する", style: UIAlertAction.Style.default, handler: {
+        let action2 = UIAlertAction(title: "報告する", style: UIAlertAction.Style.destructive, handler: {
             (action: UIAlertAction!) in
             let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
             
-            let defaultAction_1: UIAlertAction = UIAlertAction(title: "スパムである", style: UIAlertAction.Style.default, handler:{
+            let defaultAction_1: UIAlertAction = UIAlertAction(title: "スパムである", style: UIAlertAction.Style.destructive, handler:{
                 (action: UIAlertAction!) -> Void in
                 self.presenter.report(reportType: 1, userId: self.userId)
                 
@@ -139,7 +160,7 @@ class UserPageViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
 
             })
-            let defaultAction_2: UIAlertAction = UIAlertAction(title: "不適切である", style: UIAlertAction.Style.default, handler:{
+            let defaultAction_2: UIAlertAction = UIAlertAction(title: "不適切である", style: UIAlertAction.Style.destructive, handler:{
                 (action: UIAlertAction!) -> Void in
                 self.presenter.report(reportType: 2, userId: self.userId)
                 

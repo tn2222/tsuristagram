@@ -21,7 +21,7 @@ class BlockUserListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.back))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.back))
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -112,7 +112,7 @@ extension BlockUserListViewController: UITableViewDelegate, UITableViewDataSourc
             
         })
         // ブロックキャンセル
-        let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
             (action: UIAlertAction!) -> Void in
             print("cancelAction")
         })

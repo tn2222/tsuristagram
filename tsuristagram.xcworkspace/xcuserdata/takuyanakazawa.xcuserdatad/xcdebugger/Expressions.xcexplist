@@ -146,6 +146,9 @@
                value = "tabBarController">
             </PersistentString>
             <PersistentString
+               value = "">
+            </PersistentString>
+            <PersistentString
                value = "tabBarController?.view.view">
             </PersistentString>
             <PersistentString

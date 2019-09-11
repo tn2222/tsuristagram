@@ -18,6 +18,7 @@ class PointDetailViewController: UIViewController {
     private var marker = GMSMarker()
     private var position = CLLocationCoordinate2D()
     
+    var header: PointDetailPageHeader!
     var presenter: PointDetailViewPresenter!
     var point: Point!
 
@@ -65,6 +66,21 @@ class PointDetailViewController: UIViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if self.header.mapView != nil {
+            self.header.mapView.clear()
+            self.header.mapView.removeFromSuperview()
+            self.header.mapView = nil
+        }
+        self.header = nil
+
+
+    }
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
@@ -84,10 +100,6 @@ class PointDetailViewController: UIViewController {
                                 multiplier: 1,
                                 constant: 0)
             ])
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     func fetchData() {
@@ -155,37 +167,34 @@ extension PointDetailViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
-        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PointDetailPageHeader", for: indexPath) as? PointDetailPageHeader else {
-            fatalError("Could not find proper header")
-        }
-
+        self.header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PointDetailPageHeader", for: indexPath) as? PointDetailPageHeader
         if kind == UICollectionView.elementKindSectionHeader {
 
             if point.latitude == 0 && point.longitude == 0 {
-                if header.mapView != nil {
-                    header.mapView.removeFromSuperview()
+                if self.header.mapView != nil {
+                    self.header.mapView.removeFromSuperview()
                 }
-                header.backgroundColor = UIColor.lightGray
+                self.header.backgroundColor = UIColor.lightGray
                 let label: UILabel = UILabel()
                 label.frame = CGRect(x:150, y:200, width:160, height:30)
                 label.textColor = UIColor.black
                 label.textAlignment = .center
-                label.center = header.center
+                label.center = self.header.center
                 label.font = UIFont.systemFont(ofSize: 20)
                 label.text = "不明な釣り場"
-                header.addSubview(label)
+                self.header.addSubview(label)
 
             } else {
-                header.mapView.camera = GMSCameraPosition.camera(withLatitude: point.latitude,longitude: point.longitude,zoom: 14)
-                header.marker.position = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
-                header.marker.map = header.mapView
-                header.position = marker.position
+                self.header.mapView.camera = GMSCameraPosition.camera(withLatitude: point.latitude,longitude: point.longitude,zoom: 14)
+                self.header.marker.position = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
+                self.header.marker.map = self.header.mapView
+                self.header.position = marker.position
             }
 
-            return header
+            return self.header
         
         }
-//
+
         return UICollectionReusableView()
     }
     

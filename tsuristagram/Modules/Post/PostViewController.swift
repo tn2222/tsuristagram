@@ -37,7 +37,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
         // settings navigation bar
         self.navigationItem.title = "釣果登録"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.cancel))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.cancel))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "シェア", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.postButton))
 
         comment.delegate = self

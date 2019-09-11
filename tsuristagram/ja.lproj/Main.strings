@@ -1,0 +1,102 @@
+
+/* Class = "UILabel"; text = "天気"; ObjectID = "0OP-kq-TVR"; */
+"0OP-kq-TVR.text" = "天気";
+
+/* Class = "UILabel"; text = "魚種"; ObjectID = "2cu-XO-IzE"; */
+"2cu-XO-IzE.text" = "魚種";
+
+/* Class = "UIButton"; normalTitle = "Unknown"; ObjectID = "3Eh-yt-B1G"; */
+"3Eh-yt-B1G.normalTitle" = "Unknown";
+
+/* Class = "UILabel"; text = "コメント"; ObjectID = "3aO-m2-Pc2"; */
+"3aO-m2-Pc2.text" = "コメント";
+
+/* Class = "UITabBarItem"; title = "mypage"; ObjectID = "7dh-xv-6tG"; */
+"7dh-xv-6tG.title" = "mypage";
+
+/* Class = "UILabel"; text = "東京都江東区青海１丁目５−４"; ObjectID = "9vN-0n-5CR"; */
+"9vN-0n-5CR.text" = "東京都江東区青海１丁目５−４";
+
+/* Class = "UILabel"; text = "天気"; ObjectID = "BFl-NS-E3W"; */
+"BFl-NS-E3W.text" = "天気";
+
+/* Class = "UILabel"; text = "東京湾岸シーバス60ゲット。ルアーはお気に入りのアイマ\nのアルデンテ。夜10ヒット9バラシ1キャッチ。釣れた場所は水の広場"; ObjectID = "BQe-Ye-NnK"; */
+"BQe-Ye-NnK.text" = "東京湾岸シーバス60ゲット。ルアーはお気に入りのアイマ\nのアルデンテ。夜10ヒット9バラシ1キャッチ。釣れた場所は水の広場";
+
+/* Class = "UILabel"; text = "東京都江東区青海１丁目５−４"; ObjectID = "Bqu-YY-iNd"; */
+"Bqu-YY-iNd.text" = "東京都江東区青海１丁目５−４";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "E9b-an-ARB"; */
+"E9b-an-ARB.title" = "Back";
+
+/* Class = "UILabel"; text = "1000km"; ObjectID = "HWi-iz-FMO"; */
+"HWi-iz-FMO.text" = "1000km";
+
+/* Class = "UILabel"; text = "重さ"; ObjectID = "OJz-IG-D8R"; */
+"OJz-IG-D8R.text" = "重さ";
+
+/* Class = "UILabel"; text = "コメント"; ObjectID = "QCe-uI-SKa"; */
+"QCe-uI-SKa.text" = "コメント";
+
+/* Class = "UILabel"; text = "1000km"; ObjectID = "Thn-n3-0dy"; */
+"Thn-n3-0dy.text" = "1000km";
+
+/* Class = "UILabel"; text = "サイズ"; ObjectID = "VVL-il-coP"; */
+"VVL-il-coP.text" = "サイズ";
+
+/* Class = "UILabel"; text = "サイズ"; ObjectID = "WAv-pt-h3r"; */
+"WAv-pt-h3r.text" = "サイズ";
+
+/* Class = "UILabel"; text = "ユーザー名"; ObjectID = "We0-8T-dcN"; */
+"We0-8T-dcN.text" = "ユーザー名";
+
+/* Class = "UILabel"; text = "魚種"; ObjectID = "Xub-yD-TyO"; */
+"Xub-yD-TyO.text" = "魚種";
+
+/* Class = "UILabel"; text = "水の広場公園"; ObjectID = "ZAL-NW-dRj"; */
+"ZAL-NW-dRj.text" = "水の広場公園";
+
+/* Class = "UILabel"; text = "takuya nakazawa"; ObjectID = "ZyK-Q4-jLE"; */
+"ZyK-Q4-jLE.text" = "takuya nakazawa";
+
+/* Class = "UILabel"; text = "重さ"; ObjectID = "ayf-t2-a0f"; */
+"ayf-t2-a0f.text" = "重さ";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "dnc-E4-dha"; */
+"dnc-E4-dha.title" = "Item";
+
+/* Class = "UILabel"; text = "日付"; ObjectID = "doc-uz-mz3"; */
+"doc-uz-mz3.text" = "日付";
+
+/* Class = "UIButton"; normalTitle = "写真変更"; ObjectID = "fG1-JM-RM4"; */
+"fG1-JM-RM4.normalTitle" = "写真変更";
+
+/* Class = "UILabel"; text = "釣り場詳細"; ObjectID = "kJh-Nv-6ZO"; */
+"kJh-Nv-6ZO.text" = "釣り場詳細";
+
+/* Class = "UILabel"; text = "釣り場"; ObjectID = "lpd-jK-ggJ"; */
+"lpd-jK-ggJ.text" = "釣り場";
+
+/* Class = "UIButton"; normalTitle = "水の広場公園"; ObjectID = "mBD-Dg-754"; */
+"mBD-Dg-754.normalTitle" = "水の広場公園";
+
+/* Class = "UILabel"; text = "水の広場公園"; ObjectID = "qcr-JM-q3L"; */
+"qcr-JM-q3L.text" = "水の広場公園";
+
+/* Class = "UILabel"; text = "釣果"; ObjectID = "raJ-nb-EZV"; */
+"raJ-nb-EZV.text" = "釣果";
+
+/* Class = "UILabel"; text = "釣り場"; ObjectID = "rrh-FJ-uAa"; */
+"rrh-FJ-uAa.text" = "釣り場";
+
+/* Class = "UILabel"; text = "釣り場詳細"; ObjectID = "sQK-9r-6SS"; */
+"sQK-9r-6SS.text" = "釣り場詳細";
+
+/* Class = "UILabel"; text = "2018/12/31"; ObjectID = "tWG-S5-IUp"; */
+"tWG-S5-IUp.text" = "2018/12/31";
+
+/* Class = "UITabBarItem"; title = "top"; ObjectID = "vbG-XH-SYp"; */
+"vbG-XH-SYp.title" = "top";
+
+/* Class = "UILabel"; text = "日付"; ObjectID = "wuX-Yw-EXD"; */
+"wuX-Yw-EXD.text" = "日付";

@@ -32,7 +32,9 @@ class PostDetailViewController: UIViewController {
 
         // 削除ボタン有無判定
         if CommonUtils.getUserId() == userId {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.deleteButton))
+//            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.deleteButton))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.trash, target: self, action:#selector(self.deleteButton))
+
         }
 
         self.presenter.fetchData(postKey: postKey)

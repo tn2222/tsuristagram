@@ -57,14 +57,12 @@
 		<key>ChannelID</key>
 		<string>1629813487</string>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>カメラの撮影に必須です</string>
 	<key>NSLocationUsageDescription</key>
-	<string>このアプリは位置情報を取得します</string>
+	<string>これはFishTipsの釣り場検索に必要となります。この設定は携帯電話の設定でいつでも変更できます。</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>このアプリは位置情報を取得します</string>
+	<string>これはFishTipsの釣り場検索に必要となります。この設定は携帯電話の設定でいつでも変更できます。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To Pick Up Photos</string>
+	<string>これにより、FishTipsがライブラリから写真をシェアし、写真をカメラロールに保存できるようになります。</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

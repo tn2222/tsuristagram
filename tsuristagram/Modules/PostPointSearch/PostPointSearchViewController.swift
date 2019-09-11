@@ -36,8 +36,6 @@ class PostPointSearchViewController: UIViewController {
         searchBar.showsCancelButton = true
 
         tableView.tableHeaderView = searchBar
-        //検索バーの高さだけ初期位置を下げる
-        tableView.contentOffset = CGPoint(x: 0,y :44)
         
         pointList = pointListAll
     }

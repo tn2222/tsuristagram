@@ -93,7 +93,7 @@ class UserPageViewController: UIViewController {
             self.presenter.blockUserList(userId: self.userId)
         })
 
-        let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
             (action: UIAlertAction!) -> Void in
             print("cancelAction")
         })
@@ -130,7 +130,7 @@ class UserPageViewController: UIViewController {
 
             })
             // ブロックキャンセル
-            let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
+            let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
                 (action: UIAlertAction!) -> Void in
                 print("cancelAction")
             })
@@ -176,7 +176,7 @@ class UserPageViewController: UIViewController {
             })
 
             // キャンセル
-            let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
+            let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
                 (action: UIAlertAction!) -> Void in
                 print("cancelAction")
             })

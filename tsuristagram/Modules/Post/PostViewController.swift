@@ -165,62 +165,68 @@ extension PostViewController {
         // PHAsset = Photo Library上の画像、ビデオ、ライブフォト用の型
         //let result = PHAsset.fetchAssets(withALAssetURLs: [self.post.assetUrl], options: nil)
         //let result = self.post.assetUrl_ujgawa as! PHFetchResult<AnyObject>
-        let asset = self.post.assetUrl_ujgawa
+        let asset = self.post.asset
         
         var dateString = Date.currentTimeString(format: "yyyy/MM/dd HH:mm")
         self.fishingDate.text = dateString
         self.post.fishingDate = dateString
 
+        self.post.latitude = CommonUtils.getPresentLatitude()
+        self.post.longitude = CommonUtils.getPresentLongitude()
+
         // コンテンツ編集セッションを開始するためのアセットの要求
         (asset as AnyObject).requestContentEditingInput(with: nil, completionHandler: { contentEditingInput, info in
             let url = contentEditingInput?.fullSizeImageURL
-            let inputImage = CIImage(contentsOf: url!)!
-            
-            // Exif
-            let exif = inputImage.properties["{Exif}"] as? Dictionary<String, Any>
-            if exif != nil {
-                // 撮影日
-                let dateTimeOriginal = exif!["DateTimeOriginal"] as? String
-                if dateTimeOriginal != nil {
-                    let dateTime = Date.stringToDate(string: dateTimeOriginal!, format: "yyyy:MM:dd HH:mm:ss")
-                    dateString = Date.dateToString(date: dateTime, format: "yyyy/MM/dd HH:mm")
+            if url != nil {
+                let inputImage = CIImage(contentsOf: url!)!
+                
+                // Exif
+                let exif = inputImage.properties["{Exif}"] as? Dictionary<String, Any>
+                if exif != nil {
+                    // 撮影日
+                    let dateTimeOriginal = exif!["DateTimeOriginal"] as? String
+                    if dateTimeOriginal != nil {
+                        let dateTime = Date.stringToDate(string: dateTimeOriginal!, format: "yyyy:MM:dd HH:mm:ss")
+                        dateString = Date.dateToString(date: dateTime, format: "yyyy/MM/dd HH:mm")
+                    }
                 }
-            }
-            self.fishingDate.text = dateString
-            self.post.fishingDate = dateString
-            
-            // 位置情報
-            var latitude: Double = 0.0
-            var longitude: Double = 0.0
-            let gps = inputImage.properties["{GPS}"] as? Dictionary<String,Any>
-            if gps != nil {
-                if gps!["Latitude"] as? Double != nil {
-                    latitude = gps!["Latitude"] as! Double
-                    if gps!["LatitudeRef"] as? String != nil {
-                        let latitudeRef = gps!["LatitudeRef"] as! String
-                        if latitudeRef == "S" {
-                            latitude = latitude * -1
+                self.fishingDate.text = dateString
+                self.post.fishingDate = dateString
+                
+                // 位置情報
+                var latitude: Double = 0.0
+                var longitude: Double = 0.0
+                let gps = inputImage.properties["{GPS}"] as? Dictionary<String,Any>
+                if gps != nil {
+                    if gps!["Latitude"] as? Double != nil {
+                        latitude = gps!["Latitude"] as! Double
+                        if gps!["LatitudeRef"] as? String != nil {
+                            let latitudeRef = gps!["LatitudeRef"] as! String
+                            if latitudeRef == "S" {
+                                latitude = latitude * -1
+                            }
+                        }
+                    }
+                    if gps!["Longitude"] as? Double != nil {
+                        longitude = gps!["Longitude"] as! Double
+                        if gps!["LongitudeRef"] as? String != nil {
+                            let longitudeRef = gps!["LongitudeRef"] as! String
+                            if longitudeRef == "W" {
+                                longitude = longitude * -1
+                            }
                         }
                     }
                 }
-                if gps!["Longitude"] as? Double != nil {
-                    longitude = gps!["Longitude"] as! Double
-                    if gps!["LongitudeRef"] as? String != nil {
-                        let longitudeRef = gps!["LongitudeRef"] as! String
-                        if longitudeRef == "W" {
-                            longitude = longitude * -1
-                        }
-                    }
-                }
+                
+                print("photo select!!")
+                print(latitude)
+                print(longitude)
+                
+                self.post.latitude = latitude
+                self.post.longitude = longitude
+
             }
-
-            print("photo select!!")
-            print(latitude)
-            print(longitude)
-
-            self.post.latitude = latitude
-            self.post.longitude = longitude
-            self.presenter.fetchPointData(latitude: latitude, longitude: longitude)
+            self.presenter.fetchPointData(latitude: self.post.latitude, longitude: self.post.longitude)
         })
 
         // ビューに表示する

@@ -8,7 +8,7 @@
 
 import UIKit
 import YPImagePicker
-
+import Photos
 
 class TimeLineRouter: TimeLineWireframe {
     
@@ -52,9 +52,7 @@ class TimeLineRouter: TimeLineWireframe {
         config.showsPhotoFilters = false
         config.albumName = "FishTips"
         config.startOnScreen = .library
-//        config.screens = [.library, .photo]
-        config.screens = [.library]
-        config.showsCrop = .none
+        config.screens = [.library, .photo]
         config.targetImageSize = .original
         config.overlayView = UIView()
         config.hidesStatusBar = false
@@ -75,12 +73,19 @@ class TimeLineRouter: TimeLineWireframe {
             self.selectedItems = items
 
             let image = items.singlePhoto?.image as! UIImage
-            let assetUrl = items.singlePhoto?.asset
+            
+            var asset: PHAsset!
+            if items.singlePhoto?.asset != nil {
+                asset = items.singlePhoto?.asset
+            } else {
+                asset = PHAsset()
+            }
+
             let postVC = PostRouter.assembleModules() as! PostViewController
             
             let _ = postVC.view // ** hack code **
             self.post.uploadPhotoImage = image
-            self.post.assetUrl_ujgawa = assetUrl
+            self.post.asset = asset
             postVC.post = self.post
             postVC.getPhotoMetaData()
             

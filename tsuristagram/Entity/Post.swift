@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Photos
 
 struct Post {
     var key: String = String()
@@ -29,6 +30,6 @@ struct Post {
     var uploadPhotoImage: UIImage = UIImage()
     var uploadPhotoImageData: Data = Data()
     var assetUrl: URL!
-    var assetUrl_ujgawa: Any!
+    var asset: Any!
     
 }

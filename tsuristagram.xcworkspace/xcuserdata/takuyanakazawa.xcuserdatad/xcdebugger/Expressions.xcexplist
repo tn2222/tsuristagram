@@ -36,10 +36,13 @@
          contextName = "closure #1 in TimeLineRouter.postButton():TimeLineRouter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "photo.image">
+               value = "items.singlePhoto?.asset">
             </PersistentString>
             <PersistentString
-               value = "photo.exifMeta">
+               value = "items.singlePhoto?.image">
+            </PersistentString>
+            <PersistentString
+               value = "items.singlePhoto?.image.imageAsset">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -143,10 +146,10 @@
                value = "user">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "">
             </PersistentString>
             <PersistentString
-               value = "">
+               value = "isSelectPhoto">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.view.view">
@@ -155,7 +158,7 @@
                value = "tabBarController?.view">
             </PersistentString>
             <PersistentString
-               value = "isSelectPhoto">
+               value = "tabBarController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -228,7 +231,7 @@
                value = "comment.frame.size.height">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height + 50">
+               value = "comment.layer.bounds.height">
             </PersistentString>
             <PersistentString
                value = "comment.frame.height">
@@ -237,7 +240,7 @@
                value = "comment.frame.height + 30">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height">
+               value = "comment.layer.bounds.height + 50">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -311,10 +314,10 @@
          contextName = "BlockUserListViewController.viewDidLoad():BlockUserListViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "tableView.rowHeight">
+               value = "tableView">
             </PersistentString>
             <PersistentString
-               value = "tableView">
+               value = "tableView.rowHeight">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -413,10 +416,10 @@
                value = "snapshot[&quot;userBlock&quot;] as! Dictionary&lt;String, String&gt;">
             </PersistentString>
             <PersistentString
-               value = "snapshot[&quot;userBlock&quot;] ">
+               value = "snapshot[&quot;userBlock&quot;]">
             </PersistentString>
             <PersistentString
-               value = "snapshot[&quot;userBlock&quot;]">
+               value = "snapshot[&quot;userBlock&quot;] ">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

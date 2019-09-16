@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class PointSearchViewController: UIViewController{
 
@@ -15,6 +16,8 @@ class PointSearchViewController: UIViewController{
     
     var presenter: PointSearchViewPresenter!
     
+    var bannerView: GADBannerView!
+
     var pointListAll = [Point]()
     var pointList = [Point]() {
         didSet {
@@ -39,6 +42,13 @@ class PointSearchViewController: UIViewController{
         
         tableView.tableHeaderView = searchBar
         
+        // admob sample
+//        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+//        addBannerViewToView(bannerView)
+//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        bannerView.rootViewController = self
+//        bannerView.load(GADRequest())
+
         self.presenter.fetchPointData(presentLatitude: CommonUtils.getPresentLatitude(), presentLongitude: CommonUtils.getPresentLongitude())
 
     }
@@ -58,6 +68,28 @@ class PointSearchViewController: UIViewController{
         self.pointList = pointList
         self.pointListAll = pointList
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
+    }
+
 }
 
 // searchBar

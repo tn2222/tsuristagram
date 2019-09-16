@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey(googleApiKey)
         
+        // admob
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
         // Googleログイン
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         

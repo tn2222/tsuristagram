@@ -18,14 +18,16 @@ target 'tsuristagram' do
   pod 'Firebase/Storage'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-  pod 'IQKeyboardManagerSwift'
+  pod 'IQKeyboardManagerSwift', '~> 6.0.0'
   pod 'Firebase/AdMob'
   pod 'YPImagePicker'
   pod 'FacebookCore', '~> 0.3.1'
   pod 'FacebookLogin', '~> 0.3.1'
   pod 'FBSDKLoginKit', '~> 4.38.0'
   pod 'FBSDKCoreKit', '~> 4.38.0'
-
+  pod 'Fabric', '~> 1.9.0'
+  pod 'Crashlytics', '~> 3.12.0'
+  
 
 
 

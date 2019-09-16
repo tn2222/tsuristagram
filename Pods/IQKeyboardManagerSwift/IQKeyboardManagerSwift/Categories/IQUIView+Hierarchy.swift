@@ -21,12 +21,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+
 import UIKit
 
 /**
 UIView hierarchy category.
 */
-@objc public extension UIView {
+public extension UIView {
     
     ///----------------------
     /// MARK: viewControllers
@@ -35,7 +36,7 @@ UIView hierarchy category.
     /**
     Returns the UIViewController object that manages the receiver.
     */
-    @objc func viewContainingController() -> UIViewController? {
+    @objc public func viewContainingController()->UIViewController? {
         
         var nextResponder: UIResponder? = self
         
@@ -54,7 +55,7 @@ UIView hierarchy category.
     /**
     Returns the topMost UIViewController object in hierarchy.
     */
-    @objc func topMostController() -> UIViewController? {
+    @objc public func topMostController()->UIViewController? {
         
         var controllersHierarchy = [UIViewController]()
 
@@ -68,9 +69,9 @@ UIView hierarchy category.
                 controllersHierarchy.append(presented)
             }
             
-            var matchController: UIResponder? = viewContainingController()
+            var matchController :UIResponder? = viewContainingController()
 
-            while let mController = matchController as? UIViewController, controllersHierarchy.contains(mController) == false {
+            while matchController != nil && controllersHierarchy.contains(matchController as! UIViewController) == false {
                 
                 repeat {
                     matchController = matchController?.next
@@ -88,10 +89,10 @@ UIView hierarchy category.
     /**
      Returns the UIViewController object that is actually the parent of this object. Most of the time it's the viewController object which actually contains it, but result may be different if it's viewController is added as childViewController of another viewController.
      */
-    @objc func parentContainerViewController() -> UIViewController? {
+    @objc public func parentContainerViewController()->UIViewController? {
         
         var matchController = viewContainingController()
-        var parentContainerViewController: UIViewController?
+        var parentContainerViewController : UIViewController?
 
         if var navController = matchController?.navigationController {
             
@@ -99,7 +100,7 @@ UIView hierarchy category.
                 navController = parentNav
             }
             
-            var parentController: UIViewController = navController
+            var parentController : UIViewController = navController
 
             while let parent = parentController.parent,
                 (parent.isKind(of: UINavigationController.self) == false &&
@@ -114,7 +115,8 @@ UIView hierarchy category.
             } else {
                 parentContainerViewController = parentController
             }
-        } else if let tabController = matchController?.tabBarController {
+        }
+        else if let tabController = matchController?.tabBarController {
             
             if let navController = tabController.selectedViewController as? UINavigationController {
                 parentContainerViewController = navController.topViewController
@@ -145,13 +147,8 @@ UIView hierarchy category.
     
     /**
     Returns the superView of provided class type.
-
-     
-     @param classType class type of the object which is to be search in above hierarchy and return
-     
-     @param belowView view object in upper hierarchy where method should stop searching and return nil
-*/
-    @objc func superviewOfClassType(_ classType: UIView.Type, belowView: UIView? = nil) -> UIView? {
+    */
+    @objc public func superviewOfClassType(_ classType:UIView.Type)->UIView? {
 
         var superView = superview
         
@@ -162,7 +159,7 @@ UIView hierarchy category.
                 //If it's UIScrollView, then validating for special cases
                 if unwrappedSuperView.isKind(of: UIScrollView.self) {
                     
-                    let classNameString = NSStringFromClass(type(of: unwrappedSuperView.self))
+                    let classNameString = NSStringFromClass(type(of:unwrappedSuperView.self))
 
                     //  If it's not UITableViewWrapperView class, this is internal class which is actually manage in UITableview. The speciality of this class is that it's superview is UITableView.
                     //  If it's not UITableViewCellScrollView class, this is internal class which is actually manage in UITableviewCell. The speciality of this class is that it's superview is UITableViewCell.
@@ -172,11 +169,10 @@ UIView hierarchy category.
                         classNameString.hasPrefix("_") == false {
                         return superView
                     }
-                } else {
+                }
+                else {
                     return superView
                 }
-            } else if unwrappedSuperView == belowView {
-                return nil
             }
             
             superView = unwrappedSuperView.superview
@@ -188,7 +184,7 @@ UIView hierarchy category.
     /**
     Returns all siblings of the receiver which canBecomeFirstResponder.
     */
-    internal func responderSiblings() -> [UIView] {
+    internal func responderSiblings()->[UIView] {
 
         //Array of (UITextField/UITextView's).
         var tempTextFields = [UIView]()
@@ -198,7 +194,7 @@ UIView hierarchy category.
             
             for textField in siblings {
                 
-                if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField.IQcanBecomeFirstResponder() == true {
+                if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField._IQcanBecomeFirstResponder() == true {
                     tempTextFields.append(textField)
                 }
             }
@@ -210,14 +206,14 @@ UIView hierarchy category.
     /**
     Returns all deep subViews of the receiver which canBecomeFirstResponder.
     */
-    internal func deepResponderViews() -> [UIView] {
+    internal func deepResponderViews()->[UIView] {
         
         //Array of (UITextField/UITextView's).
         var textfields = [UIView]()
         
         for textField in subviews {
             
-            if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField.IQcanBecomeFirstResponder() == true {
+            if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField._IQcanBecomeFirstResponder() == true {
                 textfields.append(textField)
             }
 
@@ -231,35 +227,40 @@ UIView hierarchy category.
         }
         
         //subviews are returning in opposite order. Sorting according the frames 'y'.
-        return textfields.sorted(by: { (view1: UIView, view2: UIView) -> Bool in
+        return textfields.sorted(by: { (view1 : UIView, view2 : UIView) -> Bool in
             
             let frame1 = view1.convert(view1.bounds, to: self)
             let frame2 = view2.convert(view2.bounds, to: self)
 
-            if frame1.minY != frame2.minY {
-                return frame1.minY < frame2.minY
+            let x1 = frame1.minX
+            let y1 = frame1.minY
+            let x2 = frame2.minX
+            let y2 = frame2.minY
+            
+            if y1 != y2 {
+                return y1 < y2
             } else {
-                return frame1.minX < frame2.minX
+                return x1 < x2
             }
         })
     }
     
-    private func IQcanBecomeFirstResponder() -> Bool {
+    private func _IQcanBecomeFirstResponder() -> Bool {
         
-        var IQcanBecomeFirstResponder = false
+        var _IQcanBecomeFirstResponder = false
         
         //  Setting toolbar to keyboard.
         if let textField = self as? UITextField {
-            IQcanBecomeFirstResponder = textField.isEnabled
+            _IQcanBecomeFirstResponder = textField.isEnabled
         } else if let textView = self as? UITextView {
-            IQcanBecomeFirstResponder = textView.isEditable
+            _IQcanBecomeFirstResponder = textView.isEditable
         }
         
-        if IQcanBecomeFirstResponder == true {
-            IQcanBecomeFirstResponder = isUserInteractionEnabled == true && isHidden == false && alpha != 0.0 && isAlertViewTextField() == false && textFieldSearchBar() == nil
+        if _IQcanBecomeFirstResponder == true {
+            _IQcanBecomeFirstResponder = isUserInteractionEnabled == true && isHidden == false && alpha != 0.0 && isAlertViewTextField() == false && searchBar() == nil
         }
 
-        return IQcanBecomeFirstResponder
+        return _IQcanBecomeFirstResponder
     }
 
     ///-------------------------
@@ -269,9 +270,9 @@ UIView hierarchy category.
     /**
      Returns searchBar if receiver object is UISearchBarTextField, otherwise return nil.
     */
-    internal func textFieldSearchBar() -> UISearchBar? {
+    internal func searchBar()-> UISearchBar? {
         
-        var responder: UIResponder? = self.next
+        var responder : UIResponder? = self.next
         
         while let bar = responder {
             
@@ -290,9 +291,9 @@ UIView hierarchy category.
     /**
     Returns YES if the receiver object is UIAlertSheetTextField, otherwise return NO.
     */
-    internal func isAlertViewTextField() -> Bool {
+    internal func isAlertViewTextField()->Bool {
         
-        var alertViewController: UIResponder? = viewContainingController()
+        var alertViewController : UIResponder? = viewContainingController()
         
         var isAlertViewTextField = false
         
@@ -309,8 +310,8 @@ UIView hierarchy category.
         return isAlertViewTextField
     }
     
-    private func depth() -> Int {
-        var depth: Int = 0
+    private func depth()->Int {
+        var depth : Int = 0
         
         if let superView = superview {
             depth = superView.depth()+1
@@ -321,7 +322,7 @@ UIView hierarchy category.
     
 }
 
-@objc public extension UIViewController {
+public extension UIViewController {
 
     func parentIQContainerViewController() -> UIViewController? {
         return self
@@ -334,3 +335,6 @@ extension NSObject {
         return "<\(self) \(Unmanaged.passUnretained(self).toOpaque())>"
     }
 }
+
+
+

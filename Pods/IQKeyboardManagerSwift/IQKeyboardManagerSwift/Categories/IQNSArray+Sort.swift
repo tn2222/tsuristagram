@@ -27,7 +27,7 @@ import UIKit
 /**
 UIView.subviews sorting category.
 */
-internal extension Array where Element: UIView {
+internal extension Array {
     
     ///--------------
     /// MARK: Sorting
@@ -36,25 +36,38 @@ internal extension Array where Element: UIView {
     /**
     Returns the array by sorting the UIView's by their tag property.
     */
-    func sortedArrayByTag() -> [Element] {
+    internal func sortedArrayByTag() -> [Element] {
         
-        return sorted(by: { (obj1: Element, obj2: Element) -> Bool in
+        return sorted(by: { (obj1 : Element, obj2 : Element) -> Bool in
             
-            return (obj1.tag < obj2.tag)
+            let view1 = obj1 as! UIView
+            let view2 = obj2 as! UIView
+            
+            return (view1.tag < view2.tag)
         })
     }
     
     /**
     Returns the array by sorting the UIView's by their tag property.
     */
-    func sortedArrayByPosition() -> [Element] {
+    internal func sortedArrayByPosition() -> [Element] {
         
-        return sorted(by: { (obj1: Element, obj2: Element) -> Bool in
-            if obj1.frame.minY != obj2.frame.minY {
-                return obj1.frame.minY < obj2.frame.minY
+        return sorted(by: { (obj1 : Element, obj2 : Element) -> Bool in
+            
+            let view1 = obj1 as! UIView
+            let view2 = obj2 as! UIView
+            
+            let x1 = view1.frame.minX
+            let y1 = view1.frame.minY
+            let x2 = view2.frame.minX
+            let y2 = view2.frame.minY
+            
+            if y1 != y2 {
+                return y1 < y2
             } else {
-                return obj1.frame.minX < obj2.frame.minX
+                return x1 < x2
             }
         })
     }
 }
+

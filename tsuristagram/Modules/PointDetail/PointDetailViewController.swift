@@ -58,11 +58,11 @@ class PointDetailViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         
         // admob sample
-//        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-//        addBannerViewToView(bannerView)
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-//        bannerView.rootViewController = self
-//        bannerView.load(GADRequest())
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = "ca-app-pub-1824291251550532/5494248531"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
 
     }
 

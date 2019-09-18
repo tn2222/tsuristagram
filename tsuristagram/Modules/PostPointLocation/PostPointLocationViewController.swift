@@ -11,8 +11,11 @@ import GoogleMaps
 
 class PostPointLocationViewController: UIViewController {
     
-    @IBOutlet var mapView: GMSMapView!
-    
+    @IBOutlet weak var mapView: GMSMapView!
+//    private var mapView: GMSMapView!
+    private var marker = GMSMarker()
+    private var position = CLLocationCoordinate2D()
+
     var presenter: PostPointLocationViewPresentable!
 
     var latitude: Double!
@@ -22,7 +25,7 @@ class PostPointLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.backButton))
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.backButton))
         
         if editFlag {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完了", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.saveButton))
@@ -37,6 +40,19 @@ class PostPointLocationViewController: UIViewController {
         presenter.initialize(map: mapView, latitude: latitude, longitude: longitude)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if self.mapView != nil {
+//            presenter.mapView.clear()
+//            presenter.mapView.removeFromSuperview()
+
+            self.mapView.clear()
+            self.mapView.removeFromSuperview()
+//            self.mapView.delegate = nil
+//            self.mapView = nil
+        }
+    }
+
     //保存ボタン
     @objc func saveButton() {
         presenter.saveButton()
@@ -52,7 +68,7 @@ extension PostPointLocationViewController: GMSMapViewDelegate {
     // マップ上をロングタップすると呼ばれるメソッド
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         if editFlag {
-            presenter.didLongPressAt(coordinate: coordinate)
+            presenter.didLongPressAt(coordinate: coordinate, map: mapView)
         }
     }
 }

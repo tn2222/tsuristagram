@@ -21,7 +21,7 @@ class PointDetailViewController: UIViewController {
     var header: PointDetailPageHeader!
     var presenter: PointDetailViewPresenter!
     var point: Point!
-
+    var selectCellFlag: Bool = false
     var bannerView: GADBannerView!
     
     var postList = [Post]() {
@@ -56,7 +56,7 @@ class PointDetailViewController: UIViewController {
         layout.minimumInteritemSpacing = 2
         layout.minimumLineSpacing = 2
         collectionView.collectionViewLayout = layout
-        
+
         // admob sample
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         addBannerViewToView(bannerView)
@@ -72,15 +72,15 @@ class PointDetailViewController: UIViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if self.header.mapView != nil {
+        if self.header.mapView != nil && !selectCellFlag {
             self.header.mapView.clear()
             self.header.mapView.removeFromSuperview()
-            self.header.mapView = nil
         }
-        self.header = nil
-
-
+        if selectCellFlag {
+            selectCellFlag = false
+        }
     }
+    
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
@@ -159,7 +159,7 @@ extension PointDetailViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         let post = postList[indexPath.row]
-        
+        selectCellFlag = true
         presenter.selectCell(post: post)
 
         return true

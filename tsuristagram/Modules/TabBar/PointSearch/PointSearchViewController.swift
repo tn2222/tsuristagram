@@ -42,13 +42,6 @@ class PointSearchViewController: UIViewController{
         
         tableView.tableHeaderView = searchBar
         
-        // admob sample
-//        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-//        addBannerViewToView(bannerView)
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-//        bannerView.rootViewController = self
-//        bannerView.load(GADRequest())
-
         self.presenter.fetchPointData(presentLatitude: CommonUtils.getPresentLatitude(), presentLongitude: CommonUtils.getPresentLongitude())
 
     }

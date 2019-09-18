@@ -109,6 +109,7 @@ class TimeLineRouter: TimeLineWireframe {
         let pointDetailViewController = PointDetailRouter.assembleModules() as! PointDetailViewController
         pointDetailViewController.point = point
         
+        timeLineViewController?.tabBarController?.tabBar.isHidden = true
         timeLineViewController?.navigationController?.pushViewController(pointDetailViewController, animated: true)
     }
 
@@ -117,6 +118,7 @@ class TimeLineRouter: TimeLineWireframe {
         postDetailViewController.postKey = postKey
         postDetailViewController.userId = userId
 
+        timeLineViewController?.tabBarController?.tabBar.isHidden = true
         timeLineViewController?.navigationController?.pushViewController(postDetailViewController, animated: true)
     }
 

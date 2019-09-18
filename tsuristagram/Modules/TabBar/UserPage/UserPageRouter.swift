@@ -45,6 +45,8 @@ class UserPageRouter: UserPageWireframe {
         let postDetailViewController = PostDetailRouter.assembleModules() as! PostDetailViewController
         postDetailViewController.postKey = post.key
         postDetailViewController.userId = post.userId
+        
+        userPageViewController?.tabBarController?.tabBar.isHidden = true
         userPageViewController?.navigationController?.pushViewController(postDetailViewController, animated: true)
     }
 

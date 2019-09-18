@@ -18,7 +18,7 @@ protocol PostPointLocationViewPresentable: class {
     func initialize(map: GMSMapView, latitude: Double, longitude: Double)
     func saveButton()
     func backButton()
-    func didLongPressAt(coordinate: CLLocationCoordinate2D)
+    func didLongPressAt(coordinate: CLLocationCoordinate2D, map: GMSMapView)
 }
 
 // MARK: - interactor

@@ -39,10 +39,10 @@
                value = "items.singlePhoto?.asset">
             </PersistentString>
             <PersistentString
-               value = "items.singlePhoto?.image">
+               value = "items.singlePhoto?.image.imageAsset">
             </PersistentString>
             <PersistentString
-               value = "items.singlePhoto?.image.imageAsset">
+               value = "items.singlePhoto?.image">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -113,6 +113,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PointDetailRouter.selectCell(post:):PointDetailRouter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postDetailViewController.tabBarController?.tabBar.isHidden">
+            </PersistentString>
+            <PersistentString
+               value = "postDetailViewController.tabBarController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostViewController.getPhotoMetaData():PostViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -143,13 +154,13 @@
          contextName = "UserSettingsViewController.doneButton():UserSettingsViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "user">
-            </PersistentString>
-            <PersistentString
                value = "">
             </PersistentString>
             <PersistentString
                value = "isSelectPhoto">
+            </PersistentString>
+            <PersistentString
+               value = "tabBarController">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.view.view">
@@ -158,7 +169,7 @@
                value = "tabBarController?.view">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "user">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -231,7 +242,7 @@
                value = "comment.frame.size.height">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height">
+               value = "comment.layer.bounds.height + 50">
             </PersistentString>
             <PersistentString
                value = "comment.frame.height">
@@ -240,7 +251,7 @@
                value = "comment.frame.height + 30">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height + 50">
+               value = "comment.layer.bounds.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -314,10 +325,10 @@
          contextName = "BlockUserListViewController.viewDidLoad():BlockUserListViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "tableView">
+               value = "tableView.rowHeight">
             </PersistentString>
             <PersistentString
-               value = "tableView.rowHeight">
+               value = "tableView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -416,10 +427,10 @@
                value = "snapshot[&quot;userBlock&quot;] as! Dictionary&lt;String, String&gt;">
             </PersistentString>
             <PersistentString
-               value = "snapshot[&quot;userBlock&quot;]">
+               value = "snapshot[&quot;userBlock&quot;] ">
             </PersistentString>
             <PersistentString
-               value = "snapshot[&quot;userBlock&quot;] ">
+               value = "snapshot[&quot;userBlock&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -460,6 +471,14 @@
          <PersistentStrings>
             <PersistentString
                value = "self.view.bounds.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.viewWillAppear(_:):PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.header.mapView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -550,6 +569,25 @@
             </PersistentString>
             <PersistentString
                value = "self.user.blockUserList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostPointLocationViewController.viewDidDisappear(_:):PostPointLocationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mapView">
+            </PersistentString>
+            <PersistentString
+               value = "self.mapView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PointDetailViewController.viewDidDisappear(_:):PointDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.header.mapView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

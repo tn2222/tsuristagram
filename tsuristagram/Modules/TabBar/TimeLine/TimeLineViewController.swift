@@ -72,6 +72,7 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     @objc func selectUser(_ sender: UserSelectButton) {

@@ -936,11 +936,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eIU-1F-86f"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eRg-Jf-AzA">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="E9b-an-ARB"/>
-                    </navigationItem>
                     <connections>
-                        <outlet property="mapView" destination="4th-yW-X3M" id="b44-vK-eaC"/>
+                        <outlet property="mapView" destination="4th-yW-X3M" id="k98-al-U4F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zz2-kH-1y4" userLabel="First Responder" sceneMemberID="firstResponder"/>

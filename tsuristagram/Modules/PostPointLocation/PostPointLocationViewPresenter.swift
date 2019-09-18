@@ -14,7 +14,7 @@ class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
     let view: PostPointLocationViewController
     let router: PostPointLocationWireframe
     
-    private var mapView: GMSMapView!
+//    private var mapView: GMSMapView!
     private var marker = GMSMarker()
     private var position = CLLocationCoordinate2D()
     
@@ -25,10 +25,11 @@ class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
 
     // マップ初期設定
     func initialize(map: GMSMapView, latitude: Double, longitude: Double) {
-        self.mapView = map
+//        self.mapView = map
         
         var camera: GMSCameraPosition
-
+//        var marker = GMSMarker()
+        
         // 写真の緯度経度が取れない場合
         if latitude == 0 && longitude == 0 {
             // 現在地が取得できた場合は現在地付近を表示
@@ -50,8 +51,8 @@ class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
             marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         }
         
-        self.mapView.camera = camera
-        self.marker.map = mapView
+        map.camera = camera
+        self.marker.map = map
         self.position = marker.position
 
     }
@@ -65,7 +66,7 @@ class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
         router.backButton()
     }
     
-    func didLongPressAt(coordinate: CLLocationCoordinate2D) {
+    func didLongPressAt(coordinate: CLLocationCoordinate2D, map: GMSMapView) {
         if self.marker.map != nil {
             self.marker.map = nil
         }
@@ -74,7 +75,7 @@ class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
         self.marker = GMSMarker()
         self.marker.position = coordinate
         self.marker.appearAnimation = GMSMarkerAnimation.pop
-        self.marker.map = mapView
+        self.marker.map = map
         
         // タップされた座標を保持
         self.position = coordinate

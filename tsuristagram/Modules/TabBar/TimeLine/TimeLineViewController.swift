@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CoreLocation
+import SVProgressHUD
 
 class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -20,7 +21,7 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
     var timeLine = TimeLine()
     var post = Post()
     
-    var activityIndicator: UIActivityIndicatorView!
+//    var activityIndicator: UIActivityIndicatorView!
 
     private var tableState: TableControllerState = .Initialize
 
@@ -56,17 +57,10 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
 
-        // ActivityIndicatorを作成＆中央に配置
-        activityIndicator = UIActivityIndicatorView()
-        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = UIActivityIndicatorView.Style.gray
-        self.view.addSubview(activityIndicator)
-
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
-                
+        
+        SVProgressHUD.show()
         presenter.initialize()
     }
 
@@ -132,13 +126,15 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
                 with: .none)
             
             UIView.setAnimationsEnabled(true)
-            self.activityIndicator.stopAnimating()
-            
+            SVProgressHUD.dismiss()
+
             if isComplate {
                 self.tableState = .Complate
             } else {
                 self.tableState = .Normal
             }
+
+            SVProgressHUD.dismiss()
         }
     }
     
@@ -149,7 +145,7 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func loadMore() {
-        activityIndicator.startAnimating()
+        SVProgressHUD.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             print("add load now!")
             self.presenter.fetchTimeLineData()

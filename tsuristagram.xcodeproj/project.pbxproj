@@ -46,6 +46,7 @@
 		FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9621C133B400783D4D /* PostViewController.swift */; };
 		FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D447021C1286300CEE24E /* TimeLineViewController.swift */; };
 		FC410A69232F8B1600E934E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC410A68232F8B1600E934E8 /* GoogleService-Info.plist */; };
+		FC410A6B233283CA00E934E8 /* PlaceHolderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC410A6A233283CA00E934E8 /* PlaceHolderTextView.swift */; };
 		FC42CBB423080B4B00EB0222 /* PostSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBB323080B4B00EB0222 /* PostSelectButton.swift */; };
 		FC42CBB7230913B600EB0222 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBB6230913B600EB0222 /* UserSettingsViewController.swift */; };
 		FC42CBB9230913CE00EB0222 /* UserSettingsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBB8230913CE00EB0222 /* UserSettingsContract.swift */; };
@@ -148,6 +149,7 @@
 		FC38AF9621C133B400783D4D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FC3D447021C1286300CEE24E /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 		FC410A68232F8B1600E934E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FC410A6A233283CA00E934E8 /* PlaceHolderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderTextView.swift; sourceTree = "<group>"; };
 		FC42CBB323080B4B00EB0222 /* PostSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSelectButton.swift; sourceTree = "<group>"; };
 		FC42CBB6230913B600EB0222 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		FC42CBB8230913CE00EB0222 /* UserSettingsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsContract.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				FCF325CB21EC849A002CC3C4 /* Date.swift */,
+				FC410A6A233283CA00E934E8 /* PlaceHolderTextView.swift */,
 				FC1925AE2326321A00DFBC62 /* UITableView.swift */,
 				FCB027052315790D00CF35B1 /* UITextField.swift */,
 				FC026AB72209CB0C007E961C /* String.swift */,
@@ -833,6 +836,7 @@
 				FC94150822368915002FDA64 /* PostDetailRouter.swift in Sources */,
 				FC026AC1220F00E5007E961C /* TimeLineInteractor.swift in Sources */,
 				FC4F8E5022086EFE00C02372 /* PostContract.swift in Sources */,
+				FC410A6B233283CA00E934E8 /* PlaceHolderTextView.swift in Sources */,
 				FC22FBA4221C163200AFAAEF /* PointDetailRouter.swift in Sources */,
 				FC1925A9232613B500DFBC62 /* BlockUserListRouter.swift in Sources */,
 				FC137CD922C898800064F564 /* PointDetailPageHeader.swift in Sources */,
@@ -1062,6 +1066,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = YN6KGQR72A;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = tsuristagram/Info.plist;

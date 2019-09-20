@@ -58,6 +58,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostPointSearchViewController.pointList.didset:PostPointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pointList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "BlockUserListViewController.tableView(_:cellForRowAt:):BlockUserListViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -267,6 +275,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostViewController.setMapView():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post">
+            </PersistentString>
+            <PersistentString
+               value = "latitude">
+            </PersistentString>
+            <PersistentString
+               value = "longitude">
+            </PersistentString>
+            <PersistentString
+               value = "self.post.latitude">
+            </PersistentString>
+            <PersistentString
+               value = "self.post.longitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TimeLineViewController.locationManager(_:didUpdateLocations:):TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -410,6 +438,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostPointSearchViewController.tableView(_:cellForRowAt:):PostPointSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pointList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserPageInteractor.fetchUserComplate(snapshot:):UserPageInteractor.swift">
          <PersistentStrings>
             <PersistentString
@@ -439,6 +475,17 @@
          <PersistentStrings>
             <PersistentString
                value = "tableState">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PostViewController.getPhotoMetaData():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post.latitude">
+            </PersistentString>
+            <PersistentString
+               value = "self.post.longitude">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

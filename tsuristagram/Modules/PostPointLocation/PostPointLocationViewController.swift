@@ -12,9 +12,6 @@ import GoogleMaps
 class PostPointLocationViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
-//    private var mapView: GMSMapView!
-    private var marker = GMSMarker()
-    private var position = CLLocationCoordinate2D()
 
     var presenter: PostPointLocationViewPresentable!
 
@@ -43,13 +40,8 @@ class PostPointLocationViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if self.mapView != nil {
-//            presenter.mapView.clear()
-//            presenter.mapView.removeFromSuperview()
-
             self.mapView.clear()
             self.mapView.removeFromSuperview()
-//            self.mapView.delegate = nil
-//            self.mapView = nil
         }
     }
 

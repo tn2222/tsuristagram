@@ -25,10 +25,8 @@ class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
 
     // マップ初期設定
     func initialize(map: GMSMapView, latitude: Double, longitude: Double) {
-//        self.mapView = map
         
         var camera: GMSCameraPosition
-//        var marker = GMSMarker()
         
         // 写真の緯度経度が取れない場合
         if latitude == 0 && longitude == 0 {

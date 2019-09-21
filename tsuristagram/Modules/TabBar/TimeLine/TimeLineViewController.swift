@@ -206,7 +206,6 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         
         let userNameButton = cell.viewWithTag(2) as! UserSelectButton
         userNameButton.userId = userId
-//        userNameButton.setTitle(userName, for: .normal) // ボタンのタイトル
         userNameButton.addTarget(self, action: #selector(selectUser(_:)), for: UIControl.Event.touchUpInside)
 
         let pointSelectButton = cell.viewWithTag(7) as! PointSelectButton

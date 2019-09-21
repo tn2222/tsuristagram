@@ -41,8 +41,6 @@ class PointDetailViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
 
-//        startIndicator()
-
         presenter.fetchUserData()
         
         // レイアウト設定
@@ -130,7 +128,6 @@ class PointDetailViewController: UIViewController {
             if self.postList[newDataCount - 1].latitude > 0 && self.postList[newDataCount - 1].longitude > 0 {
                 self.presenter.setMarker(latitude: self.postList[newDataCount - 1].latitude, longitude: self.postList[newDataCount - 1].longitude)
             }
-//            self.dismissIndicator()
 
             UIView.setAnimationsEnabled(true)
         }

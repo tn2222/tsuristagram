@@ -14,12 +14,22 @@ class PostDetailViewPresenter: PostDetailViewPresentable {
     let router: PostDetailWireframe
     let interactor: PostDetailUsecase
     
+    var user = User()  {
+        didSet {
+            view.setUser(user: user)
+        }
+    }
     var post = Post() {
         didSet {
             view.setPostData(post: post)
         }
     }
-    
+    var point = Point() {
+        didSet {
+            view.setPoint(point: point)
+        }
+    }
+
     init(view: PostDetailViewController, router: PostDetailWireframe, interactor: PostDetailUsecase) {
         self.view = view
         self.router = router
@@ -38,16 +48,28 @@ class PostDetailViewPresenter: PostDetailViewPresentable {
         interactor.deleteButton(post: post)
     }
 
+    func userButton(userId: String) {
+        router.userButton(userId: userId)
+    }
+    
+    func pointButton(point: Point) {
+        router.pointButton(point: point)
+    }
+
 }
 
 // Interactorからの通知受け取り
 extension PostDetailViewPresenter: PostDetailInteractorDelegate {
+    func interactor(_ postDetailUsecase: PostDetailUsecase, user: User) {
+        self.user = user
+    }
     func interactor(_ postDetailUsecase: PostDetailUsecase, post: Post) {
         self.post = post
+        interactor.fetchUserData(userId: post.userId)
         interactor.fetchPoint(pointId: post.pointId)
     }
     func interactor(_ postDetailUsecase: PostDetailUsecase, point: Point) {
-        self.post.pointName = point.name
+        self.point = point
     }
 
     func interactor(_ postDetailUsecase: PostDetailUsecase, error: Error?) {

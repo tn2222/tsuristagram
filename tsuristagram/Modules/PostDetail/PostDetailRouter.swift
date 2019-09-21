@@ -53,11 +53,29 @@ class PostDetailRouter: PostDetailWireframe {
         postPointLocationViewController.editFlag = false
 
         postDetailViewController?.navigationController?.pushViewController(postPointLocationViewController, animated: true)
-
     }
 
     func deleteComplate() {
         SVProgressHUD.dismiss()
         postDetailViewController?.present(tabBarController!, animated: true, completion: nil)
     }
+    
+    func userButton(userId: String) {
+        let userPageViewController = UserPageRouter.assembleModules() as! UserPageViewController
+        userPageViewController.userId = userId
+        userPageViewController.tabHiddenFlag = true
+
+        postDetailViewController?.tabBarController?.tabBar.isHidden = true
+        postDetailViewController?.navigationController?.pushViewController(userPageViewController, animated: true)
+    }
+    
+    func pointButton(point: Point) {
+        let pointDetailViewController = PointDetailRouter.assembleModules() as! PointDetailViewController
+        pointDetailViewController.point = point
+        
+        postDetailViewController?.tabBarController?.tabBar.isHidden = true
+        postDetailViewController?.navigationController?.pushViewController(pointDetailViewController, animated: true)
+
+    }
+
 }

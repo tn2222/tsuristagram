@@ -30,7 +30,8 @@ class UserPageViewController: UIViewController {
     var userPhotoString: String!
     var userImage: UIImageView!
     var userImageExpand: UIImageView!
-    
+    var tabHiddenFlag: Bool!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +40,6 @@ class UserPageViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-//        startIndicator()
-
         // ユーザ設定ボタン有無判定
         if userId == nil {
             userId = CommonUtils.getUserId()
@@ -78,7 +77,14 @@ class UserPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.delegate = self
-        self.tabBarController?.tabBar.isHidden = false
+        if tabHiddenFlag != true {
+            self.tabBarController?.tabBar.isHidden = false
+        }
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        tabHiddenFlag = false
     }
 
     // ユーザ設定
@@ -209,7 +215,6 @@ class UserPageViewController: UIViewController {
             self.postCount = String(self.postList.count)
             self.collectionView.reloadData()
             self.loadPostData()
-//            self.dismissIndicator()
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: self.fetchComplateWorkItem)

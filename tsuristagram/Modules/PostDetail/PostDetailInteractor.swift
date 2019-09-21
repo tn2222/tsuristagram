@@ -14,12 +14,24 @@ class PostDetailInteractor: PostDetailUsecase {
     // 取得処理の通知
     weak var delegate: PostDetailInteractorDelegate?
 
+    func fetchUserData(userId: String) {
+        FirebaseClient.observeSingleEvent(id: "users", key: userId, of: .value, with: fetchUserComplate)
+    }
+
     func fetchData(postKey: String) {
         FirebaseClient.observeSingleEvent(id: "post", key: postKey, of: .value, with: fetchPostComplate)
     }
 
     func fetchPoint(pointId: String) {
         FirebaseClient.observeSingleEvent(id: "point", key: pointId, of: .value, with: fetchPointComplate)
+    }
+
+    func fetchUserComplate(snapshot: [String:AnyObject]) {
+        let user = User()
+        user.userId = snapshot["userId"] as! String
+        user.userPhoto = snapshot["userPhoto"] as! String
+        user.userName = snapshot["userName"] as! String
+        self.delegate?.interactor(self, user: user)
     }
 
     func deleteButton(post: Post) {
@@ -51,12 +63,14 @@ class PostDetailInteractor: PostDetailUsecase {
         post.longitude = snapshot["longitude"] as! Double
         post.weather = snapshot["weather"] as! String
         post.key = snapshot["key"] as! String
+        post.userId = snapshot["userId"] as! String
 
         self.delegate?.interactor(self, post: post)
     }
 
     func fetchPointComplate(snapshot: [String:AnyObject]) {
         var point = Point()
+        point.id = snapshot["id"] as! String
         point.latitude = snapshot["latitude"] as! Double
         point.longitude = snapshot["longitude"] as! Double
         point.name = snapshot["name"] as! String

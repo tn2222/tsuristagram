@@ -17,7 +17,6 @@ extension UIViewController {
         loadingIndicator.center = self.view.center
         let whiteOutView = UIView(frame: self.view.frame)
         whiteOutView.backgroundColor = .white
-//        whiteOutView.alpha = 0.6
         
         // 他のViewと被らない値を代入
         loadingIndicator.tag = 999
@@ -31,6 +30,35 @@ extension UIViewController {
         loadingIndicator.startAnimating()
     }
     
+    func startIndicator(view: UIView) {
+        
+        let loadingIndicator = UIActivityIndicatorView(style: .gray)
+        
+        loadingIndicator.center = view.center
+        let whiteOutView = UIView(frame: view.frame)
+
+        whiteOutView.backgroundColor = .gray
+        
+        // 他のViewと被らない値を代入
+        loadingIndicator.tag = 999
+        whiteOutView.tag = 999
+        
+        view.addSubview(whiteOutView)
+        view.addSubview(loadingIndicator)
+        view.bringSubviewToFront(whiteOutView)
+        view.bringSubviewToFront(loadingIndicator)
+        
+        loadingIndicator.startAnimating()
+    }
+
+    func dismissIndicator(view: UIView) {
+        view.subviews.forEach {
+            if $0.tag == 999 {
+                $0.removeFromSuperview()
+            }
+        }
+    }
+
     func dismissIndicator() {
         self.view.subviews.forEach {
             if $0.tag == 999 {

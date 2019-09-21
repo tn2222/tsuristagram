@@ -39,10 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let databaseURL = plist?.value(forKey: "DATABASE_URL") as! String
         self.userDefaults.set(databaseURL, forKey: "databaseURL")
 
-//        let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType:"plist" )
-//        let plist = NSDictionary(contentsOfFile: filePath!)
-//        print(plist?.value(forKey: "STORAGE_BUCKET") as! String)
-
         IQKeyboardManager.shared.enable = true
         
         GMSServices.provideAPIKey(googleApiKey)

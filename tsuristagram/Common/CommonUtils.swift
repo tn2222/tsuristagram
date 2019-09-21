@@ -46,5 +46,11 @@ class CommonUtils {
     static func getPresentLongitude() -> Double {
         return UserDefaults.standard.double(forKey: "presentLongitude")
     }
+    static func getStorageBucket() -> String {
+        return UserDefaults.standard.object(forKey: "storageBucket") as! String
+    }
+    static func getDatabaseURL() -> String {
+        return UserDefaults.standard.object(forKey: "databaseURL") as! String
+    }
 }
 

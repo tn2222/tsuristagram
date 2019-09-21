@@ -77,13 +77,13 @@
          contextName = "TimeLineViewController.tabBarController(_:didSelect:):TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.navigationController!.navigationBar.frame.size.height">
+               value = "CGPoint.zero">
             </PersistentString>
             <PersistentString
                value = "UIApplication.sharedApplication().statusBarFrame.height">
             </PersistentString>
             <PersistentString
-               value = "CGPoint.zero">
+               value = "self.navigationController!.navigationBar.frame.size.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -124,6 +124,17 @@
          contextName = "LoginViewController.tapFbSignIN(_:):LoginViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "PointDetailRouter.selectCell(post:):PointDetailRouter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postDetailViewController.tabBarController?.tabBar.isHidden">
+            </PersistentString>
+            <PersistentString
+               value = "postDetailViewController.tabBarController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostViewController.postLocation(_:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -135,13 +146,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PointDetailRouter.selectCell(post:):PointDetailRouter.swift">
+         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
-               value = "postDetailViewController.tabBarController?.tabBar.isHidden">
-            </PersistentString>
-            <PersistentString
-               value = "postDetailViewController.tabBarController">
+               value = "plist?.value(forKey: &quot;STORAGE_BUCKET&quot;) as String">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -179,10 +187,10 @@
                value = "">
             </PersistentString>
             <PersistentString
-               value = "isSelectPhoto">
+               value = "tabBarController">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "user">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.view.view">
@@ -191,7 +199,7 @@
                value = "tabBarController?.view">
             </PersistentString>
             <PersistentString
-               value = "user">
+               value = "isSelectPhoto">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -264,7 +272,7 @@
                value = "comment.frame.size.height">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height + 50">
+               value = "comment.layer.bounds.height">
             </PersistentString>
             <PersistentString
                value = "comment.frame.height">
@@ -273,7 +281,7 @@
                value = "comment.frame.height + 30">
             </PersistentString>
             <PersistentString
-               value = "comment.layer.bounds.height">
+               value = "comment.layer.bounds.height + 50">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -285,6 +293,14 @@
             </PersistentString>
             <PersistentString
                value = "String(Int(post.timestamp) * (-1)) + &quot;.jpg&quot;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static CommonUtils.getStorageBucket():CommonUtils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.object(forKey: &quot;storageBucket&quot;) as! String">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -367,10 +383,10 @@
          contextName = "BlockUserListViewController.viewDidLoad():BlockUserListViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "tableView.rowHeight">
+               value = "tableView">
             </PersistentString>
             <PersistentString
-               value = "tableView">
+               value = "tableView.rowHeight">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -379,6 +395,9 @@
          <PersistentStrings>
             <PersistentString
                value = "post">
+            </PersistentString>
+            <PersistentString
+               value = "CommonUtils.getStorageBucket()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -477,18 +496,10 @@
                value = "snapshot[&quot;userBlock&quot;] as! Dictionary&lt;String, String&gt;">
             </PersistentString>
             <PersistentString
-               value = "snapshot[&quot;userBlock&quot;] ">
-            </PersistentString>
-            <PersistentString
                value = "snapshot[&quot;userBlock&quot;]">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
-         <PersistentStrings>
             <PersistentString
-               value = "tableState">
+               value = "snapshot[&quot;userBlock&quot;] ">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -500,6 +511,14 @@
             </PersistentString>
             <PersistentString
                value = "self.post.longitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.fetchTimeLineData():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tableState">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

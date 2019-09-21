@@ -57,7 +57,7 @@ class PointDetailViewController: UIViewController {
         layout.minimumLineSpacing = 2
         collectionView.collectionViewLayout = layout
 
-        // admob sample
+        // admob
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         addBannerViewToView(bannerView)
         bannerView.adUnitID = "ca-app-pub-1824291251550532/5494248531"

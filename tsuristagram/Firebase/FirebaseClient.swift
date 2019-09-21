@@ -19,8 +19,8 @@ public protocol FirebaseClientProtocol {
 
 public extension FirebaseClientProtocol {
     static var rootRef: DatabaseReference { return Database.database().reference() }
-    static var postRef: DatabaseReference { return Database.database().reference(fromURL: "https://tsuristagram.firebaseio.com/") }
-    static var imageRef: StorageReference { return Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images") }
+    static var postRef: DatabaseReference { return Database.database().reference(fromURL: CommonUtils.getDatabaseURL()) }
+    static var imageRef: StorageReference { return Storage.storage().reference(forURL: CommonUtils.getStorageBucket()).child("images") }
     
 }
 

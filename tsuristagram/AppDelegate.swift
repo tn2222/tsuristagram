@@ -33,6 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // firebase initialize
         FirebaseApp.configure()
         
+        let plist = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "GoogleService-Info", ofType:"plist" )!)
+        let storageBucket = "gs://" + (plist?.value(forKey: "STORAGE_BUCKET") as! String)
+        self.userDefaults.set(storageBucket, forKey: "storageBucket")
+        let databaseURL = plist?.value(forKey: "DATABASE_URL") as! String
+        self.userDefaults.set(databaseURL, forKey: "databaseURL")
+
+//        let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType:"plist" )
+//        let plist = NSDictionary(contentsOfFile: filePath!)
+//        print(plist?.value(forKey: "STORAGE_BUCKET") as! String)
+
         IQKeyboardManager.shared.enable = true
         
         GMSServices.provideAPIKey(googleApiKey)

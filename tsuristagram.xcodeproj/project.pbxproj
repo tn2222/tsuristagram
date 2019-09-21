@@ -45,7 +45,6 @@
 		FC38AF9521C12B4A00783D4D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9421C12B4A00783D4D /* Post.swift */; };
 		FC38AF9721C133B400783D4D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38AF9621C133B400783D4D /* PostViewController.swift */; };
 		FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D447021C1286300CEE24E /* TimeLineViewController.swift */; };
-		FC410A69232F8B1600E934E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC410A68232F8B1600E934E8 /* GoogleService-Info.plist */; };
 		FC410A6B233283CA00E934E8 /* PlaceHolderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC410A6A233283CA00E934E8 /* PlaceHolderTextView.swift */; };
 		FC42CBB423080B4B00EB0222 /* PostSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBB323080B4B00EB0222 /* PostSelectButton.swift */; };
 		FC42CBB7230913B600EB0222 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBB6230913B600EB0222 /* UserSettingsViewController.swift */; };
@@ -76,6 +75,8 @@
 		FCA95A8E2299512C003E20A8 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA95A8D2299512C003E20A8 /* UIViewController.swift */; };
 		FCA95A90229963A3003E20A8 /* UserSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */; };
 		FCB027062315790D00CF35B1 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB027052315790D00CF35B1 /* UITextField.swift */; };
+		FCD423E12335DC3600A5CC35 /* GoogleService-Info_production.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD423E02335DC3600A5CC35 /* GoogleService-Info_production.plist */; };
+		FCD423E32335DC4400A5CC35 /* GoogleService-Info_staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD423E22335DC4300A5CC35 /* GoogleService-Info_staging.plist */; };
 		FCDDE39C22BCB5FC007482AD /* PointSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */; };
 		FCE6EE5B22843C87006F99D8 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */; };
 		FCE6EE5E22843DB5006F99D8 /* UserPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */; };
@@ -148,7 +149,6 @@
 		FC38AF9421C12B4A00783D4D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FC38AF9621C133B400783D4D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FC3D447021C1286300CEE24E /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
-		FC410A68232F8B1600E934E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC410A6A233283CA00E934E8 /* PlaceHolderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderTextView.swift; sourceTree = "<group>"; };
 		FC42CBB323080B4B00EB0222 /* PostSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSelectButton.swift; sourceTree = "<group>"; };
 		FC42CBB6230913B600EB0222 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +186,8 @@
 		FCA95A8D2299512C003E20A8 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectButton.swift; sourceTree = "<group>"; };
 		FCB027052315790D00CF35B1 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		FCD423E02335DC3600A5CC35 /* GoogleService-Info_production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info_production.plist"; sourceTree = "<group>"; };
+		FCD423E22335DC4300A5CC35 /* GoogleService-Info_staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info_staging.plist"; sourceTree = "<group>"; };
 		FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSelectButton.swift; sourceTree = "<group>"; };
 		FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageContract.swift; sourceTree = "<group>"; };
@@ -423,9 +425,10 @@
 				FC4F8E4C2208555500C02372 /* Modules */,
 				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
 				FC634D9423065D84006E45C5 /* AppDelegate.swift */,
-				FC634D9222FDB2DD006E45C5 /* AppKey.swift */,
 				FC4F8B6C21BBAD8900B9493F /* Info.plist */,
-				FC410A68232F8B1600E934E8 /* GoogleService-Info.plist */,
+				FCD423E22335DC4300A5CC35 /* GoogleService-Info_staging.plist */,
+				FCD423E02335DC3600A5CC35 /* GoogleService-Info_production.plist */,
+				FC634D9222FDB2DD006E45C5 /* AppKey.swift */,
 				FC4F8B6721BBAD8900B9493F /* Assets.xcassets */,
 			);
 			path = tsuristagram;
@@ -524,7 +527,8 @@
 				FC4F8B5B21BBAD8700B9493F /* Resources */,
 				6279AA5F16FC91346BCC26C0 /* [CP] Embed Pods Frameworks */,
 				BC0E672DC655D15D390870BD /* [CP] Copy Pods Resources */,
-				FC410A64232F83AA00E934E8 /* ShellScript */,
+				FC410A64232F83AA00E934E8 /* Run Script */,
+				FCD423E42335DC5700A5CC35 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -620,9 +624,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC410A69232F8B1600E934E8 /* GoogleService-Info.plist in Resources */,
 				FC4F8B6821BBAD8900B9493F /* Assets.xcassets in Resources */,
 				FC4F8B6621BBAD8700B9493F /* Main.storyboard in Resources */,
+				FCD423E32335DC4400A5CC35 /* GoogleService-Info_staging.plist in Resources */,
+				FCD423E12335DC3600A5CC35 /* GoogleService-Info_production.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,7 +806,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tsuristagram/Pods-tsuristagram-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FC410A64232F83AA00E934E8 /* ShellScript */ = {
+		FC410A64232F83AA00E934E8 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -811,6 +816,7 @@
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -818,6 +824,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		FCD423E42335DC5700A5CC35 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" == \"Release\" ]; then\n/bin/cp \"${PROJECT_DIR}/${PROJECT_NAME}/GoogleService-Info_production.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nelse\n/bin/cp \"${PROJECT_DIR}/${PROJECT_NAME}/GoogleService-Info_staging.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 

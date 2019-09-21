@@ -24,7 +24,7 @@ class PostDetailInteractor: PostDetailUsecase {
 
     func deleteButton(post: Post) {
         
-        let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(CommonUtils.getUserId()).child("post").child(String(Int(post.timestamp) * (-1)) + ".jpg")
+        let photoImageRef = Storage.storage().reference(forURL: CommonUtils.getStorageBucket()).child("images").child(CommonUtils.getUserId()).child("post").child(String(Int(post.timestamp) * (-1)) + ".jpg")
         
         photoImageRef.delete { error in
             if let error = error {

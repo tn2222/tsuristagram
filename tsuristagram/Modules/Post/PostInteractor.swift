@@ -57,8 +57,9 @@ class PostInteractor: PostUsecase {
         let timestamp: NSNumber = NSNumber(value:(-1) * currentTime)
         
         let myUid = CommonUtils.getUserId()
+        let storageBucket = CommonUtils.getStorageBucket()
 
-        let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(myUid).child("post").child(String(currentTime) + ".jpg")
+        let photoImageRef = Storage.storage().reference(forURL: storageBucket).child("images").child(myUid).child("post").child(String(currentTime) + ".jpg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         

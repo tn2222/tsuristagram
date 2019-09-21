@@ -24,7 +24,7 @@ class UserSettingsInteractor: UserSettingsUsecase {
         let myUid = CommonUtils.getUserId()
 
         if isSelectPhoto {
-            let photoImageRef = Storage.storage().reference(forURL: "gs://tsuristagram.appspot.com").child("images").child(myUid).child("userImage.jpg")
+            let photoImageRef = Storage.storage().reference(forURL: CommonUtils.getStorageBucket()).child("images").child(myUid).child("userImage.jpg")
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
             

@@ -66,6 +66,7 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.delegate = self
         self.tabBarController?.tabBar.isHidden = false
     }
 
@@ -256,3 +257,15 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
+extension TimeLineViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        if tabBarIndex == 0 {
+            // 一番上に移動
+            let statusBar = UIApplication.shared.statusBarFrame.height
+            let navBar = self.navigationController!.navigationBar.frame.size.height
+            let offset = CGPoint(x:0,y:(navBar + statusBar) * -1)
+            self.tableView.setContentOffset(offset, animated: true)
+        }
+    }
+}

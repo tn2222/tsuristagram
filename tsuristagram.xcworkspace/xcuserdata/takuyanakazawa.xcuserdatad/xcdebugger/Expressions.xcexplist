@@ -74,6 +74,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TimeLineViewController.tabBarController(_:didSelect:):TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController!.navigationBar.frame.size.height">
+            </PersistentString>
+            <PersistentString
+               value = "UIApplication.sharedApplication().statusBarFrame.height">
+            </PersistentString>
+            <PersistentString
+               value = "CGPoint.zero">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PointSearchViewController.viewDidLoad():PointSearchViewController.swift">
          <PersistentStrings>
             <PersistentString

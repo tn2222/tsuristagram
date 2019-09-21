@@ -31,6 +31,7 @@ class PointSearchViewController: UIViewController{
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tabBarController?.delegate = self
 
         self.navigationItem.title = "釣り場検索"
 
@@ -49,6 +50,7 @@ class PointSearchViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.delegate = self
         self.tabBarController?.tabBar.isHidden = false
     }
 
@@ -172,6 +174,15 @@ extension PointSearchViewController: UITableViewDelegate, UITableViewDataSource 
         
         presenter.didSelectRow(point: point)
     }
-    
 
+}
+
+extension PointSearchViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        if tabBarIndex == 1 {
+            // 一番上に移動
+            self.tableView.setContentOffset(CGPoint.zero, animated: true)
+        }
+    }
 }

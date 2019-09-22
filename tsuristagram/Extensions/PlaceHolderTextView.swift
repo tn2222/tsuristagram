@@ -17,6 +17,7 @@ import UIKit
             guard !localizedString.isEmpty else { return }
             // Localizable.stringsを参照する
             placeholderLabel.text = NSLocalizedString(localizedString, comment: "")
+            print(localizedString)
             placeholderLabel.sizeToFit()  // 省略不可
         }
     }
@@ -42,8 +43,15 @@ import UIKit
     /// プレースホルダーの表示・非表示切り替え
     func togglePlaceholder() {
         // テキスト未入力の場合のみプレースホルダーを表示する
+        placeholderLabel.isHidden = self.text.isEmpty ? false : true
+    }
+    
+    /// プレースホルダーの表示・非表示切り替え
+    func togglePlaceholder(text: String) {
+        // テキスト未入力の場合のみプレースホルダーを表示する
         placeholderLabel.isHidden = text.isEmpty ? false : true
     }
+
 }
 
 // MARK: -  UITextView Delegate

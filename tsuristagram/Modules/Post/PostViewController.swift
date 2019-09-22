@@ -26,7 +26,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var mapView: GMSMapView!
     private var marker = GMSMarker()
     private var position = CLLocationCoordinate2D()
-    private var mapViewInitFlag: Bool!
+    // mapViewを設定するかどうかのフラグ
+    var showMapViewFlag: Bool!
     var post = Post()
     
     var presenter: PostViewPresenter!
@@ -40,8 +41,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        comment.delegate = self
 
         // settings navigation bar
         self.navigationItem.title = "釣果登録"
@@ -73,7 +72,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if mapViewInitFlag == true {
+        if showMapViewFlag == true {
             setMapView()
         }
         setDataToTextField()
@@ -99,8 +98,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         presenter.postButton(post: self.post)
         clearMapView()
     }
-    
-    
+
     // 釣り場検索画面へ遷移
     @IBAction func pointSearch(_ sender: Any) {
         presenter.pointSearchButton(pointList: self.pointList)
@@ -131,6 +129,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         fishSpecies.text = post.fishSpecies
         fishingDate.text = post.fishingDate
         comment.text =  post.comment
+        comment.awakeFromNib()
         pointName.text = post.pointName
         weather.text = post.weather
         uploadPhoto.image = post.uploadPhotoImage
@@ -298,7 +297,7 @@ extension PostViewController {
             }
             // 釣り場詳細のマップビュー表示
             self.setMapView()
-            self.mapViewInitFlag = true
+            self.showMapViewFlag = true
             self.presenter.fetchPointData(latitude: self.post.latitude, longitude: self.post.longitude)
         })
 
@@ -313,12 +312,5 @@ extension PostViewController {
             return true
         }
         return false
-    }
-}
-
-// MARK: -  UITextView Delegate
-extension PostViewController: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        self.comment.togglePlaceholder()
     }
 }

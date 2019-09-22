@@ -19,7 +19,7 @@ class PostInteractor: PostUsecase {
     func fetchPointData(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
-        
+
         FirebaseClient.observeSingleEvent(id: "point", of: .value, with: fetchComplate)
     }
  

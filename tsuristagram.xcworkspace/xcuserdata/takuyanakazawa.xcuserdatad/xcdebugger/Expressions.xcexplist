@@ -66,6 +66,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in PostDetailViewController.settings():PostDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.post">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "BlockUserListViewController.tableView(_:cellForRowAt:):BlockUserListViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -77,13 +85,13 @@
          contextName = "TimeLineViewController.tabBarController(_:didSelect:):TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.navigationController!.navigationBar.frame.size.height">
+               value = "CGPoint.zero">
             </PersistentString>
             <PersistentString
                value = "UIApplication.sharedApplication().statusBarFrame.height">
             </PersistentString>
             <PersistentString
-               value = "CGPoint.zero">
+               value = "self.navigationController!.navigationBar.frame.size.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -151,13 +159,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostViewController.postLocation(_:):PostViewController.swift">
+         contextName = "PostDetailViewPresenter.interactor(_:post:):PostDetailViewPresenter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.post.latitude">
-            </PersistentString>
-            <PersistentString
-               value = "self.post.longitude">
+               value = "post.userId">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -170,10 +175,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostDetailViewPresenter.interactor(_:post:):PostDetailViewPresenter.swift">
+         contextName = "PostViewController.postLocation(_:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "post.userId">
+               value = "self.post.latitude">
+            </PersistentString>
+            <PersistentString
+               value = "self.post.longitude">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -211,10 +219,10 @@
                value = "">
             </PersistentString>
             <PersistentString
-               value = "user">
+               value = "isSelectPhoto">
             </PersistentString>
             <PersistentString
-               value = "isSelectPhoto">
+               value = "tabBarController">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.view.view">
@@ -223,7 +231,7 @@
                value = "tabBarController?.view">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "user">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -258,10 +266,10 @@
                value = "post">
             </PersistentString>
             <PersistentString
-               value = "post.longitude">
+               value = "post.latitude">
             </PersistentString>
             <PersistentString
-               value = "post.latitude">
+               value = "post.longitude">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -293,10 +301,25 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static CommonUtils.getStorageBucket():CommonUtils.swift">
+         contextName = "PostDetailViewController.setPostData(post:):PostDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UserDefaults.standard.object(forKey: &quot;storageBucket&quot;) as! String">
+               value = "post">
+            </PersistentString>
+            <PersistentString
+               value = "comment.frame.size.height">
+            </PersistentString>
+            <PersistentString
+               value = "comment.layer.bounds.height">
+            </PersistentString>
+            <PersistentString
+               value = "comment.frame.height">
+            </PersistentString>
+            <PersistentString
+               value = "comment.frame.height + 30">
+            </PersistentString>
+            <PersistentString
+               value = "comment.layer.bounds.height + 50">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -312,25 +335,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PostDetailViewController.setPostData(post:):PostDetailViewController.swift">
+         contextName = "static CommonUtils.getStorageBucket():CommonUtils.swift">
          <PersistentStrings>
             <PersistentString
-               value = "post">
-            </PersistentString>
-            <PersistentString
-               value = "comment.frame.size.height">
-            </PersistentString>
-            <PersistentString
-               value = "comment.layer.bounds.height + 50">
-            </PersistentString>
-            <PersistentString
-               value = "comment.frame.height">
-            </PersistentString>
-            <PersistentString
-               value = "comment.frame.height + 30">
-            </PersistentString>
-            <PersistentString
-               value = "comment.layer.bounds.height">
+               value = "UserDefaults.standard.object(forKey: &quot;storageBucket&quot;) as! String">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -413,10 +421,10 @@
          contextName = "BlockUserListViewController.viewDidLoad():BlockUserListViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "tableView.rowHeight">
+               value = "tableView">
             </PersistentString>
             <PersistentString
-               value = "tableView">
+               value = "tableView.rowHeight">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -439,6 +447,17 @@
             </PersistentString>
             <PersistentString
                value = "timeLine">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InspectableTextView.togglePlaceholder():PlaceHolderTextView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "placeholderLabel">
+            </PersistentString>
+            <PersistentString
+               value = "self.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -526,10 +545,10 @@
                value = "snapshot[&quot;userBlock&quot;] as! Dictionary&lt;String, String&gt;">
             </PersistentString>
             <PersistentString
-               value = "snapshot[&quot;userBlock&quot;] ">
+               value = "snapshot[&quot;userBlock&quot;]">
             </PersistentString>
             <PersistentString
-               value = "snapshot[&quot;userBlock&quot;]">
+               value = "snapshot[&quot;userBlock&quot;] ">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -631,6 +650,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostViewController.setDataToTextField():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post.uploadPhotoImage">
+            </PersistentString>
+            <PersistentString
+               value = "post.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PointDetailViewController.collectionView(_:cellForItemAt:):PointDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -698,6 +728,17 @@
          <PersistentStrings>
             <PersistentString
                value = "self.header.mapView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InspectableTextView.localizedString.didset:PlaceHolderTextView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "placeholderLabel.text as String">
+            </PersistentString>
+            <PersistentString
+               value = "localizedString">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

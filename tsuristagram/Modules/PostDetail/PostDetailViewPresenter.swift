@@ -56,6 +56,9 @@ class PostDetailViewPresenter: PostDetailViewPresentable {
         router.pointButton(point: point)
     }
 
+    func presentEditView(post: Post) {
+        router.presentEditView(post: post)
+    }
 }
 
 // Interactorからの通知受け取り

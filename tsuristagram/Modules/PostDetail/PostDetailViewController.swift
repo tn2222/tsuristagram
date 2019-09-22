@@ -39,13 +39,18 @@ class PostDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // ポイントのアイコンとマップをロードが完了するまで非表示
         pointIcon.isHidden = true
+        mapView.isHidden = true
+
         // 削除ボタン有無判定
         if CommonUtils.getUserId() == userId {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.trash, target: self, action:#selector(self.deleteButton))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "infomartion.png")?.withRenderingMode(.alwaysOriginal),
+                                                                     style: .plain,
+                                                                     target: self,
+                                                                     action: #selector(self.settings))
 
         }
-        mapView.isHidden = true
         self.presenter.fetchData(postKey: postKey)
 
     }
@@ -65,6 +70,51 @@ class PostDetailViewController: UIViewController {
         }
     }
 
+    @objc func settings() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let action1 = UIAlertAction(title: "編集", style: UIAlertAction.Style.default, handler: {
+            (action: UIAlertAction!) in
+            self.presenter.presentEditView(post: self.post)
+        })
+        
+        
+        let action2 = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler: {
+            (action: UIAlertAction!) in
+            // ブロック確認
+            let title = "この投稿を削除しますか？"
+            let alert = UIAlertController(title: title, message: nil, preferredStyle: UIAlertController.Style.alert)
+            let defaultAction_1: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+                (action: UIAlertAction!) -> Void in
+                // ブロック実施
+                self.deleteButton()
+            })
+            // キャンセル
+            let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+                (action: UIAlertAction!) -> Void in
+                print("cancelAction")
+            })
+            
+            alert.addAction(defaultAction_1)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        })
+
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("cancelAction")
+        })
+        
+        actionSheet.addAction(action1)
+        actionSheet.addAction(action2)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
+
+    }
+
     @IBAction func userButton(_ sender: Any) {
         nextViewFlag = true
         presenter.userButton(userId: post.userId)
@@ -80,7 +130,7 @@ class PostDetailViewController: UIViewController {
         presenter.pointLocationButton(latitude: post.latitude, longitude: post.longitude)
     }
     
-    // firebaseにデータ登録
+    // firebaseからデータ削除
     @objc func deleteButton() {
         SVProgressHUD.show()
         self.view?.isUserInteractionEnabled = false
@@ -101,7 +151,8 @@ class PostDetailViewController: UIViewController {
         userImage.clipsToBounds = true
         userImage.sd_setImage(with: URL(string: user.userPhoto), completed:nil)
         picture.sd_setImage(with: URL(string: post.picture), completed:nil)
-
+        post.uploadPhotoImage = picture.image!
+        
         if post.size.count > 0 {
             size.text = String(post.size) + "cm"
         } else {
@@ -141,6 +192,9 @@ class PostDetailViewController: UIViewController {
         self.point = point
         post.latitude = point.latitude
         post.longitude = point.longitude
+        post.pointName = point.name
+        post.pointId = point.id
+
         pointName.text = point.name
         pointNameButton.setTitle(point.name, for: .normal)
         setMapView(latitude: point.latitude, longitude: point.longitude)

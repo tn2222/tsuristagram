@@ -19,6 +19,7 @@ protocol PostDetailViewPresentable: class {
     func pointButton(point: Point)
     func fetchData(postKey: String)
     func deleteButton(post: Post)
+    func presentEditView(post: Post)
 }
 
 // MARK: - interactor
@@ -42,6 +43,7 @@ protocol PostDetailWireframe: class {
     func pointLocationButton(latitude: Double, longitude: Double)
     func userButton(userId: String)
     func pointButton(point: Point)
+    func presentEditView(post: Post)
     func deleteComplate()
 }
 

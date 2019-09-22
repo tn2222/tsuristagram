@@ -78,4 +78,13 @@ class PostDetailRouter: PostDetailWireframe {
 
     }
 
+    func presentEditView(post: Post) {
+        let postVC = PostRouter.assembleModules() as! PostViewController
+        postVC.post = post
+        postVC.showMapViewFlag = true
+
+        let navigationController = UINavigationController(rootViewController: postVC)
+        postDetailViewController!.present(navigationController, animated: true, completion: nil)
+    }
+
 }

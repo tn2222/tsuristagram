@@ -13,8 +13,6 @@ public protocol FirebaseClientProtocol {
     static var rootRef: DatabaseReference { get }
     static var postRef: DatabaseReference { get }
     static var imageRef: StorageReference { get }
-
-//    static func observeSingleEvent(id: String, of eventType: DataEventType, with block: @escaping ([String:NSDictionary]) -> Void)
 }
 
 public extension FirebaseClientProtocol {
@@ -154,7 +152,6 @@ class FirebaseClient: FirebaseClientProtocol {
         let ref: DatabaseReference = self.postRef.child(id).child(value)
         ref.removeValue(completionBlock: block)
     }
-    
 
 }
 

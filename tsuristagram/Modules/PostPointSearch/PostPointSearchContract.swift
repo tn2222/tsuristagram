@@ -14,15 +14,17 @@ protocol PostPointSearchView: class {
 
 // MARK: - presenter
 protocol PostPointSearchViewPresentable: class {
+    func fetchPointData(presentLatitude: Double, presentLongitude: Double)
     func didSelectRow(point: Point)
 }
 
 // MARK: - interactor
 protocol PostPointSearchUsecase: class {
+    func fetchPointData(presentLatitude: Double, presentLongitude: Double)
 }
 
 protocol PostPointSearchInteractorDelegate: class {
-    func interactor(_ pointSearchUsecase: PostPointSearchUsecase, pointList: [Point])
+    func interactor(_ postPointSearchUsecase: PostPointSearchUsecase, pointList: [Point])
 }
 
 // MARK: - router

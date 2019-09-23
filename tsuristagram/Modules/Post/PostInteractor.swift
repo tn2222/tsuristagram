@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 class PostInteractor: PostUsecase {
+    
     // 取得処理の通知
     weak var delegate: PostInteractorDelegate?
     
@@ -50,6 +51,23 @@ class PostInteractor: PostUsecase {
         self.delegate?.interactor(self, pointList: pointList)
     }
     
+    func updateButton(post: Post) {
+        let feed = ["size": post.size,
+                    "weight": post.weight,
+                    "fishSpecies": post.fishSpecies,
+                    "comment": post.comment,
+                    "fishingDate": post.fishingDate,
+                    "pointId": post.pointId,
+                    "latitude": post.latitude,
+                    "longitude": post.longitude,
+                    "weather": post.weather,
+                    "updateAt": Int(Date().timeIntervalSince1970)
+                    ] as [String:Any]
+
+        // データ更新
+        FirebaseClient.updateChildValues(id: "post", key: post.key, feed: feed, with: self.postComplate)
+    }
+
     func postButton(post: Post) {
         let currentTime = Int(Date().timeIntervalSince1970)
         

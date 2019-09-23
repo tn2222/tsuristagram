@@ -28,6 +28,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     private var position = CLLocationCoordinate2D()
     // mapViewを設定するかどうかのフラグ
     var showMapViewFlag: Bool!
+    // 編集画面として開いた場合true
+    var updateModeFlag: Bool!
+
     var post = Post()
     
     var presenter: PostViewPresenter!
@@ -42,10 +45,16 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // settings navigation bar
-        self.navigationItem.title = "釣果登録"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.cancel))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "シェア", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.postButton))
+        // settings navigation bar. update or insert
+        if updateModeFlag == true {
+            self.navigationItem.title = "釣果を編集"
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.updateCancel))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完了", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.updateButton))
+        } else {
+            self.navigationItem.title = "釣果登録"
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.cancel))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "シェア", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.postButton))
+        }
 
         hideKeyboardWhenTappedAround()
 
@@ -78,12 +87,32 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         setDataToTextField()
     }
 
+    @objc func updateCancel() {
+        presenter.updateCancelButton()
+        clearMapView()
+    }
+    
     //写真アップロードをキャンセル。タイムラインページへ遷移
     @objc func cancel() {
         presenter.cancelButton()
         clearMapView()
     }
     
+    // firebaseのデータ更新
+    @objc func updateButton() {
+        SVProgressHUD.show()
+        setTextFiledToData()
+        self.view?.isUserInteractionEnabled = false
+        self.navigationItem.leftBarButtonItem?.isEnabled = false
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        if (post.pointId.isEmpty) {
+            post.pointId = "p9999"
+        }
+        presenter.updateButton(post: self.post)
+        clearMapView()
+    }
+
     // firebaseにデータ登録
     @objc func postButton() {
         SVProgressHUD.show()

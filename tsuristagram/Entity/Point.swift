@@ -15,5 +15,6 @@ struct Point {
     var latitude: Double = Double()
     var longitude: Double = Double()
     var distance: Double = Double()
+    // 写真、もしくは現在地の緯度経度が取得できたかどうか判別するためのフラグ
     var positionGetFlag: Bool = Bool()
 }

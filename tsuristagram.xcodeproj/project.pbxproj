@@ -52,6 +52,7 @@
 		FC42CBBB230913DB00EB0222 /* UserSettingsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBBA230913DB00EB0222 /* UserSettingsViewPresenter.swift */; };
 		FC42CBBD230913EB00EB0222 /* UserSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBBC230913EB00EB0222 /* UserSettingsInteractor.swift */; };
 		FC42CBBF230913F600EB0222 /* UserSettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42CBBE230913F600EB0222 /* UserSettingsRouter.swift */; };
+		FC495BC723388C8000663FAF /* PostPointSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC495BC623388C8000663FAF /* PostPointSearchInteractor.swift */; };
 		FC4F8B6321BBAD8700B9493F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */; };
 		FC4F8B6621BBAD8700B9493F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4F8B6421BBAD8700B9493F /* Main.storyboard */; };
 		FC4F8B6821BBAD8900B9493F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4F8B6721BBAD8900B9493F /* Assets.xcassets */; };
@@ -156,6 +157,7 @@
 		FC42CBBA230913DB00EB0222 /* UserSettingsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewPresenter.swift; sourceTree = "<group>"; };
 		FC42CBBC230913EB00EB0222 /* UserSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsInteractor.swift; sourceTree = "<group>"; };
 		FC42CBBE230913F600EB0222 /* UserSettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsRouter.swift; sourceTree = "<group>"; };
+		FC495BC623388C8000663FAF /* PostPointSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointSearchInteractor.swift; sourceTree = "<group>"; };
 		FC4F8B5D21BBAD8700B9493F /* tsuristagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsuristagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4F8B6221BBAD8700B9493F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FC4F8B6521BBAD8700B9493F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				FC4F8E4D2208655F00C02372 /* PostPointSearchContract.swift */,
 				FC4F8E3F2206E30300C02372 /* PostPointSearchViewController.swift */,
 				FC4F8E422206E93000C02372 /* PostPointSearchViewPresenter.swift */,
+				FC495BC623388C8000663FAF /* PostPointSearchInteractor.swift */,
 				FC4F8E442206E93E00C02372 /* PostPointSearchRouter.swift */,
 			);
 			path = PostPointSearch;
@@ -867,6 +870,7 @@
 				FC22FB99221982BB00AFAAEF /* PointSearchRouter.swift in Sources */,
 				FC08F147220F1605007399C7 /* MainTabBarViewController.swift in Sources */,
 				FCE6EE6422843F91006F99D8 /* UserPageRouter.swift in Sources */,
+				FC495BC723388C8000663FAF /* PostPointSearchInteractor.swift in Sources */,
 				FC026AB82209CB0C007E961C /* String.swift in Sources */,
 				FC4F8E402206E30300C02372 /* PostPointSearchViewController.swift in Sources */,
 				FC1CD02D21FF264B00C810CF /* TimeLineViewPresenter.swift in Sources */,

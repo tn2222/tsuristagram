@@ -42,7 +42,7 @@ class UserSettingsInteractor: UserSettingsUsecase {
                                 ] as [String:Any]
                     
                     // FirebaseDBへ登録
-                    FirebaseClient.updateChildValues(id: "users", value: user.userId, feed: feed, with: self.updateComplate)
+                    FirebaseClient.updateChildValues(id: "users", key: user.userId, feed: feed, with: self.updateComplate)
                 }
             }
         } else {
@@ -51,7 +51,7 @@ class UserSettingsInteractor: UserSettingsUsecase {
                         ] as [String:Any]
 
             // FirebaseDBへ登録
-            FirebaseClient.updateChildValues(id: "users", value: user.userId, feed: feed, with: self.updateComplate)
+            FirebaseClient.updateChildValues(id: "users", key: user.userId, feed: feed, with: self.updateComplate)
 
         }
     }

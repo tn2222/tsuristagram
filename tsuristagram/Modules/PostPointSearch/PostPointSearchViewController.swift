@@ -37,7 +37,17 @@ class PostPointSearchViewController: UIViewController {
 
         tableView.tableHeaderView = searchBar
         
+        if pointListAll.count <= 0 {
+            presenter.fetchPointData(presentLatitude: CommonUtils.getPresentLatitude(), presentLongitude: CommonUtils.getPresentLongitude())
+        }
         pointList = pointListAll
+    }
+
+    // 画面表示でフェッチした釣り場マスタを設定
+    func setPointList(pointList: [Point]) {
+        if pointList.count <= 0 { return }
+        self.pointList = pointList
+        self.pointListAll = pointList
     }
 
 }

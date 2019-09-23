@@ -82,9 +82,9 @@ class PostDetailRouter: PostDetailWireframe {
         let postVC = PostRouter.assembleModules() as! PostViewController
         postVC.post = post
         postVC.showMapViewFlag = true
+        postVC.updateModeFlag = true
 
-        let navigationController = UINavigationController(rootViewController: postVC)
-        postDetailViewController!.present(navigationController, animated: true, completion: nil)
+        postDetailViewController?.navigationController?.pushViewController(postVC, animated: true)
     }
 
 }

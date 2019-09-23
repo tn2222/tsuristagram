@@ -30,10 +30,18 @@ class PostViewPresenter: PostViewPresentable {
         interactor.fetchPointData(latitude: latitude, longitude: longitude)
     }
 
+    func updateButton(post: Post) {
+        interactor.updateButton(post: post)
+    }
+
     func postButton(post: Post) {
         interactor.postButton(post: post)
     }
     
+    func updateCancelButton() {
+        router.updateCancelButton()
+    }
+
     func cancelButton() {
         router.cancelButton()
     }

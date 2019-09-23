@@ -214,12 +214,16 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         pointSelectButton.addTarget(self, action: #selector(selectPoint(_:)), for: UIControl.Event.touchUpInside)
 
         let postSelectButton = cell.viewWithTag(8) as! PostSelectButton
+        postSelectButton.isEnabled = false
         postSelectButton.postKey = self.timeLine.postList[indexPath.row].key
         postSelectButton.userId = userId
         postSelectButton.addTarget(self, action: #selector(selectPost(_:)), for: UIControl.Event.touchUpInside)
 
         let pictureImage = cell.viewWithTag(3) as! UIImageView
-        pictureImage.sd_setImage(with: URL(string: self.timeLine.postList[indexPath.row].picture), completed:nil)
+        pictureImage.sd_setImage(with: URL(string: self.timeLine.postList[indexPath.row].picture),completed: { (image, err, cacheType, url) in
+            // 画像セットが完了したら投稿詳細へ遷移するボタンを活性化
+            postSelectButton.isEnabled = true
+            })
 
         let commentLabel = cell.viewWithTag(4) as! UILabel
         

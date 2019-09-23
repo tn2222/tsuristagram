@@ -75,6 +75,7 @@ class PostDetailViewController: UIViewController {
         
         let action1 = UIAlertAction(title: "編集", style: UIAlertAction.Style.default, handler: {
             (action: UIAlertAction!) in
+            self.nextViewFlag = true
             self.presenter.presentEditView(post: self.post)
         })
         
@@ -159,7 +160,7 @@ class PostDetailViewController: UIViewController {
             size.text = post.size
         }
         if post.weight.count > 0 {
-            weight.text = String(post.size) + "g"
+            weight.text = String(post.weight) + "g"
         } else {
             weight.text = post.weight
         }
@@ -186,18 +187,16 @@ class PostDetailViewController: UIViewController {
 
     func setPostData(post: Post) {
         self.post = post
+        setMapView(latitude: post.latitude, longitude: post.longitude)
     }
     
     func setPoint(point: Point) {
         self.point = point
-        post.latitude = point.latitude
-        post.longitude = point.longitude
         post.pointName = point.name
         post.pointId = point.id
 
         pointName.text = point.name
         pointNameButton.setTitle(point.name, for: .normal)
-        setMapView(latitude: point.latitude, longitude: point.longitude)
         mapView.isHidden = false
     }
 

@@ -52,7 +52,11 @@ class PostRouter: PostWireframe {
         SVProgressHUD.dismiss()
         postViewController?.present(tabBarController!, animated: true, completion: nil)
     }
-    
+   
+    func updateCancelButton() {
+        postViewController?.navigationController?.popViewController(animated: true)
+    }
+
     func cancelButton() {
         postViewController?.present(tabBarController!, animated: true, completion: nil)
     }

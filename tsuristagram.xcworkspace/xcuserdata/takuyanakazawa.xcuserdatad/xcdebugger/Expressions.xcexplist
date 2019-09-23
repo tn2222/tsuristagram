@@ -312,6 +312,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostDetailViewController.setMapView(latitude:longitude:):PostDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mapView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostViewController.setPointList(pointList:):PostViewController.swift">
          <PersistentStrings>
             <PersistentString

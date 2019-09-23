@@ -933,7 +933,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GIC-g8-Wuz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1845.5999999999999" y="-500.1499250374813"/>
+            <point key="canvasLocation" x="1846" y="-449"/>
         </scene>
         <!--Post Point Location View Controller-->
         <scene sceneID="gdh-ea-mIY">
@@ -1573,7 +1573,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Abj-Vf-MZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2725.5999999999999" y="1159.52023988006"/>
+            <point key="canvasLocation" x="3457" y="555"/>
         </scene>
     </scenes>
     <resources>

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A08A719BEF2F8792AA21C70EDCF372AA"
+               BlueprintIdentifier = "3F4564325299AEF2039F2857DAF66AA6"
                BuildableName = "Pods_tsuristagram.framework"
                BlueprintName = "Pods-tsuristagram"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A08A719BEF2F8792AA21C70EDCF372AA"
+            BlueprintIdentifier = "3F4564325299AEF2039F2857DAF66AA6"
             BuildableName = "Pods_tsuristagram.framework"
             BlueprintName = "Pods-tsuristagram"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -160,6 +160,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) GMSPlaceField placeFields;
 
+/**
+ * Sets up the autocomplete bounds using the NE and SW corner locations.
+ */
+- (void)setAutocompleteBoundsUsingNorthEastCorner:(CLLocationCoordinate2D)NorthEastCorner
+                                  SouthWestCorner:(CLLocationCoordinate2D)SouthWestCorner;
+
 @end
 
 NS_ASSUME_NONNULL_END

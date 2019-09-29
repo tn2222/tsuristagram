@@ -20,6 +20,8 @@ protocol PostDetailViewPresentable: class {
     func fetchData(postKey: String)
     func deleteButton(post: Post)
     func presentEditView(post: Post)
+    func disLike(likeButton: LikeButton)
+    func like(likeButton: LikeButton)
 }
 
 // MARK: - interactor
@@ -28,6 +30,8 @@ protocol PostDetailUsecase: class {
     func fetchData(postKey: String)
     func fetchPoint(pointId: String)
     func deleteButton(post: Post)
+    func disLike(likeButton: LikeButton)
+    func like(likeButton: LikeButton)
 }
 
 protocol PostDetailInteractorDelegate: class {
@@ -35,6 +39,8 @@ protocol PostDetailInteractorDelegate: class {
     func interactor(_ postDetailUsecase: PostDetailUsecase, post: Post)
     func interactor(_ postDetailUsecase: PostDetailUsecase, point: Point)
     func interactor(_ postDetailUsecase: PostDetailUsecase, error: Error?)
+    func disLike(_ postDetailUsecase: PostDetailUsecase, likeButton: LikeButton)
+    func like(_ postDetailUsecase: PostDetailUsecase, likeButton: LikeButton)
 
 }
 

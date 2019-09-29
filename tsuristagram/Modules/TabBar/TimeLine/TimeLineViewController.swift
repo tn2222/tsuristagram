@@ -20,7 +20,9 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
     let refreshControl = UIRefreshControl()
     var timeLine = TimeLine()
     var post = Post()
-    
+    // <postKey, like or disLike>
+    var likesMap : Dictionary<String, LikeInfo> = [:]
+
 //    var activityIndicator: UIActivityIndicatorView!
 
     private var tableState: TableControllerState = .Initialize
@@ -60,6 +62,11 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(notifyPostData(_:)),
+                                               name: .notifyName,
+                                               object: nil)
+
         SVProgressHUD.show()
         presenter.initialize()
     }
@@ -70,6 +77,63 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
         self.tabBarController?.tabBar.isHidden = false
     }
 
+    @objc func notifyPostData(_ notification: NSNotification) {
+        if let dict = notification.userInfo as NSDictionary? {
+            let key = dict["postKey"] as! String
+            let isLike = dict["isLike"] as! String
+            let likesCount = dict["likesCount"] as! String
+            if likesMap[key] != nil {
+                var likeInfo = likesMap[key]
+                likeInfo!.isLike = Bool(isLike)!
+                
+                // likes count
+                if Int(likesCount)! > 0 {
+                    likeInfo?.likeButton.likeCountLabel.text = likesCount
+                } else {
+                    likeInfo?.likeButton.likeCountLabel.text = ""
+                }
+                
+                // like image
+                if likeInfo!.isLike {
+                    let like:UIImage = UIImage(named:"like")!
+                    likeInfo?.likeButton.setImage(like, for: .normal)
+                } else {
+                    let dislike:UIImage = UIImage(named:"dislike")!
+                    likeInfo?.likeButton.setImage(dislike, for: .normal)
+                }
+            }
+        }
+    }
+
+    func changeLikeStatus(likeInfo: LikeInfo) {
+        
+    }
+
+    @IBAction func didTapLikeButton(_ sender: LikeButton) {
+        sender.isEnabled = false
+        if likesMap[sender.postKey]!.isLike {
+            // dislike
+            likesMap[sender.postKey]!.isLike = false
+            timeLine.postList[sender.rowNum].likesCount -= 1
+            if timeLine.postList[sender.rowNum].likesCount > 0 {
+                sender.likeCountLabel.text = String(timeLine.postList[sender.rowNum].likesCount)
+            } else {
+                sender.likeCountLabel.text = ""
+            }
+            let dislike:UIImage = UIImage(named:"dislike")!
+            sender.setImage(dislike, for: .normal)
+            presenter.disLike(likeButton: sender)
+        } else {
+            // like
+            likesMap[sender.postKey]!.isLike = true
+            timeLine.postList[sender.rowNum].likesCount += 1
+            sender.likeCountLabel.text = String(timeLine.postList[sender.rowNum].likesCount)
+            let like:UIImage = UIImage(named:"like")!
+            sender.setImage(like, for: .normal)
+            presenter.like(likeButton: sender)
+        }
+    }
+    
     @objc func selectUser(_ sender: UserSelectButton) {
         presenter.selectUser(userId: sender.userId)
     }
@@ -102,6 +166,10 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
     func initializeComplate() {
         tableState = .Normal
         fetchTimeLineData()
+    }
+
+    func setLikeButton(likeButton: LikeButton) {
+        likeButton.isEnabled = true
     }
 
     // タイムラインデータのフェッチが完了したら呼び出される
@@ -194,6 +262,26 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         // pointData
         let pointId = timeLine.postList[indexPath.row].pointId
         let point = self.timeLine.pointMap[pointId]
+
+        let likeCount = cell.viewWithTag(11) as! UILabel
+        likeCount.text = ""
+        if self.timeLine.postList[indexPath.row].likesCount > 0 {
+            likeCount.text = String(self.timeLine.postList[indexPath.row].likesCount)
+        }
+
+        // like button
+        let likeButton = cell.viewWithTag(10) as! LikeButton
+        likeButton.postKey = self.timeLine.postList[indexPath.row].key
+        likeButton.rowNum = indexPath.row
+        likeButton.likeCountLabel = likeCount
+        if likesMap[self.timeLine.postList[indexPath.row].key]!.isLike {
+            let like:UIImage = UIImage(named:"like")!
+            likeButton.setImage(like, for: .normal)
+        } else {
+            let dislike:UIImage = UIImage(named:"dislike")!
+            likeButton.setImage(dislike, for: .normal)
+        }
+        likesMap[likeButton.postKey]?.likeButton = likeButton
         
         let userPhoto = cell.viewWithTag(1) as! UIImageView
         userPhoto.layer.cornerRadius = userPhoto.frame.size.width * 0.5
@@ -227,10 +315,21 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
 
         let commentLabel = cell.viewWithTag(4) as! UILabel
         
-        //Below is Yosuke Ujigawa adding cood..
+        // コメントがなければ定型文表示
         if timeLine.postList[indexPath.row].comment.isEmpty {
-            commentLabel.text = "\(user!.userName) さんが \(point!.name) で釣り上げました！ おめでとうございます！！"
-        }else{
+            // 魚種があれば魚種出力
+            if !timeLine.postList[indexPath.row].fishSpecies.isEmpty {
+                // 魚種が入力されているかつ、サイズ入力されている場合は、サイズと魚種を出力
+                if !timeLine.postList[indexPath.row].size.isEmpty {
+                    commentLabel.text = "\(user!.userName) さんが \(point!.name) で\(timeLine.postList[indexPath.row].size)cmの\(timeLine.postList[indexPath.row].fishSpecies)を釣り上げました！ おめでとうございます！！"
+                } else {
+                    commentLabel.text = "\(user!.userName) さんが \(point!.name) で\(timeLine.postList[indexPath.row].fishSpecies)を釣り上げました！ おめでとうございます！！"
+                }
+            } else {
+                commentLabel.text = "\(user!.userName) さんが \(point!.name) で釣り上げました！ おめでとうございます！！"
+            }
+        } else {
+            // コメントがあればコメントを表示
             commentLabel.text = self.timeLine.postList[indexPath.row].comment
         }
         

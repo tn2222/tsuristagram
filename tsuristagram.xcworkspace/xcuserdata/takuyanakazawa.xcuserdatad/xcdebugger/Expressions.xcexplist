@@ -11,6 +11,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TimeLineViewController.didTapLikeButton(_:):TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.rowNum">
+            </PersistentString>
+            <PersistentString
+               value = "likesMap">
+            </PersistentString>
+            <PersistentString
+               value = "sender">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MainTabBarViewController.viewDidLoad():MainTabBarViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -104,6 +118,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PostDetailInteractor.disLike(likeButton:):PostDetailInteractor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "likeButton.postKey">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PointSearchViewController.viewDidLoad():PointSearchViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -144,6 +166,9 @@
             </PersistentString>
             <PersistentString
                value = "picture">
+            </PersistentString>
+            <PersistentString
+               value = "post.likesCount">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -238,10 +263,10 @@
                value = "">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "isSelectPhoto">
             </PersistentString>
             <PersistentString
-               value = "user">
+               value = "tabBarController">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.view.view">
@@ -250,7 +275,7 @@
                value = "tabBarController?.view">
             </PersistentString>
             <PersistentString
-               value = "isSelectPhoto">
+               value = "user">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -306,6 +331,9 @@
       <ContextState
          contextName = "TimeLineViewPresenter.interactor(_:post:):TimeLineViewPresenter.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "view.likes">
+            </PersistentString>
             <PersistentString
                value = "timeLine">
             </PersistentString>
@@ -409,6 +437,9 @@
             <PersistentString
                value = "post">
             </PersistentString>
+            <PersistentString
+               value = "post.likesCount">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
@@ -456,6 +487,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TimeLineViewPresenter.disLike(_:likeButton:):TimeLineViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post.likes">
+            </PersistentString>
+            <PersistentString
+               value = "view.timeLine.postList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostInteractor.postButton(post:):PostInteractor.swift">
          <PersistentStrings>
             <PersistentString
@@ -470,10 +512,10 @@
          contextName = "TimeLineViewController.tableView(_:cellForRowAt:):TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.timeLine.postList[indexPath.row].comment">
+               value = "likeButton.postKey">
             </PersistentString>
             <PersistentString
-               value = "timeLine">
+               value = "timeLine.postList[indexPath.row].likes">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -745,6 +787,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "static FirebaseClient.like(postKey:feed:with:):FirebaseClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "likeButton">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "BlockUserListViewPresenter.interactor(_:blockUserList:):BlockUserListViewPresenter.swift">
          <PersistentStrings>
             <PersistentString
@@ -793,6 +843,17 @@
             </PersistentString>
             <PersistentString
                value = "localizedString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewPresenter.like(_:likeButton:):TimeLineViewPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "post.likes">
+            </PersistentString>
+            <PersistentString
+               value = "view.timeLine.postList">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

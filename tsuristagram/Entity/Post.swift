@@ -31,5 +31,6 @@ struct Post {
     var uploadPhotoImageData: Data = Data()
     var assetUrl: URL!
     var asset: Any!
-    
+    var likesCount: Int = Int()
+    var likesFlag: Bool = Bool() //自分がいいねしているかどうか
 }

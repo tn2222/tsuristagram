@@ -78,3 +78,8 @@ extension UIViewController {
     }
 
 }
+
+// notification
+extension Notification.Name {
+    static let notifyName = Notification.Name("notifyName")
+}

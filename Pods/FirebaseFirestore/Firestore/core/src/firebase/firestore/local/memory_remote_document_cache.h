@@ -30,7 +30,6 @@
 #include "Firestore/core/src/firebase/firestore/model/types.h"
 
 @class FSTLocalSerializer;
-@class FSTMaybeDocument;
 @class FSTMemoryLRUReferenceDelegate;
 @class FSTMemoryPersistence;
 
@@ -40,22 +39,26 @@ namespace firebase {
 namespace firestore {
 namespace local {
 
+class Sizer;
+
 class MemoryRemoteDocumentCache : public RemoteDocumentCache {
  public:
   explicit MemoryRemoteDocumentCache(FSTMemoryPersistence* persistence);
 
-  void Add(FSTMaybeDocument* document) override;
+  void Add(const model::MaybeDocument& document) override;
   void Remove(const model::DocumentKey& key) override;
 
-  FSTMaybeDocument* _Nullable Get(const model::DocumentKey& key) override;
-  model::MaybeDocumentMap GetAll(const model::DocumentKeySet& keys) override;
+  absl::optional<model::MaybeDocument> Get(
+      const model::DocumentKey& key) override;
+  model::OptionalMaybeDocumentMap GetAll(
+      const model::DocumentKeySet& keys) override;
   model::DocumentMap GetMatching(const core::Query& query) override;
 
   std::vector<model::DocumentKey> RemoveOrphanedDocuments(
       FSTMemoryLRUReferenceDelegate* reference_delegate,
       model::ListenSequenceNumber upper_bound);
 
-  size_t CalculateByteSize(FSTLocalSerializer* serializer);
+  int64_t CalculateByteSize(const Sizer& sizer);
 
  private:
   /** Underlying cache of documents. */

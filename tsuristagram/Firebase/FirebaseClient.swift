@@ -152,6 +152,17 @@ class FirebaseClient: FirebaseClientProtocol {
         let ref: DatabaseReference = self.postRef.child(id).child(value)
         ref.removeValue(completionBlock: block)
     }
+    
+    static func disLike(postKey: String, userId: String, with block: @escaping (Error?, DatabaseReference) -> Void) {
+        let ref: DatabaseReference = self.postRef.child("post").child(postKey).child("likes").child(userId)
+        ref.removeValue(completionBlock: block)
+    }
+
+    static func like(postKey: String, feed: [String:Any], with block: @escaping (Error?, DatabaseReference) -> Void) {
+        let ref: DatabaseReference = self.postRef.child("post").child(postKey).child("likes")
+        let likes = feed
+        ref.updateChildValues(likes, withCompletionBlock: block)
+    }
 
 }
 

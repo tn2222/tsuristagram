@@ -47,7 +47,15 @@ class PostDetailViewPresenter: PostDetailViewPresentable {
     func deleteButton(post: Post) {
         interactor.deleteButton(post: post)
     }
-
+    
+    func disLike(likeButton: LikeButton) {
+        interactor.disLike(likeButton: likeButton)
+    }
+    
+    func like(likeButton: LikeButton) {
+        interactor.like(likeButton: likeButton)
+    }
+    
     func userButton(userId: String) {
         router.userButton(userId: userId)
     }
@@ -77,5 +85,13 @@ extension PostDetailViewPresenter: PostDetailInteractorDelegate {
 
     func interactor(_ postDetailUsecase: PostDetailUsecase, error: Error?) {
         router.deleteComplate()
+    }
+    
+    func disLike(_ postDetailUsecase: PostDetailUsecase, likeButton: LikeButton) {
+        view.setLikeButton(likeButton: likeButton)
+    }
+    
+    func like(_ postDetailUsecase: PostDetailUsecase, likeButton: LikeButton) {
+        view.setLikeButton(likeButton: likeButton)
     }
 }

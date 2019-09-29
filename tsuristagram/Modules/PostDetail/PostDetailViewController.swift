@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 import GoogleMaps
 
-class PostDetailViewController: UIViewController {
+class PostDetailViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet var pointIcon: UIImageView!
     @IBOutlet var userImage: UIImageView!
@@ -26,6 +26,8 @@ class PostDetailViewController: UIViewController {
     @IBOutlet var comment: UILabel!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet var likeButton: LikeButton!
+    @IBOutlet var likeCountLabel: UILabel!
     
     var presenter: PostDetailViewPresenter!
     var postKey: String!
@@ -35,14 +37,15 @@ class PostDetailViewController: UIViewController {
     private var marker = GMSMarker()
     private var position = CLLocationCoordinate2D()
     private var nextViewFlag: Bool = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // ポイントのアイコンとマップをロードが完了するまで非表示
         pointIcon.isHidden = true
         mapView.isHidden = true
-
+        likeButton.isEnabled = false
+        
         // 削除ボタン有無判定
         if CommonUtils.getUserId() == userId {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "infomartion.png")?.withRenderingMode(.alwaysOriginal),
@@ -51,6 +54,14 @@ class PostDetailViewController: UIViewController {
                                                                      action: #selector(self.settings))
 
         }
+        
+        // imageをダブルタップされた時にいいねをする
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapLikeButton(_:)))
+        doubleTapGesture.numberOfTapsRequired = 2
+        picture.addGestureRecognizer(doubleTapGesture)
+        doubleTapGesture.delegate = self
+        picture.isHidden = true
+        
         self.presenter.fetchData(postKey: postKey)
 
     }
@@ -131,6 +142,39 @@ class PostDetailViewController: UIViewController {
         presenter.pointLocationButton(latitude: post.latitude, longitude: post.longitude)
     }
     
+    
+    @IBAction func didTapLikeButton(_ sender: LikeButton) {
+        likeButton.isEnabled = false
+        if post.likesFlag {
+            // dislike
+            post.likesFlag = false
+            post.likesCount -= 1
+            if post.likesCount > 0 {
+                likeCountLabel.text = String(post.likesCount)
+            } else {
+                likeCountLabel.text = ""
+            }
+            let dislike:UIImage = UIImage(named:"dislike")!
+            likeButton.setImage(dislike, for: .normal)
+            presenter.disLike(likeButton: likeButton)
+        } else {
+            // like
+            post.likesFlag = true
+            post.likesCount += 1
+            likeCountLabel.text = String(post.likesCount)
+            let like:UIImage = UIImage(named:"like")!
+            likeButton.setImage(like, for: .normal)
+            presenter.like(likeButton: likeButton)
+        }
+        
+        // TimeLineViewControllerに変更を通知
+        var postDic:[String: String] = ["postKey": post.key]
+        postDic.updateValue(String(post.likesFlag), forKey: "isLike")
+        postDic.updateValue(String(post.likesCount), forKey: "likesCount")
+        NotificationCenter.default.post(name: .notifyName, object: nil, userInfo: postDic)
+
+    }
+
     // firebaseからデータ削除
     @objc func deleteButton() {
         SVProgressHUD.show()
@@ -153,7 +197,20 @@ class PostDetailViewController: UIViewController {
         userImage.sd_setImage(with: URL(string: user.userPhoto), completed:nil)
         picture.sd_setImage(with: URL(string: post.picture), completed:nil)
         post.uploadPhotoImage = picture.image!
-        
+        picture.isHidden = false
+
+        // like
+        likeButton.postKey = post.key
+        if post.likesFlag {
+            let like:UIImage = UIImage(named:"like")!
+            likeButton.setImage(like, for: .normal)
+        }
+        if post.likesCount > 0 {
+            likeCountLabel.text = String(post.likesCount)
+        } else {
+            likeCountLabel.text = ""
+        }
+
         if post.size.count > 0 {
             size.text = String(post.size) + "cm"
         } else {
@@ -187,6 +244,7 @@ class PostDetailViewController: UIViewController {
 
     func setPostData(post: Post) {
         self.post = post
+        likeButton.isEnabled = true
         setMapView(latitude: post.latitude, longitude: post.longitude)
     }
     
@@ -197,7 +255,13 @@ class PostDetailViewController: UIViewController {
 
         pointName.text = point.name
         pointNameButton.setTitle(point.name, for: .normal)
-        mapView.isHidden = false
+        if mapView != nil {
+            mapView.isHidden = false
+        }
+    }
+
+    func setLikeButton(likeButton: LikeButton) {
+        likeButton.isEnabled = true
     }
 
     func setMapView(latitude: Double, longitude: Double) {

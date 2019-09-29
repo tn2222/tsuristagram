@@ -36,7 +36,6 @@
 
 @class FSTLocalSerializer;
 @class FSTMemoryPersistence;
-@class FSTQueryData;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -44,23 +43,25 @@ namespace firebase {
 namespace firestore {
 namespace local {
 
+class Sizer;
+
 class MemoryQueryCache : public QueryCache {
  public:
   explicit MemoryQueryCache(FSTMemoryPersistence* persistence);
 
   // Target-related methods
-  void AddTarget(FSTQueryData* query_data) override;
+  void AddTarget(const QueryData& query_data) override;
 
-  void UpdateTarget(FSTQueryData* query_data) override;
+  void UpdateTarget(const QueryData& query_data) override;
 
-  void RemoveTarget(FSTQueryData* query_data) override;
+  void RemoveTarget(const QueryData& query_data) override;
 
-  FSTQueryData* _Nullable GetTarget(const core::Query& query) override;
+  absl::optional<QueryData> GetTarget(const core::Query& query) override;
 
   void EnumerateTargets(const TargetCallback& callback) override;
 
   int RemoveTargets(model::ListenSequenceNumber upper_bound,
-                    const std::unordered_map<model::TargetId, FSTQueryData*>&
+                    const std::unordered_map<model::TargetId, QueryData>&
                         live_targets) override;
 
   // Key-related methods
@@ -75,7 +76,7 @@ class MemoryQueryCache : public QueryCache {
   bool Contains(const model::DocumentKey& key) override;
 
   // Other methods and accessors
-  size_t CalculateByteSize(FSTLocalSerializer* serializer);
+  int64_t CalculateByteSize(const Sizer& sizer);
 
   size_t size() const override {
     return queries_.size();
@@ -105,7 +106,7 @@ class MemoryQueryCache : public QueryCache {
   model::SnapshotVersion last_remote_snapshot_version_;
 
   /** Maps a query to the data about that query. */
-  std::unordered_map<core::Query, FSTQueryData*> queries_;
+  std::unordered_map<core::Query, QueryData> queries_;
 
   /**
    * A ordered bidirectional mapping between documents and the remote target

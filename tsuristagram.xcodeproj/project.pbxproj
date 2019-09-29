@@ -65,6 +65,8 @@
 		FC4F8E4E2208655F00C02372 /* PostPointSearchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E4D2208655F00C02372 /* PostPointSearchContract.swift */; };
 		FC4F8E5022086EFE00C02372 /* PostContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E4F22086EFE00C02372 /* PostContract.swift */; };
 		FC4F8E52220870ED00C02372 /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F8E51220870ED00C02372 /* PostInteractor.swift */; };
+		FC6178D5233E5A72006F3C6F /* GoogleService-Info_production.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC6178D4233E5A72006F3C6F /* GoogleService-Info_production.plist */; };
+		FC6178D9233E64D0006F3C6F /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6178D8233E64D0006F3C6F /* LikeButton.swift */; };
 		FC634D9322FDB2DD006E45C5 /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC634D9222FDB2DD006E45C5 /* AppKey.swift */; };
 		FC634D9523065D84006E45C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC634D9423065D84006E45C5 /* AppDelegate.swift */; };
 		FC9414FF223688A4002FDA64 /* PostDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9414FE223688A4002FDA64 /* PostDetailContract.swift */; };
@@ -76,8 +78,7 @@
 		FCA95A8E2299512C003E20A8 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA95A8D2299512C003E20A8 /* UIViewController.swift */; };
 		FCA95A90229963A3003E20A8 /* UserSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */; };
 		FCB027062315790D00CF35B1 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB027052315790D00CF35B1 /* UITextField.swift */; };
-		FCD423E12335DC3600A5CC35 /* GoogleService-Info_production.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD423E02335DC3600A5CC35 /* GoogleService-Info_production.plist */; };
-		FCD423E32335DC4400A5CC35 /* GoogleService-Info_staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD423E22335DC4300A5CC35 /* GoogleService-Info_staging.plist */; };
+		FCD423E12335DC3600A5CC35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD423E02335DC3600A5CC35 /* GoogleService-Info.plist */; };
 		FCDDE39C22BCB5FC007482AD /* PointSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */; };
 		FCE6EE5B22843C87006F99D8 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */; };
 		FCE6EE5E22843DB5006F99D8 /* UserPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */; };
@@ -86,6 +87,7 @@
 		FCE6EE6422843F91006F99D8 /* UserPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6EE6322843F91006F99D8 /* UserPageRouter.swift */; };
 		FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CB21EC849A002CC3C4 /* Date.swift */; };
 		FCF325CE21ECB307002CC3C4 /* PostPointLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF325CD21ECB307002CC3C4 /* PostPointLocationViewController.swift */; };
+		FCFFC41F2340728E00D6DA57 /* LikeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC41E2340728E00D6DA57 /* LikeInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +178,8 @@
 		FC4F8E4D2208655F00C02372 /* PostPointSearchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointSearchContract.swift; sourceTree = "<group>"; };
 		FC4F8E4F22086EFE00C02372 /* PostContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContract.swift; sourceTree = "<group>"; };
 		FC4F8E51220870ED00C02372 /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
+		FC6178D4233E5A72006F3C6F /* GoogleService-Info_production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info_production.plist"; sourceTree = "<group>"; };
+		FC6178D8233E64D0006F3C6F /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		FC634D9222FDB2DD006E45C5 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		FC634D9423065D84006E45C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC931B3D2329276C00B762B8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -188,8 +192,7 @@
 		FCA95A8D2299512C003E20A8 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectButton.swift; sourceTree = "<group>"; };
 		FCB027052315790D00CF35B1 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
-		FCD423E02335DC3600A5CC35 /* GoogleService-Info_production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info_production.plist"; sourceTree = "<group>"; };
-		FCD423E22335DC4300A5CC35 /* GoogleService-Info_staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info_staging.plist"; sourceTree = "<group>"; };
+		FCD423E02335DC3600A5CC35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSelectButton.swift; sourceTree = "<group>"; };
 		FCE6EE5A22843C87006F99D8 /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		FCE6EE5D22843DB5006F99D8 /* UserPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageContract.swift; sourceTree = "<group>"; };
@@ -198,6 +201,7 @@
 		FCE6EE6322843F91006F99D8 /* UserPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageRouter.swift; sourceTree = "<group>"; };
 		FCF325CB21EC849A002CC3C4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		FCF325CD21ECB307002CC3C4 /* PostPointLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointLocationViewController.swift; sourceTree = "<group>"; };
+		FCFFC41E2340728E00D6DA57 /* LikeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				FC38AF9421C12B4A00783D4D /* Post.swift */,
+				FCFFC41E2340728E00D6DA57 /* LikeInfo.swift */,
 				FC08F14B220F2B9F007399C7 /* TimeLine.swift */,
 				FC08F149220F2B62007399C7 /* User.swift */,
 				FC4F8E482207258D00C02372 /* Point.swift */,
@@ -428,8 +433,8 @@
 				FC4F8B6421BBAD8700B9493F /* Main.storyboard */,
 				FC634D9423065D84006E45C5 /* AppDelegate.swift */,
 				FC4F8B6C21BBAD8900B9493F /* Info.plist */,
-				FCD423E22335DC4300A5CC35 /* GoogleService-Info_staging.plist */,
-				FCD423E02335DC3600A5CC35 /* GoogleService-Info_production.plist */,
+				FC6178D4233E5A72006F3C6F /* GoogleService-Info_production.plist */,
+				FCD423E02335DC3600A5CC35 /* GoogleService-Info.plist */,
 				FC634D9222FDB2DD006E45C5 /* AppKey.swift */,
 				FC4F8B6721BBAD8900B9493F /* Assets.xcassets */,
 			);
@@ -498,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				FCA95A8F229963A3003E20A8 /* UserSelectButton.swift */,
+				FC6178D8233E64D0006F3C6F /* LikeButton.swift */,
 				FCDDE39B22BCB5FC007482AD /* PointSelectButton.swift */,
 				FC42CBB323080B4B00EB0222 /* PostSelectButton.swift */,
 			);
@@ -531,7 +537,6 @@
 				6279AA5F16FC91346BCC26C0 /* [CP] Embed Pods Frameworks */,
 				BC0E672DC655D15D390870BD /* [CP] Copy Pods Resources */,
 				FC410A64232F83AA00E934E8 /* Run Script */,
-				FCD423E42335DC5700A5CC35 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -629,8 +634,8 @@
 			files = (
 				FC4F8B6821BBAD8900B9493F /* Assets.xcassets in Resources */,
 				FC4F8B6621BBAD8700B9493F /* Main.storyboard in Resources */,
-				FCD423E32335DC4400A5CC35 /* GoogleService-Info_staging.plist in Resources */,
-				FCD423E12335DC3600A5CC35 /* GoogleService-Info_production.plist in Resources */,
+				FCD423E12335DC3600A5CC35 /* GoogleService-Info.plist in Resources */,
+				FC6178D5233E5A72006F3C6F /* GoogleService-Info_production.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +709,7 @@
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -732,6 +738,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -828,24 +835,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		FCD423E42335DC5700A5CC35 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" == \"Release\" ]; then\n/bin/cp \"${PROJECT_DIR}/${PROJECT_NAME}/GoogleService-Info_production.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nelse\n/bin/cp \"${PROJECT_DIR}/${PROJECT_NAME}/GoogleService-Info_staging.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -876,6 +865,7 @@
 				FC1CD02D21FF264B00C810CF /* TimeLineViewPresenter.swift in Sources */,
 				FC1925AB232613C400DFBC62 /* BlockUserListInteractor.swift in Sources */,
 				FCE6EE5B22843C87006F99D8 /* UserPageViewController.swift in Sources */,
+				FCFFC41F2340728E00D6DA57 /* LikeInfo.swift in Sources */,
 				FCE6EE5E22843DB5006F99D8 /* UserPageContract.swift in Sources */,
 				FCA95A90229963A3003E20A8 /* UserSelectButton.swift in Sources */,
 				FCF325CC21EC849B002CC3C4 /* Date.swift in Sources */,
@@ -888,6 +878,7 @@
 				FC22FBA0221C161000AFAAEF /* PointDetailViewPresenter.swift in Sources */,
 				FC42CBB7230913B600EB0222 /* UserSettingsViewController.swift in Sources */,
 				FC4F8E492207258D00C02372 /* Point.swift in Sources */,
+				FC6178D9233E64D0006F3C6F /* LikeButton.swift in Sources */,
 				FC3D447121C1286300CEE24E /* TimeLineViewController.swift in Sources */,
 				FC1925A7232613A600DFBC62 /* BlockUserListViewPresenter.swift in Sources */,
 				FCE6EE6222843F7E006F99D8 /* UserPageInteractor.swift in Sources */,

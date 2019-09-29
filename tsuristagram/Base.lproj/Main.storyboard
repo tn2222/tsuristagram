@@ -156,7 +156,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V22-kH-Ynl" customClass="UserSelectButton" customModule="tsuristagram" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="13" width="345" height="29"/>
+                                                    <rect key="frame" x="15" y="13" width="285" height="29"/>
                                                     <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
                                                     <state key="normal">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -169,7 +169,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBD-Dg-754" customClass="PointSelectButton" customModule="tsuristagram" customModuleProvider="target">
-                                                    <rect key="frame" x="74" y="29" width="286" height="26"/>
+                                                    <rect key="frame" x="74" y="29" width="226" height="26"/>
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                                     <state key="normal" title="水の広場公園">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -208,6 +208,21 @@
                                                         <constraint firstAttribute="height" constant="281" id="m93-kX-J5f"/>
                                                     </constraints>
                                                 </button>
+                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqN-Fi-0gb" customClass="LikeButton" customModule="tsuristagram" customModuleProvider="target">
+                                                    <rect key="frame" x="319" y="19" width="28" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="dislike"/>
+                                                    <connections>
+                                                        <action selector="didTapLikeButton:" destination="D9A-5n-N8f" eventType="touchUpInside" id="f0i-sG-TDu"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbo-rS-ggk">
+                                                    <rect key="frame" x="346" y="31" width="15" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="BQe-Ye-NnK" secondAttribute="trailing" constant="10" id="3Fw-NA-nGj"/>
@@ -215,13 +230,13 @@
                                                 <constraint firstItem="Gpz-UQ-mvd" firstAttribute="leading" secondItem="TJQ-ji-u9h" secondAttribute="leadingMargin" id="8L4-av-vOb"/>
                                                 <constraint firstItem="kyT-uN-lK0" firstAttribute="top" secondItem="TJQ-ji-u9h" secondAttribute="topMargin" id="CKI-aG-Crc"/>
                                                 <constraint firstItem="5W7-UW-uPJ" firstAttribute="leading" secondItem="TJQ-ji-u9h" secondAttribute="leading" id="DyV-Ua-SHR"/>
-                                                <constraint firstItem="mBD-Dg-754" firstAttribute="trailing" secondItem="TJQ-ji-u9h" secondAttribute="trailingMargin" id="GfT-LO-PgM"/>
+                                                <constraint firstItem="mBD-Dg-754" firstAttribute="trailing" secondItem="TJQ-ji-u9h" secondAttribute="trailingMargin" constant="-60" id="GfT-LO-PgM"/>
                                                 <constraint firstItem="BQe-Ye-NnK" firstAttribute="leading" secondItem="tWG-S5-IUp" secondAttribute="leading" id="Iat-UF-Koh"/>
                                                 <constraint firstItem="Gpz-UQ-mvd" firstAttribute="top" secondItem="TJQ-ji-u9h" secondAttribute="topMargin" constant="4" id="KVv-Ys-MSs"/>
                                                 <constraint firstItem="5W7-UW-uPJ" firstAttribute="top" secondItem="mBD-Dg-754" secondAttribute="bottom" constant="5" id="Lc0-op-DTI"/>
                                                 <constraint firstItem="tWG-S5-IUp" firstAttribute="top" secondItem="BQe-Ye-NnK" secondAttribute="bottom" constant="1" id="P4L-oL-tLq"/>
                                                 <constraint firstItem="4Yh-3C-eGP" firstAttribute="leading" secondItem="TJQ-ji-u9h" secondAttribute="leading" id="SJS-nw-vlc"/>
-                                                <constraint firstItem="V22-kH-Ynl" firstAttribute="trailing" secondItem="TJQ-ji-u9h" secondAttribute="trailingMargin" id="Swm-gj-Ryn"/>
+                                                <constraint firstItem="V22-kH-Ynl" firstAttribute="trailing" secondItem="TJQ-ji-u9h" secondAttribute="trailingMargin" constant="-60" id="Swm-gj-Ryn"/>
                                                 <constraint firstItem="mBD-Dg-754" firstAttribute="top" secondItem="kyT-uN-lK0" secondAttribute="bottom" constant="1" id="VZd-c8-Fuz"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tWG-S5-IUp" secondAttribute="trailing" constant="20" symbolic="YES" id="VyB-0E-B4g"/>
                                                 <constraint firstItem="BQe-Ye-NnK" firstAttribute="top" secondItem="5W7-UW-uPJ" secondAttribute="bottom" constant="8" symbolic="YES" id="aiQ-iP-9K5"/>
@@ -1237,7 +1252,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3E-9o-sii" customClass="UserSelectButton" customModule="tsuristagram" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="13" width="345" height="29"/>
+                                        <rect key="frame" x="16" y="13" width="270" height="29"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
                                         <state key="normal">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1256,7 +1271,7 @@
                                             <action selector="pointButton:" destination="FeP-H1-ubq" eventType="touchUpInside" id="81w-lM-C0n"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iwv-w6-cgr" userLabel="Upload Photo1">
+                                    <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iwv-w6-cgr" userLabel="Upload Photo1">
                                         <rect key="frame" x="0.0" y="59" width="375" height="281"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="281" id="gdU-Ee-gNe"/>
@@ -1421,13 +1436,29 @@
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcQ-A8-Twx" customClass="LikeButton" customModule="tsuristagram" customModuleProvider="target">
+                                        <rect key="frame" x="318" y="18" width="28" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="dislike"/>
+                                        <connections>
+                                            <action selector="didTapLikeButton:" destination="FeP-H1-ubq" eventType="touchUpInside" id="IWz-Cy-1yG"/>
+                                            <action selector="didTapLikeButton:" destination="D9A-5n-N8f" eventType="touchUpInside" id="jBT-po-rrX"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gL9-Jl-hOb">
+                                        <rect key="frame" x="345" y="30" width="25" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="20U-Ob-G17" firstAttribute="centerX" secondItem="uPy-1d-TtM" secondAttribute="centerX" id="0B2-YA-JNQ"/>
                                     <constraint firstItem="z1y-Lb-2fM" firstAttribute="bottom" secondItem="gk3-ST-YkX" secondAttribute="bottom" constant="149" id="1BE-6V-kPz"/>
                                     <constraint firstItem="Q3L-cq-M2C" firstAttribute="trailing" secondItem="DCP-6N-Is4" secondAttribute="trailing" id="1k6-Yx-sp2"/>
-                                    <constraint firstItem="z1y-Lb-2fM" firstAttribute="trailing" secondItem="G3E-9o-sii" secondAttribute="trailing" constant="14" id="2e1-BI-Eso"/>
+                                    <constraint firstItem="z1y-Lb-2fM" firstAttribute="trailing" secondItem="G3E-9o-sii" secondAttribute="trailing" constant="89" id="2e1-BI-Eso"/>
                                     <constraint firstItem="Q3L-cq-M2C" firstAttribute="leading" secondItem="qdr-qj-dSb" secondAttribute="leading" id="32F-E4-R7Y"/>
                                     <constraint firstItem="KLF-3U-Gdi" firstAttribute="leading" secondItem="ORL-8y-735" secondAttribute="trailing" constant="8" symbolic="YES" id="37M-aa-K9j"/>
                                     <constraint firstItem="f67-3X-2gl" firstAttribute="top" secondItem="z1y-Lb-2fM" secondAttribute="top" constant="15" id="3Nm-4n-OY7"/>
@@ -1558,6 +1589,8 @@
                         <outlet property="comment" destination="OT3-g8-mnu" id="tdD-o3-Njb"/>
                         <outlet property="fishSpecies" destination="XQ0-Qc-hiz" id="lx1-ge-d99"/>
                         <outlet property="fishingDate" destination="OWp-Ds-XJF" id="X7D-q8-dBh"/>
+                        <outlet property="likeButton" destination="CcQ-A8-Twx" id="z0X-84-fB7"/>
+                        <outlet property="likeCountLabel" destination="gL9-Jl-hOb" id="mAo-QG-sHw"/>
                         <outlet property="mapView" destination="yHj-c2-hsn" id="Y6E-AR-XBy"/>
                         <outlet property="picture" destination="Iwv-w6-cgr" id="PO2-CQ-kNm"/>
                         <outlet property="pointIcon" destination="uPy-1d-TtM" id="mMx-Mv-WOd"/>
@@ -1573,11 +1606,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Abj-Vf-MZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3457" y="555"/>
+            <point key="canvasLocation" x="3456.8000000000002" y="554.1229385307347"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow-right" width="6" height="11"/>
+        <image name="dislike" width="28.5" height="26"/>
         <image name="logOut" width="175" height="37"/>
         <image name="map_maker" width="15" height="15"/>
         <image name="post_button" width="57" height="57"/>

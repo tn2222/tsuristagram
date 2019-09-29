@@ -26,6 +26,19 @@ class PostDetailInteractor: PostDetailUsecase {
         FirebaseClient.observeSingleEvent(id: "point", key: pointId, of: .value, with: fetchPointComplate)
     }
 
+    func disLike(likeButton: LikeButton) {
+        FirebaseClient.disLike(postKey: likeButton.postKey, userId: CommonUtils.getUserId(), with: {_,_ in
+            self.delegate?.disLike(self, likeButton: likeButton)
+        })
+    }
+    
+    func like(likeButton: LikeButton) {
+        let feed = [CommonUtils.getUserId():true] as [String:Any]
+        FirebaseClient.like(postKey: likeButton.postKey, feed: feed, with:  {_,_ in
+            self.delegate?.like(self, likeButton: likeButton)
+        })
+    }
+
     func fetchUserComplate(snapshot: [String:AnyObject]) {
         let user = User()
         user.userId = snapshot["userId"] as! String
@@ -64,6 +77,16 @@ class PostDetailInteractor: PostDetailUsecase {
         post.weather = snapshot["weather"] as! String
         post.key = snapshot["key"] as! String
         post.userId = snapshot["userId"] as! String
+        if snapshot["likes"] != nil {
+            let likes = snapshot["likes"] as! Dictionary<String, Bool>
+            post.likesCount = likes.count
+            likes.forEach{ (key, value) in
+                // likesの中に自分のユーザIDがあればその投稿にいいねしている
+                if key == CommonUtils.getUserId() {
+                    post.likesFlag = true
+                }
+            }
+        }
 
         self.delegate?.interactor(self, post: post)
     }

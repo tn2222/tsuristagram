@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class TimeLineInteractor: TimeLineUsecase {
     
     // 取得処理の通知
     weak var delegate: TimeLineInteractorDelegate?
 
-    var limit:UInt = 30
+    var limit:UInt = 5
     // offsetの初期値は現在時間
     var offset: Int = (-1) * Int(Date().timeIntervalSince1970)
     var lastOffset: Int!
@@ -47,6 +48,19 @@ class TimeLineInteractor: TimeLineUsecase {
         self.delegate?.interactor(self)
     }
 
+    func disLike(likeButton: LikeButton) {
+        FirebaseClient.disLike(postKey: likeButton.postKey, userId: CommonUtils.getUserId(), with: {_,_ in
+            self.delegate?.disLike(self, likeButton: likeButton)
+        })
+    }
+    
+    func like(likeButton: LikeButton) {
+        let feed = [CommonUtils.getUserId():true] as [String:Any]
+        FirebaseClient.like(postKey: likeButton.postKey, feed: feed, with:  {_,_ in
+            self.delegate?.like(self, likeButton: likeButton)
+        })
+    }
+    
     func fetchPostComplate(snapshot: [String: AnyObject]) {
         
         var post = Post()
@@ -67,7 +81,16 @@ class TimeLineInteractor: TimeLineUsecase {
             post.longitude = snapshot["longitude"] as! Double
             post.weather = snapshot["weather"] as! String
             post.key = snapshot["key"] as! String
-
+            if snapshot["likes"] != nil {
+                let likes = snapshot["likes"] as! Dictionary<String, Bool>
+                post.likesCount = likes.count
+                likes.forEach{ (key, value) in
+                    // likesの中に自分のユーザIDがあればその投稿にいいねしている
+                    if key == CommonUtils.getUserId() {
+                        post.likesFlag = true
+                    }
+                }
+            }
         }
         // setting next offset
         self.offset = Int(truncating: post.timestamp) + 1

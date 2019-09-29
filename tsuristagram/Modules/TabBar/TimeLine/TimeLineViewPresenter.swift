@@ -13,7 +13,7 @@ class TimeLineViewPresenter: TimeLinePresentable {
     let view: TimeLineViewController
     let router: TimeLineWireframe
     let interactor: TimeLineUsecase
-    
+
     var timeLine = TimeLine()
     var userCount = 0
     var pointCount = 0
@@ -25,6 +25,14 @@ class TimeLineViewPresenter: TimeLinePresentable {
 
     func initialize() {
         interactor.initialize()
+    }
+
+    func disLike(likeButton: LikeButton) {
+        interactor.disLike(likeButton: likeButton)
+    }
+    
+    func like(likeButton: LikeButton) {
+        interactor.like(likeButton: likeButton)
     }
 
     // postデータを取得した後、紐付くusersを取得
@@ -56,6 +64,7 @@ class TimeLineViewPresenter: TimeLinePresentable {
 
 // Interactorからの通知受け取り
 extension TimeLineViewPresenter: TimeLineInteractorDelegate {
+    
     func interactor(_ timeLineUsecase: TimeLineUsecase, point: Point) {
         timeLine.pointMap.updateValue(point, forKey: point.id)
     }
@@ -68,6 +77,10 @@ extension TimeLineViewPresenter: TimeLineInteractorDelegate {
         // ブロックされていないユーザのみ表示対象
         if !timeLine.user.blockUserList.contains(post.userId) {
             timeLine.postList.append(post)
+            var likeInfo = LikeInfo()
+            likeInfo.key = post.key
+            likeInfo.isLike = post.likesFlag
+            view.likesMap.updateValue(likeInfo, forKey: post.key)
             interactor.fetchPointData(pointId: post.pointId)
             interactor.fetchUserData(userId: post.userId)
         }
@@ -78,6 +91,12 @@ extension TimeLineViewPresenter: TimeLineInteractorDelegate {
     }
     func interactor(_ timeLineUsecase: TimeLineUsecase, user: User) {
         timeLine.userMap.updateValue(user, forKey: user.userId)
+    }
+    func disLike(_ timeLineUsecase: TimeLineUsecase, likeButton: LikeButton) {
+        view.setLikeButton(likeButton: likeButton)
+    }
+    func like(_ timeLineUsecase: TimeLineUsecase, likeButton: LikeButton) {
+        view.setLikeButton(likeButton: likeButton)
     }
 
     func done(type: String) {

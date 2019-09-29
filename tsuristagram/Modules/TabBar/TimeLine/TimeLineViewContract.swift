@@ -17,6 +17,8 @@ protocol TimeLinePresentable: class {
     func fetchTimeLineData()
     func postButton()
     func initialize()
+    func disLike(likeButton: LikeButton)
+    func like(likeButton: LikeButton)
     func selectUser(userId: String)
     func selectPoint(point: Point)
     func selectPost(postKey: String, userId: String)
@@ -29,6 +31,8 @@ protocol TimeLineUsecase: class {
     var isComplate: Bool {get}
     var offset: Int {get set}
     func fetchPostData()
+    func disLike(likeButton: LikeButton)
+    func like(likeButton: LikeButton)
     func fetchUserData(userId: String)
     func fetchPointData(pointId: String)
     func initialize()
@@ -40,6 +44,8 @@ protocol TimeLineInteractorDelegate: class {
     func interactor(_ timeLineUsecase: TimeLineUsecase, own: User)
     func interactor(_ timeLineUsecase: TimeLineUsecase, point: Point)
     func interactor(_ timeLineUsecase: TimeLineUsecase)
+    func disLike(_ timeLineUsecase: TimeLineUsecase, likeButton: LikeButton)
+    func like(_ timeLineUsecase: TimeLineUsecase, likeButton: LikeButton)
     func done(type: String)
 }
 

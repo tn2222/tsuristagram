@@ -31,6 +31,7 @@
 #include "Firestore/core/src/firebase/firestore/model/database_id.h"
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
 #include "Firestore/core/src/firebase/firestore/util/async_queue.h"
+#include "Firestore/core/src/firebase/firestore/util/nullability.h"
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 #include "Firestore/core/src/firebase/firestore/util/statusor_callback.h"
 #include "absl/types/any.h"
@@ -39,11 +40,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 OBJC_CLASS(FIRQuery);
 OBJC_CLASS(FIRTransaction);
-OBJC_CLASS(FSTFirestoreClient);
 OBJC_CLASS(NSString);
 
 namespace firebase {
 namespace firestore {
+namespace core {
+class FirestoreClient;
+}
 namespace api {
 
 class CollectionReference;
@@ -68,7 +71,7 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
     return persistence_key_;
   }
 
-  FSTFirestoreClient* client();
+  const std::shared_ptr<core::FirestoreClient>& client();
 
   const std::shared_ptr<util::AsyncQueue>& worker_queue();
 
@@ -89,8 +92,9 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
   void RunTransaction(core::TransactionUpdateCallback update_callback,
                       core::TransactionResultCallback result_callback);
 
-  void Shutdown(util::StatusCallback callback);
+  void Terminate(util::StatusCallback callback);
   void ClearPersistence(util::StatusCallback callback);
+  void WaitForPendingWrites(util::StatusCallback callback);
 
   void EnableNetwork(util::StatusCallback callback);
   void DisableNetwork(util::StatusCallback callback);
@@ -102,7 +106,7 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
   model::DatabaseId database_id_;
   std::shared_ptr<auth::CredentialsProvider> credentials_provider_;
   std::string persistence_key_;
-  objc::Handle<FSTFirestoreClient> client_;
+  std::shared_ptr<core::FirestoreClient> client_;
 
   std::shared_ptr<util::Executor> user_executor_;
   std::shared_ptr<util::AsyncQueue> worker_queue_;

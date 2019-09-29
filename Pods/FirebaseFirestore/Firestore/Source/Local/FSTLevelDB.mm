@@ -16,6 +16,7 @@
 
 #import "Firestore/Source/Local/FSTLevelDB.h"
 
+#include <limits>
 #include <memory>
 #include <unordered_map>
 #include <utility>
@@ -36,6 +37,8 @@
 #include "Firestore/core/src/firebase/firestore/local/leveldb_transaction.h"
 #include "Firestore/core/src/firebase/firestore/local/leveldb_util.h"
 #include "Firestore/core/src/firebase/firestore/local/listen_sequence.h"
+#include "Firestore/core/src/firebase/firestore/local/lru_garbage_collector.h"
+#include "Firestore/core/src/firebase/firestore/local/reference_delegate.h"
 #include "Firestore/core/src/firebase/firestore/local/reference_set.h"
 #include "Firestore/core/src/firebase/firestore/local/remote_document_cache.h"
 #include "Firestore/core/src/firebase/firestore/model/database_id.h"
@@ -72,8 +75,10 @@ using firebase::firestore::local::LevelDbQueryCache;
 using firebase::firestore::local::LevelDbRemoteDocumentCache;
 using firebase::firestore::local::LevelDbTransaction;
 using firebase::firestore::local::ListenSequence;
+using firebase::firestore::local::LruGarbageCollector;
 using firebase::firestore::local::LruParams;
 using firebase::firestore::local::OrphanedDocumentCallback;
+using firebase::firestore::local::QueryData;
 using firebase::firestore::local::ReferenceSet;
 using firebase::firestore::local::RemoteDocumentCache;
 using firebase::firestore::local::TargetCallback;
@@ -95,7 +100,7 @@ static const char *kReservedPathComponent = "firestore";
 
 @interface FSTLevelDB ()
 
-- (size_t)byteSize;
+- (int64_t)byteSize;
 
 @property(nonatomic, assign, getter=isStarted) BOOL started;
 
@@ -122,7 +127,8 @@ static const char *kReservedPathComponent = "firestore";
 @end
 
 @implementation FSTLevelDBLRUDelegate {
-  FSTLRUGarbageCollector *_gc;
+  local::LruDelegateBridge _delegateBridge;
+  std::unique_ptr<LruGarbageCollector> _gc;
   // This delegate should have the same lifetime as the persistence layer, but mark as
   // weak to avoid retain cycle.
   __weak FSTLevelDB *_db;
@@ -134,9 +140,10 @@ static const char *kReservedPathComponent = "firestore";
 
 - (instancetype)initWithPersistence:(FSTLevelDB *)persistence lruParams:(LruParams)lruParams {
   if (self = [super init]) {
-    _gc = [[FSTLRUGarbageCollector alloc] initWithDelegate:self params:lruParams];
+    _delegateBridge = local::LruDelegateBridge(self);
+    _gc = absl::make_unique<LruGarbageCollector>(&_delegateBridge, lruParams);
     _db = persistence;
-    _currentSequenceNumber = kFSTListenSequenceNumberInvalid;
+    _currentSequenceNumber = local::kListenSequenceNumberInvalid;
   }
   return self;
 }
@@ -147,17 +154,17 @@ static const char *kReservedPathComponent = "firestore";
 }
 
 - (void)transactionWillStart {
-  HARD_ASSERT(_currentSequenceNumber == kFSTListenSequenceNumberInvalid,
+  HARD_ASSERT(_currentSequenceNumber == local::kListenSequenceNumberInvalid,
               "Previous sequence number is still in effect");
   _currentSequenceNumber = _listenSequence->Next();
 }
 
 - (void)transactionWillCommit {
-  _currentSequenceNumber = kFSTListenSequenceNumberInvalid;
+  _currentSequenceNumber = local::kListenSequenceNumberInvalid;
 }
 
 - (ListenSequenceNumber)currentSequenceNumber {
-  HARD_ASSERT(_currentSequenceNumber != kFSTListenSequenceNumberInvalid,
+  HARD_ASSERT(_currentSequenceNumber != local::kListenSequenceNumberInvalid,
               "Asking for a sequence number outside of a transaction");
   return _currentSequenceNumber;
 }
@@ -168,12 +175,10 @@ static const char *kReservedPathComponent = "firestore";
   _additionalReferences = set;
 }
 
-- (void)removeTarget:(FSTQueryData *)queryData {
-  FSTQueryData *updated =
-      [queryData queryDataByReplacingSnapshotVersion:queryData.snapshotVersion
-                                         resumeToken:queryData.resumeToken
-                                      sequenceNumber:[self currentSequenceNumber]];
-  _db.queryCache->UpdateTarget(updated);
+- (void)removeTarget:(const QueryData &)queryData {
+  QueryData updated = queryData.Copy(queryData.snapshot_version(), queryData.resume_token(),
+                                     [self currentSequenceNumber]);
+  _db.queryCache->UpdateTarget(std::move(updated));
 }
 
 - (void)addReference:(const DocumentKey &)key {
@@ -239,8 +244,8 @@ static const char *kReservedPathComponent = "firestore";
 }
 
 - (int)removeTargetsThroughSequenceNumber:(ListenSequenceNumber)sequenceNumber
-                              liveQueries:(const std::unordered_map<TargetId, FSTQueryData *> &)
-                                              liveQueries {
+                              liveQueries:
+                                  (const std::unordered_map<TargetId, QueryData> &)liveQueries {
   return _db.queryCache->RemoveTargets(sequenceNumber, liveQueries);
 }
 
@@ -253,8 +258,8 @@ static const char *kReservedPathComponent = "firestore";
   return totalCount;
 }
 
-- (FSTLRUGarbageCollector *)gc {
-  return _gc;
+- (local::LruGarbageCollector *)gc {
+  return _gc.get();
 }
 
 - (void)writeSentinelForKey:(const DocumentKey &)key {
@@ -272,7 +277,7 @@ static const char *kReservedPathComponent = "firestore";
   [self writeSentinelForKey:key];
 }
 
-- (size_t)byteSize {
+- (int64_t)byteSize {
   return [_db byteSize];
 }
 
@@ -375,7 +380,7 @@ static const char *kReservedPathComponent = "firestore";
   return self;
 }
 
-- (size_t)byteSize {
+- (int64_t)byteSize {
   int64_t count = 0;
   auto iter = util::DirectoryIterator::Create(_directory);
   for (; iter->Valid(); iter->Next()) {
@@ -384,8 +389,9 @@ static const char *kReservedPathComponent = "firestore";
   }
   HARD_ASSERT(iter->status().ok(), "Failed to iterate leveldb directory: %s",
               iter->status().error_message().c_str());
-  HARD_ASSERT(count >= 0 && count <= SIZE_MAX, "Overflowed counting bytes cached");
-  return static_cast<size_t>(count);
+  HARD_ASSERT(count >= 0 && count <= std::numeric_limits<int64_t>::max(),
+              "Overflowed counting bytes cached");
+  return count;
 }
 
 - (const std::set<std::string> &)users {

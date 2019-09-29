@@ -14,7 +14,7 @@ class TimeLineInteractor: TimeLineUsecase {
     // 取得処理の通知
     weak var delegate: TimeLineInteractorDelegate?
 
-    var limit:UInt = 5
+    var limit:UInt = 30
     // offsetの初期値は現在時間
     var offset: Int = (-1) * Int(Date().timeIntervalSince1970)
     var lastOffset: Int!

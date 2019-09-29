@@ -59,8 +59,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         hideKeyboardWhenTappedAround()
 
         // placeholder
-        size.placeholder = "サイズ"
-        weight.placeholder = "重さ"
+        size.placeholder = "サイズ/cm"
+        weight.placeholder = "重さ/g"
         fishSpecies.placeholder = "魚種"
         fishingDate.placeholder = "日付"
         weather.placeholder = "天気"

@@ -27,7 +27,6 @@ class PostDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet var likeButton: LikeButton!
-    @IBOutlet var likeCountLabel: UILabel!
     
     var presenter: PostDetailViewPresenter!
     var postKey: String!
@@ -149,11 +148,6 @@ class PostDetailViewController: UIViewController, UIGestureRecognizerDelegate {
             // dislike
             post.likesFlag = false
             post.likesCount -= 1
-            if post.likesCount > 0 {
-                likeCountLabel.text = String(post.likesCount)
-            } else {
-                likeCountLabel.text = ""
-            }
             let dislike:UIImage = UIImage(named:"dislike")!
             likeButton.setImage(dislike, for: .normal)
             presenter.disLike(likeButton: likeButton)
@@ -161,7 +155,6 @@ class PostDetailViewController: UIViewController, UIGestureRecognizerDelegate {
             // like
             post.likesFlag = true
             post.likesCount += 1
-            likeCountLabel.text = String(post.likesCount)
             let like:UIImage = UIImage(named:"like")!
             likeButton.setImage(like, for: .normal)
             presenter.like(likeButton: likeButton)
@@ -204,11 +197,6 @@ class PostDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         if post.likesFlag {
             let like:UIImage = UIImage(named:"like")!
             likeButton.setImage(like, for: .normal)
-        }
-        if post.likesCount > 0 {
-            likeCountLabel.text = String(post.likesCount)
-        } else {
-            likeCountLabel.text = ""
         }
 
         if post.size.count > 0 {

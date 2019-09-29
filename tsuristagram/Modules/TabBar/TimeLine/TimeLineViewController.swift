@@ -88,7 +88,7 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
                 
                 // likes count
                 if Int(likesCount)! > 0 {
-                    likeInfo?.likeButton.likeCountLabel.text = likesCount
+                    likeInfo?.likeButton.likeCountLabel.text = "\(likesCount)いいね"
                 } else {
                     likeInfo?.likeButton.likeCountLabel.text = ""
                 }
@@ -116,7 +116,7 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
             likesMap[sender.postKey]!.isLike = false
             timeLine.postList[sender.rowNum].likesCount -= 1
             if timeLine.postList[sender.rowNum].likesCount > 0 {
-                sender.likeCountLabel.text = String(timeLine.postList[sender.rowNum].likesCount)
+                sender.likeCountLabel.text = "\(String(timeLine.postList[sender.rowNum].likesCount))いいね"
             } else {
                 sender.likeCountLabel.text = ""
             }
@@ -127,7 +127,7 @@ class TimeLineViewController: UIViewController, CLLocationManagerDelegate {
             // like
             likesMap[sender.postKey]!.isLike = true
             timeLine.postList[sender.rowNum].likesCount += 1
-            sender.likeCountLabel.text = String(timeLine.postList[sender.rowNum].likesCount)
+            sender.likeCountLabel.text = "\(String(timeLine.postList[sender.rowNum].likesCount))いいね"
             let like:UIImage = UIImage(named:"like")!
             sender.setImage(like, for: .normal)
             presenter.like(likeButton: sender)
@@ -266,7 +266,7 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         let likeCount = cell.viewWithTag(11) as! UILabel
         likeCount.text = ""
         if self.timeLine.postList[indexPath.row].likesCount > 0 {
-            likeCount.text = String(self.timeLine.postList[indexPath.row].likesCount)
+            likeCount.text = "\(String(self.timeLine.postList[indexPath.row].likesCount))いいね"
         }
 
         // like button

@@ -260,8 +260,6 @@ extension PostViewController {
     // カメラロールから選択した写真のメタ情報を取得
     func getPhotoMetaData() {
         // PHAsset = Photo Library上の画像、ビデオ、ライブフォト用の型
-        //let result = PHAsset.fetchAssets(withALAssetURLs: [self.post.assetUrl], options: nil)
-        //let result = self.post.assetUrl_ujgawa as! PHFetchResult<AnyObject>
         let asset = self.post.asset
         
         var dateString = Date.currentTimeString(format: "yyyy/MM/dd HH:mm")

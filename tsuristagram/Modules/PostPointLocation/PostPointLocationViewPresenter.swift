@@ -14,7 +14,6 @@ class PostPointLocationViewPresenter: PostPointLocationViewPresentable {
     let view: PostPointLocationViewController
     let router: PostPointLocationWireframe
     
-//    private var mapView: GMSMapView!
     private var marker = GMSMarker()
     private var position = CLLocationCoordinate2D()
     
